@@ -1,0 +1,83 @@
+﻿input[type=text],input[type=password]
+{
+
+  color: #333333;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+     display: inline-block;
+    box-sizing: border-box;
+
+}
+textarea
+{
+    border: 1px solid #ccc;
+}
+
+
+.mtable
+{
+    border-collapse: collapse; /* 关键属性：合并表格内外边框(其实表格边框有2px，外面1px，里面还有1px哦) */
+    color: #555555;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}
+.mtable tr
+{
+    display: table-row;
+    vertical-align: inherit;
+}
+.mtable td
+{
+    padding: 2px;
+    text-align: left;
+    height: 35px;
+    display: table-cell;
+    vertical-align: inherit;
+    background-color: White;
+  
+}
+
+.mtable th
+{
+    border: solid #D3D3D3;
+    border-width: 0 0 1px 0;
+    padding: 2px;
+    text-align: left;
+    height: 35px;
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: 900;
+    background-color: #E0ECFF;
+}
+.btn {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #df2727;
+    color: #fff;
+}
+.btn-gary {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #ccc;
+    color: #fff;
+}
+.xiu {
+    color: #51a0db;
+    background-color: #fff;
+}
+select {
+     border: 1px solid #dddddd;
+    height: 30px;
+    line-height: 30px;
+     box-sizing: border-box;
+}

@@ -1,0 +1,96 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "人才信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/talents.css">
+}
+
+
+<!--内容-->
+<div class="talents-content">
+    <div class="container clearfix">
+        @*<div class="talents-tit">
+            <span class="fl"> 人才大师</span>
+                <div class="territory">
+                    <form method="post">
+                        <select name="adress" class="territory-list">
+                            <option>领域</option>
+                            <option> 建筑建材</option>
+                            <option>冶金矿产</option>
+                            <option>石油化工</option>
+                            <option>水利水电</option>
+                            <option>交通运输</option>
+                            <option>信息产业</option>
+                            <option>机械机电</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="nationality">
+                    <form method="post">
+                        <select name="adress" class="nationality-list">
+                            <option>国籍</option>
+                            <option> 中国</option>
+                            <option>日本</option>
+                            <option>韩国</option>
+                            <option>朝鲜</option>
+                            <option>美国</option>
+                            <option>新加坡</option>
+                            <option>印度</option>
+                        </select>
+                    </form>
+                </div>
+                <a class="many-talents fr" href="#">查看更多人才</a>
+        </div>*@
+
+        <div class="talents-main">
+            <ul class="talents-list clearfix">
+
+                @{
+                    var contentList = new ContentServiceImpl().GetList(8);
+
+                    foreach (var pageContentEntity in contentList)
+                    {
+                        <li class="talents-item">
+                            <a href="/Content/FamousDetail?PkId=@pageContentEntity.PkId">
+                                <div class="t-img">
+                                    <img src="@pageContentEntity.ImageUrl1" alt="">
+                                </div>
+                                <div class="t-wrap">
+                                    <div class="tit">
+                                        <div class="t-name">
+                                            <p>@pageContentEntity.Title1</p>
+
+                                        </div>
+                                        <div class="t-text">
+                                            @pageContentEntity.Title2
+                                        </div>
+                                        <div class="tmore">查看详情</div>
+                                    </div>
+                                    <div class="bgcolor"></div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_3").addClass("red");
+
+</script>
+
+

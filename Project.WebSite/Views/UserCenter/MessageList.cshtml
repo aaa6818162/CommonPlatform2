@@ -1,0 +1,62 @@
+﻿
+
+
+
+@using PagedList
+@using PagedList.Mvc
+@model Project.WebSite.Models.UserCenter.MessageListView
+
+@{
+    ViewBag.Title = "我的账户-消息通知";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script src="~/Scripts/Order/List.js"></script>
+<link href="~/Resource/user/css/user.css" rel="stylesheet" />
+}
+
+
+
+
+
+
+
+<div class="container clearfix">
+    <div class="user-content clearfix">
+        <div class="aside-l fl clearfix">
+            @Html.Partial("_MenuBar", "消息通知")
+        </div>
+
+        <div class="aside-r fl clearfix">
+            <div class="our-main">
+                <div class="our-h">消息管理</div>
+                <div class="our-record">
+                    <div class="our-tit">
+                        <span class="our-nav active">消息</span>
+                        @*<span class="our-nav">已读消息（0）</span>
+                        <span class="our-nav">历史消息（0）</span>*@
+                    </div>
+                    <div class="our-content our-item">
+                        @{
+                            var i = 0;
+                            foreach (var p in Model.NoticeInfoList)
+                            {
+                                i++;
+                                <p>（@i）@p.Title</p>
+                            }
+                        }
+                        @Html.PagedListPager((IPagedList)Model.PageInfo, page => Url.Action("MessageList", new { page }))
+                    </div>
+                    <div class="our-content our-item hide">
+                    </div>
+                    <div class="our-content our-item hide">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

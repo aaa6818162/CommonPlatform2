@@ -1,0 +1,184 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@using Project.Application.Service.ProductManager
+@using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler
+
+@model Project.WebSite.Models.OrderProcess.ConfirmOutput
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "首页";
+}
+
+@section Head
+{
+
+}
+@{
+
+
+}
+<!--banner图-->
+<div class="swiper-container" id="banner">
+    <div class="swiper-wrapper">
+        @{
+            var bannerList = new ContentServiceImpl().GetList(14);
+            foreach (var banner in bannerList)
+            {
+                <div class="swiper-slide">
+                    <a href="@banner.Title2">
+                        <img src="@banner.ImageUrl1" alt="@banner.Title1">
+                    </a>
+                </div>
+
+            }
+        }
+    </div>
+    <!--如果需要分页器-->
+    <div class="swiper-pagination"></div>
+</div>
+
+<!--产品内容-->
+<div class="product_content">
+    <div class="container clearfix">
+        <!--  品质优选-->
+        <div class="stage">
+            <div class="stage-hd">品质优选</div>
+            <div id="quality" class="stage-main swiper-container">
+                <div class="swiper-wrapper">
+                    @{
+
+                        var productList = new ProductServiceImpl().GetCommandProductList(10);
+                        foreach (var product in productList)
+                        {
+                            <div class="swiper-slide">
+                                <a href="/Product/Detail?ProductId=@product.PkId">
+                                    <div class="s-img">
+                                        <img src="@MyPageHtmlHelper.GetImagePath(220, 220, product.ImageUrl)" alt="">
+                                    </div>
+                                    <div class="s-name">@product.ProductName</div>
+                                    <div class="s-price">￥@product.SellPrice.ToString("0.00")</div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="swiper-button-prev"> < </div>
+                <div class="swiper-button-next"> > </div>
+            </div>
+        </div>
+
+    <!-- 时尚达人-->
+        @{
+            var content = new ContentServiceImpl().GetList(15);
+            if (content.Any())
+            {
+                @Html.Raw(HttpUtility.HtmlDecode(content.FirstOrDefault().Description1))
+            }
+        }
+
+
+        @{
+             content = new ContentServiceImpl().GetList(16);
+            if (content.Any())
+            {
+                @Html.Raw(HttpUtility.HtmlDecode(content.FirstOrDefault().Description1))
+            }
+        }
+
+        @{
+             content = new ContentServiceImpl().GetList(17);
+            if (content.Any())
+            {
+                @Html.Raw(HttpUtility.HtmlDecode(content.FirstOrDefault().Description1))
+            }
+        }
+
+        <!--线下活动-->
+        <div class="stage">
+            <div class="stage-hd">线下活动</div>
+            <div class="stage-main activity clearfix">
+                <ul class="activity-items ">
+
+                    @{
+                        var activityList = new ContentServiceImpl().GetActivityListTop3();
+
+                        foreach (var offlineActivityEntity in activityList)
+                        {
+                            <li class="activity-item">
+                                <a href="/Content/ActivityDetail?PkId=@offlineActivityEntity.PkId">
+                                    <img src="@MyPageHtmlHelper.GetNormalImagePath(400, 400,offlineActivityEntity.ImageUrl)" alt="">
+                                    <div class="activity-info">
+                                        <div class="activity-theme">活动主题：@offlineActivityEntity.Tttle</div>
+                                        <div class="activity-add">活动地点： @offlineActivityEntity.OfflineActivityAddress</div>
+                                        <div class="activity-time">活动时间：@offlineActivityEntity.StartDate.GetValueOrDefault().ToString("yyyy-MM-dd")-@offlineActivityEntity.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")</div>
+                                        <div class="activity-text">
+                                            @offlineActivityEntity.BriefDescription
+                                        </div>
+                                        @*<div class="details-name">查看详情 ></div>*@
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    }
+
+                   
+
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+ 
+
+
+<link rel="stylesheet" href="/Resource/assets/swiper/css/swiper.min.css">
+<script type="text/javascript" src="/Resource/assets/swiper/js/swiper.min.js"></script>
+<script>
+    /* 轮播图 */
+    var banner = new Swiper('#banner', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+            speed: 2000,
+            disableOnInteraction: false
+        },
+        effect: 'fade',
+        observer: true,
+        observeParents: true,
+        preventClicks: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+
+    var quality = new Swiper('#quality', {
+        centeredSlides: false,
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    $("#guide_1").addClass("red");
+
+</script>

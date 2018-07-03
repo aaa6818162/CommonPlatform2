@@ -1,0 +1,134 @@
+﻿
+
+@using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler
+
+@model Project.Model.OrderManager.OrderMainEntity
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "订单详情";
+}
+
+@section Head
+{
+
+    <link rel="stylesheet" href="/Resource/css/submit.css">
+    <link href="~/Resource/css/Site.css" rel="stylesheet" />
+}
+
+
+<!--内容-->
+<div class="add-content" style="margin-top: 30px">
+    <div class="container clearfix">
+        <!--购物步骤-->
+
+
+        <div class="invoice">
+            <div class="invoice-tit">收货信息</div>
+            <div class="invoice_wrapper">
+                <div class="form_group">
+                    @Model.LinkmanAddressfull
+                </div>
+            </div>
+
+        </div>
+
+
+        @if (!string.IsNullOrWhiteSpace(Model.OrderInvoiceEntity.InvoiceTitle))
+        {
+ <!--发票信息-->
+            <div class="invoice">
+                <div class="invoice-tit">发票抬头</div>
+                <div class="invoice_wrapper">
+                    <div class="form_group">
+                        @Model.OrderInvoiceEntity.InvoiceTitle
+                    </div>
+                </div>
+
+            </div>
+        }
+
+@if (!string.IsNullOrWhiteSpace(Model.LinkmanRemark))
+{
+    <!--发票信息-->
+    <div class="invoice">
+        <div class="invoice-tit">客户留言</div>
+        <div class="invoice_wrapper">
+            <div class="form_group">
+                @Model.LinkmanRemark
+            </div>
+        </div>
+
+    </div>
+}
+
+        <div class="affirm">
+            <div class="aff-tit">商品信息</div>
+
+            <table class="aff-main">
+                <thead>
+                    <tr>
+                        <th class="w280" style="width: 360px">
+                            商品名称
+                        </th>
+                        <th class="w280" style="width: 360px">
+                            商品规格
+                        </th>
+                        <th class="w160">
+                            销售价
+                        </th>
+                        <th class="w160">
+                            数量
+                        </th>
+                        <th class="w140">
+                            小计
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var shopCart in Model.OrderMainDetailEntityList)
+                {
+                    <tr>
+                        <td>
+                            @shopCart.ProductName
+                        </td>
+                        <td>
+                            @shopCart.SpecDetail
+                        </td>
+                        <td>
+                            @shopCart.LastPrice
+                        </td>
+                        <td>
+                            @shopCart.Num
+                        </td>
+                        <td>
+                            @shopCart.TotalAmount
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <div class="summary_container clearfix">
+                <div class="summary fr">
+                    <dl>
+                        <dt>总计费用（含运费） ：</dt>
+                        <dd>￥<span id="span_SumPrdMoney">@Model.Totalamount</span></dd>
+                    </dl>
+                </div>
+                </div>
+
+                <div class="order-submitOrder">
+                    <div class="wrapper">
+                        <a href="/Order/List" class="go-back">
+                            <span class="iconfont icon-fanhui"></span>
+                            <span>返回列表</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+

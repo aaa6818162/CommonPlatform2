@@ -1,0 +1,89 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "商品列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/brand_story.css">
+
+}
+
+@{
+    var content = new ContentServiceImpl().GetPageContentEntity(RequestHelper.GetInt("PkId"));
+
+    var contentGroup = new ContentServiceImpl().GetBeforeAndNext(RequestHelper.GetInt("PkId"));
+}
+
+
+<div class="brand_story-content">
+    <div class="container clearfix">
+        <div class="story-content fl">
+            <div class="story-tit">
+                <span>品牌故事</span>
+                <a href="/Content/BrandList" class="many-story fr">查看更多资讯</a>
+            </div>
+            <div class="story-details" style="height: 100%">
+                <div class="details-h">
+                    <span class="h-tit">@content.Title1</span>
+                </div>
+                @*<div class="info-source">
+                        <span class="source-list">消息来源：<span>滨雅官网新闻</span></span>
+                        <span class="source-list">阅读次数：<span>300 </span>次</span>
+                        <span class="source-list">发布时间：<span>2014-10-27</span></span>
+                    </div>*@
+
+                @Html.Raw(HttpUtility.HtmlDecode(content.Description1))
+            </div>
+
+            <div class="info-switch">
+                @{
+                    if (contentGroup.Item1 != null)
+                    {
+                        <div class="infoUp switch-list">
+                            <span class="up-tit">上一篇：</span>
+                            <a class="up-info" href="/Content/BrandDetail?PkId=@contentGroup.Item1.PkId">@contentGroup.Item1.Title1</a>
+                        </div>
+                    }
+                }
+
+                @{
+                    if (contentGroup.Item2 != null)
+                    {
+                        <div class="infoDown  switch-list">
+                            <span class="down-tit">下一篇：</span>
+                            <a class="down-info" href="/Content/BrandDetail?PkId=@contentGroup.Item2.PkId">@contentGroup.Item2.Title1</a>
+                        </div>
+
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="recommend fl">
+            <div class="recommend-tit">今日推荐</div>
+            <div class="recommend-list">
+                <ul>
+                    @{
+                        var contentList = new ContentServiceImpl().GetList(23);
+
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li><a href="@pageContentEntity.Title2"><img src="@pageContentEntity.ImageUrl1" alt=""></a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_2").addClass("red");
+
+</script>
+

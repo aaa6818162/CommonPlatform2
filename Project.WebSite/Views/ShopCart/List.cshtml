@@ -1,0 +1,140 @@
+﻿
+@using Aspose.Cells.Charts
+@using PagedList
+@using PagedList.Mvc
+@model IList<Project.Model.OrderManager.ShopCartEntity>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "购物车列表";
+}
+
+@section Head
+{
+
+    <script src="~/Scripts/ShopCart/List.js"></script>
+    <link rel="stylesheet" href="/Resource/css/car.css">
+}
+
+
+<div class="car-content">
+    <div class="container clearfix">
+        <!--购物步骤-->
+        <div class="steps">
+            <ul>
+                <li class="active">我的购物车<span></span></li>
+                <li>确定订单信息<span></span></li>
+                <li>选择支付方式<span></span></li>
+                <li>完成<span></span></li>
+            </ul>
+        </div>
+
+        <div class="car-filter-bar" style="width:  100%">
+
+            <em>温馨提示：购物车中的商品无法保留库存，请您及时结算，商品库存以订单结算时为准！</em>
+
+        </div>
+        <!--购物车-->
+        <section class="cartMain clearfix">
+            <div class="cartMain_hd">
+                <ul class="order_lists cartTop">
+                    <li class="list_chk">
+                        <!--所有商品全选-->
+                        <input type="checkbox" id="all" class="whole_check" onchange="pro.ListPage.CheckAll()">
+
+                        全选
+                    </li>
+                    <li class="list_con">商品信息</li>
+                    <li class="list_info">商品参数</li>
+                    <li class="list_price">单价</li>
+                    <li class="list_amount">数量</li>
+                    <li class="list_sum">金额</li>
+                    <li class="list_op">操作</li>
+                </ul>
+            </div>
+
+            @{
+                if (Model.Any())
+                {
+                    <div class="cartBox">
+
+                        <div class="order_content">
+                            @foreach (var shopCart in Model)
+                            {
+                                <ul class="order_lists" id="carrow_@shopCart.PkId">
+                                    <li class="list_chk">
+                                        @{
+                                            if (shopCart.IsExpire == 1)
+                                            {
+                                                <span>已过期</span>
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" id="IsCheck_@shopCart.PkId" class="input-checked" onchange="pro.ListPage.UpdateCartCheck(@shopCart.PkId)" @(shopCart.IsCheck == 1 ? "checked=\"checked\"" : "")>
+                                            }
+                                        }
+                                    </li>
+                                    <li class="list_con">
+                                        <div class="list_img">
+                                            <a href="/Product/Detail?ProductId=@shopCart.ProductId"><img src="@shopCart.ImageUrl" alt=""></a>
+                                        </div>
+                                        <div class="list_text">
+                                            <a href="/Product/Detail?ProductId=@shopCart.ProductId">@shopCart.ProductName</a>
+                                        </div>
+                                    </li>
+                                    <li class="list_info">
+                                        @shopCart.SpecDetail
+                                    </li>
+                                    <li class="list_price">
+                                        <p class="price">￥@shopCart.LastPrice</p>
+                                    </li>
+                                    <li class="list_amount">
+                                        <div class="amount_box">
+                                            <a href="javascript:pro.ListPage.MinusNum(@shopCart.PkId);" class="reduce reSty">-</a>
+                                            <input type="text" id="Num_@shopCart.PkId" value="@shopCart.Num" class="sum" onchange="pro.ListPage.ChangeNum(@shopCart.PkId)" />
+                                            <a href="javascript:pro.ListPage.AddNum(@shopCart.PkId);" class="plus">+</a>
+                                        </div>
+                                    </li>
+                                    <li class="list_sum">
+                                        <p class="sum_price">￥@shopCart.TotalAmount</p>
+                                    </li>
+                                    <li class="list_op">
+                                        <p class="del">
+                                            <a href="javascript:;" class="delBtn" onclick="pro.ListPage.DelCart(@shopCart.PkId)">移除商品</a>
+                                        </p>
+                                        @*<p class="collect">
+                                                <a href="javascript:AddCollection(@shopCart.ProductId);" class="colBtn">加入收藏夹</a>
+                                            </p>*@
+                                    </li>
+                                </ul>
+                                            }
+                        </div>
+                    </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="car-empty">
+                                                    <p>购物车空空如也！</p>
+                                                    <div class="go-index"><a href="/Home/Index">现在去逛逛</a></div>
+                                                </div>
+
+                                            }
+
+            }
+
+
+            <!--底部-->
+            <div class="bar-wrapper">
+                <div class="bar-right">
+                    <div class="piece">已选商品<strong class="piece_num" id="CheckNum">@Model.Where(p => p.IsCheck == 1).Sum(p => p.Num)</strong>件</div>
+                    <div class="totalMoney">共计: <strong class="total_text" id="TotalAmount">@Model.Where(p => p.IsCheck == 1).Sum(p => p.TotalAmount).ToString("0.00")</strong></div>
+                    <div class="calBtn"><a href="javascript:;" onclick="pro.ListPage.AddOrder()" class="btn_sty">结算</a></div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+

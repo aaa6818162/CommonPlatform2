@@ -1,0 +1,15 @@
+﻿<div class="recommend fl">
+    <div class="recommend-tit">今日推荐</div>
+    <div class="recommend-list">
+        <ul>
+            @{
+                var contentList = new ContentServiceImpl().GetList(23);
+
+                foreach (var pageContentEntity in contentList)
+                {
+                    <li><a href="@pageContentEntity.Title2"><img src="@pageContentEntity.ImageUrl1" alt=""></a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>

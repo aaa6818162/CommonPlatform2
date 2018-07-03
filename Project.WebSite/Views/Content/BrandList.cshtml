@@ -1,0 +1,85 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Controllers.BrandListVm
+@{
+    ViewBag.Title = "品牌故事";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+   <link rel="stylesheet" href="/Resource/css/brand_story.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+}
+
+
+<div class="brand_story-content">
+    <div class="container clearfix">
+        <div class="story-content fl">
+            <div class="story-tit">
+                <span>品牌故事</span>
+                
+            </div>
+            <div class="story-main">
+                <ul>
+                    @{
+                        var contentList = Model.PageContentEntityList;
+
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li class="story-list">
+                                <a href="/Content/BrandDetail?PkId=@pageContentEntity.PkId">
+                                    <div class="story-list-tit">
+                                        <span class="tit-t">@pageContentEntity.Title1</span>
+                                        <span class="s-date fr">@pageContentEntity.CreationTime</span>
+                                    </div>
+                                    <div class="story-list-text">
+                                        @*<div class="s-img fl">
+                                            <img src="@pageContentEntity.ImageUrl1" alt="">
+                                        </div>*@
+                                        <p>@Html.Raw(HttpUtility.HtmlDecode(pageContentEntity.Description2))</p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+
+                    }
+
+                </ul>
+            </div>
+
+            <div id="pagination3" class="page">
+                @Html.PagedListPager((IPagedList) Model.PageInfo, page => Url.Action("BrandList",
+                    new
+                    {
+                        page
+                    }))
+
+            </div>
+
+        </div>
+        <div class="recommend fl">
+            <div class="recommend-tit">今日推荐</div>
+            <div class="recommend-list">
+                <ul>
+                    @{
+                        contentList = new ContentServiceImpl().GetList(23);
+
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li><a href="@pageContentEntity.Title2"><img src="@pageContentEntity.ImageUrl1" alt=""></a></li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $("#guide_2").addClass("red");
+
+</script>
+

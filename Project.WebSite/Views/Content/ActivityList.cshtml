@@ -1,0 +1,61 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Controllers.BrandListVm
+@{
+    ViewBag.Title = "线下活动";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/offline_activity.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+}
+
+
+
+<div class="activity-content">
+    <div class="container clearfix">
+        @*<div class="activity-tit">
+    <span class="fl">线下活动</span>
+    <input type="text" name="" id="area_input" class="area_input" placeholder="地区">
+    <input type="text" id="date" placeholder="时间">
+    <a class="many-activity fr" href="#">更多>></a>
+        </div>*@
+        <div class="activity-main">
+            <ul class="activity-list clearfix">
+                @{
+                    var contentList = new ContentServiceImpl().GetActivityList();
+
+                    foreach (var pageContentEntity in contentList)
+                    {
+                        <li class="activity-item">
+                            <a href="/Content/ActivityDetail?PkId=@pageContentEntity.PkId">
+                                <div class="a-img">
+                                    <img src="@MyPageHtmlHelper.GetNormalImagePath(400, 400, pageContentEntity.ImageUrl)" alt="">
+                                </div>
+                                <div class="a-name">@pageContentEntity.Tttle</div>
+                                <div class="a-date">活动时间：@pageContentEntity.StartDate.GetValueOrDefault().ToString("yyyy-MM-dd")-@pageContentEntity.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")</div>
+                                @*<div class="a-theme">活动主题：大型商品发布会</div>*@
+                                @*<div class="a-bar">
+                                    @pageContentEntity.OfflineActivityAddress
+                                </div>*@
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+
+            <a href="#" class="load-more"></a>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_5").addClass("red");
+
+</script>

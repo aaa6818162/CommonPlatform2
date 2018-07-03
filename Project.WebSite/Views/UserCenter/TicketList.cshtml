@@ -1,0 +1,74 @@
+﻿
+
+
+@using PagedList
+@using PagedList.Mvc
+@model Project.WebSite.Models.UserCenter.TicketListView
+
+@{
+    ViewBag.Title = "我的账户-我的优惠券";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <link rel="stylesheet" href="/Resource/user/css/user.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script src="~/Scripts/Order/List.js"></script>
+}
+
+
+
+<div class="container clearfix">
+    <div class="user-content clearfix">
+        <div class="aside-l fl clearfix">
+            @Html.Partial("_MenuBar", "我的优惠券")
+        </div>
+        <div class="aside-r fl clearfix">
+            <div class="our-main">
+                <div class="our-h">我的优惠券</div>
+                <div class="our-record">
+                    @*<div class="our-tit">
+                            <span class="our-nav active">未使用（10）</span>
+                            <span class="our-nav">已使用（0）</span>
+                            <span class="our-nav">已过期（0）</span>
+                        </div>*@
+                    <div class="our-content our-item">
+                        <table class="record-main" style="text-align: center">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px">序号</th>
+                                    <th style="width: 200px" >券号</th>
+                                    <th style="width: 100px" >价值</th>
+                                    <th style="width: 300px" >使用规则</th>
+                                    <th style="width: 300px" >有效期</th>
+                                    <th style="width: 100px" >使用状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @{
+                                var i = 0;
+                                foreach (var item in Model.TicketList)
+                                {
+                                    i++;
+                                    <tr class="dis-tr">
+                                        <td >@i</td>
+                                        <td >@item.TicketCode</td>
+                                        <td >@item.TicketValue</td>
+                                        <td >@item.UseFor</td>
+                                        <td>@item.AvaildateStart.GetValueOrDefault().ToString("yyyy-MM-dd")-@item.AvaildateEnd.GetValueOrDefault().ToString("yyyy-MM-dd")</td>
+                                        <td >@(item.IsUse=="0"?"否":"是")</td>
+                                    </tr>
+                                }
+                            }
+                            </tbody>
+                        </table>
+
+                        @Html.PagedListPager((IPagedList)Model.PageInfo, page => Url.Action("TicketList", new { page }))
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

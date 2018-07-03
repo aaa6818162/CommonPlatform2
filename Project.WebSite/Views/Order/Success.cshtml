@@ -1,0 +1,47 @@
+﻿
+
+@model  Project.WebSite.Models.OrderProcess.PayVm
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "支付提示页面";
+   
+}
+
+@section Head
+{
+    <link rel="stylesheet" href="/Resource/css/pay.css">
+}
+
+<div class="pay-content">
+    <div class="container clearfix">
+        <!--购物步骤-->
+        <div class="steps">
+            <ul>
+                <li>我的购物车<span></span></li>
+                <li>确定订单信息<span></span></li>
+                <li>选择支付方式<span></span></li>
+                <li class="active">完成<span></span></li>
+            </ul>
+        </div>
+
+        <div class="pay-success">
+            <div class="success-info">
+                <div class="success-info-tit">
+                    <span class="iconfont icon-chenggong1"></span>
+                    <span class="tit-txt">付款成功，我们会尽快安排为您发货！</span>
+                </div>
+                @*<div class="success-info-num">
+        <span class="num-tit">订单编号：</span>
+        <span class="num-con"> 147258369</span>
+        <div>订单处理中，发货后订单会显示物流信息，可查看物流运输详情！</div>
+    </div>*@
+                <div class="success-info-user">
+                    <span class="user-text"> <a href="/Order/List">返回【订单列表】</a></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

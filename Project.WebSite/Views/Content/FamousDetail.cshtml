@@ -1,0 +1,35 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "人才大师";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+   <link rel="stylesheet" href="/Resource/css/talents.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+}
+
+@{
+    var detail = new ContentServiceImpl().GetPageContentEntity(RequestHelper.GetInt("PkId"));
+}
+
+<div class="talents-content">
+    <div class="container clearfix">
+        <div class="talents-tit">
+            <span class="fl"> 人才大师</span>
+            <span class="talent-head">@detail.Title1</span>
+            <a class="many-talents fr" href="/Content/FamousList">查看更多人才</a>
+        </div>
+        @Html.Raw(HttpUtility.HtmlDecode(detail.Description1))
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $("#guide_3").addClass("red");
+
+</script>
+

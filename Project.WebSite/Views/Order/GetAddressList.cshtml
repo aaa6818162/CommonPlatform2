@@ -1,0 +1,24 @@
+﻿@using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler
+
+@{
+    ViewBag.Title = "登录";
+    Layout =null;
+}
+
+<input value="新增" type="button" id="btn_AddAddress" name="btn_AddAddress" class="btn" />
+
+<table class="mtable">
+    @foreach (var item in Model.CustomerAddressEntityList)
+    {
+        <tr>
+            <td style="width: 100px">
+                <input type="radio" name="CustomerAddressId" value="@item.PkId" />
+            </td>
+            <td style="width: 500px">
+                @item.AddressFull [<input value="修改" type="button" class="xiu" name="btn_EditAddress" for="@item.PkId" />]
+                <textarea style="display: none" id="AddressJson_@item.PkId">@JsonHelper.JsonSerializer(item)</textarea>
+            </td>
+            <td></td>
+        </tr>
+    }
+</table>

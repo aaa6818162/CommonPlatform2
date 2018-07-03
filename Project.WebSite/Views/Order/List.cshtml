@@ -1,0 +1,295 @@
+﻿
+@using PagedList
+@using PagedList.Mvc
+@using Project.Config.OrderEnum
+@model Project.WebSite.Models.UserCenter.OrderListView
+
+@{
+    ViewBag.Title = "我的账户-我的订单";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script src="~/Scripts/Order/List.js?JsParamter=@SiteConfig.GetConfig().JsParamter"></script>
+    <link rel="stylesheet" href="/Resource/user/css/order.css">
+    <link href="~/Resource/css/Site.css" rel="stylesheet" />
+
+}
+
+
+<div class="container clearfix">
+    <div class="user-content clearfix">
+
+        <div class="aside-l fl clearfix">
+            @Html.Partial("_MenuBar", "我的订单")
+        </div>
+
+        <div class="aside-r fl clearfix">
+
+
+            <div class="user-order">
+                我的订单
+                <div class="order_date">
+                    订单时间
+                    <input id="CreateStart" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" value="@Model.SearchOrderListRequest.CreateStart" />
+                    到
+                    <input id="CreateEnd" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' });" value="@Model.SearchOrderListRequest.CreateEnd" />
+                </div>
+                <div class="bought_search">
+                    <span>订单查询</span>
+                    <input type="text" placeholder="订单号" id="OrderNo" value="@Model.SearchOrderListRequest.OrderNo">
+                    <button type="button" id="btn_OrderSearch">查询</button>
+                </div>
+            </div>
+
+            <div class="order-info">
+
+                <div class="order-content">
+                    <div class="order-content-nav">
+                        <ul class="n-list">
+                            <li class="order-fil fl">
+                                <div class="time-txt">
+                                    @*<span class="time-tit">近三个月订单</span>
+                                        <span class="iconfont icon-jiantou12"></span>*@
+                                </div>
+                                @*<div class="time-list">
+                                        <ol>
+                                            <li class="active"><a href="#">近一周内订单</a></li>
+                                            <li><a href="#">近半个月订单</a></li>
+                                            <li><a href="#">近一个月订单</a></li>
+                                            <li><a href="#">近三个月订单</a></li>
+                                            <li><a href="#">近一年内订单</a></li>
+                                        </ol>
+                                    </div>*@
+                            </li>
+                            <li class="o-info fl">订单详情</li>
+                            <li class="consignee fl">收货人</li>
+                            <li class="o-sum fl">金额</li>
+                            <li class="all-state fl">
+                                <div class="state-txt">
+                                    <span class="state-tit"> 全部状态</span>
+                                    <span class="iconfont icon-jiantou12"></span>
+                                </div>
+                                <div class="state-list">
+                                    <ol>
+                                        @Html.Raw(MyPageHtmlHelper.GetLi("等待付款", (int)OrderStateEnum.待付款, RequestHelper.GetInt("State")))
+                                        @Html.Raw(MyPageHtmlHelper.GetLi("已付款", (int)OrderStateEnum.已付款, RequestHelper.GetInt("State")))
+                                        @Html.Raw(MyPageHtmlHelper.GetLi("已发货", (int)OrderStateEnum.已发货, RequestHelper.GetInt("State")))
+                                        @Html.Raw(MyPageHtmlHelper.GetLi("已取消", (int)OrderStateEnum.取消, RequestHelper.GetInt("State")))
+                                        @Html.Raw(MyPageHtmlHelper.GetLi("已完结", (int)OrderStateEnum.已完结, RequestHelper.GetInt("State")))
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="o-handle fl">操作</li>
+
+                        </ul>
+                    </div>
+
+                    @{
+                        foreach (var item in Model.OrderList)
+                        {
+                            <div class="order-item">
+                                <div class="order-item-tit">
+                                    <div class="order-data fl">@item.CreationTime</div>
+                                    <div class="order-number fl">订单号：<span class="number">@item.OrderNo</span></div>
+                                </div>
+
+                                @{
+                                    var i = 0;
+                                    foreach (var orderMainDetailEntity in item.OrderMainDetailEntityList)
+                                    {
+                                        i++;
+
+                                        if (i == 1)
+                                        {
+                                            <div class="order-item-content">
+                                                <div class="order-product fl">
+                                                    <div class="p-img fl">
+
+                                                        @if (orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Discount || orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Ticket || orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Yf)
+                                                        {
+                                                            <img src="@MyPageHtmlHelper.GetImagePath(100, 100, orderMainDetailEntity.ImageUrl)" alt="" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="/Product/Detail?ProductId=@orderMainDetailEntity.ProductId"><img src="@MyPageHtmlHelper.GetImagePath(100, 100, orderMainDetailEntity.ImageUrl)" alt="" /></a>
+                                                        }
+
+                                                    </div>
+                                                    <div class="p-name">@orderMainDetailEntity.ProductName<br/>@orderMainDetailEntity.SpecDetail</div>
+                                                    <div class="goods-number fr">x @orderMainDetailEntity.Num</div>
+                                                </div>
+                                                <div class="order-person fl">
+                                                    <div class="order-p-content">
+                                                        <div class="p-tit">
+                                                            <div class="p-name fl">@item.Linkman</div>
+                                                            <span class="iconfont icon-jiantou12 fl"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="order-price fl">
+                                                    @*<dl>
+                                                            <dt class="d1">商品价格：</dt>
+                                                            <dd>￥@.i</dd>
+                                                        </dl>
+                                                        <span>在线支付</span>*@
+                                                    <dl>
+                                                        <dt class="d2">应付金额：</dt>
+                                                        <dd>￥@item.Totalamount</dd>
+                                                    </dl>
+                                                    @*<span>在线支付</span>*@
+                                                </div>
+                                                <div class="line-item fl">
+                                                    <ul>
+                                                        @{
+                                                            if (item.State == (int)OrderStateEnum.待付款)
+                                                            {
+                                                                <li>待付款</li>
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.已付款)
+                                                            {
+                                                                <li>已付款</li>
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.已发货)
+                                                            {
+                                                                <li>已发货</li>
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.取消)
+                                                            {
+                                                                <li>已取消</li>
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.已完结)
+                                                            {
+                                                                <li>已完结</li>
+                                                            }
+                                                        }
+                                                        <li><a href="/Order/Detail?OrderNo=@item.OrderNo">订单详情</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="order-pay fl">
+                                                    <ul>
+
+                                                        @{
+
+                                                            if (item.State == (int)OrderStateEnum.待付款)
+                                                            {
+                                                                <li class="pay"><a href="javascript:pro.ListPage.Pay('@item.OrderNo')">立即付款</a></li>
+                                                                <li class="cancel-order"><a href="javascript:pro.ListPage.Cancel('@item.OrderNo')">取消订单</a></li>
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.已付款)
+                                                            {
+
+                                                                if (item.ReturnState == (int)OrderReturnStateEnum.申请退款)
+                                                                {
+                                                                    <li class="pay-time">
+                                                                        正在审核
+                                                                    </li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.确认退款)
+                                                                {
+                                                                    <li>退款成功</li>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li class="pay"><a href="javascript:pro.ListPage.ReturnPay('@item.OrderNo')">申请退款</a></li>
+                                                                }
+
+                                                            }
+                                                            else if (item.State == (int)OrderStateEnum.已发货)
+                                                            {
+
+                                                                if (item.ReturnState == (int)OrderReturnStateEnum.申请退货)
+                                                                {
+                                                                    <li>
+                                                                        正在审核
+                                                                    </li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.客户退货)
+                                                                {
+                                                                    <li>退款审核</li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.退货审核拒绝)
+                                                                {
+                                                                    <li>审核拒绝</li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.退货审核通过)
+                                                                {
+                                                                    <li>审核通过</li>
+                                                                    <li class="pay"><a href="javascript:pro.ListPage.WriteReturnProductSend('@item.OrderNo')">填写快递单</a></li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.收货确认)
+                                                                {
+                                                                    <li>退款中</li>
+                                                                }
+                                                                else if (item.ReturnState == (int)OrderReturnStateEnum.确认退款)
+                                                                {
+                                                                    <li>退款成功</li>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li class="pay"><a href="javascript:pro.ListPage.Confirm('@item.OrderNo')">确认收货</a></li>
+                                                                    <li class="pay"><a href="javascript:pro.ListPage.ReturnProduct('@item.OrderNo')">申请退货</a></li>
+                                                                }
+                                                            }
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="order-item-content">
+                                                                    <div class="order-product fl">
+                                                                        <div class="p-img fl">
+                                                                            @if (orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Discount || orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Ticket || orderMainDetailEntity.GoodsCode == SiteConfig.GetConfig().Prd_Yf)
+                                                                            {
+                                                                                <img src="@MyPageHtmlHelper.GetImagePath(100, 100, orderMainDetailEntity.ImageUrl)" alt="" />
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <a href="/Product/Detail?ProductId=@orderMainDetailEntity.ProductId"><img src="@MyPageHtmlHelper.GetImagePath(100, 100, orderMainDetailEntity.ImageUrl)" alt="" /></a>
+                                                                            }
+                                                                        </div>
+                                                                        <div class="p-name">@orderMainDetailEntity.ProductName<br />@orderMainDetailEntity.SpecDetail</div>
+                                                                        <div class="goods-number fr">x @orderMainDetailEntity.Num</div>
+                                                                    </div>
+                                                                    <div class="order-person fl">
+
+                                                                    </div>
+                                                                    <div class="order-price fl">
+
+                                                                    </div>
+                                                                    <div class="line-item fl">
+
+                                                                    </div>
+                                                                    <div class="order-pay fl">
+
+                                                                    </div>
+                                                                </div>
+                                                                }
+
+                                                            }
+                                }
+
+                            </div>
+                                                            }
+                    }
+
+                    @Html.PagedListPager((IPagedList)Model.PageInfo, page => Url.Action("List",
+    new
+    {
+        page,
+        CreateStart = Model.SearchOrderListRequest.CreateStart,
+        CreateEnd = Model.SearchOrderListRequest.CreateEnd,
+        OrderNo = Model.SearchOrderListRequest.OrderNo
+    }))
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

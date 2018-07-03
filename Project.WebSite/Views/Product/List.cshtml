@@ -1,0 +1,236 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@using Project.Model.ProductManager.Request
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "商品列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/sortList.css">
+    <link rel="stylesheet" href="/Resource/assets/location/location.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+
+<div class="content">
+    <div class="container clearfix">
+        <!--分类列表-->
+        <div class="sortList-aside fl">
+
+
+            @{
+
+                var productCategoryList = new ProductServiceImpl().GetProductCategoryList(RequestHelper.GetInt("SystemCategoryId"));
+
+                var topproductCategoryList = productCategoryList.Where(p => p.Rank == 3);
+
+                if (topproductCategoryList.Any())
+                {
+
+                    <div class="sortList-sort fl">
+                        <div class="sort-title">分类列表</div>
+
+                        <div class="sort-content">
+                            @foreach (var productCategoryEntity in topproductCategoryList)
+                            {
+                                <div class="subNav">
+                                    <span class="iconfont icon-jiantou32"></span><a href="@ProductListHelper.GetUrl(new ProductSearchCondition() {ProductCategoryId = productCategoryEntity.PkId})">@productCategoryEntity.ProductCategoryName</a>
+                                </div>
+                                <ul class="navContent" style="overflow: hidden; display: block;">
+
+                                    @{
+                                        var secondProductCategoryList = productCategoryList.Where(p => p.ParentId == productCategoryEntity.PkId);
+                                        foreach (var categoryEntity in secondProductCategoryList)
+                                        {
+                                            <li>&nbsp;&nbsp;&nbsp;&nbsp;<a id="ProductCategoryId_@categoryEntity.PkId" href="@ProductListHelper.GetUrl(new ProductSearchCondition() {ProductCategoryId = categoryEntity.PkId})">@categoryEntity.ProductCategoryName</a></li>
+                                        }
+                                    }
+                                </ul>
+
+                                        }
+
+                        </div>
+                    </div>  }
+            }
+
+          
+                @{
+                    if (RequestHelper.GetInt("ProductCategoryId") > 0)
+                    {
+                        var ProductCategoryId= RequestHelper.GetInt("ProductCategoryId");
+
+                        <script type="text/javascript">
+                            $("#ProductCategoryId_@ProductCategoryId").addClass("active");
+                         </script>
+                    }
+                }
+
+         
+
+            <!--广告-->
+            <div class="sortList-adver fl">
+                <ul>
+                    @{
+                        var contentList = new ContentServiceImpl().GetList(18);
+
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li><a href="@pageContentEntity.Title2"><img src="@pageContentEntity.ImageUrl1" alt=""></a></li>
+                        }
+                    }
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="sortList-content fl">
+            <!--所有分类-->
+            <div class="crumb">
+                <div class="crumb-l fl">
+                    所属分类
+                    <span class="iconfont icon-jiantou14"></span>
+                </div>
+                @*<div class="crumb-r fr">
+                        显示筛选
+                        <span class="iconfont icon-jiantou12"></span>
+                    </div>*@
+                <!--选中显示-->
+                <div class="hasBeenSelected">
+                    <div class=clearList>
+
+                        @{
+                            if (RequestHelper.GetInt("Attr1") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr1"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(1, -1)"><em></em></a>
+                                </div>
+                            }
+
+                            if (RequestHelper.GetInt("Attr2") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr2"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(2, -1)"><em></em></a>
+                                </div>
+                            }
+
+
+                            if (RequestHelper.GetInt("Attr3") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr3"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(3, -1)"><em></em></a>
+                                </div>
+                            }
+
+
+                            if (RequestHelper.GetInt("Attr4") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr4"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(4, -1)"><em></em></a>
+                                </div>
+                            }
+
+
+                            if (RequestHelper.GetInt("Attr5") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr5"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(5, -1)"><em></em></a>
+                                </div>
+                            }
+
+
+                            if (RequestHelper.GetInt("Attr6") > 0)
+                            {
+                                var temp = Model.AttributeValueList.FirstOrDefault(p => p.AttributeValueId == RequestHelper.GetInt("Attr6"));
+                                <div class="selectedInfor selectedShow" style="">
+                                    <label>@temp.AttributeValueName</label><a href="@ProductListHelper.GetUrl(6, -1)"><em></em></a>
+                                </div>
+                            }
+
+
+                        }
+
+
+                    </div>
+                    <div style="DISPLAY: none" class="eliminateCriteria">清除筛选</div>
+                </div>
+            </div>
+            <div class="groups fl clearfix" style="display: block">
+                @{
+                    var i = 0;
+
+                    foreach (var attribute in Model.AttributList)
+                    {
+                        i++;
+                        <dl class="listIndex">
+                            <dt style="width: 120px">@attribute.AttributeName：</dt>
+                            <dd style="width: 828px">
+                                @foreach (var attributevalue in attribute.AttributeValueList)
+                                {
+                                    <a href="@ProductListHelper.GetUrl(i, attributevalue.AttributeValueId)">@attributevalue.AttributeValueName</a>
+                                }
+                            </dd>
+                        </dl>
+                    }
+                }
+            </div>
+            <!--筛选-->
+            <!--产品列表-->
+            <div class="p-list fl clearfix">
+                <ul class="clearfix">
+                    @foreach (var product in Model.ProductList)
+                    {
+
+                        <li>
+                            <a href="/Product/Detail?productId=@product.ProductId">
+                                <div class="p-img">
+                                    <img src="@MyPageHtmlHelper.GetImagePath(220, 220, product.ImageUrl)" alt="" />
+                                </div>
+                                <div class="p-name">@product.ProductName</div>
+                                <div class="p-price fl">￥@product.SellPrice.ToString("0.00")</div>
+                            </a>
+                        </li>
+
+                    }
+
+                </ul>
+
+            </div>
+            <div id="pagination3" class="page">
+                @Html.PagedListPager((IPagedList)Model.PageInfo, page => Url.Action("List",
+                   new
+                   {
+                       page,
+                       Attr1 = Model.ProductSearchCondition.AttributeValue1,
+                       Attr2 = Model.ProductSearchCondition.AttributeValue2,
+                       Attr3 = Model.ProductSearchCondition.AttributeValue3,
+                       Attr4 = Model.ProductSearchCondition.AttributeValue4,
+                       Attr5 = Model.ProductSearchCondition.AttributeValue5,
+                       Attr6 = Model.ProductSearchCondition.AttributeValue6,
+                       SystemCategoryId = Model.ProductSearchCondition.SystemCategoryId,
+                       ProductCategoryId = Model.ProductSearchCondition.ProductCategoryId,
+                       ProductCode = Model.ProductSearchCondition.ProductCode
+                   }))
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_4").addClass("red");
+
+</script>
+
+
+
+
+

@@ -1,0 +1,94 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@using Project.Model.ProductManager.Request
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "商品列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/sortList.css">
+    <link rel="stylesheet" href="/Resource/assets/location/location.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+
+<div class="content">
+    <div class="container clearfix">
+
+        <!--分类列表-->
+        <div class="sortList-aside fl">
+
+
+
+            <!--广告-->
+            <div class="sortList-adver fl">
+                <ul>
+                    @{
+                        var contentList = new ContentServiceImpl().GetList(18);
+
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li><a href="@pageContentEntity.Title2"><img src="@pageContentEntity.ImageUrl1" alt=""></a></li>
+                        }
+                    }
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="sortList-content fl">
+
+            <!--产品列表-->
+            <div class="p-list fl clearfix">
+                <ul class="clearfix">
+                    @foreach (var product in Model.ProductList)
+                    {
+
+                        <li>
+                            <a href="/Product/Detail?productId=@product.ProductId">
+                                <div class="p-img"><img src="@MyPageHtmlHelper.GetImagePath(220, 220, product.ImageUrl)" alt=""/>
+                                </div>
+                                <div class="p-name">@product.ProductName</div>
+                                <div class="p-price fl">￥@product.SellPrice</div>
+                            </a>
+                        </li>
+
+                    }
+
+                </ul>
+
+            </div>
+            <div id="pagination3" class="page">
+                @Html.PagedListPager((IPagedList) Model.PageInfo, page => Url.Action("List2",
+                    new
+                    {
+                        page,
+                        //Attr1 = Model.ProductSearchCondition.AttributeValue1,
+                        //Attr2 = Model.ProductSearchCondition.AttributeValue2,
+                        //Attr3 = Model.ProductSearchCondition.AttributeValue3,
+                        //Attr4 = Model.ProductSearchCondition.AttributeValue4,
+                        //Attr5 = Model.ProductSearchCondition.AttributeValue5,
+                        //Attr6 = Model.ProductSearchCondition.AttributeValue6,
+                        //SystemCategoryId = Model.ProductSearchCondition.SystemCategoryId,
+                        //ProductCategoryId = Model.ProductSearchCondition.ProductCategoryId,
+                        ProductCode = Model.ProductSearchCondition.ProductCode
+                    }))
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_4").addClass("red");
+
+</script>
+
+
+
+
+

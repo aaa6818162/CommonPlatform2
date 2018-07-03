@@ -1,0 +1,423 @@
+﻿@using Project.Application.Service.OrderManager
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Scripts/jqueryPlugins/jquery_validate/jquery.validate.extension.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/pro/submitKit.js"></script>
+    <script src="/Scripts/pro/bindKit.js"></script>
+    <script src="/Scripts/pro/commonKit.js"></script>
+    <script src="~/Scripts/pro/abp.jquery.ajax.js"></script>
+    <script src="~/Scripts/pro/controlKit.js"></script>
+    <script src="/Scripts/jqueryPlugins/jquery_json/Json.js"></script>
+    <script src="/Scripts/pro/base64.js"></script>
+
+    <script src="~/Scripts/jqueryPlugins/jquery_validate/jquery.validate.js"></script>
+    <script src="~/Scripts/jqueryPlugins/jquery_validate/card.js"></script>
+    <script src="~/Scripts/jqueryPlugins/jquery_validate/jquery.validate.extension.js"></script>
+
+    <link href="~/Scripts/jqueryPlugins/jquery_tip/tip-yellowsimple/tip-yellowsimple.css" rel="stylesheet" />
+    <script src="~/Scripts/jqueryPlugins/jquery_tip/jquery.poshytip.js"></script>
+    <script src="~/Scripts/pro/debugKit.js"></script>
+    <script src="~/Scripts/pro/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Scripts/linq/JSLINQ.js"></script>
+    <script src="~/Scripts/linq/JSLINQextend.js"></script>
+    <script src="~/Resource/layer/layer.js"></script>
+
+    @RenderSection("Head", false)
+
+    <script type="text/javascript">
+        $(function () {
+            var str = "@ViewBag.PermissionScript";
+            eval(str.replace(/&#39;/g, "'"));
+        });
+    </script>
+
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="/Resource/css/index.css">
+    <link rel="stylesheet" href="/Resource/css/common.css">
+    <link rel="stylesheet" href="/Resource/assets/iconfont/iconfont.css">
+</head>
+<body>
+    <!-- 顶部 -->
+    <div class="site-nav" id="div_tophead">
+        <div class="container clearfix">
+            <!-- 左边 -->
+            <div class="txt-info fl">
+
+                <div class="site-nav-menu-hd">
+
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <div class="site-nav-sign ">
+                            <a href="/Account/Login">马上登录</a>
+                            <i class="spacer"></i>
+                            <a href="/Account/Register" class="red">立即注册</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="site-nav-user" style="width: 300px">
+                            欢迎您,@ViewBag.Nickname
+
+                            <a href="#" class="red" onclick="logOut()">注销</a>
+                            @*<span class="iconfont icon-jiantou12"></span>
+
+                                <div class="site-nav-menu-bd">
+                                    <div class="bd-main">
+                                        <div class="site-nav-user-wrapper fl">
+                                            <a href="/user/user.html">
+                                                <img src="/Resource/images/user.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="site-nav-user-info">
+                                            <div class="d-text">
+                                                <a href="#">账户管理</a>
+                                            </div>
+                                            <div class="quit">
+                                                <a href="#">退出</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                        </div>
+                    }
+                </div>
+
+
+
+            </div>
+
+            @if (Request.IsAuthenticated)
+            {
+    <!-- 右边 -->
+                <ul class="quick-menu fr">
+                    <li>
+                        <span class="iconfont icon-74wodedingdan"></span>
+                        <a href="/Order/List">我的订单</a>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <span class="red iconfont icon-gouwuchekong"></span>
+                        <a href="/ShopCart/List">
+                            我的购物车
+                            (<i class="red">@ViewBag.CartNum</i>)
+                        </a>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <span class="iconfont icon-shoucang"></span>
+                        <a href="/UserCenter/CollectionList">收藏记录</a>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <span class="iconfont icon-wo"></span>
+                        <a href="/UserCenter/UserInfoDetail">用户中心</a>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+
+    <!-- 头部 -->
+    <header>
+        <div class="container clearfix">
+            <div class="logo fl">
+                <a href="/Home/Index">
+                    <img src="/Resource/images/common/LOGO.png" alt="">
+                </a>
+            </div>
+            <div class="search fr">
+                <form action="">
+                    <span class="iconfont icon-sousuo"></span>
+                    <button type="button" class="button_goods"  onclick="search()">搜索</button>
+                    <input type="text" class="search_goods" placeholder="搜索商品编码/名称">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+<!-- 导航 栏-->
+    <nav>
+        <div class="container clearfix">
+           
+            <ul class="nav_list">
+                <li>
+                    <a id="guide_1" href="/Home/Index">首页</a>
+                </li>
+
+                <li>
+                    <a  id="guide_2" href="/Content/BrandList">品牌故事</a>
+                </li>
+
+                <li>
+                    <a  id="guide_3" href="/Content/FamousList">人才大师</a>
+                   
+                </li>
+
+                <li>
+                    <a  id="guide_4" href="javaScript:;">IP+产品</a>
+
+                    <div class="submenu">
+                        <ol>
+
+                            @{
+                                var contentList = new ContentServiceImpl().GetList(19);
+                                foreach (var pageContentEntity in contentList)
+                                {
+                                    <li>
+                                        <a href="@pageContentEntity.Title2">@pageContentEntity.Title1</a>
+                                    </li>
+                                }
+                            }
+                        </ol>
+                    </div>
+                </li>
+
+                <li>
+                    <a  id="guide_5" href="/Content/ActivityList">线下活动</a>
+
+                </li>
+            </ul>
+           
+
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+    <!-- 底部 -->
+    <footer style="margin-top: 30px">
+        <div class="navFooter">
+            <div class="container clearfix">
+                <div class="footer_content">
+                    <dl class="navFooter_list fl">
+                        <dt>会员中心</dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <a target="_blank" href="#">注册登录</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="#">会员制度</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="#">购物流程</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="#">积分说明</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="navFooter_list fl">
+                        <dt>售后服务</dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <a target="_blank" href="">退换货政策</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">退换货流程</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">发票制度</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">投诉建议</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="navFooter_list fl">
+                        <dt>商家中心</dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <a target="_blank" href="">免费入驻</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">后台管理</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">商家协议</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">注意事项</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="navFooter_list fl">
+                        <dt>公司介绍</dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <a target="_blank" href="">关于我们</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">联系我们</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">客服电话</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="">公司地址</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+
+                    <div class="special">
+                        <ul class="fl">
+                            <li>
+                                <h3>
+                                    客服热线：
+                                    <img src="/Resource/images/common/tel1.png" alt="">
+                                </h3>
+                                <p>4008-816-616</p>
+                            </li>
+                            <li>
+                                <h3>
+                                    投诉建议：
+                                    <img src="/Resource/images/common/tel2.png" alt="">
+                                </h3>
+                                <p>0571-86673122</p>
+                            </li>
+                        </ul>
+                        <span class="spacer1"></span>
+                        <dl class="fl">
+                            <dt>
+                                <img src="/Resource/images/common/ewm.png">
+                            </dt>
+                            <dd>扫一扫 下载APP</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <ul class="footer_nav">
+                    <li>
+                        <a href="/Home/Index">首页</a>
+                    </li>
+                    <li class="spacer2"></li>
+                    <li>
+                        <a href="/Content/BrandList">品牌故事</a>
+                    </li>
+                    <li class="spacer2"></li>
+                    <li>
+                        <a href="/Content/FamousList">人才大师</a>
+                    </li>
+                    <li class="spacer2"></li>
+                    <li>
+                        <a href="/Content/ActivityList">线下活动</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="navFooterLine">
+            <div class="container">
+                <ul>
+                    <li> 版权所有 © 杭州滨雅科技有限公司 未经许可 严禁复制</li>
+                    <li> Copyright 2012- 2018. All Rights Reserved.</li>
+                    <li>浙ICP备15018765号-2</li>
+                </ul>
+
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script type="text/javascript">
+        function logOut() {
+            var postData = { AccountName: "" };
+
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                contentType: 'application/json',
+                url: "/Account/LoginOut",
+                data: JSON.stringify(postData),
+                cache: false,
+                async: false,
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+
+                    if (data.success) {
+                        window.location.href = "/Account/Login";
+                    }
+
+                }
+            });
+        }
+
+        function search() {
+            window.location.href = "/Product/List2?ProductCode=" + $(".search_goods").val();
+        }
+
+    </script>
+
+
+    <script type="text/javascript" src="/Resource/assets/jquery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/Resource/js/index.js"></script>
+    <script type="text/javascript" src="/Resource/js/common.js"></script>
+    <script type="text/javascript" src="/Resource/assets/iconfont/iconfont.js"></script>
+
+    <script type="text/javascript">
+        function AddCollection(productId) {
+
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                contentType: 'application/json',
+                url: "/UserCenter/AddCollection?productId=" + productId,
+                cache: false,
+                async: false,
+                success: function (data) {
+                    if (data.success) {
+                        layer.alert('收藏成功', { time: 1000 });
+                    } else {
+                        pro.commonKit.noLogHd(data);
+                    }
+                }
+            });
+
+        }
+
+
+        //function CancelCollection(productId) {
+
+        //    $.ajax({
+        //        dataType: 'json',
+        //        type: 'POST',
+        //        contentType: 'application/json',
+        //        url: "/UserCenter/CancelCollection?productId=" + productId,
+        //        cache: false,
+        //        async: false,
+        //        success: function (data) {
+        //            if (data.success) {
+        //                return true;
+        //            } else {
+        //                return false;
+        //            }
+        //        }
+        //    });
+
+        //}
+
+
+    </script>
+</body>
+
+</html>

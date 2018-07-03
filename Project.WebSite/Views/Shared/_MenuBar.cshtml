@@ -1,0 +1,27 @@
+﻿
+@{
+    var tag = this.Model;
+    Func<string, object> getHtmlAttribute = s => s == tag ? new { @class = "active" } : null;
+
+}
+
+
+
+
+<dl class="mt-tit">
+    <dt>会员中心</dt>
+
+    <dd>@Html.ActionLink("我的订单", "List", "Order", null, getHtmlAttribute("我的订单"))</dd>
+
+    <dd> @Html.ActionLink("我的收藏", "CollectionList", "UserCenter", null, getHtmlAttribute("我的收藏"))</dd>
+
+    <dd> @Html.ActionLink("我的优惠券", "TicketList", "UserCenter", null, getHtmlAttribute("我的优惠券"))</dd>
+
+    <dd>  @Html.ActionLink("收货地址", "AddressList", "UserCenter", null, getHtmlAttribute("收货地址"))</dd>
+
+    <dd> @Html.ActionLink("账户信息", "UserInfoDetail", "UserCenter", null, getHtmlAttribute("账户信息"))</dd>
+
+    <dd> @Html.ActionLink("修改密码", "ChangePassword", "UserCenter", null, getHtmlAttribute("修改密码"))</dd>
+
+    <dd>@Html.ActionLink("消息通知", "MessageList", "UserCenter", null, getHtmlAttribute("消息通知"))</dd>
+</dl>

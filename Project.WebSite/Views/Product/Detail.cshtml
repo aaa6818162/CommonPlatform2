@@ -1,0 +1,245 @@
+﻿
+@using Aspose.Cells.Charts
+@using PagedList
+@using PagedList.Mvc
+@model  Project.WebSite.Models.Product.DetailOutput
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Head
+{
+<script src="~/Scripts/Product/Detail.js?JsParamter=@SiteConfig.GetConfig().JsParamter"></script>
+<script src="~/Scripts/Product/ProductSpecHd.js?JsParamter=@SiteConfig.GetConfig().JsParamter"></script>
+    <script src="~/Scripts/Product/combinationCount.js"></script>
+    <link rel="stylesheet" href="/Resource/css/product.css">
+
+}
+
+<!-- shop-head -->
+@*<div class="shop-head">
+    <img src="/Resource/images/product/shop-head.png" alt="">
+</div>*@
+
+<div class="container">
+    <!--商品详情-->
+    <div class="product-info clearfix">
+        <!--放大镜-->
+        <div class="shop-box fl">
+            <!--中图-->
+            <div class="midBox">
+                @*<a href="#">*@
+                    <img class="midImg" src="@MyPageHtmlHelper.GetImagePath(400,400,Model.ProductEntity.ImageUrl)" />
+                @*</a>*@
+                @*<span class="mask"></span>*@
+            </div>
+            <!--小图-->
+            <div class="smallBox clearfix">
+                <ul>
+                    @{
+                        var i = 0;
+                        foreach (var p in Model.ProductEntity.ProductImageEntityList)
+                        {
+                            if (i == 0)
+                            {
+                                <li class="active" name="SmallPic"><img src="@MyPageHtmlHelper.GetImagePath(100,100,p.ImageUrl)"/></li>
+                            }
+                            else
+                            {
+                                <li name="SmallPic"><img src="@MyPageHtmlHelper.GetImagePath(100,100,p.ImageUrl)" /></li>
+                            }
+                            i++;
+                        }
+                    }
+                </ul>
+            </div>
+            <!--大图-->
+            @*<div class="bigBox fl">
+                <img src="@Model.ProductEntity.ImageUrl" class="bigImg" />
+            </div>*@
+
+            <!--分享-->
+            <div class="short-share clearfix">
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <a class="share bds_more" href="#none">
+                        <i class="iconfont icon-fenxiang"></i>
+                        <em>分享好友</em>
+                    </a>
+                </div>
+
+                <a class="collection fl" onclick="AddCollection(@Model.ProductEntity.ProductId)">
+                    <i class="iconfont icon-shoucang"></i>
+                    <em>收藏商品</em>
+                </a>
+                @*<a class="report fr" href="#"><em>举报与建议</em></a>*@
+            </div>
+
+            <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=692785"></script>
+            <script type="text/javascript" id="bdshell_js"></script>
+
+            <script type="text/javascript">
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+            </script>
+
+        </div>
+        <!-- 产品信息-->
+        <div class="product-wrap fl">
+           
+                <div class="name">@Model.ProductEntity.ProductName</div>
+                <div class="summary">
+                    <div class="summary-price-wrap clearfix">
+                        <div class="s-p-w-wrap">
+
+                            @{
+                                if (Model.ProductEntity.IsPromotion == 1)
+                                {
+                                    <div class="summary-item si-market-price">
+                                        <div class="si-tit">原价</div>
+                                        <div class="si-warp">
+                                            <div class="m-price">￥@Model.ProductEntity.SellPrice.ToString("0.00")</div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                          
+                            <div class="summary-item si-shop-price">
+                                <div class="si-tit">价格</div>
+                                <div class="si-warp">
+                                    <strong class="shop-price">￥<span id="GoodsPrice">@(string.IsNullOrWhiteSpace(Model.ProductEntity.PromotionPriceArea)? Model.ProductEntity.SellPrice.ToString("0.00"): Model.ProductEntity.PromotionPriceArea)</span></strong>
+                                </div>
+                            </div>
+
+                            @*<div class="summary-item si-coupon">
+                                <div class="si-tit">促销</div>
+                                <div class="si-warp">
+                                    <div class="si-sales"><i>限制</i>此价格不与套装优惠同时享受</div>
+                                    <div class="si-sales"><i>限制</i>满199元减30元，满399元减60元，满999元减100元</div>
+                                </div>
+                            </div>*@
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="summary-basic-info clearfix" >
+
+
+                        <div id="specArea">
+                            
+                        </div>
+
+                        @*<div class="summary-item is-size clearfix">
+                            <div class="si-tit">尺寸</div>
+                            <div class="si-warp">
+                                <ul class="si-size">
+                                    <li class="active">16寸</li>
+                                    <li>20寸</li>
+                                    <li>22寸</li>
+                                    <li>24寸</li>
+                                    <li>26寸</li>
+                                    <li>29寸</li>
+                                </ul>
+                            </div>
+                        </div>*@
+                       
+
+                        <div class="summary-item is-number clearfix">
+                            <div class="si-tit">数量</div>
+                            <div class="si-warp">
+                                <div class="amount-warp">
+                                    <input class="text buy-num" value="1" name="number" defaultnumber="1" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z] /">
+                                    <div class="a-btn">
+                                        <a href="javascript:void(0);" class="btn-add"><i class="iconfont icon-jiantou11"></i></a>
+                                        <a href="javascript:void(0);" class="btn-reduce"><i class="iconfont icon-jiantou12"></i></a>
+                                    </div>
+                                </div>
+                                <span>库存&nbsp;<em class="goods_num">@Model.ProductEntity.StockNum</em>&nbsp;个</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose-btns clearfix">
+                        <a href="javascript:void()" class="btn-buynow" id="btn_AddOrder">立即购买</a>
+                        <a href="javascript:void()" class="btn-append" id="btn_AddCart"><i class="iconfont icon-gouwuchekong"></i>加入购物车</a>
+                    </div>
+                    @*<div class="serve-promise">
+                        <div class="si-tit">服务承诺</div>
+                        <div class="si-warp">
+                            <ul>
+                                <li><a href="#">正品保障</a></li>
+                                <li><a href="#">极速退款</a></li>
+                                <li><a href="#">赠运费险</a></li>
+                                <li><a href="#">7天无理由退货</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+                </div>
+           
+        </div>
+        <!--刷一刷-->
+       
+
+    </div>
+
+    <!--产品详情-->
+    <div class="container clearfix">
+        <div class="view-buy fl">
+            <div class="mt">达人选购</div>
+            <div class="mc">
+                <ul>
+                    @{
+                    var     contentList = new ContentServiceImpl().GetList(21);
+                        foreach (var pageContentEntity in contentList)
+                        {
+                            <li>
+                                <div class="p-img">
+                                    <a href="@pageContentEntity.Title2"> <img src="@pageContentEntity.ImageUrl1" alt="" style="width: 150px;
+  height: 200px;"></a>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail fl clearfix" >
+            <div class="tab-main">
+                <ul>
+                    <li class="current">商品详情</li>
+                   
+                </ul>
+                @*<div class="extra">
+                    <div class="extra-inner"><a href="car.html">加入购物车</a></div>
+                </div>*@
+            </div>
+            <div class="tab-con">
+                @Html.Raw(HttpUtility.HtmlDecode(Model.ProductEntity.Description))
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<div style="display: none">
+    <textarea id="SpecVmList">@ViewBag.SpecVmList</textarea>
+    <textarea id="BindEntity">@ViewBag.BindEntity</textarea>
+
+    <input type="text" id="GoodsId" value=""/>
+
+    @*<input type="button" value="加入购物车" id="btn_AddCart"/>
+
+    <input type="button" value="直接购买" id="btn_AddOrder"/>*@
+
+</div>
+
+
+<script type="text/javascript">
+
+    $("#guide_4").addClass("red");
+
+</script>
+
+

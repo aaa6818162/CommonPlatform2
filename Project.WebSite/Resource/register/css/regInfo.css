@@ -1,0 +1,141 @@
+.forgetpassword-tit {
+  color: #333333;
+  font-size: 16px;
+  line-height: 36px;
+  border-bottom: 1px solid #dddddd;
+  margin-top: 30px;
+}
+.steps {
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  margin-top: 20px;
+}
+.steps ul {
+  margin-left: -20px;
+}
+.steps ul li {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  width: 280px;
+  background: #C6C6C6;
+  color: #fff;
+  text-align: center;
+  margin-left: 20px;
+}
+.steps ul li.active {
+  background: #df2727;
+}
+.steps ul li.active span {
+  position: absolute;
+  bottom: -20px;
+  left: 135px;
+  border: 10px solid #df2727;
+  border-color: #df2727 transparent transparent;
+}
+/*用户名填写*/
+.forgetpassword-content form {
+  margin-left: 440px;
+  margin-top: 60px;
+}
+.forgetpassword-content form .form_group {
+  position: relative;
+  margin: 0 0 20px;
+  height: 30px;
+  line-height: 30px;
+}
+.forgetpassword-content form .form_group label {
+  display: inline-block;
+  float: left;
+  width: 80px;
+  color: #666666;
+  font-size: 16px;
+  padding-right: 20px;
+}
+.forgetpassword-content form .form_group input {
+  width: 160px;
+  height: 30px;
+  border: solid 1px #dddddd;
+  vertical-align: top;
+}
+.forgetpassword-content form .form_group #canvas {
+  margin-left: 20px;
+}
+.forgetpassword-content form .form_group select {
+  width: 160px;
+  height: 30px;
+  border: solid 1px #dddddd;
+}
+.forgetpassword-content form .form_group span {
+  color: #999999;
+  font-size: 14px;
+  vertical-align: bottom;
+}
+.forgetpassword-content form .form_group .codeNum-input {
+  width: 140px;
+  height: 30px;
+  border: solid 1px #dddddd;
+  display: inline-block;
+}
+.forgetpassword-content form .form_group .codeNum-btn {
+  width: 120px;
+  height: 30px;
+  background-color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.forgetpassword-content form button {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 185px;
+    margin-left: 100px;
+}
+.forgetpassword-content form .btn_gray {
+  background-color: #df2727;
+  color: #fff;
+}
+.forgetpassword-content form .btn_white {
+  background-color: #eeeeee;
+  color: #999999;
+  margin-left: 35px;
+}
+/*验证方式*/
+/*设置成功*/
+.setok-main {
+  text-align: center;
+  margin-top: 116px;
+  margin-bottom: 310px;
+}
+.setok-main .setok-row {
+  line-height: 34px;
+  font-size: 18px;
+}
+.setok-main .setok-row .icon-chenggong {
+  font-size: 28px;
+  color: #64db56;
+}
+.setok-main .setok-row .setok-text {
+  color: #6f9cd9;
+  vertical-align: top;
+}
+.setok-main .setok-row .login-b {
+  color: #6f9cd9;
+  font-size: 16px;
+}
+.setok-main .setok-row .index-back {
+  font-size: 16px;
+  margin-left: 20px;
+}
+.chebox {
+    width: 14px !important;
+    height: 14px !important;
+    display: inline-block;
+    margin-top: 9px;
+}

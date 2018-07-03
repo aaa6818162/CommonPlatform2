@@ -1,0 +1,116 @@
+﻿@using NHibernate.Util
+@using Project.Application.Service.ProductManager
+@model Project.WebSite.Models.ProductListVm
+@{
+    ViewBag.Title = "线下活动";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="/Resource/css/offline_activity.css">
+    <link href="~/Resource/css/Site.css" rel="stylesheet" />
+
+}
+
+@{
+    var content = new ContentServiceImpl().GetOfflineActivityRepository(RequestHelper.GetInt("PkId"));
+
+
+}
+
+
+
+<!--内容-->
+<div class="activity-content" >
+    <div class="container clearfix">
+        @*<div class="activity-tit">
+                <span class="fl"> 线下活动</span>
+                <input type="text" name="" id="area_input" class="area_input" placeholder="地区">
+                <input type="text" id="date" placeholder="时间">
+                <a class="many-activity fr" href="#">更多>></a>
+            </div>*@
+
+        <div class="activity-main clearfix">
+            <div class="activity-detailes fl">
+                <div class="detailes-header clearfix">
+                    <span class="d-name">@content.Tttle</span>
+                    <span class="d-time fr">@content.StartDate.GetValueOrDefault().ToString("yyyy-MM-dd")-@content.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")</span>
+                    <div style="width: 950px;">
+                        <img src="@content.ImageUrl" alt="" style="width: 100%;height: 100%">
+                    </div>
+                </div>
+                <div class="activity-profile">
+                    <span>活动简介</span>
+                    <p> @content.BriefDescription</p>
+
+                </div>
+                <div class="activity-message clearfix">
+                    <p> @Html.Raw(HttpUtility.HtmlDecode(content.BriefDescription))</p>
+
+                </div>
+
+                <br/>
+
+                @if (!string.IsNullOrWhiteSpace(content.BindGoodsCode))
+                {
+                    <table class="mtable">
+
+                        <tr>
+                            <td style="width: 200px">
+                            </td>
+<td style="width: 100px">
+                                购买数量:
+                            </td>
+                            <td>
+                                <input type="text" value="@content.BindGoodsCode" style="display: none" id="GoodsCode"/>
+                                <input type="text" value="1" id="GoodsNum" style="width: 50px" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" onclick="AddOrder()" value="购买" class="btn"/>
+                            </td><td></td>
+                        </tr>
+                    </table>
+                }
+            </div>
+
+
+
+            @Html.Partial("TodayCommand")
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function AddOrder() {
+        var num = $("#GoodsNum").val();
+        if (!num||num<=0) {
+            layer.alert("请输入购买数量！", { time: 1000 });
+            return;
+        }
+
+        window.location.href = "/Order/Confirm?goodsCode=" + $("#GoodsCode").val() + "&num=" + $("#GoodsNum").val();
+
+    }
+
+
+</script>
+
+
+<script type="text/javascript">
+
+    $("#guide_5").addClass("red");
+
+</script>
+
+
+
+

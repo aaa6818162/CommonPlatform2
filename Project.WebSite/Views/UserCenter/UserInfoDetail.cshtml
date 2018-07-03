@@ -1,0 +1,99 @@
+﻿
+@model Project.Model.CustomerManager.CustomerEntity
+
+@{
+    ViewBag.Title = "基本信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    
+<script src="~/Scripts/UserCenter/UserInfoDetail.js"></script>
+    <link href="~/Resource/user/css/user.css" rel="stylesheet"/>
+<link href="~/Resource/css/Site.css" rel="stylesheet" />
+}
+
+
+
+
+
+<div class="container clearfix">
+    <div class="user-content clearfix">
+        <div class="aside-l fl clearfix">
+            @Html.Partial("_MenuBar", "账户信息")
+        </div>
+        <div class="aside-r fl clearfix">
+            <div class="our-main">
+                <div class="our-h">账户管理</div>
+                <div class="our-record">
+                    <div class="our-tit">
+                        <span class="our-nav active">基本信息</span>
+                        @*<span class="our-nav">会员等级</span>
+                        <span class="our-nav">会员卡绑定</span>*@
+                    </div>
+                    <div class="our-content our-item">
+                        <div class="acction_inforWrapper">
+                            <p class="personalInfo">会员：<span class="read_only">@Model.Mobilephone，您好！</span></p>
+                            @*<p class="personalInfo">您的账户消费总金额 :  ￥<span>05465465460</span></p>*@
+                        </div>
+
+                        <form action="" id="form-info">
+                            <fieldset>
+                                @*<legend>基本信息</legend>*@
+                                <div class="form_group">
+                                    <label><em class="required">*</em>账　号</label>
+                                    <span class="read_only">@Model.Mobilephone</span>
+                                </div>
+                                <div class="form_group">
+                                    <label for="CustomerName"><em class="required">*</em>昵　称</label>
+                                    <input class="form_control" id="CustomerName" name="CustomerName" type="text" value="@Model.CustomerName" />
+                                </div>
+                                <div class="form_group clearfix">
+                                    <label><em class="required">*</em>性　别</label>
+                                    <label>
+                                        <input id="gender_male" name="Gender" type="radio" value="男" checked="checked" /> 男
+                                    </label>
+                                    <label>
+                                        <input id="gender_female" name="Gender" type="radio" value="女"/> 女
+                                    </label>
+                                    <script type="text/javascript">
+                                        $("input[name=Gender][value=@Model.Gender]").attr("checked", 'checked');
+                                    </script>
+                                </div>
+                                <div class="form_group">
+                                    <label for="Birthday">出生日期</label>
+                                    <input type="text" id="Birthday" name="Birthday" style="width: 120px" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" value="@Model.Birthday">
+                                </div>
+                              
+                                <div class="form_group">
+                                    <label for="Familytelephone">家庭电话</label>
+                                    <input class="form_control" id="Familytelephone" name="Familytelephone" type="text" value="@Model.Familytelephone" />
+                                 
+                                </div>
+                               
+                               
+                                <div class="manber_btn_group">
+                                    <button class="btn-red" type="button" id="btn_Confrim">保存</button>
+                                  
+                                </div>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                    <div class="our-content our-item hide">
+
+                    </div>
+                    <div class="our-content our-item hide">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

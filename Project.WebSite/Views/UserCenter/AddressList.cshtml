@@ -1,0 +1,197 @@
+﻿@using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler
+@model IList<Project.Model.CustomerManager.CustomerAddressEntity>
+
+@{
+    ViewBag.Title = "收货地址";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+
+    <script src="~/Scripts/UserCenter/AddressList.js"></script>
+    <script src="~/Scripts/Control/AreaControl.js"></script>
+    <link href="~/Resource/user/css/user.css" rel="stylesheet" />
+<link href="~/Resource/css/Site.css" rel="stylesheet" />
+}
+
+
+<div class="container clearfix">
+    <div class="user-content clearfix">
+        <div class="aside-l fl clearfix">
+            @Html.Partial("_MenuBar", "收货地址")
+        </div>
+        <div class="aside-r fl clearfix">
+            <div class="our-main">
+                <div class="our-h">账户设置</div>
+                <div class="our-record">
+                    <div class="our-tit">
+                        <span class="our-nav active">收货地址</span>
+                    </div>
+
+                    <div class="our-content">
+                        @*<p class="personalInfo">
+                                已有
+                                <span class="accunt">1</span> 个地址，
+                                仅显示 <span class="all">15</span> 个最新地址
+                            </p>*@
+                        <div class="address_wrapper clearfix">
+                            <div class="add-lists">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="add-list">
+                                        <div class="add_th clearfix">
+                                            <ul>
+                                                <li class="add_info fl">地址</li>
+                                                <li class="add_checkbox fl">
+                                                    <label>
+                                                        设为默认
+                                                        <input class="Cinput" type="checkbox" name="btn_SetDefaultAddress" for="@item.PkId" @(item.IsDefault == 1 ? "checked='checked'" : "")/>
+                                                    </label>
+
+                                                </li>
+                                                <li class="add_operate fr">
+                                                    <a class="update" href="javascript:;" name="btn_EditAddress" for="@item.PkId">[修改]</a>
+                                                    <a class="del" href="javascript:;">
+                                                        [删除]
+                                                        <div class="item_del hide">
+                                                            <p>您确定要删除该地址吗？</p>
+                                                            <p>
+                                                                <button class="btn_red" name="btn_DelAddress" for="@item.PkId">确认</button>
+                                                                <button class="btn_white">取消</button>
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="add_td clearfix">
+                                            <p>
+                                                <span class="consignee">收货人: <span class="consignee-name"> @item.ReceiverName </span></span>
+                                                <span class="contact-way">联系电话: <span class="contact-phone">@item.Mobilephone</span></span>
+                                            </p>
+                                            <p class="receiver-address">
+                                                收货地址:
+                                                @item.AddressFull
+                                                <textarea id="AddressJson_@item.PkId" style="display: none">@JsonHelper.JsonSerializer(item)</textarea>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="add-address" id="btn_AddAddress">+新增地址</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tplayer"></div>
+    <div class="address_layer">
+        <a class="layer_close fr" href="javascript:;">X</a>
+        <div class="form-tit">收货地址</div>
+        <div class="layerCon_wrapper">
+            <form action="">
+                <div class="form_group">
+                    <label>收货人</label>
+                    <input id="ReceiverName" name="ReceiverName" type="text"/>
+                </div>
+                <div class="form_group">
+                    <label>地区</label>
+                    <select id="ProvinceId" name="ProvinceId"></select>
+                    <select id="CityId" name="CityId"></select>
+                    <select id="AreaId" name="AreaId"></select>
+                </div>
+                <div class="form_group">
+                    <label>地址</label>
+                    <input id="Address" name="Address" type="text"/>
+                </div>
+                <div class="form_group">
+                    <label>是否默认</label>
+                    <select id="IsDefault" name="IsDefault">
+                        <option value="2">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label>联系电话</label>
+                    <input id="Mobilephone" name="Mobilephone" type="text"/>
+                </div>
+                <div class="form_group">
+                    <div style="display: none">
+                        <input id="PkId" name="PkId" type="text" />
+                        <input id="Command" name="Command" type="text" />
+                    </div>
+                    <button class="btnRed" type="button" id="btn_Confirm">确认</button>
+                    <button class="btnWhite" type="button">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*是否删除 */
+    $(".del").each(function(i){
+        $(this).click(function(){
+            $(this).children(".item_del").removeClass("hide")
+        })
+    });
+    ///*修改地址*/
+    //$(".update").each(function(){
+    //    $(this).click(function(){
+    //        $(".tplayer").fadeIn(500);
+    //        $(".address_layer").fadeIn(500);
+
+    //        var name=$(this).parents(".add-list").find(".consignee-name").text();
+    //        var phone=$(this).parents(".add-list").find(".contact-phone").text();
+    //        var sheng1 =$(this).parents(".add-list").find(".sheng").text();
+    //        var shi1 =$(this).parents(".add-list").find(".shi").text();
+    //        var qu1 =$(this).parents(".add-list").find(".qu").text();
+    //        var area1 =$(this).parents(".add-list").find(".area").text();
+    //        console.log(sheng1)
+    //        console.log(shi1)
+    //        console.log(qu1)
+
+    //        $(".receivername").val(name);
+    //        $(".mobile").val(phone);
+    //        $(".province").find("option[value="+sheng1+"]").attr("selected",true);
+    //        $(".city").find("option[value="+shi1+"]").attr("selected",true);
+    //        $(".district").find("option[value="+qu1+"]").attr("selected",true);
+    //        $(".address").val(area1);
+
+    //    })
+    //});
+    $(".layer_close").click(function(){
+        $(".tplayer").fadeOut(500);
+        $(".address_layer").fadeOut(500)
+    });
+
+    $(".btnWhite").click(function(){
+        $(".tplayer").fadeOut(500);
+        $(".address_layer").fadeOut(500)
+    });
+
+    /*添加地址*/
+    $(".add-address").click(function(){
+        $(".tplayer").fadeIn(500);
+        $(".address_layer").fadeIn(500)
+    })
+
+    $(".btn_white").click(function(){
+        event.stopPropagation();
+        $(".item_del").addClass("hide")
+    });
+    //$(".btn_red").click(function(){
+    //    $(this).parents(".add-list").remove()
+    //});
+
+ 
+
+
+</script>
+
+

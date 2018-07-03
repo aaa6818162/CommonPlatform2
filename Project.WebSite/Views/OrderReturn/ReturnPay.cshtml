@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "退货";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+
+    <link rel="stylesheet" href="/Resource/css/submit.css">
+    <link href="~/Resource/css/Site.css" rel="stylesheet" />
+}
+
+<div class="add-content">
+    <div class="container clearfix">
+        <div class="invoice">
+
+            <div class="invoice-tit">退款信息</div>
+            <div class="invoice_wrapper" style="background-color: white">
+                <table class="mtable">
+                    <tr>
+                        <td style="width: 150px">
+                            退款原因<span style="color: Red">*</span>：
+                        </td>
+                        <td>
+                            <select id="ReturnPayNoSendReason" name="ReturnPayNoSendReason">
+                                <option value=""></option>
+                                <option value="质量太差">质量太差</option>
+                                <option value="延时发货">延时发货</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>退款备注：</td>
+                        <td><input type="text" id="ReturnPayNoSendRemark" name="ReturnPayNoSendRemark" style="width: 300px"/></td>
+                    </tr>
+                    <tr><td></td>
+                        <td>
+                            <input type="button" value="保存" onclick="Save()" class="btn"/>
+                            <input type="button" value="取消" onclick="javascript: window.history.back(-1);" class="btn-gary" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function Save() {
+
+        var postData = {
+            orderNo: pro.commonKit.getUrlParam("OrderNo"),
+            returnPayNoSendReason: $("#ReturnPayNoSendReason").val(),
+            returnPayNoSendRemark: $("#ReturnPayNoSendRemark").val()
+        };
+
+        var data = $.ajax({
+            dataType: 'json',
+            type: 'POST',
+            contentType: 'application/json',
+            url: "/OrderReturn/ApplyReturnMoney",
+            data: JSON.stringify(postData),
+            cache: false,
+            async: false
+        }).responseText;
+
+        data = jQuery.parseJSON(data);
+
+        if (data.success) {
+            window.history.back(-1);
+        } else {
+            layer.alert("操作失败");
+        }
+    }
+
+</script>
