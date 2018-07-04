@@ -1,0 +1,404 @@
+﻿
+
+
+
+
+@{
+    ViewBag.Title = "Hd";
+    Layout = "~/Views/Shared/_LayoutHandler.cshtml";
+}
+
+@section JavaScript{
+    <script src="/Areas/OrderManager/Scripts/OrderMain/Detail.js?JsParamter=@SiteConfig.GetConfig().JsParamter"></script>
+}
+<div style="display: none">
+    <input id="BindEntity" type="text" value="@ViewBag.BindEntity" />
+    <input id="Command" type="hidden" />
+</div>
+<div class="mtable_div">
+    <form id="form1">
+
+        <div class="easyui-tabs" style="height: 0px;" border="false">
+            <div title="订单基本信息">
+            </div>
+        </div>
+        <table class="mtable">
+            <tr>
+                <td style="width: 100px">
+                    订单号:
+                </td>
+                <td>
+                    <input id="OrderNo" name="OrderNo" type="text" style="width: 150px" />
+                </td>
+
+                <td style="width: 100px">
+                    订单总价:
+                </td>
+                <td>
+                    <input id="Totalamount" name="Totalamount" type="text" />
+                </td>
+
+                <td style="width: 100px">
+                    会员姓名:
+                </td>
+                <td colspan="3">
+                    <input id="CustomerName" name="CustomerName" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    联系人:
+                </td>
+                <td>
+                    <input id="Linkman" name="Linkman" type="text" />
+                </td>
+
+                <td>
+                    联系人电话:
+                </td>
+                <td>
+                    <input id="LinkmanTel" name="LinkmanTel" type="text" />
+                </td>
+
+                <td>
+                    联系人手机:
+                </td>
+                <td>
+                    <input id="LinkmanMobilephone" name="LinkmanMobilephone" type="text" />
+                </td>
+
+                <td>
+                    联系人邮政编码:
+                </td>
+                <td>
+                    <input id="LinkmanPostcode" name="LinkmanPostcode" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    联系人配送地址:
+                </td>
+                <td colspan="7">
+                    <input id="LinkmanAddressfull" name="LinkmanAddressfull" type="text" style="width: 500px" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    联系人送货备注:
+                </td>
+                <td colspan="7">
+                    <textarea id="LinkmanRemark" name="LinkmanRemark" type="text" style="width: 300px; height: 100px"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    支付方式:
+                </td>
+                <td>
+                    <input id="PayType" name="PayType" type="text" />
+                </td>
+
+                <td>
+                    支付流水号:
+                </td>
+                <td>
+                    <input id="PaySerialNumber" name="PaySerialNumber" type="text" />
+                </td>
+
+                <td>
+                    确认支付时间:
+                </td>
+                <td>
+                    <input id="PayTime" name="PayTime" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    支付时间:
+                </td>
+                <td>
+                    <input id="BeginPayTime" name="BeginPayTime" type="text" />
+                </td>
+
+                <td>
+                    支付备注:
+                </td>
+                <td colspan="3">
+                    <input id="PayRemark" name="PayRemark" type="text"  style="width: 500px"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    发货时间:
+                </td>
+                <td>
+                    <input id="SendTime" name="SendTime" type="text" />
+                </td>
+
+                <td>
+                    发货备注:
+                </td>
+                <td>
+                    <input id="SendRemark" name="SendRemark" type="text" />
+                </td>
+
+                <td>
+                    快递单号:
+                </td>
+                <td>
+                    <input id="SendNo" name="SendNo" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    客户确认时间:
+                </td>
+                <td>
+                    <input id="ConfirmTime" name="ConfirmTime" type="text" />
+                </td>
+
+                <td>
+                    客户确认备注:
+                </td>
+                <td>
+                    <input id="ConfirmRemark" name="ConfirmRemark" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    取消订单时间:
+                </td>
+                <td>
+                    <input id="CancelTime" name="CancelTime" type="text" />
+                </td>
+
+                <td>
+                    取消订单原因:
+                </td>
+                <td>
+                    <input id="CancelRemark" name="CancelRemark" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    退货审核状态:
+                </td>
+                <td>
+                    <input id="ReturnAuditState" name="ReturnAuditState" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    退货状态:
+                </td>
+                <td>
+                    <input id="ReturnState" name="ReturnState" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    未发货退款申请原因:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendReason" name="ReturnPayNoSendReason" type="text" />
+                </td>
+
+                <td>
+                    未发货退款申请备注:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendRemark" name="ReturnPayNoSendRemark" type="text" />
+                </td>
+
+                <td>
+                    未发货退款申请时间:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendTime" name="ReturnPayNoSendTime" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    未发货退款申确认备注:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendConfirmRemark" name="ReturnPayNoSendConfirmRemark" type="text" />
+                </td>
+
+
+
+                <td>
+                    未发货退款确认时间:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendConfirmTime" name="ReturnPayNoSendConfirmTime" type="text" />
+                </td>
+
+                <td>
+                    未发货退款财务流水:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendSerialNumber" name="ReturnPayNoSendSerialNumber" type="text" />
+                </td>
+
+                <td>
+                    未发货退款支付方式:
+                </td>
+                <td>
+                    <input id="ReturnPayNoSendPayType" name="ReturnPayNoSendPayType" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    已发货退货申请原因:
+                </td>
+                <td>
+                    <input id="ReturnPrdAfterSendReason" name="ReturnPrdAfterSendReason" type="text" />
+                </td>
+
+                <td>
+                    已发货退货申请备注:
+                </td>
+                <td>
+                    <input id="ReturnPrdAfterSendRemark" name="ReturnPrdAfterSendRemark" type="text" />
+                </td>
+
+                <td>
+                    已发货退货申请时间:
+                </td>
+                <td>
+                    <input id="ReturnPrdAfterSendTime" name="ReturnPrdAfterSendTime" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    已发货退货审核时间:
+                </td>
+                <td>
+                    <input id="ReturnPrdAfterSendAuditTime" name="ReturnPrdAfterSendAuditTime" type="text" />
+                </td>
+
+                <td>
+                    已发货退货审核备注:
+                </td>
+                <td>
+                    <input id="ReturnPrdAfterSendAuditRemark" name="ReturnPrdAfterSendAuditRemark" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    退货商品快递单号:
+                </td>
+                <td>
+                    <input id="ReturnPrdSendNo" name="ReturnPrdSendNo" type="text" />
+                </td>
+
+                <td>
+                    退货商品发出时间:
+                </td>
+                <td>
+                    <input id="ReturnPrdSendTime" name="ReturnPrdSendTime" type="text" />
+                </td>
+
+                <td>
+                    退货商品备注:
+                </td>
+                <td>
+                    <input id="ReturnPrdSendRemak" name="ReturnPrdSendRemak" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    商家确认退货商品发出时间:
+                </td>
+                <td>
+                    <input id="ReturnPrdSendConfirmTime" name="ReturnPrdSendConfirmTime" type="text" />
+                </td>
+
+                <td>
+                    商家确认退货商品备注:
+                </td>
+                <td>
+                    <input id="ReturnPrdSendConfirmRemak" name="ReturnPrdSendConfirmRemak" type="text" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    退款财务流水:
+                </td>
+                <td>
+                    <input id="ReturnPayAfterSendSerialNumber" name="ReturnPayAfterSendSerialNumber" type="text" />
+                </td>
+
+                <td>
+                    退款备注:
+                </td>
+                <td>
+                    <input id="ReturnPayAfterSendRemark" name="ReturnPayAfterSendRemark" type="text" />
+                </td>
+
+                <td>
+                    退款时间:
+                </td>
+                <td>
+                    <input id="ReturnPayAfterSendTime" name="ReturnPayAfterSendTime" type="text" />
+                </td>
+
+                <td>
+                    退款支付方式:
+                </td>
+                <td>
+                    <input id="ReturnPayAfterSendPayType" name="ReturnPayAfterSendPayType" type="text" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    创建时间:
+                </td>
+                <td>
+                    <input id="CreationTime" name="CreationTime" type="text" />
+                </td>
+            </tr>
+
+
+
+        </table>
+
+
+        <div class="easyui-tabs" style="height: 0px;" border="false">
+            <div title="订单商品信息">
+            </div>
+        </div>
+
+        <div style="padding: 1px; height: 500px;">
+            <table id="datagrid" toolbar="#tb" fit="true"></table>
+        </div>
+
+        <table class="mtable"></table>
+    </form>
+
+
+
+
+</div>
+
+
+

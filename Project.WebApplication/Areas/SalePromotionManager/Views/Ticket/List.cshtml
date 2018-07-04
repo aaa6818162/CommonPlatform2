@@ -1,0 +1,97 @@
+﻿
+
+
+
+
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+@section JavaScript{
+    <script src="/Areas/SalePromotionManager/Scripts/Ticket/List.js?JsParamter=@SiteConfig.GetConfig().JsParamter" type="text/javascript"></script>
+}
+
+<div title="券列表" style="padding:1px;">
+    <table id="datagrid" style="height:auto;" iconcls=".icon-save" singleselect="true" toolbar="#tb" fit="true"></table>
+    <div id="tb" style="padding:5px;height:auto">
+        @*<div style="margin-bottom: 5px">
+                <a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" >添加</a>
+                <a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" >删除</a>
+                <a id="btnEdit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</a>
+                <a id="btnRefresh" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+            </div>*@
+
+        <div id="divSearch">
+            <form>
+
+                <table class="mtable">
+
+                    <tr>
+                        <td>
+                            券编号 :
+                        </td>
+                        <td>
+                            <input id="TicketCode" name="TicketCode" type="text" />
+                        </td>
+
+                        <td>
+                            券状态:
+                        </td>
+                        <td>
+                            <select id="Status" name="Status">
+                                <option value="">请选择</option>
+                                <option value="激活">激活</option>
+                                <option value="过期">过期</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            有效时间开始:
+                        </td>
+                        <td>
+                            <input id="AvaildateStart" name="AvaildateStart" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" />-<input id="AvaildateEnd" name="AvaildateEnd" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" />
+                        </td>
+
+                        <td>
+                            使用订单号:
+                        </td>
+                        <td>
+                            <input id="OrderNo" name="OrderNo" type="text" />
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            归属会员:
+                        </td>
+                        <td>
+                            <input id="CustomerId" name="CustomerId" type="text" />
+                        </td>
+
+                        <td>
+                            活动Id:
+                        </td>
+                        <td>
+                            <select id="ActivityId" name="ActivityId">
+                                <option value="">请选择</option>
+                                @(new HtmlString(ViewBag.ActivityHtml))
+                            </select>
+                        </td>
+
+                        <td colspan="2">
+                            <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSearch">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
