@@ -1,0 +1,142 @@
+﻿
+
+
+
+
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+
+@section JavaScript{
+    <script src="/Areas/OrderManager/Scripts/OrderMain/List.js?JsParamter=@SiteConfig.GetConfig().JsParamter" type="text/javascript"></script>
+}
+
+<div title="订单管理列表" style="padding:1px;">
+    <table id="datagrid" style="height:auto;" iconcls=".icon-save" singleselect="true" toolbar="#tb" fit="true"></table>
+    <div id="tb" style="padding:5px;height:auto">
+        <div style="margin-bottom: 5px">
+            <a id="btnView" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">查看订单详情</a>
+
+            <a id="btnViewAll" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">查看订单详情（全）</a>
+
+            @*<a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增订单（待删除）</a>
+
+                <a id="btnPay" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">订单付款（待删除）</a>*@
+
+            <a id="btnCancel" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">取消订单</a>
+
+            <a id="btnSend" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">发货</a>
+
+            <a id="btnConfirm" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">完结</a>
+            @*<br />*@
+
+            @*<a id="btnReturnPayNoSend" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">退款申请_未发货（待删除）</a>*@
+
+            <a id="btnReturnPayNoSendConfirm" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">确认退款_未发货</a>
+
+            @*<br />*@
+
+            @*<a id="btnReturnPrdAfterSend" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">退货申请_已发货（待删除）</a>*@
+
+            <a id="btnReturnPrdAfterSendAudit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">退货审核</a>
+
+            <a id="btnReturnPrdSend" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">客户退货</a>
+
+            <a id="btnReturnPrdSendConfirm" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">商家收货</a>
+
+
+            <a id="btnReturnPayAfterSend" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">确认退款_已发货</a>
+
+
+            <a id="btnRefresh" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+
+        </div>
+
+        <div id="divSearch">
+            <form>
+                <table class="mtable">
+                    <tr>
+                        <td>
+                            订单号:
+                        </td>
+                        <td>
+                            <input id="OrderNo" name="OrderNo" type="text" style="width: 200px" />
+                        </td>
+                        <td>
+                            订单状态:
+                        </td>
+                        <td>
+                            <select id="State" name="State">
+                                <option value="-1"></option>
+                                <option value="1">待付款</option>
+                                <option value="2">已付款</option>
+                                <option value="3">已发货</option>
+                                <option value="4">取消</option>
+                                <option value="5">已完结</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            订单退货状态:
+                        </td>
+                        <td>
+                            <select id="ReturnState" name="ReturnState">
+                                <option value="-1"></option>
+                                <option value="0">待退货退款</option>
+                                <option value="1">申请退货</option>
+                                <option value="2">退货审核通过</option>
+                                <option value="3">退货审核拒绝</option>
+                                <option value="4">客户退货</option>
+                                <option value="5">收货确认</option>
+                                <option value="6">确认退款</option>
+                                <option value="10">申请退款</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            联系人手机/电话:
+                        </td>
+                        <td>
+                            <input id="LinkmanMobilephone" name="LinkmanMobilephone" type="text" />
+                        </td>
+
+                        <td>
+                            会员姓名:
+                        </td>
+                        <td>
+                            <input id="CustomerName" name="CustomerName" type="text" />
+                        </td>
+                        <td>
+                            发货快递单号:
+                        </td>
+                        <td>
+                            <input id="SendNo" name="SendNo" type="text" />
+                        </td>
+                        <td>
+                            退货快递单号:
+                        </td>
+                        <td>
+                            <input id="ReturnPrdSendNo" name="ReturnPrdSendNo" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>订单创建时间：</td>
+                        <td><input id="Whe_CreateDateStart" name="Whe_CreateDateStart" type="text"  onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});"/>-<input id="Whe_CreateDateEnd" name="Whe_CreateDateEnd" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" /></td>
+
+                        <td>
+                            <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnSearch">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
