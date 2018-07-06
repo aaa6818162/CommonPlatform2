@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <title>线下活动</title>
+    <link rel="stylesheet" href="./css/offline_activity.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./assets/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./assets/areaSelect/areaStyle.css">
+    <link rel="stylesheet" href="./assets/dateSelect/dateSelect.css">
+</head>
+
+<body>
+
+
+<!-- 顶部 -->
+<div class="site-nav">
+    <div class="container clearfix">
+        <!-- 左边 -->
+        <div class="txt-info fl">
+
+            <div class="site-nav-menu-hd">
+                <div class="site-nav-sign">
+                    <a href="./user/login.html">马上登录</a>
+                    <i class="spacer"></i>
+                    <a href="./register/registerName.html" class="red">立即注册</a>
+                </div>
+                <div class="site-nav-user hide">
+                    <a href="./user/user.html">欢迎您,1575519086</a>
+                    <span class="iconfont icon-jiantou12"></span>
+
+                    <div class="site-nav-menu-bd">
+                        <div class="bd-main">
+                            <div class="site-nav-user-wrapper fl">
+                                <a href="./user/user.html">
+                                    <img src="./images/user.png" alt="">
+                                </a>
+                            </div>
+                            <div class="site-nav-user-info">
+                                <div class="d-text"><a href="#">账户管理</a></div>
+                                <div class="quit"><a href="#">退出</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- 右边 -->
+        <ul class="quick-menu fr">
+            <li>
+                <span class="iconfont icon-74wodedingdan"></span>
+                <a href="./user/order.html">我的订单</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="red iconfont icon-gouwuchekong"></span>
+                <a href="car.html">我的购物车
+                    (<i class="red">0</i>)</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-shoucang"></span>
+                <a href="collection.html">收藏记录</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-wo"></span>
+                <a href="./user/user.html">用户中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 头部 -->
+<header>
+    <div class="container clearfix">
+        <div class="logo fl">
+            <a href="./index.html">
+                <img src="./images/common/LOGO.png" alt="">
+            </a>
+        </div>
+        <div class="service-tel fr">
+            <span class="iconfont icon-dianhua"></span>
+            客服电话：
+            <span class="tel"> 4008-816-616</span>
+        </div>
+    </div>
+</header>
+
+<!-- 导航 栏-->
+<nav>
+    <div class="container clearfix">
+        <div class="line"></div>
+        <ul class="nav_list">
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+
+            <li>
+                <a href="./brand_story.html">品牌故事</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="./talents.html">人才大师</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="javaScript:;">IP+产品</a>
+                <div class="iconfont icon-sanjiaoxia"></div>
+                <div class="submenu">
+                    <ol>
+                        <li>
+                            <a href="sortList.html">天才发明家</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">小毛毛</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">星际特工</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">长尾豹马修</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">百变马丁</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">丁丁历险记</a>
+                        </li>
+                    </ol>
+                </div>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="./offline_activity.html" class="active2">线下活动</a>
+                <i class="spacer3"></i>
+                <em class="spacer4 show"></em>
+            </li>
+        </ul>
+        <div class="search fr">
+            <form action="">
+                <span class="iconfont icon-sousuo"></span>
+                <button type="submit" class="button_goods">搜索</button>
+                <input type="text" class="search_goods" placeholder="搜索商品/店铺">
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+
+<!--内容-->
+<div class="activity-content">
+    <div class="container clearfix">
+        <div class="activity-tit">
+            <span class="fl">线下活动</span>
+            <input type="text" name="" id="area_input" class="area_input" placeholder="地区">
+            <input type="text" id="date" placeholder="时间">
+            <a class="many-activity fr" href="#">更多>></a>
+        </div>
+        <div class="activity-main">
+            <ul class="activity-list clearfix">
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="activity-item">
+                    <a href="activity-detailes.html">
+                        <div class="a-img">
+                            <img src="./images/a1.png" alt="">
+                        </div>
+                        <div class="a-name">北京水立方中心</div>
+                        <div class="a-date">活动时间：2018-04-26</div>
+                        <div class="a-theme">活动主题：大型商品发布会</div>
+                        <div class="a-bar">
+                            <div class="a-location fl">
+                                <span class="iconfont icon-location"></span>
+                                <span>朝阳区</span>
+                            </div>
+                            <div class="a-num fr">
+                                <span class="iconfont icon-wodepaidui"></span>
+                                <span>5000人</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="load-more">加载更多>></a>
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<!-- 底部 -->
+<footer>
+    <div class="navFooter">
+        <div class="container clearfix">
+            <div class="footer_content">
+                <dl class="navFooter_list fl">
+                    <dt>会员中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">注册登录</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">会员制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">购物流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">积分说明</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>售后服务</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">退换货政策</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">退换货流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">发票制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">投诉建议</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>商家中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">免费入驻</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">后台管理</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">商家协议</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">注意事项</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>公司介绍</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">关于我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">联系我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">客服电话</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">公司地址</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="special">
+                    <ul class="fl">
+                        <li>
+                            <h3>客服热线：
+                                <img src="./images/common/tel1.png" alt="">
+                            </h3>
+                            <p>4008-816-616</p>
+                        </li>
+                        <li>
+                            <h3>投诉建议：
+                                <img src="./images/common/tel2.png" alt="">
+                            </h3>
+                            <p>0571-86673122</p>
+                        </li>
+                    </ul>
+                    <span class="spacer1"></span>
+                    <dl class="fl">
+                        <dt>
+                            <img src="images/common/ewm.png">
+                        </dt>
+                        <dd>扫一扫 下载APP</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <ul class="footer_nav">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./brand_story.html">品牌故事</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./talents.html">人才大师</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./offline_activity.html">线下活动</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="navFooterLine">
+        <div class="container">
+            <ul>
+                <li> 版权所有 © 杭州滨雅科技有限公司 未经许可 严禁复制</li>
+                <li> Copyright 2012- 2018. All Rights Reserved.</li>
+                <li>浙ICP备15018765号-2</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+<script type="text/javascript" src="./assets/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./assets/iconfont/iconfont.js"></script>
+<script type="text/javascript" src="./js/jquery.pagination.min.js"></script>
+<script type="text/javascript" src="./assets/areaSelect/area.js"></script>
+<script type="text/javascript" src="./assets/areaSelect/charfirstPinyin.js"></script>
+<script type="text/javascript" src="./assets/dateSelect/dateSelect.js"></script>
+
+
+
+
+<script>
+    $(function(){
+        var _hmt = _hmt || [];
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?40dc61e58e9c6d01dc54632d17797640";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        $('#area_input').areaSelector();
+        $("#date").dateSelect();
+    })
+
+</script>
+</body>
+</html>

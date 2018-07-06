@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <title>提交订单</title>
+    <link rel="stylesheet" href="css/submit.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="assets/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./assets/dateSelect/dateSelect.css">
+</head>
+
+<body>
+<!-- 顶部 -->
+<div class="site-nav">
+    <div class="container clearfix">
+        <!-- 左边 -->
+        <div class="txt-info fl">
+            <div class="site-nav-sign hide">
+                <a href="./user/login.html">马上登录</a>
+                <i class="spacer"></i>
+                <a href="./register/registerName.html" class="red">立即注册</a>
+            </div>
+            <div class="site-nav-m">
+                <ul class="site-nav-user">
+                    <li class="u-name"><a  href="./user/user.html">欢迎您,1575519086阿斯蒂芬阿斯蒂芬阿斯蒂芬阿萨德</a></li>
+                    <li class="spacer"></li>
+                    <li class="quit"><a href="#">退出</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- 右边 -->
+        <ul class="quick-menu fr">
+            <li>
+                <span class="iconfont icon-74wodedingdan"></span>
+                <a href="./user/order.html">我的订单</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="red iconfont icon-gouwuchekong"></span>
+                <a href="car.html">我的购物车
+                    (<i class="red">0</i>)</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-shoucang"></span>
+                <a href="collection.html">收藏记录</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-wo"></span>
+                <a href="./user/user.html">用户中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 头部 -->
+<header>
+    <div class="container clearfix">
+        <div class="logo fl">
+            <a href="index.html">
+                <img src="./images/common/LOGO.png" alt="">
+            </a>
+        </div>
+        <div class="search fr">
+            <form action="">
+                <span class="iconfont icon-sousuo"></span>
+                <button type="submit" class="button_goods">搜索</button>
+                <input type="text" class="search_goods" placeholder="搜索商品/店铺">
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- 导航 栏-->
+<nav>
+    <div class="container clearfix">
+        <ul class="nav_list">
+            <li>
+                <a class="red" href="index.html">首页</a>
+            </li>
+
+            <li>
+                <a href="./brand_story.html">品牌故事</a>
+            </li>
+
+            <li>
+                <a href="./talents.html">人才大师</a>
+            </li>
+
+            <li>
+                <a href="javaScript:;">IP+产品</a>
+                <div class="submenu">
+                    <ol>
+                        <li>
+                            <a href="sortList.html">天才发明家</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">小毛毛</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">星际特工</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">星际特工</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">星际特工</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">长尾豹马修</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">百变马丁</a>
+                        </li>
+                        <li>
+                            <a href="sortList.html">丁丁历险记</a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="./offline_activity.html">线下活动</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--内容-->
+<div class="add-content">
+    <div class="container clearfix">
+        <!--购物步骤-->
+        <div class="steps">
+            <ul>
+                <li>我的购物车<span></span></li>
+                <li class="active">确定订单信息<span></span></li>
+                <li>选择支付方式<span></span></li>
+                <li>完成<span></span></li>
+            </ul>
+        </div>
+
+        <div class="address">
+            <div class="add-tit">收货信息</div>
+            <div class="add-list clearfix">
+               <ul>
+                   <li class="add-item active">
+                       <div class="add-ht">
+                           <span class="prov">浙江</span>
+                           <span class="city">杭州余杭区</span>
+                           <span class=" bracket">(</span>
+                           <span class="name">陈先生</span>
+                           <span class=" bracket"> 收)</span>
+                       </div>
+                       <div class="add-hb">
+                           <span class="town">崇贤</span>
+                           <span class="street">崇贤街道创新创业产业园A区302</span>
+                           <span class="phone">15305655621</span>
+                       </div>
+                       <div class="add-toolbar active">
+                           <a href="#" class="amend">修改地址</a>
+                           <a href="#" class="default">设为默认地址</a>
+                       </div>
+                   </li>
+                   <li class="add-item">
+                       <div class="add-ht">
+                           <span class="prov">浙江</span>
+                           <span class="city">杭州余杭区</span>
+                           <span class=" bracket">(</span>
+                           <span class="name">陈先生</span>
+                           <span class=" bracket"> 收)</span>
+                       </div>
+                       <div class="add-hb">
+                           <span class="town">崇贤</span>
+                           <span class="street">崇贤街道创新创业产业园A区302</span>
+                           <span class="phone">15305655621</span>
+                       </div>
+                       <div class="add-toolbar">
+                           <a href="#" class="amend">修改地址</a>
+                           <a href="#" class="default">设为默认地址</a>
+                       </div>
+                   </li>
+                   <li class="add-site ">
+                       <span class="iconfont icon-zengjiaanniu"></span>
+                       <span>新增地址</span>
+                   </li>
+               </ul>
+           </div>
+        </div>
+        <!--配送信息-->
+        <div class="distribution">
+            <div class="dis-tit">配送信息</div>
+            <div class="dis_wrapper">
+                    <div class="form_group">
+                        <label>配送方式</label>
+                        <span>
+                            <span class="ship_radio">
+                                <input type="radio" checked="checked"  name="delivery" value="10"/>快递发货
+                            </span>
+                            <span class="ship_radio" >
+                                <input type="radio" name="delivery" value="3"/>物流送货
+                            </span>
+                            <span class="ship_radio">
+                                <input type="radio" name="delivery" value="1"/>仓库自提
+                            </span>
+                        </span>
+                        <span class="text_tips">( 如有特别配送要求，请致电Harbor House客服4008881916）</span>
+                    </div>
+                    <div class="form_group">
+                        <label>送货日期</label>
+                        <input type="text" id="date" placeholder="时间">
+                        <span class="text_info"><a href="#">［查看物流规则］</a></span>
+                    </div>
+                    <div class="form_group">
+                        <label>运费共计</label>
+                        <span class="ship_price">￥<span>0.00</span> 元</span>
+                    </div>
+            </div>
+        </div>
+
+
+        <!--发票信息-->
+        <div class="invoice">
+            <div class="invoice-tit">发票信息</div>
+                <div class="invoice_wrapper">
+                        <div class="form_group">
+                            <label>发票类型</label>
+                            <span class="ship_radio">
+                                <input  name="invoice" type="radio" checked="checked" value="0" />不开发票
+                            </span>
+                            <span class="ship_radio">
+                                <input  name="invoice" type="radio" value="1" />普通发票
+                            </span>
+                            <span class="ship_radio">
+                                <input name="invoice" type="radio" value="2" />增值税发票
+                            </span>
+                            <span class="text_tips">( 如需开增值税发票，请致电Harbor House客服4008881916）</span>
+                        </div>
+                </div>
+
+        </div>
+
+
+        <div class="affirm">
+            <div class="aff-tit">确认订单信息</div>
+
+            <table class="aff-main">
+                <thead>
+                     <tr>
+                         <th class="w280">商品信息</th>
+                         <th class="w280">商品属性</th>
+                         <th class="w160">单价</th>
+                         <th class="w160">数量</th>
+                         <th class="w160">优惠方式</th>
+                         <th class="w140">小计</th>
+
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w280">Razer雷蛇 曼巴眼镜蛇...</td>
+                        <td class="w280">颜色分类：颜色</td>
+                        <td class="w160">0</td>
+                        <td class="w160">0</td>
+                        <td class="w140">无优惠</td>
+                        <td class="w140 price">34392.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="summary_container clearfix">
+                <div class="Coupon fl">
+                    <h5>您享受的优惠信息：</h5>
+                    <ul class="Coupon-info">
+                        <li>获得20积分</li>
+                        <li>获得礼品一组</li>
+                        <li>获得一张优惠券</li>
+                    </ul>
+                </div>
+                <div class="summary fr">
+                    <dl>
+                        <dt>运费：</dt>
+                        <dd>￥100</dd>
+                    </dl>
+                    <dl>
+                        <dt>折扣价：</dt>
+                        <dd>￥100</dd>
+                    </dl>
+                    <dl>
+                        <dt>优惠券：</dt>
+                        <dd>(3)</dd>
+                    </dl>
+                    <div class="order-facility">
+                        <ul class="facility fr">
+                            <li class="fil">
+                                <input type="radio" name="checkbox" value="1" />
+                                <span class="text">20180524165423</span>
+                            </li>
+                            <li class="fil">
+                                <input type="radio" name="checkbox" value="2" />
+                                <span class="text">20180524165424</span>
+                            </li>
+                            <li class="fil">
+                                <input type="radio" name="checkbox" value="3" />
+                                <span class="text">20180524165425</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <dl>
+                        <dt>使用优惠券：</dt>
+                        <dd>-￥10</dd>
+                    </dl>
+                    <dl>
+                        <dt>总计费用（含运费） ：</dt>
+                        <dd>￥1000</dd>
+                    </dl>
+
+                </div>
+            </div>
+
+                <div class="order-submitOrder">
+                    <div class="wrapper">
+                        <a href="car.html" class="go-back">
+                            <span class="iconfont icon-fanhui"></span>
+                            <span>返回购物车</span>
+                        </a>
+                        <a href="pay.html" class="go-btn">提交订单</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+
+
+
+<!-- 底部 -->
+<footer>
+    <div class="navFooter">
+        <div class="container clearfix">
+            <div class="footer_content">
+                <dl class="navFooter_list fl">
+                    <dt>会员中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">注册登录</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">会员制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">购物流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">积分说明</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>售后服务</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">退换货政策</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">退换货流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">发票制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">投诉建议</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>商家中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">免费入驻</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">后台管理</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">商家协议</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">注意事项</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>公司介绍</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">关于我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">联系我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">客服电话</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">公司地址</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="special">
+                    <ul class="fl">
+                        <li>
+                            <h3>客服热线：
+                                <img src="./images/common/tel2.png" alt="">
+                            </h3>
+                            <p>4008-816-616</p>
+                        </li>
+                        <li>
+                            <h3>投诉建议：
+                                <img src="./images/common/tel2.png" alt="">
+                            </h3>
+                            <p>0571-86673122</p>
+                        </li>
+                    </ul>
+                    <span class="spacer1"></span>
+                    <dl class="fl">
+                        <dt>
+                            <img src="./images/common/ewm.png">
+                        </dt>
+                        <dd>扫一扫 下载APP</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <ul class="footer_nav">
+                <li>
+                    <a href="./index.html">首页</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="brand_story.html">品牌故事</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="talents.html">人才大师</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="offline_activity.html">线下活动</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="navFooterLine">
+        <div class="container">
+            <ul>
+                <li> 版权所有 © 杭州滨雅科技有限公司 未经许可 严禁复制</li>
+                <li> Copyright 2012- 2018. All Rights Reserved.</li>
+                <li>浙ICP备15018765号-2</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+
+<script type="text/javascript" src="./assets/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/car.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./assets/iconfont/iconfont.js"></script>
+<script type="text/javascript" src="./assets/dateSelect/dateSelect.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?40dc61e58e9c6d01dc54632d17797640";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    $(function () {
+        $(".add-list>ul>.add-item").each(function(){
+            $(this).click(function(){
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active");
+                $(this).children(".add-toolbar").show();
+                $(this).siblings().children(".add-toolbar").hide();
+            });
+        });
+
+        $("#date").dateSelect();
+    })
+</script>
+</body>
+</html>

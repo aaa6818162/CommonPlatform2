@@ -1,0 +1,429 @@
+/*轮播图*/
+#banner {
+  height: 360px;
+  width: 100%;
+  overflow: hidden;
+}
+#banner .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/*品质优选*/
+.stage {
+  width: 100%;
+  margin-top: 40px;
+}
+.stage .stage-hd {
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+  line-height: 50px;
+  padding-left: 28px;
+  font-size: 28px;
+  font-weight: 500;
+}
+.stage .stage-main {
+  margin-top: 36px;
+}
+#quality {
+  height: 320px;
+  width: 100%;
+  overflow: hidden;
+}
+#quality .swiper-slide:hover {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.22);
+}
+#quality .swiper-slide {
+  width: 230px;
+  height: 320px;
+  padding: 25px;
+  background-color: #ffffff;
+}
+#quality .swiper-slide .s-img {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+}
+#quality .swiper-slide .s-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#quality .swiper-slide .s-name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 24px;
+  font-size: 14px;
+  color: #333333;
+  margin-top: 10px;
+}
+#quality .swiper-slide .s-price {
+  text-align: center;
+  color: #f43738;
+  font-size: 18px;
+  margin-top: 10px;
+}
+#quality .swiper-button-prev,
+#quality .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  text-align: center;
+  opacity: 1;
+  display: none;
+  font-size: 16px;
+}
+#quality:hover .swiper-button-prev,
+#quality:hover .swiper-button-next {
+  display: block;
+}
+.img-hover:hover {
+  opacity: 0.8;
+}
+/*时尚达人*/
+.fashion {
+  width: 100%;
+  height: 650px;
+}
+.fashion .box-sort-l {
+  width: 230px;
+  height: 100%;
+}
+.fashion .box-sort-l .sort-l-top {
+  width: 230px;
+  height: 440px;
+  overflow: hidden;
+}
+.fashion .box-sort-l .sort-l-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fashion .box-sort-l .sort-l-down {
+  width: 230px;
+  height: 200px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.fashion .box-sort-l .sort-l-down img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fashion .box-sort-m {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+  margin-left: 8px;
+}
+.fashion .box-sort-m .sort-m-top {
+  width: 430px;
+  height: 280px;
+  overflow: hidden;
+}
+.fashion .box-sort-m .sort-m-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fashion .box-sort-m .sort-m-down {
+  width: 430px;
+  height: 300px;
+  margin-top: 30px;
+}
+.fashion .box-sort-m .sort-m-down .m-down-l,
+.fashion .box-sort-m .sort-m-down .m-down-r {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.fashion .box-sort-m .sort-m-down .m-down-l img,
+.fashion .box-sort-m .sort-m-down .m-down-r img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fashion .box-sort-r {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+}
+.fashion .box-sort-r .sort-r-top {
+  width: 430px;
+  height: 280px;
+  overflow: hidden;
+}
+.fashion .box-sort-r .sort-r-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fashion .box-sort-r .sort-r-down {
+  width: 430px;
+  height: 300px;
+  margin-top: 30px;
+}
+.fashion .box-sort-r .sort-r-down .m-down-l,
+.fashion .box-sort-r .sort-r-down .m-down-r {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.fashion .box-sort-r .sort-r-down .m-down-l img,
+.fashion .box-sort-r .sort-r-down .m-down-r img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/*居家优品*/
+.houses {
+  width: 100%;
+  height: 650px;
+}
+.houses .box-sort-l {
+  width: 230px;
+  height: 100%;
+}
+.houses .box-sort-l .sort-l-top {
+  width: 230px;
+  height: 440px;
+  overflow: hidden;
+}
+.houses .box-sort-l .sort-l-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.houses .box-sort-l .sort-l-down {
+  width: 230px;
+  height: 200px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.houses .box-sort-l .sort-l-down img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.houses .box-sort-m {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+  margin-left: 8px;
+}
+.houses .box-sort-m .sort-m-top {
+  width: 430px;
+  height: 280px;
+  overflow: hidden;
+}
+.houses .box-sort-m .sort-m-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.houses .box-sort-m .sort-m-down {
+  width: 430px;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.houses .box-sort-m .sort-m-down img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.houses .box-sort-r {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+}
+.houses .box-sort-r .sort-r-top {
+  width: 430px;
+  height: 280px;
+}
+.houses .box-sort-r .sort-r-top .m-top-l,
+.houses .box-sort-r .sort-r-top .m-top-r {
+  width: 200px;
+  height: 280px;
+  overflow: hidden;
+}
+.houses .box-sort-r .sort-r-top .m-top-l img,
+.houses .box-sort-r .sort-r-top .m-top-r img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.houses .box-sort-r .sort-r-down {
+  width: 430px;
+  height: 300px;
+  margin-top: 30px;
+}
+.houses .box-sort-r .sort-r-down .m-down-l,
+.houses .box-sort-r .sort-r-down .m-down-r {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.houses .box-sort-r .sort-r-down .m-down-l img,
+.houses .box-sort-r .sort-r-down .m-down-r img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/*热卖专区*/
+.hot-sale {
+  width: 100%;
+  height: 650px;
+}
+.hot-sale .box-sort-l {
+  width: 230px;
+  height: 100%;
+  margin-top: -9px;
+}
+.hot-sale .box-sort-l li {
+  width: 230px;
+  height: 210px;
+  overflow: hidden;
+  margin-top: 9px;
+}
+.hot-sale .box-sort-l li img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hot-sale .box-sort-m {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+  margin-left: 8px;
+}
+.hot-sale .box-sort-m .sort-m-top {
+  width: 430px;
+  height: 280px;
+  overflow: hidden;
+}
+.hot-sale .box-sort-m .sort-m-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hot-sale .box-sort-m .sort-m-down {
+  width: 430px;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.hot-sale .box-sort-m .sort-m-down img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hot-sale .box-sort-r {
+  width: 467px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 18px;
+}
+.hot-sale .box-sort-r .sort-r-top {
+  width: 430px;
+  height: 280px;
+}
+.hot-sale .box-sort-r .sort-r-top img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hot-sale .box-sort-r .sort-r-down {
+  width: 430px;
+  height: 300px;
+  margin-top: 30px;
+}
+.hot-sale .box-sort-r .sort-r-down .m-down-l,
+.hot-sale .box-sort-r .sort-r-down .m-down-r {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+.hot-sale .box-sort-r .sort-r-down .m-down-l img,
+.hot-sale .box-sort-r .sort-r-down .m-down-r img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/*线下活动*/
+.activity {
+  width: 100%;
+  margin-bottom: 60px;
+}
+.activity .activity-items {
+  margin-left: -20px;
+}
+.activity .activity-items .activity-item:hover .activity-info {
+  display: block;
+}
+.activity .activity-items .activity-item {
+  float: left;
+  margin-left: 20px;
+  width: 380px;
+  height: 242px;
+  position: relative;
+}
+.activity .activity-items .activity-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.activity .activity-items .activity-item .activity-info {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 199;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px 0 0 26px;
+  color: #ffffff;
+}
+.activity .activity-items .activity-item .activity-info .activity-theme {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.activity .activity-items .activity-item .activity-info .activity-add,
+.activity .activity-items .activity-item .activity-info .activity-time {
+  line-height: 32px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 18px;
+}
+.activity .activity-items .activity-item .activity-info .activity-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 14px;
+}
+.activity .activity-items .activity-item .activity-info .details-name {
+  width: 94px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  border: solid 1px #ffffff;
+  text-align: center;
+  margin: 20px auto 0;
+}

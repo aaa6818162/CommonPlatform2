@@ -1,0 +1,138 @@
+﻿@model Syncsoft.StoreSystem.Contracts.DTO.SystemBase.UserDTO
+@{
+    ViewBag.Title = "查看用户";
+}
+
+@section HeaderContent
+{
+}
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="javascript:void(0);">查看用户</a></li>
+</ul>
+<br />
+<div class="container-fluid">
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="number">工号</label>
+                <div class="col-md-4">
+                    <input class="form-control" name="number" id="number" readonly value="@Model.Number" type="text" placeholder="请输入工号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">姓名</label>
+                <div class="col-md-4">
+                    <input class="form-control" id="name" value="@Model.Name" readonly placeholder="" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">状态</label>
+                <div class="col-md-4">
+                    @if (Model.Status == 1)
+                    {
+                        <a class="btn btn-success btn-sm disabled">启用</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-danger btn-sm disabled">停用</a>
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">角色</label>
+                <div class="col-md-10">
+                    @foreach (var role in ViewBag.Roles as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.RoleDTO>)
+                    {
+                        if (Model.Roles.Contains(role.RoleID))
+                        {
+                            <a class="btn btn-default btn-sm" disabled>@role.Name</a>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">门店</label>
+                <div class="col-md-10">
+                    <fieldset>
+                        <legend>HH</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "HH" && Model.Stores.Contains(store.Id))
+                            {
+                                <a class="btn btn-default btn-xs" disabled>@store.Name</a>
+                            }
+                        }
+                        <br /><br />
+                        <legend>InkIvy</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "InkIvy" && Model.Stores.Contains(store.Id))
+                            {
+                                <a class="btn btn-default btn-xs" disabled>@store.Name</a>
+                            }
+                        }
+                        <br /><br />
+                        <legend>TAO</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "TAO" && Model.Stores.Contains(store.Id))
+                            {
+                                <a class="btn btn-default btn-xs" disabled>@store.Name</a>
+                            }
+                        }
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Url.Action("Index")" class='btn btn-default'>返 回</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+    <script>
+        $("#save").click(function (data) {
+            var name = $("#name").val();
+            if (!name) {
+                return Message.alert("缺少用户名，请从EHR获取要添加用户的姓名");
+            }
+
+            var Roles = Array();
+            $("[for=Role]:checked").each(function () {
+                Roles.push($(this).val());
+            });
+
+            var Stores = Array();
+            $("[for=Store]:checked").each(function () {
+                Stores.push($(this).val());
+            });
+
+            var status = $("#Status:checked").val();
+
+            $.post(
+                '@Url.Action("_Update")',
+                {
+                    UserId: "@Model.UserId",
+                    Name: name, Status: (status == 1)?1:0,
+                    Roles: Roles, Stores: Stores
+                },
+                function (json) {
+                    if (json.Success) {
+                        Message.alert(json.Message, function () {
+                            window.location.href = "@Url.Action("Index")";
+                        });
+                    }
+                    else {
+                        Message.alert(json.Message);
+                    }
+                }
+            );
+        });
+    </script>
+}

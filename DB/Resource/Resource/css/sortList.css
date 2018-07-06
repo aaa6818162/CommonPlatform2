@@ -1,0 +1,395 @@
+.sortList-aside {
+  margin-top: 30px;
+  width: 200px;
+  height: auto;
+  background-color: #ffffff;
+  display: inline-block;
+}
+.sortList-aside .sortList-sort {
+  width: 100%;
+  height: auto;
+}
+.sortList-aside .sortList-sort .sort-title {
+  width: 200px;
+  height: 30px;
+  background-color: #4811e0;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}
+.sortList-aside .sortList-sort .sort-content {
+  width: 180px;
+  height: auto;
+  margin: 10px 10px 20px;
+  border: solid 1px #dddddd;
+  padding-bottom: 10px;
+}
+.sortList-aside .sortList-sort .sort-content h3 {
+  height: 30px;
+  padding-left: 10px;
+  line-height: 30px;
+  border-bottom: solid 1px #dddddd;
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+}
+.sortList-aside .sortList-sort .sort-content .subNav {
+  width: 100%;
+  padding-left: 10px;
+  margin-top: 10px;
+  color: #999999;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sortList-aside .sortList-sort .sort-content .subNav span {
+  margin-right: 15px;
+}
+.sortList-aside .sortList-sort .sort-content .subNav a {
+  color: #999999;
+  font-size: 14px;
+}
+.sortList-aside .sortList-sort .sort-content .subNav a:hover {
+  color: #333;
+}
+.sortList-aside .sortList-sort .sort-content .navContent {
+  width: 100%;
+  display: none;
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sortList-aside .sortList-sort .sort-content .navContent li:hover {
+  background-color: #fff1f1;
+}
+.sortList-aside .sortList-sort .sort-content .navContent li:hover a {
+  color: #e14040;
+}
+.sortList-aside .sortList-sort .sort-content .navContent li {
+  width: 100%;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sortList-aside .sortList-sort .sort-content .navContent li a {
+  color: #999999;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 30px;
+  display: block;
+  line-height: 22px;
+}
+.sortList-aside .sortList-sort .sort-content .navContent li a.active {
+  color: #e14040;
+  background-color: #fff1f1;
+}
+.sortList-aside .sortList-adver {
+  width: 100%;
+  height: auto;
+}
+.sortList-aside .sortList-adver ul li {
+  width: 200px;
+  height: 300px;
+  margin-top: 10px;
+}
+.sortList-aside .sortList-adver ul li img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sortList-content {
+  margin-left: 10px;
+  display: inline-block;
+  width: 970px;
+  margin-top: 30px;
+}
+.sortList-content .crumb {
+  width: 970px;
+  height: 40px;
+  line-height: 40px;
+}
+.sortList-content .crumb .crumb-l {
+  color: #666666;
+  font-size: 14px;
+}
+.sortList-content .crumb .crumb-r {
+  cursor: pointer;
+  width: 100px;
+  height: 28px;
+  border: solid 1px #c3c3c3;
+  line-height: 28px;
+  text-align: center;
+  color: #666666;
+  margin-top: 5px;
+}
+.sortList-content .crumb .hasBeenSelected {
+  display: inline-block;
+}
+.sortList-content .crumb .hasBeenSelected .clearList {
+  float: left;
+}
+.sortList-content .crumb .hasBeenSelected .clearList .selectedInfor {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  float: left;
+  margin: 6px 10px 0 0;
+  padding: 0 22px 0 10px;
+  height: 26px;
+  line-height: 24px;
+  text-align: center;
+  border: solid 1px #c3c3c3;
+}
+.sortList-content .crumb .hasBeenSelected .clearList .selectedInfor em {
+  background: url("../images/close.gif") no-repeat;
+  cursor: pointer;
+  display: block;
+  height: 13px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 13px;
+}
+.sortList-content .crumb .hasBeenSelected .eliminateCriteria {
+  line-height: 21px;
+  margin-top: 8px;
+  float: left;
+  color: #666666;
+  cursor: pointer;
+  display: inline-block;
+}
+.groups {
+  display: none;
+  width: 970px;
+  height: auto;
+  border: solid 1px #c3c3c3;
+  color: #666666;
+  font-size: 14px;
+}
+.groups .listIndex {
+  overflow: hidden;
+  line-height: 40px;
+  border-bottom: dashed 1px #c3c3c3;
+}
+.groups .listIndex dt {
+  margin-left: 20px;
+  width: 80px;
+  float: left;
+}
+.groups .listIndex dd {
+  float: left;
+  width: 868px;
+}
+.groups .listIndex dd a {
+  margin-left: 40px;
+  cursor: pointer;
+  display: inline-block;
+}
+.groups .listIndex dd span {
+  float: right;
+  margin-right: 20px;
+}
+.groups .listIndex:last-child {
+  border-bottom: 0;
+}
+/*筛选过滤*/
+.filter {
+  width: 970px;
+  height: auto;
+  border: solid 1px #c3c3c3;
+}
+.filter .sort-row {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: solid 1px #c3c3c3;
+}
+.filter .sort-row .sorts {
+  line-height: 40px;
+}
+.filter .sort-row .sorts .sort {
+  float: left;
+  position: relative;
+}
+.filter .sort-row .sorts .sort .link {
+  display: block;
+  height: 39px;
+  margin-left: -1px;
+  padding: 0 19px;
+  border-left: solid 1px #c3c3c3;
+  border-right: solid 1px #c3c3c3;
+  color: #6d6d6d;
+  font-size: 14px;
+}
+.filter .sort-row .sorts .sort .link:hover {
+  background-color: #fff;
+  color: #df2727;
+}
+.filter .sort-row .sorts .sort .link.active {
+  background-color: #fff;
+  color: #df2727;
+}
+.filter .sort-row .sorts .sort .droplist {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: -1px;
+  left: -1px;
+  border: solid 1px #ccc;
+  background: #fff;
+}
+.filter .sort-row .sorts .sort .droplist .sort {
+  float: none;
+  white-space: nowrap;
+}
+.filter .sort-row .sorts .sort .droplist .sort .link {
+  border: none;
+  margin-left: 0;
+  padding-right: 30px;
+}
+.filter .sort-row .sorts .sort:hover .droplist {
+  display: block;
+}
+.filter .sort-row .price .items {
+  float: left;
+  height: 39px;
+  padding-left: 10px;
+}
+.filter .sort-row .price .items .item {
+  float: left;
+  width: 55px;
+}
+.filter .sort-row .price .items .item input {
+  width: 45px;
+  padding: 0 4px;
+  height: 21px;
+  border: solid 1px #dfdfdf;
+  line-height: normal;
+}
+.filter .sort-row .price .items .submit {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  /*  display: none;*/
+  width: 44px;
+}
+.filter .sort-row .price .items .submit .btn {
+  display: block;
+  height: 23px;
+  padding: 0 10px;
+  background: #f40;
+  color: #fff;
+  line-height: 23px;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-border-radius: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 2px;
+  -moz-background-clip: padding;
+  border-radius: 2px;
+  background-clip: padding-box;
+}
+.filter .sort-row .location {
+  height: 39px;
+  position: relative;
+  color: #6d6d6d;
+  text-align: center;
+  line-height: 39px;
+  margin-left: 24px;
+}
+.filter .sort-row .location #summary-stock {
+  display: inline-block;
+  margin-top: 6px;
+  margin-left: 10px;
+}
+.filter .sort-row .pager {
+  line-height: 39px;
+  border-left: solid 1px #c3c3c3;
+  color: #666;
+}
+.filter .sort-row .pager .item {
+  float: left;
+  height: 39px;
+}
+.filter .sort-row .pager .item span {
+  display: inline-block;
+  height: 39px;
+}
+.filter .filter-row {
+  height: 38px;
+  line-height: 38px;
+}
+.filter .filter-row .filters {
+  width: 595px;
+  height: 38px;
+}
+.filter .filter-row .filters .fil {
+  float: left;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 13px;
+}
+.filter .filter-row .filters .fil .text {
+  font-size: 14px;
+  color: #666;
+}
+/*产品列表*/
+.p-list {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  margin-top: 12px;
+}
+.p-list ul {
+  margin-left: -10px;
+}
+.p-list ul li {
+  float: left;
+  width: 235px;
+  height: 320px;
+  background-color: #ffffff;
+  margin-left: 10px;
+  padding: 16px 7px 10px;
+  margin-top: 10px;
+}
+.p-list ul li .p-img {
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+}
+.p-list ul li .p-name {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+.p-list ul li .p-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 33px;
+}
+.p-list ul li .p-price {
+  display: inline-block;
+  font-size: 18px;
+  color: #df2727;
+  margin-bottom: 10px;
+}
+.p-list ul li .p-number {
+  display: inline-block;
+  font-size: 12px;
+  color: #999999;
+  margin-bottom: 10px;
+}
+.p-list ul li:hover {
+  box-shadow: 0px 0px  10px 5px #CCCCCC;
+}
+#pagination3 {
+  margin: 120px auto 30px;
+  display: block;
+}

@@ -1,0 +1,207 @@
+﻿//sass相关变量 mixins引入
+@import "helpers/mixins";
+@import "helpers/variable";
+//公用模块引入
+@import "common/reset";
+@import "common/currency";
+@import "common/font";
+@import "common/header";
+@import "common/footer";                 
+body{
+    background: #F2F2F2;
+}
+.filter{
+    width: 100%;
+    height: (82rem / $rem);
+    line-height: (80rem / $rem);
+    background: #fff;
+    border-bottom: 1px solid #d1d1d1;
+    border-top: 1px solid #7B7A7A;
+    box-sizing: border-box;
+    position: absolute;
+    top: (98rem / $rem);
+    text-align: center;
+    .sort{
+        @include fontsize(26px);
+        margin-right: (110rem / $rem);
+        &:last-of-type {
+                margin: 0;
+            }
+    }
+    .sort.active{
+        color: #D3AA55;
+    }
+    .icon-tubiaozhizuomoban9,.icon-tubiaozhizuomoban8{
+        font-size: (16rem / $rem);
+        margin-left: (12rem / $rem);
+    }
+}
+ 
+main{
+    top: (180rem / $rem);
+    width: (600rem / $rem);
+    margin-left: (20rem / $rem);
+    height: 82%;
+}
+.goodlist{
+    padding-top: (20rem / $rem);
+    width: (600rem / $rem);
+    .list-BigAdvert{
+        margin-bottom: (20rem / $rem);
+        img{
+            width: (600rem / $rem);
+        }
+    }
+}
+#pullUp{
+    text-align: center;
+    padding-top: (10rem / $rem);
+    height: (100rem / $rem);
+    .icon-tubiaozhizuomoban6{
+        font-size: (32rem / $rem);
+        color: #BFBFBF;
+    }
+    .pullUpLabel{
+    margin-top: (10rem / $rem);
+    color: #BFBFBF;
+    @include fontsize(22px);
+    }
+}
+[data-dpr="3"] .list-li .list-name{
+    height: 100px;
+    line-height: 50px;
+}
+[data-dpr="1"] .list-li .list-name{
+    height: 34px;
+    line-height: 17px;
+}
+
+.list-li{
+    width: (290rem / $rem);
+    height: (440rem / $rem);
+    background: #fff;
+    vertical-align: -webkit-baseline-middle;
+    margin:0  (13rem / $rem) (20rem / $rem) 0;
+    &:nth-child(odd) {
+                margin-right: 0;
+            }
+    .commodity-img{
+        width: (290rem / $rem);
+        height: (290rem / $rem);
+    }
+    .sale-img{
+        width: (290rem / $rem);
+        height: (440rem / $rem);
+    }
+    .list-name{
+        height: 50px;
+        line-height: 25px;
+        width: (290rem / $rem);
+        padding-left: (16rem / $rem);
+        margin-bottom: (20rem / $rem);
+        box-sizing: border-box;
+        color: #7B7A7A;
+        @include fontsize(22px);
+        overflow: hidden;
+        text-overflow:ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+    }
+    .list-price{
+        color: #323333;
+        @include fontsize(28px);
+        padding-left: (16rem / $rem);
+        font-family: 'AvantGarde';
+        .icon-tubiaozhizuomoban2{
+            @include fontsize(34px);
+            margin-right: (16rem / $rem);
+            color: #BFBFBF;
+        }
+        .icon-tubiaozhizuomoban2.active{
+            color: #DB7654;
+        }
+        .icon-tubiaozhizuomoban3{
+            @include fontsize(30px);
+            color: #D2173F;
+            margin-left: (20rem / $rem);
+        }
+    }
+    .new{
+        color: #D2173F;
+        @include fontsize(18px);
+        top: (24rem / $rem);
+        right: (16rem / $rem);
+        }
+    .list-discount{
+        color: #D2173F;
+        .list-op{
+            color: #7B7A7A;
+            text-decoration: line-through;
+            @include fontsize(22px);
+        }
+    }    
+}
+.searchResult{
+    text-align: right;
+    @include fontsize(24px);
+    margin-top: (30rem / $rem);
+    margin-right: (20rem / $rem);;
+    span{
+        color: #D0173F;
+    }
+}
+.search-main{
+    width: 100%;
+    margin-left: 0;
+    .goodlist{
+        margin-left: (20rem / $rem);
+    }
+    .list-li:nth-child(even){
+        margin-right: 0;
+    }
+    .list-li:nth-child(odd){
+        margin-right: (13rem / $rem);
+    }
+    .no-search{
+        width: (640rem / $rem);
+        background: #fff;
+        height: (365rem / $rem);
+        line-height: (30rem / $rem);
+        p{
+            @include fontsize(20px);
+            color: #7B7A7A;  
+            width: (455rem / $rem);
+            margin: 0 auto;  
+        }
+        .ns-sorry{
+            @include fontsize(24px);
+            color: #000000;
+            padding-top: (80rem / $rem);
+        }
+       
+    }
+     .ns-adver{
+            img{
+                width: 100%;
+                display: block;
+            }
+        }
+        .ns-qt{
+            height: (36rem / $rem);
+            line-height: (36rem / $rem);
+            margin: (65rem / $rem) 0 (65rem / $rem) 0 ;
+            .qt-icon{
+                width: (12rem / $rem);
+                height: (34rem / $rem);
+                background: #D0173F;
+            }
+            span{
+                color: #323333;
+                @include fontsize(26px);
+                margin-left: (20rem / $rem);
+                vertical-align: top;
+            }
+        }
+}
+ 

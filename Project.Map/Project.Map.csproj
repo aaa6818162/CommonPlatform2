@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21E524E2-CAFE-4CBB-8141-E21DBA15FC1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Map</RootNamespace>
+    <AssemblyName>Project.Map</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContentManager\OfflineActivityMap.cs" />
+    <Compile Include="ContentManager\PageContentCategoryMap.cs" />
+    <Compile Include="ContentManager\PageContentMap.cs" />
+    <Compile Include="CustomerManager\CardTypeMap.cs" />
+    <Compile Include="CustomerManager\CustomerAddressMap.cs" />
+    <Compile Include="CustomerManager\CustomerCollectionMap.cs" />
+    <Compile Include="CustomerManager\CustomerMap.cs" />
+    <Compile Include="HRManager\DictionaryMap.cs" />
+    <Compile Include="OrderManager\OrderInvoiceMap.cs" />
+    <Compile Include="OrderManager\OrderMainDetailMap.cs" />
+    <Compile Include="OrderManager\OrderMainMap.cs" />
+    <Compile Include="OrderManager\ShopCartMap.cs" />
+    <Compile Include="PermissionManager\DepartmentMap.cs" />
+    <Compile Include="PermissionManager\FunctionDetailMap.cs" />
+    <Compile Include="PermissionManager\FunctionMap.cs" />
+    <Compile Include="PermissionManager\ModuleMap.cs" />
+    <Compile Include="PermissionManager\RoleDepartmentMap.cs" />
+    <Compile Include="PermissionManager\RoleFunctionDetailMap.cs" />
+    <Compile Include="PermissionManager\RoleMap.cs" />
+    <Compile Include="PermissionManager\UserDepartmentMap.cs" />
+    <Compile Include="PermissionManager\UserFunctionDetailMap.cs" />
+    <Compile Include="PermissionManager\UserInfoMap.cs" />
+    <Compile Include="PermissionManager\UserRoleMap.cs" />
+    <Compile Include="ProductManager\AttributeValueMap.cs" />
+    <Compile Include="ProductManager\BrandMap.cs" />
+    <Compile Include="ProductManager\ExtAttributeMap.cs" />
+    <Compile Include="ProductManager\GoodsMap.cs" />
+    <Compile Include="ProductManager\GoodsSpecValueMap.cs" />
+    <Compile Include="ProductManager\ParameterGroupDetailMap.cs" />
+    <Compile Include="ProductManager\ParameterGroupMap.cs" />
+    <Compile Include="ProductManager\ProductAttributeValueMap.cs" />
+    <Compile Include="ProductManager\ProductCategoryMap.cs" />
+    <Compile Include="ProductManager\ProductImageMap.cs" />
+    <Compile Include="ProductManager\ProductMap.cs" />
+    <Compile Include="ProductManager\ProductSpecMap.cs" />
+    <Compile Include="ProductManager\SpecMap.cs" />
+    <Compile Include="ProductManager\SpecValueMap.cs" />
+    <Compile Include="ProductManager\SystemCategoryAttributeMap.cs" />
+    <Compile Include="ProductManager\SystemCategoryBrandMap.cs" />
+    <Compile Include="ProductManager\SystemCategoryMap.cs" />
+    <Compile Include="ProductManager\SystemCategorySpecMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalePromotionManager\ActivityMap.cs" />
+    <Compile Include="SalePromotionManager\RuleDiscountMoneyMap.cs" />
+    <Compile Include="SalePromotionManager\RuleMap.cs" />
+    <Compile Include="SalePromotionManager\RulePromotionGoodsMap.cs" />
+    <Compile Include="SalePromotionManager\RuleSendTicketMap.cs" />
+    <Compile Include="SalePromotionManager\TicketMap.cs" />
+    <Compile Include="SystemSetManager\AreaMap.cs" />
+    <Compile Include="SystemSetManager\AuthCodeMap.cs" />
+    <Compile Include="SystemSetManager\CityMap.cs" />
+    <Compile Include="SystemSetManager\HolidayDetailMap.cs" />
+    <Compile Include="SystemSetManager\IndexPageSetMap.cs" />
+    <Compile Include="SystemSetManager\NoticeInfoMap.cs" />
+    <Compile Include="SystemSetManager\ProvinceMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Config\Project.Config.csproj">
+      <Project>{7e5cd828-d4ff-445e-9f1d-068102151681}</Project>
+      <Name>Project.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Infrastructure.FrameworkCore\Project.Infrastructure.FrameworkCore.csproj">
+      <Project>{1c2392ad-a0f8-4378-9c54-3dcd1fb5d1db}</Project>
+      <Name>Project.Infrastructure.FrameworkCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{3D26782A-3308-430B-B58F-5F8ABA1A50B3}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleManager\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

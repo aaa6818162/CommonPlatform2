@@ -1,0 +1,169 @@
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>使用表格对表单进行布局</title>  
+<style>
+        table{
+            margin: 50px auto;
+            font-size: 14px;
+        }
+        .error-info{
+            color: #df2727;
+        }
+
+  
+    td{
+        text-align:left;
+    }
+   input[type=text],input[type=password]{
+      width: 180px;
+      height: 30px;
+      border: solid 1px #dddddd;
+      padding-left: 10px;
+  } 
+  button{
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 14px;
+        border:0px;
+        background-color:transparent;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+  }
+  .btn-red{
+    background-color: #df2727;
+    color: #fff;
+  }
+  .btn-gary{
+    background-color: #dddddd;
+    color: #333;
+  }
+      .codeNum-btn {
+        width: 120px;
+        background-color: #ddd;
+        padding: 0 5px;
+    }
+        
+</style>
+</head>  
+  
+<body>  
+        <table cellspacing="10" cellpadding="0" border="0" style="table-layout:fixed">
+            <tr>  
+                <td width="80"> 用户名</td>  
+                <td>  
+                    <input type="text" name="UserName"/>
+                    <span class="error-info">请输入用户名用户名不正确</span>
+                </td>
+            </tr>  
+
+            <tr>  
+                <td width="80">E-mail</td>  
+                <td>  
+                    <input type="text" name="UserName"/>
+                     <span class="error-info">请输入用户名用户名不正确</span>
+                </td>
+            </tr> 
+            <tr>  
+                <td width="80">密码</td>  
+                <td>  
+                    <input name="UserPass" type="password"/>
+                     <span class="error-info">请输入用户名用户名不正确</span>
+                </td>  
+            </tr>  
+            <tr>  
+                <td  width="80">重复密码</td>  
+                <td>  
+                    <input name="UserPass" type="password"/>
+                     <span class="error-info">请输入用户名用户名不正确</span>
+                </td>  
+            </tr>  
+            <tr>  
+                <td  width="80">性别</td>  
+                <td>  
+                    <input name="sex" type="radio" value="男" checked="checked" />男  
+                    <input name="sex" type="radio" value="女" />女 
+                     <span class="error-info">请输入用户名用户名不正确</span> 
+                </td>  
+            </tr>  
+            <tr>  
+                <td  width="80">爱好</td>  
+                <td>  
+                    <input name="like" type="checkbox" value="1" />足球  
+                    <input name="like" type="checkbox" value="2" />篮球  
+                    <input name="like" type="checkbox" value="3" />乒乓 
+                    <span class="error-info">请输入用户名用户名不正确</span> 
+                </td>  
+            </tr>  
+            <tr>  
+                <td width="80">省份</td>  
+                <td>  
+                    <select name="province" style="height: 30px">  
+                        <option>陕西省</option>  
+                        <option>山东省</option>  
+                        <option>陕西省</option>  
+                        <option>河北省</option>  
+                        <option>河南省</option>  
+                        <option>湖南省</option>  
+                        <option>湖北省</option>  
+                        <option>黑龙江省</option>  
+                        <option>其他</option>  
+                   </select>   
+                    <select name="province" style="height: 30px">  
+                        <option>陕西省</option>  
+                        <option>山东省</option>  
+                        <option>山西省</option>  
+                        <option>河北省</option>  
+                        <option>河南省</option>  
+                        <option>湖南省</option>  
+                        <option>湖北省</option>  
+                        <option>黑龙江省</option>  
+                        <option>其他</option>  
+                   </select>  
+                    <select name="province" style="height: 30px">  
+                        <option>陕西省</option>  
+                        <option>山东省</option>  
+                        <option>山西省</option>  
+                        <option>河北省</option>  
+                        <option>河南省</option>  
+                        <option>湖南省</option>  
+                        <option>湖北省</option>  
+                        <option>黑龙江省</option>  
+                        <option>其他</option>  
+                   </select>  
+                   <span class="error-info">请输入用户名用户名不正确</span> 
+                </td> 
+            </tr>  
+            <tr>
+                 <td  width="80">验证码</td>  
+                <td>  
+                    <input name="code" type="text"/>
+                     <span class="error-info">请输入用户名用户名不正确</span>
+                </td>  
+            </tr>
+             <tr>
+                 <td  width="80">验证码</td>  
+                <td>  
+                    <input name="codenumber" type="text"/>
+                    <button class="codeNum-btn">点击发送验证码</button>
+                     <span class="error-info">请输入用户名用户名不正确</span>
+                </td>  
+            </tr>
+
+            <tr>  
+                <td></td>
+                <td align="center">  
+                    <button type="button" class="btn-red">保存</button> 
+                     <button type="button" class="btn-gary">取消</button> 
+                </td>
+
+            </tr>  
+        </table>  
+
+
+</body>  
+
+</html>  

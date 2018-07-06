@@ -1,0 +1,721 @@
+﻿//sass相关变量 mixins引入
+@import "helpers/mixins";
+@import "helpers/variable";
+//公用模块引入
+@import "common/reset";
+@import "common/currency";
+@import "common/font";
+@import "common/header";
+@import "common/spaHeader";
+.mui-scroll,
+.mui-scroll-wrapper {
+    background: #F2F2F2;
+}
+.customer-wrap {
+    top: (98rem / $rem);
+    .customer-hd {
+        height: (230rem / $rem);
+        background: url("../images/login/lg-bg.jpg") 100% no-repeat;
+        .hd-box {
+            top: (40rem / $rem);
+            left: 0;
+            right: 0;
+            margin: auto;
+            img {
+                width: (120rem / $rem);
+                height: (120rem / $rem);
+                border-radius: 50%;
+            }
+            p {
+                margin-top: (20rem / $rem);
+                @include fontsize(30px);
+            }
+        }
+        .customer-file {
+            width: (120rem / $rem);
+            height: (120rem / $rem);
+            position: absolute;
+            top: (40rem / $rem);
+            left: 0;
+            right: 0;
+            margin: auto;
+            opacity: 0;
+        }
+    }
+    .customer-main {
+        width: 100%;
+        height: (80rem / $rem);
+        padding: (25rem / $rem) 0;
+        background: #fff;
+        color: #555556;
+        @include fontsize(24px);
+        .main-money {
+            width: 50%;
+            img {
+                width: (22rem / $rem);
+            }
+        }
+        .main-integral {
+            width: 50%;
+            img {
+                width: (32rem / $rem);
+            }
+        }
+    }
+    .customer-box {
+        .mui-table-view-cell {
+            height: (80rem / $rem);
+            line-height: (58rem / $rem);
+            padding: (11rem / $rem) (40rem / $rem);
+            .mui-navigate-right:after,
+            .mui-push-right:after {
+                right: 0;
+            }
+        }
+        .mui-table-view-cell > a:not(.mui-btn) {
+            margin: 0;
+            padding: 0 (30rem / $rem) 0 0;
+        }
+        .mui-table-view {
+            margin-top: (16rem / $rem);
+        }
+    }
+    .customer-ft {
+        .ft-link {
+            margin: (36rem / $rem) 0;
+
+            a {
+                margin-left: (50rem / $rem);
+                color: #7B7A7A;
+                @include fontsize(24px);
+                text-decoration: underline;
+            }
+
+        }
+        .y-btn {
+            display: block;
+            width: 9.0625rem;
+            height: 1.09375rem;
+            line-height: 1.09375rem;
+            background: #D3AA55;
+            color: #fff;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+.customer-ifm {
+    .mui-navigate-right:after,
+    .mui-push-right:after {
+        right: (30rem / $rem);
+    }
+    .ifm-list{
+        .xz-ipt{
+            margin: 0;
+        }
+        .xz-ifm{
+            width: (140rem / $rem);
+        }
+    }
+    .xz-ipt {
+        -webkit-appearance: none;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        font-size: 100%;
+        margin: 0 0 0 (50rem / $rem);
+    }
+    .icon {
+        display: inline-block;
+        color: #CD173F;
+        width: (10rem / $rem);
+        margin-left: (24rem / $rem);
+    }
+    .xz-ifm {
+        display: inline-block;
+        width: (96rem / $rem);
+        color: #323333;
+        @include fontsize(26px);
+    }
+    .mui-table-view-cell {
+        display: -webkit-box;
+        display: -webkit-flex;
+        height: (80rem / $rem);
+        line-height: (58rem / $rem);
+        padding: (11rem / $rem) (30rem / $rem);
+        #cityResult3.xz-ipt {
+            width: (385rem / $rem);
+        }
+    }
+    .mui-radio.mui-left input[type=radio] {
+        left: 0;
+        top: (6rem / $rem);
+    }
+    .mui-radio.mui-left label {
+        padding-left: (40rem / $rem);
+        color: #555556;
+    }
+    .mui-icon,
+    .mui-radio input[type=radio]:before {
+        @include fontsize(32px);
+    }
+    .ui-alert {
+        width: (400rem / $rem);
+        margin-left: (50rem / $rem);
+    }
+    .field-control {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        .phone{
+            width: (300rem / $rem);
+        }
+        .change-phone{
+            color: #2A809D;
+            @include fontsize(24px);
+            text-decoration: underline;
+        }
+    }
+    .err-ipt{
+        background: #FFE9C7;
+    }
+    .ifmErr-box{
+        height: (60rem / $rem);
+        line-height: (60rem / $rem);
+        background: #FFE9C7;
+        color: #E2A334;
+        padding-left: (55rem / $rem);
+    }
+}
+.sl-box {
+    width: 100%;
+    .sl-btn {
+        background: #000;
+        width: (580rem / $rem);
+        height: (70rem / $rem);
+        line-height: (56rem / $rem);
+        a {
+            display: block;
+            width: 100%;
+            @include fontsize(26px);
+            color: #fff;
+        }
+    }
+}
+
+
+.member{
+    .member-hd{
+        color: #323333;
+        @include fontsize(24px);
+        height: (80rem / $rem);
+        line-height: (80rem  / $rem);
+        padding-left: (30rem / $rem);
+    }
+    .member-ft{
+        padding: (30rem / $rem) (30rem / $rem);
+      color: #7B7A7A;
+      background: #fff;
+      @include fontsize(24px);
+      line-height: (40rem / $rem)
+    }
+    .itg-ft{
+        padding: 0 (30rem / $rem);
+        color: #7B7A7A;
+        @include fontsize(24px);
+        text-align: justify;
+        line-height: (35rem / $rem);
+        margin-top: (20rem / $rem);
+    }
+    .form-group{
+        background: #fff;
+        padding: (30rem / $rem) (30rem / $rem);
+        min-height: (165rem / $rem);
+
+        .picter1{
+               width: (78rem / $rem);
+            height: (78rem / $rem);
+            background: url(../images/account/member-1.jpg);
+            background-size: 100% 100%;
+            margin-right: (45rem / $rem);
+            background-repeat: no-repeat;
+             
+        }
+        .picter2{
+             width: (78rem / $rem);
+            height: (78rem / $rem);
+            background: url(../images/account/member-2.jpg);
+            background-size: 100% 100%;
+            margin-right: (45rem / $rem);
+            background-repeat: no-repeat
+        }
+        .picter3{
+             width: (78rem / $rem);
+            height: (78rem / $rem);
+            background: url(../images/account/member-3.jpg);
+            background-size: 100% 100%;
+            margin-right: (45rem / $rem);
+            background-repeat: no-repeat
+        }
+        .picter4{
+             width: (78rem / $rem);
+            height: (78rem / $rem);
+            background: url(../images/account/member-4.jpg);
+            background-size: 100% 100%;
+            margin-right: (45rem / $rem);
+            background-repeat: no-repeat
+        }
+        .introduce{
+            width: (449rem / $rem);
+            line-height: (35rem / $rem);
+            .member-title{
+                color: #323333;
+                @include fontsize(24px);
+            }
+            .member-text{
+                color: #7B7A7A;
+                @include fontsize(22px);
+                text-align: justify;
+            }
+        }
+    }
+    
+}
+
+.customer-safety{
+    .safety-hd{
+        height: (125rem / $rem);
+        padding: 0 (30rem / $rem);
+        line-height: (60rem / $rem);
+        .hd-level{
+            color: #323333;
+            @include fontsize(24px);
+            span{
+                color: #D0173F;
+            }
+        }
+        .hd-text{
+            color: #7B7A7A;
+            @include fontsize(24px);
+            text-align: justify;
+        }
+    }
+    .opt-list {
+    .mui-table-view-cell {
+        height: (80rem / $rem);
+        line-height: (58rem / $rem);
+        padding: (11rem / $rem) (30rem / $rem);
+    }
+    .mui-table-view-cell > a:not(.mui-btn) {
+        margin: 0;
+        padding: 0 (30rem / $rem) 0 0;
+    }
+    .message {
+        @include fontsize(24px);
+        border: none;
+        width: (398rem / $rem);
+        padding: 0;
+    }
+    .table-txt {
+        color: #7B7A7A;
+        margin-right: (10rem / $rem);
+    }
+    .binding{
+        color: #2A809D;
+        .mui-icon-checkmarkempty{
+            font-size: (40rem / $rem);
+        }
+    }
+    .mui-navigate-right:after, .mui-push-right:after{
+        right: 0;
+    }
+    } 
+}
+.customer-safety  {
+    .customer-ifm{
+        .xz-ipt{
+            margin: 0;
+        }
+        .xz-ifm{
+            width: (170rem / $rem);
+        }
+    }
+  
+}
+.yellow-btn {
+    width: 100%;
+    height: (100rem / $rem);
+    .sl-btn {
+        margin-top: (15rem / $rem);
+        background: #D3AA55;
+        width: (580rem / $rem);
+        height: (70rem / $rem);
+        line-height: (56rem / $rem);
+        a {
+            display: block;
+            width: 100%;
+            @include fontsize(26px);
+            color: #fff;
+        }
+        .mui-icon-plusempty {
+            font-size: (48rem / $rem);
+        }
+    }
+}
+.Popup_err .err_box{height: (370rem / $rem);}
+.success-box{
+    text-align: center;
+    img{
+        margin-top: (70rem / $rem);
+        width: (93rem / $rem);
+    }
+    .success-text1{
+        @include fontsize(28px);
+        color: #323333;
+        margin: (25rem / $rem) 0;
+    }
+    .success-text2,.icon-tubiaozhizuomoban11{
+        a{
+            @include fontsize(22px);
+            color: #7B7A7A;
+        }
+    }
+}
+.customer-bdMobile,.customer-chMobile{
+    .login-getVerifyCode{
+      width: 2.125rem;
+    height: .625rem;
+    line-height: .625rem;
+    background: #D3AA55;
+    color: #fff;
+    text-align: center;
+    margin-top: (10rem / $rem);
+    }
+    .box-verifycode{
+        width: (280rem / $rem);
+    }
+}
+.customer-chMobile{
+    .member-hd{
+             color: #7B7A7A;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    padding-left: 0.46875rem;
+    }
+    .text-blue{
+        color: #2A809D;
+        @include fontsize(22px);
+            text-decoration: underline;
+    }
+    .chMobile-ft{
+        padding: 0 (30rem / $rem);
+        color: #7B7A7A;
+        @include fontsize(22px);
+    }
+} 
+.bd-card{
+    .member-hd{
+        padding:(10rem / $rem) (30rem / $rem);
+        color: #7B7A7A;
+        line-height: (35rem / $rem);
+    }
+    .bd-cardifm.customer-ifm {
+    .xz-ifm{
+        width: (140rem / $rem);
+    }
+}    
+}
+    .field{
+    background: #fff;
+    line-height: (80rem / $rem);
+    border-bottom: 1px solid #D5D4D5;
+    .label{
+        width: (155rem / $rem);
+        padding-left: (35rem / $rem);
+        box-sizing: border-box;
+        color: #323333;
+        @include fontsize(24px);
+        text-align: left;
+    }
+    .input-required{
+        border: none;
+        @include fontsize(24px);
+    }
+    .field-control{
+        width: (460rem / $rem);
+    }
+    .box-verifycode{
+        width: (300rem / $rem);
+    }
+    .login-getVerifyCode{
+        width: (136rem / $rem);
+        height: (40rem / $rem);
+        line-height: (40rem / $rem);
+        background: #D3AA55;
+        color: #fff;
+        text-align: center;
+    }
+}  
+.customer-addlist{
+    .member-hd{
+        padding:(10rem / $rem) (30rem / $rem);
+      color: #323333;
+      line-height: (35rem / $rem);
+    }
+}     
+.shipingAdd {
+    .add-list {
+
+        background: #fff;
+        line-height: (65rem / $rem);
+        @include fontsize(24px);
+        margin-bottom: (20rem / $rem);
+        .mz {
+            padding: 0 (30rem / $rem);
+            color: #323333;
+        }
+        .cz,
+        .dz {
+            padding: 0 (30rem / $rem);
+            color: #7B7A7A;
+        }
+        .cz {
+            border-top: 1px solid #D1D1D1;
+            @include fontsize(22px);
+        }
+        .mui-radio.mui-left input[type=radio] {
+            left: 0;
+            top: 0;
+        }
+        .mui-radio.mui-left label {
+            padding-left: (32rem / $rem);
+        }
+        .mui-icon,
+        .mui-radio input[type=radio]:before {
+            @include fontsize(32px);
+        }
+    }
+}
+.xz {
+    .mui-navigate-right:after, .mui-push-right:after{
+    right: (30rem / $rem);
+}
+    .xz-ipt {
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    font-size: 100%;
+    margin: 0;
+    margin-left: (50rem / $rem);
+    }
+    .icon {
+        color: #CD173F;
+        width: (10rem / $rem);
+        margin-left: (24rem / $rem);
+    }
+    .xz-ifm {
+        color: #323333;
+        width: (75rem / $rem);
+        @include fontsize(24px);
+    }
+    .mui-table-view-cell {
+        display: -webkit-box;
+        display: -webkit-flex;
+        height: (80rem / $rem);
+        line-height: (58rem / $rem);
+        padding: (11rem / $rem) (15rem / $rem);
+    }
+    .mui-radio.mui-left input[type=radio] {
+        left: 0;
+        top: (6rem / $rem);
+    }
+    .mui-radio.mui-left label {
+        padding-left: (40rem / $rem);
+        color: #555556;
+    }
+    .mui-icon,
+    .mui-radio input[type=radio]:before {
+        @include fontsize(32px);
+    }
+    #cityResult3 {
+        width: (400rem / $rem);
+        margin-left: (50rem / $rem);
+    }
+    .label{
+        width: (120rem / $rem);
+    }
+    .field-control{
+        -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    }
+}
+.mui-pciker-list li {
+    @include fontsize(26px);
+}
+
+.mui-poppicker-header .mui-btn ,
+.mui-dtpicker-header button{
+    @include fontsize(22px);
+} 
+.mui-poppicker-body {
+    height: (400rem / $rem);
+}
+.mui-dtpicker-body{
+    height: (400rem / $rem);
+}
+.mui-poppicker,.mui-dtpicker {
+    bottom: -(268rem / $rem);
+}
+.mui-poppicker,.mui-dtpicker {
+    -webkit-transition: 0.3s;
+    -webkit-transform: translateY((568rem / $rem));
+}
+.mui-poppicker.mui-active,.mui-dtpicker.mui-active {
+    -webkit-transform: translateY(-(268rem / $rem));
+}
+[data-dpr="3"] .mui-pciker-list li {
+    font-size: 16px;
+}
+[data-dpr="1"] .mui-pciker-list{
+    height: (50rem / $rem);
+    line-height: (50rem / $rem);
+}
+[data-dpr="1"] .mui-pciker-rule{
+    height: (50rem / $rem);
+    line-height: (50rem / $rem);
+}
+[data-dpr="2"] .mui-pciker-list {
+    height: 40px;
+    line-height: 40px;
+}
+[data-dpr="2"] .mui-pciker-rule {
+    height: 40px;
+    line-height: 40px;
+}
+[data-dpr="3"] .mui-pciker-list{
+    height: 36px;
+    line-height: 36px;
+}
+
+[data-dpr="3"] .mui-pciker-rule{
+    height: 36px;
+    line-height: 36px;
+} 
+.addlist-no{
+    padding-top: (60rem / $rem);
+    img{
+        width: (78rem / $rem);
+    }
+    .addlist-text{
+        color: #7B7A7A;
+        @include fontsize(24px);
+        margin: (60rem  / $rem);
+    }
+    .addlist-btn{
+        display: block;
+        background: #000;
+        text-align: center;
+        width: (200rem / $rem);
+        height: (50rem / $rem);
+        line-height: (50rem / $rem);
+        color: #fff;
+        margin: 0 auto;
+    }
+}
+.customer-coupon .mui-table-view:after{
+        background-color: none;
+    }
+.customer-coupon{
+    .mui-table-view{
+        padding: (20rem / $rem);
+        &:last-child{
+            margin: 0;
+        }
+        .mui-table-view-cell{
+            padding: (30rem / $rem) (20rem / $rem);
+            min-height: (200rem / $rem);
+            background: url(../images/account/coupon.jpg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            line-height: (32rem / $rem);
+            margin-bottom: (20rem / $rem);
+            &:last-child{
+                margin: 0;
+            }
+               .coupon-orice,.coupon-explain,.coupon-time,.coupon-num{
+                   color: #fff;
+               }
+               .coupon-orice{
+                   @include fontsize(40px);
+                   span{
+                        @include fontsize(24px);
+                   }
+               }
+               .coupon-explain,.coupon-time{
+                   @include fontsize(24px);
+               }
+               .coupon-explaim{
+                   text-align: justify;
+               }
+               .coupon-num{
+                   @include fontsize(22px);
+               }
+        } 
+     
+    }
+    .mui-scroll-wrapper{
+          height: (970rem / $rem);
+    }
+    .mui-segmented-control{
+         width: (540rem / $rem);
+             margin: 0 auto;
+        border: none;
+    }
+    .mui-segmented-control{
+        .mui-control-item{
+            @include fontsize(26px);
+            color: #7B7A7A;
+            border: none;
+            padding: (18rem / $rem) 0;
+        }
+         .mui-control-item.mui-active{
+             background:none;
+             border-bottom: 5px solid #000;
+             color: #000;
+         }
+    }
+    .coupon-ft{
+        width: 100%;
+        padding:0 0 (50rem / $rem) (30rem / $rem);
+        bottom: (40rem / $rem);
+        line-height: (30rem / $rem);
+        margin-top: (30rem / $rem);
+        .text-1{
+            color: #323333;
+            @include fontsize(26px);
+        }
+        .text-2{
+            a{color: #7B7A7A;
+             @include fontsize(24px);}
+            
+        }
+    }
+    .coupon-no{
+        margin-top: (70rem / $rem);
+        margin-bottom: (80rem / $rem);
+        .no-img{
+            width: (164rem / $rem);
+        }
+        .no-txt{
+            margin-top: (30rem / $rem);
+            color: #7B7A7A;
+            @include fontsize(24px);            
+        }
+    }
+}
+.gray { 
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}

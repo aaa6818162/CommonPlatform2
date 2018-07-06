@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D26782A-3308-430B-B58F-5F8ABA1A50B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Model</RootNamespace>
+    <AssemblyName>Project.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContentManager\OfflineActivityEntity.cs" />
+    <Compile Include="ContentManager\PageContentCategoryEntity.cs" />
+    <Compile Include="ContentManager\PageContentEntity.cs" />
+    <Compile Include="CustomerManager\CardTypeEntity.cs" />
+    <Compile Include="CustomerManager\CustomerAddressEntity.cs" />
+    <Compile Include="CustomerManager\CustomerCollectionEntity.cs" />
+    <Compile Include="CustomerManager\CustomerEntity.cs" />
+    <Compile Include="Enum\HRManager\ContractIsActiveEnum.cs" />
+    <Compile Include="Enum\HRManager\ContractStateEnum.cs" />
+    <Compile Include="HRManager\DictionaryEntity.cs" />
+    <Compile Include="OrderManager\OrderInvoiceEntity.cs" />
+    <Compile Include="OrderManager\OrderMainDetailEntity.cs" />
+    <Compile Include="OrderManager\OrderMainEntity.cs" />
+    <Compile Include="OrderManager\ShopCartEntity.cs" />
+    <Compile Include="Other\ExcelData.cs" />
+    <Compile Include="Other\FileInfoDTO.cs" />
+    <Compile Include="Other\UploadEntity.cs" />
+    <Compile Include="PermissionManager\DepartmentExtEntity.cs" />
+    <Compile Include="PermissionManager\DepartmentEntity.cs" />
+    <Compile Include="PermissionManager\FunctionDetailModel.cs" />
+    <Compile Include="PermissionManager\FunctionModel.cs" />
+    <Compile Include="PermissionManager\ModuleModel.cs" />
+    <Compile Include="PermissionManager\RoleDepartmentEntity.cs" />
+    <Compile Include="PermissionManager\RoleFunctionDetailModel.cs" />
+    <Compile Include="PermissionManager\RoleModel.cs" />
+    <Compile Include="PermissionManager\UserDepartmentLoginModel.cs" />
+    <Compile Include="PermissionManager\UserDepartmentModel.cs" />
+    <Compile Include="PermissionManager\UserFunctionDetailModel.cs" />
+    <Compile Include="PermissionManager\UserInfoEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PermissionManager\UserRoleModel.cs" />
+    <Compile Include="ProductManager\AttributeValueEntity.cs" />
+    <Compile Include="ProductManager\BrandEntity.cs" />
+    <Compile Include="ProductManager\ExtAttributeEntity.cs" />
+    <Compile Include="ProductManager\GoodsEntity.cs" />
+    <Compile Include="ProductManager\GoodsSpecValueEntity.cs" />
+    <Compile Include="ProductManager\ParameterGroupDetailEntity.cs" />
+    <Compile Include="ProductManager\ParameterGroupEntity.cs" />
+    <Compile Include="ProductManager\ProductAttributeValueEntity.cs" />
+    <Compile Include="ProductManager\ProductCategoryEntity.cs" />
+    <Compile Include="ProductManager\ProductEntity.cs" />
+    <Compile Include="ProductManager\ProductImageEntity.cs" />
+    <Compile Include="ProductManager\ProductSpecEntity.cs" />
+    <Compile Include="ProductManager\Request\GoodsSearchCondition.cs" />
+    <Compile Include="ProductManager\Request\ProductSearchCondition.cs" />
+    <Compile Include="ProductManager\Response\GoodsSearchView.cs" />
+    <Compile Include="ProductManager\SpecEntity.cs" />
+    <Compile Include="ProductManager\SpecValueEntity.cs" />
+    <Compile Include="ProductManager\SystemCategoryAttributeEntity.cs" />
+    <Compile Include="ProductManager\SystemCategoryBrandEntity.cs" />
+    <Compile Include="ProductManager\SystemCategoryEntity.cs" />
+    <Compile Include="ProductManager\SystemCategorySpecEntity.cs" />
+    <Compile Include="ReportManager\AttendanceViewEntity2.cs" />
+    <Compile Include="ReportManager\AttendanceViewEntity.cs" />
+    <Compile Include="ReportManager\EmployeeInOutEntity.cs" />
+    <Compile Include="ReportManager\EmployeeRsEntity.cs" />
+    <Compile Include="ReportManager\HREmployeeViewEntity.cs" />
+    <Compile Include="ReportManager\UserInfoViewEntity.cs" />
+    <Compile Include="SalePromotionManager\ActivityEntity.cs" />
+    <Compile Include="SalePromotionManager\RuleDiscountMoneyEntity.cs" />
+    <Compile Include="SalePromotionManager\RuleEntity.cs" />
+    <Compile Include="SalePromotionManager\RulePromotionGoodsEntity.cs" />
+    <Compile Include="SalePromotionManager\RuleSendTicketEntity.cs" />
+    <Compile Include="SalePromotionManager\TicketEntity.cs" />
+    <Compile Include="SystemSetManager\AreaEntity.cs" />
+    <Compile Include="SystemSetManager\AuthCodeEntity.cs" />
+    <Compile Include="SystemSetManager\CityEntity.cs" />
+    <Compile Include="SystemSetManager\HolidayDetailEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemSetManager\IndexPageSetEntity.cs" />
+    <Compile Include="SystemSetManager\NoticeInfoEntity.cs" />
+    <Compile Include="SystemSetManager\ProvinceEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enum\PermissionManager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Config\Project.Config.csproj">
+      <Project>{7e5cd828-d4ff-445e-9f1d-068102151681}</Project>
+      <Name>Project.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Infrastructure.FrameworkCore\Project.Infrastructure.FrameworkCore.csproj">
+      <Project>{1c2392ad-a0f8-4378-9c54-3dcd1fb5d1db}</Project>
+      <Name>Project.Infrastructure.FrameworkCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

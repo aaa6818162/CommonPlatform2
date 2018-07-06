@@ -1,0 +1,260 @@
+﻿//sass相关变量 mixins引入
+@import "helpers/mixins";
+@import "helpers/variable";
+//公用模块引入
+@import "common/reset";
+@import "common/currency";
+@import "common/font";
+@import "common/header";
+@import "common/spaHeader"; 
+.lg-bg {
+    background: url("../images/login/lg-bg.jpg");
+    background-size: 100% 100%;
+}
+.mui-pages {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: (98rem / $rem);
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.lg-main {
+    height: 90%;
+}
+.lg-wrap {
+    width: (480rem / $rem);
+    margin: 0 auto;
+    padding-top: (90rem / $rem);
+    .lg-grounp {
+        padding: (20rem / $rem) 0;
+        border-bottom: 1px solid #090505;
+    }
+    .lg-txt {
+        color: #7B7A7A;
+        @include fontsize(24px);
+        margin:(60rem / $rem)  0 (30rem / $rem);
+    }
+    .lg-btnbox {
+        .lg-btn-1 {
+            width: (480rem / $rem);
+            height: (70rem / $rem);
+            @include fontsize(28px);
+            background: #000;
+            color: #fff;
+        }
+        .lg-btn-2 {
+            width: (480rem / $rem);
+            height: (70rem / $rem);
+            @include fontsize(28px);
+            color: #000;
+            background: #fff;
+            border: 1px solid #7B7A7A;
+            box-sizing: border-box;
+        }
+    }
+    .lg-checkwrap {
+        margin-top: (20rem / $rem);
+        @include fontsize(24px);
+        color: #7B7A7A;
+        .clause {
+            text-decoration: underline;
+        }
+        .agreement {
+            width: (20rem / $rem);
+            height: (20rem / $rem);
+        }
+    }
+    .box-verifycode {
+        .lg-ipt {
+            width: (300rem / $rem);
+        }
+        .login-getVerifyCode {
+            width: (134rem / $rem);
+            height: (40rem / $rem);
+            line-height: (40rem / $rem);
+            text-align: center;
+            border: 1px solid #7B7A7A;
+            box-sizing: border-box;
+            @include fontsize(22px);
+        }
+    }
+    .lg-icon1 {
+        width: (22rem / $rem);
+    }
+}
+.lg-sign {
+    .lg-ipt {
+        text-indent: (30rem / $rem);
+        background: none;
+        border: none;
+        color: #323333;
+        padding: 0;
+        border-radius: 0;
+        @include fontsize(26px);
+        width: (420rem / $rem);
+        height: (40rem / $rem);
+        line-height: (40rem / $rem);
+    }
+}
+#clause {
+    background: #fff;
+    height: 100%;
+    .mui-scroll-wrapper{
+        margin: 0;
+        }
+}
+.clause-box {
+    width: (550rem / $rem);
+    padding: (100rem / $rem) 0;
+    margin: 0 auto;
+    @include fontsize(24px);
+    color: #7B7A7A;
+    .clause-title {
+        @include fontsize(30px);
+        font-weight: bold;
+        color: #000;
+    }
+    .clause-stitle {
+        color: #323333;
+        line-height: (40rem / $rem);
+    }
+    .clause-txt {
+        line-height: (40rem / $rem);
+    }
+    .close {
+        right: (30rem / $rem);
+        top: (30rem / $rem);
+        img {
+            width: (25rem / $rem);
+        }
+    }
+}
+.errorPrompt,.errorPrompt-sphd {
+    width: 100%;
+    height: (60rem / $rem);
+    line-height: (60rem / $rem);
+    background: #FFE9C7;
+    color: #E2A334;
+    padding-left: (30rem / $rem);
+    z-index: 3;
+}
+.errorPrompt{
+    top: (98rem / $rem);
+}
+.errorPrompt-sphd{
+    top: (92rem / $rem);
+}
+.success {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    top: 0;
+    z-index: 4;
+    .success-main {
+        width: (400rem / $rem);
+        padding: 0 (40rem / $rem);
+        height: (360rem / $rem);
+        background: #fff;
+        box-sizing: border-box;
+        text-align: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        img {
+            width: (406rem / $rem);
+            top: -(89rem / $rem);
+            left: -(10rem / $rem);
+        }
+        .success-txt{
+            color: #D3AA55;
+            @include fontsize(26px);
+            line-height: (33rem / $rem);
+        }
+        .success-txt2{
+            line-height: (26rem / $rem);
+            a{
+                color: #D3AA55;
+                @include fontsize(24px);
+            }
+        }
+        .line{
+            width: 100%;
+            border-bottom: 1px solid #D5D4D5;
+            margin: (20rem / $rem);
+        }
+    }
+} 
+.field{
+    background: #fff;
+    line-height: (80rem / $rem);
+    border-bottom: 1px solid #D5D4D5;
+    .label{
+        width: (155rem / $rem);
+        padding-left: (35rem / $rem);
+        box-sizing: border-box;
+        color: #323333;
+        @include fontsize(24px);
+        text-align: left;
+    }
+    .input-required{
+        border: none;
+        @include fontsize(24px);
+    }
+    .field-control{
+        width: (460rem / $rem);
+    }
+    .box-verifycode{
+        width: (300rem / $rem);
+    }
+    .login-getVerifyCode{
+        width: (136rem / $rem);
+        height: (40rem / $rem);
+        line-height: (40rem / $rem);
+        background: #D3AA55;
+        color: #fff;
+        text-align: center;
+    }
+}
+.Validform_wrong{
+    background: #FFE9C7;
+    input{
+        background: #FFE9C7;
+    }
+}
+.y-btn{
+    display: block;
+    width: (580rem / $rem);
+    height: (70rem / $rem);
+    line-height: (70rem / $rem);
+    background: #D3AA55;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+.mt190{
+    margin-top: (190rem / $rem);
+}
+.success-box{
+    text-align: center;
+    img{
+        margin-top: (70rem / $rem);
+        width: (93rem / $rem);
+    }
+    .success-text1{
+        @include fontsize(28px);
+        color: #323333;
+        margin: (25rem / $rem) 0;
+    }
+    .success-text2,.icon-tubiaozhizuomoban11{
+        @include fontsize(22px);
+        color: #7B7A7A;
+    }
+} 
+::-webkit-input-placeholder { /* WebKit browsers */  
+    color:#BEBEBE;  
+    @include fontsize(24px);
+}       

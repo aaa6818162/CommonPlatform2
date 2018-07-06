@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+	<style>
+		/*自己定义的模态框*/
+.model_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: none;
+}
+.my_model {
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  margin-top: -120px;
+  margin-left: -200px;
+  z-index: 9999;
+  width: 360px;
+  height: 240px;
+  border: 1px solid #aeaeae;
+  border-radius: 3px;
+  padding: 20px;
+  background: #fff;
+}
+.my_model .title {
+  font-size: 14px;
+  color: #666666;;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.my_model .title .closeModel {
+  float: right;
+  cursor: pointer;
+}
+.my_model p {
+  line-height: 24px;
+  text-align: center;
+}
+.my_model .opBtn {
+	width: 222px;
+  margin: 60px auto 0;
+}
+.my_model .opBtn a {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 700;
+  text-decoration: none;
+ font-family:Microsoft YaHei;
+}
+.my_model .dialog-sure {
+  background-color: #df2727;
+  color: #fff;
+}
+.my_model .dialog-close {
+  color: #3c3c3c;
+  background-color: #ffffff;
+  border: solid 1px #dddddd;
+}
+
+	</style>
+</head>
+<body>
+
+<button class="btn" onClick="showM()">点击弹出</button>
+	<script>
+		/*模态框*/
+    function Popout(){
+        var html="   <section class=\"model_bg\"></section>\n" +
+            "        <section class=\"my_model\">\n" +
+            "            <p class=\"title\">提示信息<span class=\"closeModel\">X</span></p>\n" +
+            "            <p>您确认要删除该宝贝吗？</p>\n" +
+            "            <div class=\"opBtn\"><a href=\"javascript:;\" class=\"dialog-sure\">确定</a><a href=\"javascript:;\" class=\"dialog-close\">关闭</a></div>\n" +
+            "        </section>"
+        $("body").append( html);
+
+        $('.closeModel').click(function () {
+            closeM();
+        });
+        $('.dialog-close').click(function () {
+            closeM();
+        });
+        function closeM() {
+            $('.model_bg').fadeOut(300);
+            $('.my_model').fadeOut(300);
+        }
+    }
+    Popout();
+
+    function showM(){
+    	 $('.model_bg').fadeIn(300);
+        $('.my_model').fadeIn(300);
+    }
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+/*内容*/
+.add-content {
+  /*购物步骤*/
+  /*-配送信息*/
+  /*>发票信息*/
+}
+.add-content .steps {
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  margin-top: 70px;
+}
+.add-content .steps ul {
+  margin-left: -20px;
+}
+.add-content .steps ul li {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  width: 280px;
+  background: #C6C6C6;
+  color: #fff;
+  text-align: center;
+  margin-left: 20px;
+}
+.add-content .steps ul li.active {
+  background: #df2727;
+}
+.add-content .steps ul li.active span {
+  position: absolute;
+  bottom: -20px;
+  left: 135px;
+  border: 10px solid #df2727;
+  border-color: #df2727 transparent transparent;
+}
+.add-content .address .add-tit {
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+  margin-top: 60px;
+}
+.add-content .address .add-list {
+  padding: 40px 30px ;
+}
+.add-content .address .add-list .add-item {
+  float: left;
+  margin-left: 70px;
+  width: 280px;
+  height: 130px;
+  border: solid 2px #dddddd;
+  color: #666666;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+.add-content .address .add-list .add-item .add-ht {
+  border-bottom: solid 1px #eeeeee;
+  line-height: 26px;
+}
+.add-content .address .add-list .add-item .add-hb {
+  line-height: 26px;
+}
+.add-content .address .add-list .add-item .add-toolbar {
+  display: none;
+  margin-top: 10px;
+}
+.add-content .address .add-list .add-item .add-toolbar .amend {
+  color: #aa3b3b;
+  display: inline-block;
+}
+.add-content .address .add-list .add-item .add-toolbar .default {
+  color: #d49c25;
+  display: inline-block;
+  margin-left: 24px;
+}
+.add-content .address .add-list .add-item .add-toolbar.active {
+  display: block;
+}
+.add-content .address .add-list .add-item.active {
+  border: solid 2px #40bd9b;
+}
+.add-content .address .add-list .add-site {
+  float: left;
+  margin-left: 70px;
+  width: 280px;
+  height: 130px;
+  line-height: 100px;
+  text-align: center;
+  border: dashed 2px #dddddd;
+  color: #999999;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
+.add-content .address .add-list .add-site .icon-zengjiaanniu {
+  margin-right: 10px;
+}
+.add-content .distribution {
+  width: 100%;
+}
+.add-content .distribution .dis-tit {
+  width: 100%;
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+  margin-top: 30px;
+}
+.add-content .distribution .dis_wrapper {
+  padding: 40px 0 40px 100px;
+}
+.add-content .distribution .dis_wrapper .form_group {
+  margin: 0 0 15px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #666;
+}
+.add-content .distribution .dis_wrapper .form_group label {
+  display: inline-block;
+  float: left;
+  width: 60px;
+  height: 30px;
+  padding: 0 12px 0 0;
+  line-height: 30px;
+}
+.add-content .distribution .dis_wrapper .form_group .ship_radio {
+  height: 30px;
+  padding: 0 20px 0 0;
+  line-height: 30px;
+}
+.add-content .distribution .dis_wrapper .form_group .ship_radio input {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.add-content .distribution .dis_wrapper .form_group #date {
+  box-sizing: border-box;
+  padding-left: 10px;
+  width: 214px;
+  height: 30px;
+  border: solid 1px #999999;
+}
+.add-content .distribution .dis_wrapper .form_group .text_info a {
+  color: #5e9bb7;
+}
+.add-content .distribution .dis_wrapper .form_group .ship_price {
+  color: #df2727;
+  margin-top: 4px;
+  display: inline-block;
+}
+.add-content .invoice {
+  width: 100%;
+}
+.add-content .invoice .invoice-tit {
+  width: 100%;
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+  margin-top: 30px;
+}
+.add-content .invoice .invoice_wrapper {
+  padding: 40px 0 40px 100px;
+}
+.add-content .invoice .invoice_wrapper .form_group {
+  margin: 0 0 15px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #666;
+}
+.add-content .invoice .invoice_wrapper .form_group label {
+  display: inline-block;
+  float: left;
+  width: 60px;
+  height: 30px;
+  padding: 0 12px 0 0;
+  line-height: 30px;
+}
+.add-content .invoice .invoice_wrapper .form_group .ship_radio {
+  height: 30px;
+  padding: 0 20px 0 0;
+  line-height: 30px;
+}
+.add-content .invoice .invoice_wrapper .form_group .ship_radio input {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.add-content .affirm {
+  width: 100%;
+  /*优惠付款信息*/
+}
+.add-content .affirm .aff-tit {
+  width: 100%;
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+  margin-top: 30px;
+}
+.add-content .affirm .aff-main {
+  padding-top: 30px;
+  color: #666666;
+  font-size: 14px;
+}
+.add-content .affirm .aff-main th {
+  height: 36px;
+  font-weight: 400;
+  line-height: 36px;
+  background-color: #eeeeee;
+}
+.add-content .affirm .aff-main td {
+  height: 36px;
+  font-weight: 400;
+  line-height: 36px;
+}
+.add-content .affirm .aff-main .w280 {
+  width: 280px;
+  text-align: center;
+}
+.add-content .affirm .aff-main .w160 {
+  width: 160px;
+  text-align: center;
+}
+.add-content .affirm .aff-main .w140 {
+  width: 140px;
+  text-align: center;
+}
+.add-content .affirm .summary_container {
+  margin-top: 20px;
+}
+.add-content .affirm .summary_container .Coupon h5 {
+  font-size: 14px;
+  color: #333;
+}
+.add-content .affirm .summary_container .Coupon .Coupon-info {
+  margin-top: 10px;
+  color: #666666;
+}
+.add-content .affirm .summary_container .Coupon .Coupon-info li {
+  line-height: 24px;
+}
+.add-content .affirm .summary_container .summary {
+  text-align: right;
+}
+.add-content .affirm .summary_container .summary dt,
+.add-content .affirm .summary_container .summary dd {
+  display: inline-block;
+  line-height: 36px;
+  font-size: 18px;
+}
+.add-content .affirm .summary_container .summary dd {
+  color: #e54242;
+  padding-right: 20px;
+}
+.add-content .affirm .order-facility {
+  width: 100%;
+  height: 36px;
+  background-color: #f2f2f2;
+  line-height: 36px;
+  padding-right: 20px;
+}
+.add-content .affirm .order-facility .facility .fil {
+  float: left;
+  margin-left: 10px;
+  color: #666666;
+  font-size: 14px;
+}
+.add-content .affirm .order-payInfo {
+  text-align: right;
+  margin-top: 20px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper {
+  display: inline-block;
+  border: 1px dashed #ff0036;
+  padding: 30px 20px 20px 20px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-realPay {
+  text-align: right;
+  line-height: 30px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-realPay .realPay-title {
+  color: #333333;
+  font-size: 14px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-realPay .order-price {
+  color: #999999;
+  font-size: 16px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-realPay .realPay-price {
+  color: #e54242;
+  font-size: 20px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr {
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr .confirmAddr-addr .confirmAddr-title {
+  color: #333333;
+  font-size: 14px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr .confirmAddr-addr .confirmAddr-addr-bd {
+  color: #999999;
+  font-size: 14px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr .confirmAddr-addr-user {
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr .confirmAddr-addr-user .confirmAddr-title {
+  color: #333333;
+  font-size: 14px;
+}
+.add-content .affirm .order-payInfo .payInfo-wrapper .order-confirmAddr .confirmAddr-addr-user .confirmAddr-addr-bd {
+  color: #999999;
+  font-size: 14px;
+}
+.add-content .affirm .order-submitOrder {
+  text-align: right;
+  margin-top: 28px;
+  padding-bottom: 110px;
+}
+.add-content .affirm .order-submitOrder .wrapper {
+  display: inline-block;
+}
+.add-content .affirm .order-submitOrder .wrapper a {
+  width: 140px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #666666;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+}
+.add-content .affirm .order-submitOrder .wrapper .go-btn {
+  margin-left: 20px;
+  background-color: #df2727;
+}

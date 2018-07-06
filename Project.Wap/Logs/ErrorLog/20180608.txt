@@ -1,0 +1,15 @@
+2018-06-08 14:17:13,843 [8] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.Payment.ChinaPay.SDKConfig”的类型初始值设定项引发异常。
+2018-06-08 14:17:23,343 [8] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.Payment.ChinaPay.SDKConfig”的类型初始值设定项引发异常。
+2018-06-08 16:08:12,775 [11] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.Payment.ChinaPay.SDKConfig”的类型初始值设定项引发异常。
+2018-06-08 16:14:47,258 [11] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.Payment.ChinaPay.SDKConfig”的类型初始值设定项引发异常。
+2018-06-08 16:17:54,670 [5] ERROR ErrorLogger [(null)] - 无效的支付类型，支付异常。
+2018-06-08 16:19:24,667 [20] ERROR ErrorLogger [(null)] - 无效的支付类型，支付异常。
+2018-06-08 16:20:24,160 [5] ERROR ErrorLogger [(null)] - 无效的支付类型，支付异常。
+2018-06-08 16:21:44,432 [30] ERROR ErrorLogger [(null)] - 无效的支付类型，支付异常。
+2018-06-08 16:31:33,209 [32] ERROR ErrorLogger [(null)] - 无效的支付类型，支付异常。
+2018-06-08 16:31:36,096 [48] ERROR ErrorLogger [(null)] - 值不能为 null。
+参数名: value
+2018-06-08 16:33:19,748 [18] ERROR ErrorLogger [(null)] - 值不能为 null。
+参数名: value
+2018-06-08 16:38:30,038 [38] ERROR ErrorLogger [(null)] - 值不能为 null。
+参数名: value

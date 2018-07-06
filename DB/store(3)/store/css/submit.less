@@ -1,0 +1,355 @@
+
+/*内容*/
+.add-content{
+  /*购物步骤*/
+  .steps{
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    margin-top: 70px;
+    ul{
+      margin-left: -20px;
+      li {
+        position: relative;
+        float: left;
+        font-size: 16px;
+        width: 280px;
+        background: #C6C6C6;
+        color: #fff;
+        text-align: center;
+        margin-left: 20px;
+      }
+      li.active {
+        background:#df2727;
+        span {
+          position: absolute;
+          bottom: -20px;
+          left: 135px;
+          border: 10px solid #df2727;
+          border-color: #df2727 transparent transparent;
+        }
+      }
+    }
+  }
+  .address{
+    .add-tit{
+      color: #333333;
+      font-size: 16px;
+      padding: 10px 0;
+      border-bottom:2px solid #dddddd;
+      margin-top: 60px;
+    }
+    .add-list{
+      padding:40px 30px ;
+      .add-item{
+        float: left;
+        margin-left: 70px;
+        width: 280px;
+        height: 130px;
+        border: solid 2px #dddddd;
+        color: #666666;
+        font-size: 16px;
+        padding:  10px;
+        cursor: pointer;
+        .add-ht{
+          border-bottom:  solid 1px #eeeeee;
+          line-height: 26px;
+        }
+        .add-hb{
+          line-height: 26px;
+        }
+        .add-toolbar{
+          display: none;
+          margin-top: 10px;
+         .amend{
+           color: #aa3b3b;
+           display: inline-block;
+         }
+          .default{
+            color: #d49c25;
+            display: inline-block;
+            margin-left: 24px;
+          }
+        }
+        .add-toolbar.active{
+          display: block;
+        }
+      }
+     .add-item.active{
+        border: solid 2px #40bd9b;
+      }
+      .add-site{
+        float: left;
+        margin-left: 70px;
+        width: 280px;
+        height: 130px;
+        line-height: 100px;
+        text-align: center;
+        border: dashed 2px #dddddd;
+        color: #999999;
+        font-size: 14px;
+        padding:  10px;
+        cursor: pointer;
+        .icon-zengjiaanniu{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+/*-配送信息*/
+  .distribution{
+    width: 100%;
+    .dis-tit{
+      width: 100%;
+      color: #333333;
+      font-size: 16px;
+      padding: 10px 0;
+      border-bottom:2px solid #dddddd;
+      margin-top: 30px;
+    }
+    .dis_wrapper{
+      padding: 40px 0 40px 100px;
+      .form_group {
+        margin: 0 0 15px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+        color: #666;
+        label{
+          display: inline-block;
+          float: left;
+          width: 60px;
+          height: 30px;
+          padding: 0 12px 0 0;
+          line-height: 30px;
+        }
+        .ship_radio{
+          height: 30px;
+          padding: 0 20px 0 0;
+          line-height: 30px;
+          input{
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+          }
+        }
+        #date{
+          box-sizing: border-box;
+          padding-left: 10px;
+          width: 214px;
+          height: 30px;
+          border: solid 1px #999999;
+        }
+        .text_info a{
+          color: #5e9bb7;
+        }
+        .ship_price{
+          color: #df2727;
+          margin-top: 4px;
+          display: inline-block;
+        }
+    }
+  }
+}
+
+
+/*>发票信息*/
+  .invoice{
+    width: 100%;
+    .invoice-tit{
+      width: 100%;
+      color: #333333;
+      font-size: 16px;
+      padding: 10px 0;
+      border-bottom:2px solid #dddddd;
+      margin-top: 30px;
+    }
+    .invoice_wrapper {
+      padding: 40px 0 40px 100px;
+      .form_group {
+        margin: 0 0 15px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+        color: #666;
+        label {
+          display: inline-block;
+          float: left;
+          width: 60px;
+          height: 30px;
+          padding: 0 12px 0 0;
+          line-height: 30px;
+        }
+        .ship_radio {
+          height: 30px;
+          padding: 0 20px 0 0;
+          line-height: 30px;
+          input {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+  .affirm{
+    width: 100%;
+    .aff-tit{
+      width: 100%;
+      color: #333333;
+      font-size: 16px;
+      padding: 10px 0;
+      border-bottom:2px solid #dddddd;
+      margin-top: 30px;
+    }
+    .aff-main{
+      padding-top: 30px;
+      color: #666666;
+      font-size: 14px;
+      th {
+        height: 36px;
+        font-weight: 400;
+        line-height: 36px;
+        background-color: #eeeeee;
+      }
+      td{
+        height: 36px;
+        font-weight: 400;
+        line-height: 36px;
+      }
+      .w280{
+        width: 280px;
+        text-align: center;
+      }
+      .w160{
+        width: 160px;
+        text-align: center;
+      }
+      .w140{
+        width: 140px;
+        text-align: center;
+      }
+    }
+
+    .orderPay {
+      height: 36px;
+      line-height: 36px;
+      .orderPay-price {
+        color: #e54242;
+        font-size: 18px;
+        margin-right: 40px;
+      }
+      .orderPay-text {
+        color: #333333;
+        font-size: 16px;
+      }
+    }
+
+
+      .order-facility {
+        width: 100%;
+        height: 36px;
+        background-color: #f2f2f2;
+        line-height: 36px;
+        margin-top: 10px;
+        padding-right: 20px;
+        .facility .fil{
+          float: left;
+          margin-right: 20px;
+          color: #666666;
+          font-size: 14px;
+        }
+      }
+      .order-payInfo{
+        text-align: right;
+        margin-top: 20px;
+        .payInfo-wrapper{
+          display: inline-block;
+          border: 1px dashed #ff0036;
+          padding: 30px 20px 20px 20px;
+          .order-realPay{
+            text-align: right;
+            line-height: 30px;
+            .realPay-title{
+              color: #333333;
+              font-size: 14px;
+            }
+            .order-price{
+              color: #999999;
+              font-size: 16px;
+
+            }
+            .realPay-price{
+              color: #e54242;
+              font-size: 20px;
+            }
+          }
+          .order-confirmAddr{
+            line-height: 1.6;
+            margin-top: 10px;
+            .confirmAddr-addr{
+
+              .confirmAddr-title{
+                color: #333333;
+                font-size: 14px;
+              }
+              .confirmAddr-addr-bd{
+                color: #999999;
+                font-size: 14px;
+              }
+            }
+            .confirmAddr-addr-user{
+              line-height: 1.6;
+              margin-top: 10px;
+                .confirmAddr-title{
+                  color: #333333;
+                  font-size: 14px;
+                }
+              .confirmAddr-addr-bd{
+                color: #999999;
+                font-size: 14px;
+
+              }
+            }
+          }
+        }
+      }
+      .order-submitOrder{
+        text-align: right;
+        margin-top: 28px;
+        padding-bottom: 110px;
+        .wrapper{
+          display: inline-block;
+          a{
+            width: 140px;
+            height: 36px;
+            line-height: 36px;
+            background-color: #666666;
+            border-radius: 4px;
+            text-align: center;
+            color: #fff;
+            display: inline-block;
+            font-size: 16px;
+          }
+          .go-btn{
+            margin-left: 20px;
+            background-color: #df2727;
+          }
+        }
+      }
+
+  }
+}

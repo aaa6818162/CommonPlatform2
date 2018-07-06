@@ -1,0 +1,10 @@
+2018-06-05 18:04:45,498 [28] INFO  PaymentLogger [(null)] - request:<xml><trade_type><![CDATA[MWEB]]></trade_type><mch_id><![CDATA[1423465802]]></mch_id><attach><![CDATA[]]></attach><total_fee>1</total_fee><out_trade_no><![CDATA[2018/6/5 18:02:082018060518043950]]></out_trade_no><nonce_str><![CDATA[071F73D5FA9AFA99A383435A52CF9A8D]]></nonce_str><sign><![CDATA[8CA2C854ECA9848748EDF04E4B40986E]]></sign><body><![CDATA[InkIvy]]></body><notify_url><![CDATA[http://localhost:8771/Payment/WechatPayNotify]]></notify_url><spbill_create_ip><![CDATA[192.168.85.68]]></spbill_create_ip><appid><![CDATA[wxcc20425e17550ed7]]></appid></xml> 
+ result:<xml><return_code><![CDATA[FAIL]]></return_code>
+<return_msg><![CDATA[out_trade_no参数长度有误]]></return_msg>
+</xml>
+2018-06-05 18:04:45,544 [28] INFO  PaymentLogger [(null)] - return_msg:out_trade_no参数长度有误
+2018-06-05 18:05:54,016 [32] INFO  PaymentLogger [(null)] - request:<xml><trade_type><![CDATA[MWEB]]></trade_type><mch_id><![CDATA[1423465802]]></mch_id><attach><![CDATA[]]></attach><total_fee>1</total_fee><out_trade_no><![CDATA[90004201442018060518055391]]></out_trade_no><nonce_str><![CDATA[A626E61331FA10BC1CDD4B754409239C]]></nonce_str><sign><![CDATA[38C86BF0D5D2A33F09FE30209A9766A7]]></sign><body><![CDATA[InkIvy]]></body><notify_url><![CDATA[http://localhost:8771/Payment/WechatPayNotify]]></notify_url><spbill_create_ip><![CDATA[192.168.85.68]]></spbill_create_ip><appid><![CDATA[wxcc20425e17550ed7]]></appid></xml> 
+ result:<xml><return_code><![CDATA[FAIL]]></return_code>
+<return_msg><![CDATA[商户号该产品权限预开通中，请等待产品开通后重试]]></return_msg>
+</xml>
+2018-06-05 18:05:54,021 [32] INFO  PaymentLogger [(null)] - return_msg:商户号该产品权限预开通中，请等待产品开通后重试

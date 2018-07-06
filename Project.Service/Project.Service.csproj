@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC818705-0142-46D9-A858-1575069C0ABE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Service</RootNamespace>
+    <AssemblyName>Project.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenMasClient">
+      <HintPath>..\Lib\OpenMasClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BootstrapperService.cs" />
+    <Compile Include="ContentManager\OfflineActivityService.cs" />
+    <Compile Include="ContentManager\PageContentCategoryService.cs" />
+    <Compile Include="ContentManager\PageContentService.cs" />
+    <Compile Include="CustomerManager\CardTypeService.cs" />
+    <Compile Include="CustomerManager\CustomerAddressService.cs" />
+    <Compile Include="CustomerManager\CustomerCollectionService.cs" />
+    <Compile Include="CustomerManager\CustomerService.cs" />
+    <Compile Include="CustomerManager\Dto\CustomerDto.cs" />
+    <Compile Include="CustomerManager\Help\CustomerHelp.cs" />
+    <Compile Include="CustomerManager\Validate\CustomerValidate.cs" />
+    <Compile Include="HRManager\DictionaryService.cs" />
+    <Compile Include="HRManager\Validate\DictionaryValidate.cs" />
+    <Compile Include="OrderManager\Help\CustomerPointHelp.cs" />
+    <Compile Include="OrderManager\Help\PromotionHelp.cs" />
+    <Compile Include="OrderManager\Help\StockHelp.cs" />
+    <Compile Include="OrderManager\Help\TicketHelp.cs" />
+    <Compile Include="OrderManager\Help\YfHelp.cs" />
+    <Compile Include="OrderManager\OrderInvoiceService.cs" />
+    <Compile Include="OrderManager\OrderMainService.cs" />
+    <Compile Include="OrderManager\ShopCartService.cs" />
+    <Compile Include="OrderManager\StockService.cs" />
+    <Compile Include="PermissionManager\DepartmentService.cs" />
+    <Compile Include="PermissionManager\DTO\MenuDTO.cs" />
+    <Compile Include="PermissionManager\DTO\LoginUserInfoDTO.cs" />
+    <Compile Include="PermissionManager\DTO\PermissionFunctionDetailDTO.cs" />
+    <Compile Include="PermissionManager\FunctionDetailService.cs" />
+    <Compile Include="PermissionManager\FunctionService.cs" />
+    <Compile Include="PermissionManager\ModuleService.cs" />
+    <Compile Include="PermissionManager\PermissionService.cs" />
+    <Compile Include="PermissionManager\RoleDepartmentService.cs" />
+    <Compile Include="PermissionManager\RoleFunctionDetailService.cs" />
+    <Compile Include="PermissionManager\RoleService.cs" />
+    <Compile Include="PermissionManager\UserDepartmentService.cs" />
+    <Compile Include="PermissionManager\UserFunctionDetailService.cs" />
+    <Compile Include="PermissionManager\UserInfoService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PermissionManager\UserRoleService.cs" />
+    <Compile Include="PermissionManager\Validate\DepartmentValidate.cs" />
+    <Compile Include="PermissionManager\Validate\UserInfoValidate.cs" />
+    <Compile Include="ProductManager\AttributeValueService.cs" />
+    <Compile Include="ProductManager\BrandService.cs" />
+    <Compile Include="ProductManager\ExtAttributeService.cs" />
+    <Compile Include="ProductManager\GoodsService.cs" />
+    <Compile Include="ProductManager\GoodsSpecValueService.cs" />
+    <Compile Include="ProductManager\Help\ProductHelp.cs" />
+    <Compile Include="ProductManager\ParameterGroupDetailService.cs" />
+    <Compile Include="ProductManager\ParameterGroupService.cs" />
+    <Compile Include="ProductManager\ProductAttributeValueService.cs" />
+    <Compile Include="ProductManager\ProductCategoryService.cs" />
+    <Compile Include="ProductManager\ProductImageService.cs" />
+    <Compile Include="ProductManager\ProductService.cs" />
+    <Compile Include="ProductManager\ProductSpecService.cs" />
+    <Compile Include="ProductManager\SpecService.cs" />
+    <Compile Include="ProductManager\SpecValueService.cs" />
+    <Compile Include="ProductManager\SystemCategoryAttributeService.cs" />
+    <Compile Include="ProductManager\SystemCategoryBrandService.cs" />
+    <Compile Include="ProductManager\SystemCategoryService.cs" />
+    <Compile Include="ProductManager\SystemCategorySpecService.cs" />
+    <Compile Include="ProductManager\Validate\ProductValidate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManager\UserInfoReportService.cs" />
+    <Compile Include="ReportManager\HrReportService.cs" />
+    <Compile Include="SalePromotionManager\ActivityService.cs" />
+    <Compile Include="SalePromotionManager\RuleService.cs" />
+    <Compile Include="SalePromotionManager\TicketService.cs" />
+    <Compile Include="SystemSetManager\AreaService.cs" />
+    <Compile Include="SystemSetManager\AuthCodeService.cs" />
+    <Compile Include="SystemSetManager\CityService.cs" />
+    <Compile Include="SystemSetManager\HolidayDetailService.cs" />
+    <Compile Include="SystemSetManager\IndexPageSetService.cs" />
+    <Compile Include="SystemSetManager\NoticeInfoService.cs" />
+    <Compile Include="SystemSetManager\ProvinceService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Config\Project.Config.csproj">
+      <Project>{7e5cd828-d4ff-445e-9f1d-068102151681}</Project>
+      <Name>Project.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Infrastructure.FrameworkCore\Project.Infrastructure.FrameworkCore.csproj">
+      <Project>{1c2392ad-a0f8-4378-9c54-3dcd1fb5d1db}</Project>
+      <Name>Project.Infrastructure.FrameworkCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{3D26782A-3308-430B-B58F-5F8ABA1A50B3}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository\Project.Repository.csproj">
+      <Project>{AB16EA24-3296-4DAC-A2D8-203158EEAB6F}</Project>
+      <Name>Project.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

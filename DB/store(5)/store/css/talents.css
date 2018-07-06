@@ -1,0 +1,281 @@
+.talents-content {
+  margin-top: 60px;
+}
+.talents-tit {
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  line-height: 50px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+.talents-tit .talent-head {
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+}
+.talents-tit .territory {
+  display: inline-block;
+  margin-left: 110px;
+}
+.talents-tit .territory .territory-list {
+  width: 240px;
+  height: 30px;
+  border: solid 1px #999999;
+}
+.talents-tit .nationality {
+  display: inline-block;
+  margin-left: 80px;
+}
+.talents-tit .nationality .nationality-list {
+  width: 240px;
+  height: 30px;
+  border: solid 1px #999999;
+}
+.talents-tit .many-talents {
+  color: #666666;
+  font-size: 14px;
+}
+.talents-main {
+  width: 100%;
+  margin-bottom: 230px;
+}
+.talents-main .talents-list {
+  margin-left: -20px;
+}
+.talents-main .talents-item {
+  float: left;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.talents-main .talents-item .t-img {
+  width: 380px;
+  height: 340px;
+}
+.talents-main .talents-item .t-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.talents-main .talents-item .t-wrap {
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  top: 270px;
+  width: 100%;
+  height: 100%;
+  transition: All 0.8s ease-in-out;
+  -webkit-transition: All 0.8s ease-in-out;
+  -moz-transition: All 0.8s ease-in-out;
+  -o-transition: All 0.8s ease-in-out;
+}
+.talents-main .talents-item .t-wrap .tit {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.talents-main .talents-item .t-wrap .tit .t-name p {
+  line-height: 24px;
+  font-size: 14px;
+  color: #fff;
+}
+.talents-main .talents-item .t-wrap .tit .t-text {
+  font-size: 14px;
+  color: #fff;
+  margin: 30px 0;
+  padding: 0 24px;
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  z-index: 5;
+}
+.talents-main .talents-item .t-wrap .tit .tmore {
+  width: 120px;
+  height: 36px;
+  border-radius: 6px;
+  border: solid 1px #ffffff;
+  line-height: 36px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #fff;
+  z-index: 5;
+}
+.talents-main .talents-item .t-wrap .bgcolor {
+  background-color: rgba(223, 39, 39, 0.8);
+  text-align: center;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+.talents-main .talents-item:hover .t-wrap {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  transform: translate(0, 0px);
+  -webkit-transform: translate(0, 0px);
+  -moz-transform: translate(0, 0px);
+  -o-transform: translate(0, 0px);
+  -ms-transform: translate(0, 0px);
+  -webkit-box-shadow: 0px 5px 15px #e5e5e5;
+  -moz-box-shadow: 0px 5px 15px #e5e5e5;
+  box-shadow: 0px 5px 15px #e5e5e5;
+}
+/*人才详情*/
+.talents-info {
+  margin-top: 30px;
+}
+.talents-info .talents-img {
+  width: 300px;
+  height: 380px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.talents-info .infoItem {
+  width: 100%;
+  margin-top: 40px;
+}
+.talents-info .infoItem .item-h {
+  width: 360px;
+  height: 50px;
+  background-color: #df2727;
+  line-height: 50px;
+  text-align: center;
+  color: #fefefe;
+  font-size: 24px;
+}
+.talents-info .infoItem p {
+  text-indent: 2em;
+  font-size: 14px;
+  color: #333;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  padding-left: 360px;
+  line-height: 24px;
+  letter-spacing: 1px;
+}
+.talents-info .infoItem .achievement {
+  padding-left: 360px;
+}
+.talents-info .infoItem .achievement li {
+  line-height: 28px;
+  font-size: 14px;
+  color: #333;
+}
+.talents-info .infoItem .production {
+  padding-left: 360px;
+  margin-top: 20px;
+  margin-left: -60px;
+}
+.talents-info .infoItem .production li {
+  width: 160px;
+  height: 280px;
+  float: left;
+  margin-left: 60px;
+}
+.talents-info .infoItem .production li img {
+  width: 100%;
+  height: 230px;
+  display: block;
+}
+.talents-info .infoItem .production li h4 {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+}
+.talents-info .infoItem .report {
+  padding-left: 360px;
+  margin: 24px 0 24px -110px;
+}
+.talents-info .infoItem .report .report-item {
+  position: relative;
+  float: left;
+  margin-left: 110px;
+  overflow: hidden;
+}
+.talents-info .infoItem .report .report-item .t-img {
+  width: 200px;
+  height: 200px;
+}
+.talents-info .infoItem .report .report-item .t-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.talents-info .infoItem .report .report-item .r-wrap {
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  top: 160px;
+  width: 100%;
+  height: 100%;
+  transition: All 0.8s ease-in-out;
+  -webkit-transition: All 0.8s ease-in-out;
+  -moz-transition: All 0.8s ease-in-out;
+  -o-transition: All 0.8s ease-in-out;
+}
+.talents-info .infoItem .report .report-item .r-wrap .tit {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-top: 13px;
+}
+.talents-info .infoItem .report .report-item .r-wrap .tit .t-name {
+  font-size: 14px;
+  color: #fff;
+}
+.talents-info .infoItem .report .report-item .r-wrap .tit .tmore {
+  width: 80px;
+  height: 26px;
+  border-radius: 6px;
+  border: solid 1px #ffffff;
+  line-height: 26px;
+  text-align: center;
+  margin: 100px auto 0;
+  font-size: 14px;
+  color: #fff;
+}
+.talents-info .infoItem .report .report-item .r-wrap .bgcolor {
+  background-color: rgba(223, 39, 39, 0.8);
+  text-align: center;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+.talents-info .infoItem .report .report-item:hover .r-wrap {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  transform: translate(0, 0px);
+  -webkit-transform: translate(0, 0px);
+  -moz-transform: translate(0, 0px);
+  -o-transform: translate(0, 0px);
+  -ms-transform: translate(0, 0px);
+  -webkit-box-shadow: 0px 5px 15px #e5e5e5;
+  -moz-box-shadow: 0px 5px 15px #e5e5e5;
+  box-shadow: 0px 5px 15px #e5e5e5;
+}

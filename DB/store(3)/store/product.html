@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="assets/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./assets/location/location.css">
+</head>
+
+<body>
+
+<!-- 顶部 -->
+<div class="site-nav">
+    <div class="container clearfix">
+        <!-- 左边 -->
+        <div class="txt-info fl">
+            <div class="site-nav-sign hide">
+                <a href="./user/login.html">马上登录</a>
+                <i class="spacer"></i>
+                <a href="./register/registerName.html" class="red">立即注册</a>
+            </div>
+            <div class="site-nav-m">
+                <div class="site-nav-user">
+                    <a href="./user/user.html">欢迎您,1575519086阿斯蒂芬阿斯蒂芬阿斯蒂芬阿萨德</a>
+                    <span class="iconfont icon-jiantou12"></span>
+                </div>
+                <div class="site-nav-menu-bd">
+                    <div class="bd-main">
+                        <div class="site-nav-user-wrapper fl">
+                            <a href="./user/user.html">
+                                <img src="./images/user.png" alt="">
+                            </a>
+                        </div>
+                        <div class="site-nav-user-info">
+                            <div class="d-text"><a href="#">账户管理</a></div>
+                            <div class="quit"><a href="#">退出</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 右边 -->
+        <ul class="quick-menu fr">
+            <li>
+                <span class="iconfont icon-74wodedingdan"></span>
+                <a href="./user/order.html">我的订单</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="red iconfont icon-gouwuchekong"></span>
+                <a href="car.html">我的购物车
+                    (<i class="red">0</i>)</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-shoucang"></span>
+                <a href="collection.html">收藏记录</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-wo"></span>
+                <a href="./user/user.html">用户中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 头部 -->
+<header>
+    <div class="container clearfix">
+        <div class="logo fl">
+            <a href="index.html">
+                <img src="./images/common/LOGO.png" alt="">
+            </a>
+        </div>
+        <div class="service-tel fr">
+            <span class="iconfont icon-dianhua"></span>
+            客服电话：
+            <span class="tel"> 4008-816-616</span>
+        </div>
+    </div>
+</header>
+
+<!-- 导航 栏-->
+<nav>
+    <div class="container clearfix">
+        <div class="line"></div>
+        <ul class="nav_list">
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+
+            <li>
+                <a href="./brand_story.html">品牌故事</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="./talents.html">人才大师</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="javaScript:;">IP+产品</a>
+                <div class="iconfont icon-sanjiaoxia"></div>
+                <div class="submenu">
+                    <ol>
+                        <li>
+                            <a href="sortList.html">天才发明家</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">小毛毛</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">星际特工</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">长尾豹马修</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">百变马丁</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="sortList.html">丁丁历险记</a>
+                        </li>
+                    </ol>
+                </div>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="./offline_activity.html">线下活动</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+        </ul>
+        <div class="search fr">
+            <form action="">
+                <span class="iconfont icon-sousuo"></span>
+                <button type="submit" class="button_goods">搜索</button>
+                <input type="text" class="search_goods" placeholder="搜索商品/店铺">
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+<!-- shop-head -->
+<div class="shop-head">
+    <img src="images/product/shop-head.png" alt="">
+</div>
+
+<div class="container">
+    <!--商品详情-->
+    <div class="product-info clearfix">
+        <!--放大镜-->
+        <div class="shop-box fl">
+                <!--中图-->
+                <div class="midBox">
+                    <a href="#">
+                        <img class="midImg" src="images/product/1.jpg"/>
+                    </a>
+                    <span class="mask"></span>
+                </div>
+                <!--小图-->
+                <div class="smallBox clearfix">
+                    <ul>
+                        <li class="active"><img src="images/product/11.jpg"/></li>
+                        <li><img src="images/product/22.jpg"/></li>
+                        <li><img src="images/product/33.jpg"/></li>
+                        <li><img src="images/product/11.jpg"/></li>
+                        <li><img src="images/product/22.jpg"/></li>
+                        <li><img src="images/product/33.jpg"/></li>
+                    </ul>
+                </div>
+            <!--大图-->
+            <div class="bigBox fl">
+                <img src="images/product/111.jpg" class="bigImg" />
+            </div>
+
+            <!--分享-->
+            <div class="short-share clearfix">
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <a class="share bds_more" href="#none">
+                        <i class="iconfont icon-fenxiang"></i>
+                        <em>分享好友</em>
+                    </a>
+                </div>
+
+                <a class="collection fl" href="#">
+                    <i class="iconfont icon-shoucang"></i>
+                    <em>收藏商品</em>
+                </a>
+                <a class="report fr" href="#" ><em>举报与建议</em></a>
+            </div>
+
+            <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=692785"></script>
+            <script type="text/javascript" id="bdshell_js"></script>
+
+            <script type="text/javascript">
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+            </script>
+
+        </div>
+       <!-- 产品信息-->
+        <div class="product-wrap fl">
+            <form action="">
+                <div class="name">法国大使（Delsey）商务出行拉杆箱28英寸PC旅行箱可扩容行箱男女万向轮银灰色073</div>
+                <div class="summary">
+                    <div class="summary-price-wrap clearfix">
+                        <div class="s-p-w-wrap">
+                            <div class="summary-item si-shop-price">
+                                <div class="si-tit">价格</div>
+                                <div class="si-warp">
+                                    <strong class="shop-price">￥799.00</strong>
+                                </div>
+                            </div>
+                            <div class="summary-item si-market-price">
+                                <div class="si-tit">原价</div>
+                                <div class="si-warp">
+                                    <div class="m-price">￥1099.00</div>
+                                </div>
+                            </div>
+                            <div class="si-info">
+                                <div class="si-cumulative">累计评价 <br><em>68957</em>条</div>
+                                <div class="si-cumulative">累计销量 <br><em>68957</em>条</div>
+                            </div>
+                            <div class="summary-item si-coupon">
+                                <div class="si-tit">促销</div>
+                                <div class="si-warp">
+                                        <div class="si-sales"><i>限制</i>此价格不与套装优惠同时享受</div>
+                                        <div class="si-sales"><i>限制</i>满199元减30元，满399元减60元，满999元减100元</div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="summary-basic-info clearfix">
+                        <div class="summary-item is-stock">
+                            <div class="si-tit">配送</div>
+                            <div class="si-warp">
+                                <span class="initial-area">上海市</span>
+                                <span>至</span>
+                                <div id="summary-stock">
+                                    <div class="dd">
+                                        <div id="store-selector">
+                                            <div class="text"><div></div><b></b></div>
+                                            <div onclick="$('#store-selector').removeClass('hover')" class="close"></div>
+                                        </div><!--store-selector end-->
+                                        <div id="store-prompt"><strong></strong></div><!--store-prompt end-->
+                                    </div>
+                                </div>
+                                <div class="store-prompt">有货</div>
+                            </div>
+                        </div>
+                        <div class="summary-item is-service">
+                            <div class="si-tit">重量</div>
+                            <div class="si-warp">
+                               <div class="si-weight"> 6.8kg</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-item is-size clearfix">
+                            <div class="si-tit">尺寸</div>
+                            <div class="si-warp">
+                                <ul class="si-size">
+                                    <li class="active">16寸</li>
+                                    <li>20寸</li>
+                                    <li>22寸</li>
+                                    <li>24寸</li>
+                                    <li>26寸</li>
+                                    <li>29寸</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="summary-item is-color clearfix">
+                            <div class="si-tit">颜色分类</div>
+                            <div class="si-warp">
+                                <ul class="si-color">
+                                    <li class="active">象牙白</li>
+                                    <li>经典黑</li>
+                                    <li>经典黑</li>
+                                    <li>经典黑</li>
+                                    <li>经典黑</li>
+                                    <li>经典黑</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="summary-item is-number clearfix">
+                            <div class="si-tit">数量</div>
+                            <div class="si-warp">
+                                <div class="amount-warp">
+                                    <input class="text buy-num" value="1" name="number" defaultnumber="1" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z] /">
+                                    <div class="a-btn">
+                                        <a href="javascript:void(0);" class="btn-add"><i class="iconfont icon-jiantou11"></i></a>
+                                        <a href="javascript:void(0);" class="btn-reduce"><i class="iconfont icon-jiantou12"></i></a>
+                                    </div>
+                                </div>
+                                <span>库存&nbsp;<em class="goods_num">53965</em>&nbsp;个</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose-btns clearfix">
+                        <a href="submit.html" class="btn-buynow">立即购买</a>
+                        <a href="car.html" class="btn-append"><i class="iconfont icon-gouwuchekong"></i>加入购物车</a>
+                    </div>
+                    <div class="serve-promise">
+                        <div class="si-tit">服务承诺</div>
+                        <div class="si-warp">
+                            <ul>
+                                <li><a href="#">正品保障</a></li>
+                                <li><a href="#">极速退款</a></li>
+                                <li><a href="#">赠运费险</a></li>
+                                <li><a href="#">7天无理由退货</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--刷一刷-->
+        <div class="refresh fl">
+            <div class="refresh-title">刷一刷
+                <span class="iconfont icon-shuaxin"></span>
+            </div>
+            <div class="refresh-list">
+                <ul>
+                    <li><a href="product.html"><img src="./images/product/refresh.png" alt=""></a></li>
+                    <li><a href="product.html"><img src="./images/product/refresh1.png" alt=""></a></li>
+                    <li><a href="product.html"><img src="./images/product/refresh3.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!--产品详情-->
+    <div class="container clearfix">
+        <div class="view-buy fl">
+            <div class="mt">达人选购</div>
+            <div class="mc">
+                <ul>
+                    <li>
+                        <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy.png" alt=""></a></div>
+                        <div class="p-name">天才发明家天才发明家阿斯顿发打算发的说法阿斯蒂芬阿斯蒂芬</div>
+                        <div class="p-price">￥399.00</div>
+                        <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy2.png" alt=""></a></div>
+                        <div class="p-name">天才发明家天才发明家</div>
+                        <div class="p-price">￥399.00</div>
+                        <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy3.png" alt=""></a></div>
+                        <div class="p-name">天才发明家天才发明家</div>
+                        <div class="p-price">￥399.00</div>
+                        <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail fl clearfix">
+            <div class="tab-main">
+                <ul>
+                    <li class="current">商品详情</li>
+                    <li>规格与包装</li>
+                    <li>售后保障</li>
+                    <li>商品评价 <span>(3.6万+)</span></li>
+                    <p><b></b></p>
+                </ul>
+                <div class="extra">
+                    <div class="extra-inner"><a href="car.html">加入购物车</a></div>
+                </div>
+            </div>
+            <div class="tab-con">
+              <div class="item">
+                  <div class="p-parameter">
+                      <div class="parameter-title">品牌名称：<a href="#">昕辰</a></div>
+                      <div class="product-param">产品参数：</div>
+                      <ul class="parameter-list clearfix">
+                          <li title="2017年春夏">上市时间:&nbsp; 2017年春夏</li>
+                          <li title="20寸【赠送贴纸3张+防尘箱套+...">尺寸:&nbsp; 20寸【赠送贴纸3张+防尘箱套大师傅阿斯蒂芬阿斯蒂芬阿斯顿发手动阀手动阀</li>
+                          <li title="硬">箱包硬度:&nbsp; 硬</li>
+                          <li title="青年">适用对象:&nbsp; 青年</li>
+                          <li title="67">货号:&nbsp; 67</li>
+                          <li title=" 有">有无拉杆: &nbsp;有</li>
+                          <li title="是">是否带锁:&nbsp; 是</li>
+                          <li title="万向轮">滚轮样式:&nbsp; 万向轮</li>
+                          <li title="昕辰">品牌:&nbsp; 昕辰</li>
+                          <li title="ABS+PC">质地:&nbsp; ABS+PC</li>
+                          <li title="男女通用">性别: &nbsp;男女通用</li>
+                          <li title="防刮拉链（玫瑰金） 防刮拉...">颜色分类: 防刮拉链（玫瑰金） 防刮拉..大发送到阿道夫阿斯顿发顺丰打算打法是否.</li>
+                          <li title="拉链暗袋 手机袋 证件袋 夹...">内部结构: 拉链暗袋 手机袋 证件袋 夹.阿斯蒂芬阿斯顿发送到发大沙发斯蒂芬..</li>
+                          <li title="涤纶">里料材质: 涤纶</li>
+                          <li title="时尚潮流">风格: 时尚潮流</li>
+                      </ul>
+                  </div>
+                  <div class="parameter-content">
+                      <div align="center">
+                          <img src="./images/product/001%20(1).jpg" alt="">
+                          <img src="./images/product/001%20(2).jpg" alt="">
+                          <img src="./images/product/001%20(3).jpg" alt="">
+                          <img src="./images/product/001%20(4).jpg" alt="">
+                          <img src="./images/product/001%20(5).jpg" alt="">
+                          <img src="./images/product/001%20(6).jpg" alt="">
+                          <img src="./images/product/001%20(7).jpg" alt="">
+                      </div>
+                  </div>
+
+              </div>
+                <div class="item hide" >
+                    <div class="p-parameter">
+                        <div class="parameter-title">品牌名称：<a href="#">昕辰</a></div>
+                        <div class="product-param">产品参数：</div>
+                        <ul class="parameter-list clearfix">
+                            <li title="2017年春夏">上市时间:&nbsp; 2017年春夏</li>
+                            <li title="20寸【赠送贴纸3张+防尘箱套+...">尺寸:&nbsp; 20寸【赠送贴纸3张+防尘箱套+...</li>
+                            <li title="硬">箱包硬度:&nbsp; 硬</li>
+                            <li title="青年">适用对象:&nbsp; 青年</li>
+                            <li title="67">货号:&nbsp; 67</li>
+                            <li title=" 有">有无拉杆: &nbsp;有</li>
+                            <li title="是">是否带锁:&nbsp; 是</li>
+                            <li title="万向轮">滚轮样式:&nbsp; 万向轮</li>
+                            <li title="昕辰">品牌:&nbsp; 昕辰</li>
+                            <li title="ABS+PC">质地:&nbsp; ABS+PC</li>
+                            <li title="男女通用">性别: &nbsp;男女通用</li>
+                            <li title="防刮拉链（玫瑰金） 防刮拉...">颜色分类: 防刮拉链（玫瑰金） 防刮拉...</li>
+                            <li title="拉链暗袋 手机袋 证件袋 夹...">内部结构: 拉链暗袋 手机袋 证件袋 夹...</li>
+                            <li title="涤纶">里料材质: 涤纶</li>
+                            <li title="时尚潮流">风格: 时尚潮流</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item hide">
+                    <div class="p-parameter">
+                        <div class="parameter-title">品牌名称：<a href="#">昕辰</a></div>
+                        <div class="product-param">产品参数：</div>
+                        <ul class="parameter-list clearfix">
+                            <li title="2017年春夏">上市时间:&nbsp; 2017年春夏</li>
+                            <li title="20寸【赠送贴纸3张+防尘箱套+...">尺寸:&nbsp; 20寸【赠送贴纸3张+防尘箱套+...</li>
+                            <li title="硬">箱包硬度:&nbsp; 硬</li>
+                            <li title="青年">适用对象:&nbsp; 青年</li>
+                            <li title="67">货号:&nbsp; 67</li>
+                            <li title=" 有">有无拉杆: &nbsp;有</li>
+                            <li title="是">是否带锁:&nbsp; 是</li>
+                            <li title="万向轮">滚轮样式:&nbsp; 万向轮</li>
+                            <li title="昕辰">品牌:&nbsp; 昕辰</li>
+                            <li title="ABS+PC">质地:&nbsp; ABS+PC</li>
+                            <li title="男女通用">性别: &nbsp;男女通用</li>
+                            <li title="防刮拉链（玫瑰金） 防刮拉...">颜色分类: 防刮拉链（玫瑰金） 防刮拉...</li>
+                            <li title="拉链暗袋 手机袋 证件袋 夹...">内部结构: 拉链暗袋 手机袋 证件袋 夹...</li>
+                            <li title="涤纶">里料材质: 涤纶</li>
+                            <li title="时尚潮流">风格: 时尚潮流</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item hide">
+                    <div class="p-parameter">
+                        <div class="parameter-title">品牌名称：<a href="#">昕辰</a></div>
+                        <div class="product-param">产品参数：</div>
+                        <ul class="parameter-list clearfix">
+                            <li title="2017年春夏">上市时间:&nbsp; 2017年春夏</li>
+                            <li title="20寸【赠送贴纸3张+防尘箱套+...">尺寸:&nbsp; 20寸【赠送贴纸3张+防尘箱套+...</li>
+                            <li title="硬">箱包硬度:&nbsp; 硬</li>
+                            <li title="青年">适用对象:&nbsp; 青年</li>
+                            <li title="67">货号:&nbsp; 67</li>
+                            <li title=" 有">有无拉杆: &nbsp;有</li>
+                            <li title="是">是否带锁:&nbsp; 是</li>
+                            <li title="万向轮">滚轮样式:&nbsp; 万向轮</li>
+                            <li title="昕辰">品牌:&nbsp; 昕辰</li>
+                            <li title="ABS+PC">质地:&nbsp; ABS+PC</li>
+                            <li title="男女通用">性别: &nbsp;男女通用</li>
+                            <li title="防刮拉链（玫瑰金） 防刮拉...">颜色分类: 防刮拉链（玫瑰金） 防刮拉...</li>
+                            <li title="拉链暗袋 手机袋 证件袋 夹...">内部结构: 拉链暗袋 手机袋 证件袋 夹...</li>
+                            <li title="涤纶">里料材质: 涤纶</li>
+                            <li title="时尚潮流">风格: 时尚潮流</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--新品推荐-->
+    <div class="NewProducts clearfix">
+        <div class="NewProducts-title">
+            <h4>新品推荐</h4>
+        </div>
+        <div class="NewProducts-content">
+            <ul>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/product1.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家阿斯蒂芬阿萨德阿萨德法师打发第三方</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy2.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy3.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/viewbuy.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+                <li>
+                    <div class="p-img"><a href="product.html"> <img src="./images/product/product1.png" alt=""></a></div>
+                    <div class="p-name">天才发明家天才发明家</div>
+                    <div class="p-price">￥399.00</div>
+                    <div class="p-buy"><a href="product.html">立即购买 ></a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- 底部 -->
+<footer>
+    <div class="navFooter">
+        <div class="container clearfix">
+            <div class="footer_content">
+                <dl class="navFooter_list fl">
+                    <dt>会员中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">注册登录</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">会员制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">购物流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">积分说明</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>售后服务</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">退换货政策</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">退换货流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">发票制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">投诉建议</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>商家中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">免费入驻</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">后台管理</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">商家协议</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">注意事项</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>公司介绍</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">关于我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">联系我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">客服电话</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">公司地址</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="special">
+                    <ul class="fl">
+                        <li>
+                            <h3>客服热线：
+                                <img src="./images/common/tel1.png" alt="">
+                            </h3>
+                            <p>4008-816-616</p>
+                        </li>
+                        <li>
+                            <h3>投诉建议：
+                                <img src="./images/common/tel2.png" alt="">
+                            </h3>
+                            <p>0571-86673122</p>
+                        </li>
+                    </ul>
+                    <span class="spacer1"></span>
+                    <dl class="fl">
+                        <dt>
+                            <img src="images/common/ewm.png">
+                        </dt>
+                        <dd>扫一扫 下载APP</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <ul class="footer_nav">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./user/brand_story.html">品牌故事</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./user/talents.html">人才大师</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="./user/offline_activity.html">线下活动</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="navFooterLine">
+        <div class="container">
+            <ul>
+                <li> 版权所有 © 杭州滨雅科技有限公司 未经许可 严禁复制</li>
+                <li> Copyright 2012- 2018. All Rights Reserved.</li>
+                <li>浙ICP备15018765号-2</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+
+<script type="text/javascript" src="./assets/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/product.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./assets/iconfont/iconfont.js"></script>
+<script type="text/javascript" src="./assets/location/location.js"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?40dc61e58e9c6d01dc54632d17797640";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

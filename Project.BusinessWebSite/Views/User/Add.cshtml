@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "新增用户";
+}
+
+@section HeaderContent
+{
+}
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="javascript:void(0);">新增用户</a></li>
+</ul>
+<br />
+<div class="container-fluid">
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="number">工号</label>
+                <div class="col-md-4">
+                    <input class="form-control" name="number" id="number" type="text" placeholder="请输入工号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">姓名</label>
+                <div class="col-md-4">
+                    <input class="form-control" id="name" placeholder="" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">状态</label>
+                <div class="col-md-4">
+                    <span class="onoffswitch">
+                        <input type="checkbox" name="Status" id="Status" value="1" checked class="onoffswitch-checkbox">
+                        <label class="onoffswitch-label" for="Status">
+                            <span class="onoffswitch-inner" data-swchon-text="启用" data-swchoff-text="停用"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">角色</label>
+                <div class="col-md-10">
+                    @foreach (var role in ViewBag.Roles as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.RoleDTO>)
+                    {
+                        <label class="checkbox-inline">
+                            <input type="checkbox" for="Role" class="checkbox style-0" value="@role.RoleID">
+                            <span>@role.Name</span>
+                        </label>
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">门店</label>
+                <div class="col-md-10">
+                    <fieldset style="margin-bottom:10px;">
+                        <legend style="font-weight:600">HH</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "HH")
+                            {
+                                <div class="col-md-3">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" for="Store" class="checkbox style-0" value="@store.Id">
+                                        <span>@store.Name</span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </fieldset>
+                    <fieldset style="margin-bottom:10px;">
+                        <legend style="font-weight:600">InkIvy</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "InkIvy")
+                            {
+                                <div class="col-md-3">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" for="Store" class="checkbox style-0" value="@store.Id">
+                                        <span>@store.Name</span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </fieldset>
+                    <fieldset style="margin-bottom:10px;">
+                        <legend style="font-weight:600">TAO</legend>
+                        @foreach (var store in ViewBag.Stores as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.StoreDTO>)
+                        {
+                            if (store.Brand == "TAO")
+                            {
+                                <div class="col-md-3">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" for="Store" class="checkbox style-0" value="@store.Id">
+                                        <span>@store.Name</span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-primary" type="button" id="save" data-loading-text="正在提交...">
+                    <i class="fa fa-save"></i>
+                    保存
+                </button>
+                <a href="@Url.Action("Index")" class='btn btn-default'>取 消</a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+@section scripts
+{
+    <script>
+        $("#save").click(function () {
+            var number = $("#number").val();
+            if (!number) {
+                return Message.alert("请输入要添加用户的工号");
+            }
+
+            var name = $("#name").val();
+            if (!name) {
+                return Message.alert("缺少用户名，请从EHR获取要添加用户的姓名");
+            }
+
+            var Roles = Array();
+            $("[for=Role]:checked").each(function () {
+                Roles.push($(this).val());
+            });
+
+            var Stores = Array();
+            $("[for=Store]:checked").each(function () {
+                Stores.push($(this).val());
+            });
+
+            var status = $("#Status:checked").val();
+
+            $.post(
+                '@Url.Action("_Add")',
+                {
+                    Number: number, Name: name, Status: (status == 1) ? 1 : 0,
+                    Roles: Roles, Stores: Stores
+                },
+                function (json) {
+                    if (json.Success) {
+                        Message.alert(json.Message, function () {
+                            window.location.href = "@Url.Action("Index")";
+                        });
+                    }
+                    else {
+                        Message.alert(json.Message);
+                    }
+                }
+            );
+        });
+    </script>
+}

@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <title>我的订单</title>
+    <link rel="stylesheet" href="./css/order.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../assets/iconfont/iconfont.css">
+</head>
+
+<body>
+<!-- 顶部 -->
+<div class="site-nav">
+    <div class="container clearfix">
+        <!-- 左边 -->
+        <div class="txt-info fl">
+            <div class="site-nav-sign hide">
+                <a href="../user/login.html">马上登录</a>
+                <i class="spacer"></i>
+                <a href="../register/registerName.html" class="red">立即注册</a>
+            </div>
+            <div class="site-nav-m">
+                <div class="site-nav-user">
+                    <a href="../user/user.html">欢迎您,1575519086阿斯蒂芬阿斯蒂芬阿斯蒂芬阿萨德</a>
+                    <span class="iconfont icon-jiantou12"></span>
+                </div>
+                <div class="site-nav-menu-bd">
+                    <div class="bd-main">
+                        <div class="site-nav-user-wrapper fl">
+                            <a href="../user/user.html">
+                                <img src="../images/user.png" alt="">
+                            </a>
+                        </div>
+                        <div class="site-nav-user-info">
+                            <div class="d-text"><a href="#">账户管理</a></div>
+                            <div class="quit"><a href="#">退出</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 右边 -->
+        <ul class="quick-menu fr">
+            <li>
+                <span class="iconfont icon-74wodedingdan"></span>
+                <a href="../user/order.html">我的订单</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="red iconfont icon-gouwuchekong"></span>
+                <a href="../car.html">我的购物车
+                    (<i class="red">0</i>)</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-shoucang"></span>
+                <a href="collection.html">收藏记录</a>
+            </li>
+            <li class="spacer"></li>
+            <li>
+                <span class="iconfont icon-wo"></span>
+                <a href="../user/user.html">用户中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 头部 -->
+<header>
+    <div class="container clearfix">
+        <div class="logo fl">
+            <a href="../index.html">
+                <img src="../images/common/LOGO.png" alt="">
+            </a>
+        </div>
+        <div class="service-tel fr">
+            <span class="iconfont icon-dianhua"></span>
+            客服电话：
+            <span class="tel"> 4008-816-616</span>
+        </div>
+    </div>
+</header>
+
+<!-- 导航栏-->
+<nav>
+    <div class="container clearfix">
+        <div class="line"></div>
+        <ul class="nav_list">
+            <li>
+                <a href="../index.html">首页</a>
+            </li>
+
+            <li>
+                <a href="../brand_story.html">品牌故事</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="../talents.html">人才大师</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+
+            <li>
+                <a href="javaScript:;" class="active2">IP+产品</a>
+                <div class="iconfont icon-sanjiaoxia"></div>
+                <div class="submenu">
+                    <ol>
+                        <li>
+                            <a href="../sortList.html">天才发明家</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="../sortList.html">小毛毛</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="../sortList.html">星际特工</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="../sortList.html">长尾豹马修</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="../sortList.html">百变马丁</a>
+                            <i class="spacer5"></i>
+                        </li>
+                        <li>
+                            <a href="../sortList.html">丁丁历险记</a>
+                        </li>
+                    </ol>
+                </div>
+                <i class="spacer3"></i>
+                <em class="spacer4 show"></em>
+            </li>
+
+            <li>
+                <a href="../offline_activity.html">线下活动</a>
+                <i class="spacer3"></i>
+                <em class="spacer4"></em>
+            </li>
+        </ul>
+        <div class="search fr">
+            <form action="">
+                <span class="iconfont icon-sousuo"></span>
+                <button type="submit" class="button_goods">搜索</button>
+                <input type="text" class="search_goods" placeholder="搜索商品/店铺">
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+
+<!--内容-->
+<div class="container clearfix">
+    <div class="user-content clearfix">
+        <div class="aside-l fl clearfix">
+            <dl class="mt-tit">
+                <dt>会员中心</dt>
+                <dd class="active"><a class="active" href="order.html">我的订单</a></dd>
+                <dd><a href="../car.html">我的购物车</a></dd>
+                <dd><a href="collect.html">我的收藏</a></dd>
+                <dd><a href="#">我的钱包</a></dd>
+                <dd><a href="#">评价管理</a></dd>
+            </dl>
+            <dl class="mt-tit">
+                <dt>账户设置</dt>
+                <dd><a href="account-info.html">账户信息</a></dd>
+                <dd><a href="#">账户安全</a></dd>
+                <dd><a href="#">账户绑定</a></dd>
+                <dd><a href="ship-address.html">收货地址</a></dd>
+                <dd><a href="information.html">消息管理</a></dd>
+                <dd><a href="discounts.html">我的优惠券</a></dd>
+            </dl>
+
+        </div>
+
+        <div class="aside-r fl clearfix">
+        <div class="user-order">我的订单</div>
+            <div class="order-info">
+                <div class="order-nav clearfix">
+                    <ul>
+                        <li><a class="active" href="#">全部订单</a></li>
+                        <li><a href="#">待付款(<span>0</span>)</a></li>
+                        <li><a href="#">待发货(<span>0</span>)</a></li>
+                        <li><a href="#">待收货(<span>0</span>)</a></li>
+                        <li><a href="#">待评价(<span>0</span>)</a></li>
+                        <li><a href="#">退款</a></li>
+                    </ul>
+                </div>
+                <div class="order-content">
+                    <div class="order-content-nav">
+                        <ul class="n-list">
+                            <li class="order-fil fl">
+                                <div class="time-txt">
+                                   <span class="time-tit">近三个月订单</span>
+                                    <span class="iconfont icon-jiantou12"></span>
+                                </div>
+                                <div class="time-list">
+                                    <ol>
+                                        <li class="active"><a href="#">近一周内订单</a></li>
+                                        <li><a href="#">近半个月订单</a></li>
+                                        <li><a href="#">近一个月订单</a></li>
+                                        <li><a href="#">近三个月订单</a></li>
+                                        <li><a href="#">近一年内订单</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="o-info fl">订单详情</li>
+                            <li class="consignee fl">收货人</li>
+                            <li class="o-sum fl">金额</li>
+                            <li class="all-state fl">
+                                <div class="state-txt">
+                                    <span class="state-tit"> 全部状态</span>
+                                    <span class="iconfont icon-jiantou12"></span>
+                                </div>
+                                <div class="state-list">
+                                    <ol>
+                                        <li class="active"><a href="#">等待付款</a></li>
+                                        <li><a href="#">等待收货</a></li>
+                                        <li><a href="#">已完成</a></li>
+                                        <li><a href="#">已取消</a></li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="o-handle fl">操作</li>
+
+                        </ul>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-item-tit">
+                            <div class="order-data fl">2018-04-16 19 : 25 : 06</div>
+                            <div class="order-number fl">订单号：<span class="number">147258369000</span></div>
+                        </div>
+                        <div class="order-item-content">
+                            <div class="order-product fl">
+                                <div class="p-img fl"><a href="#"><img src="../images/pix.png" alt=""></a></div>
+                                <div class="p-name">法国大使（Delsey）商务出行拉杆箱28英寸PC旅行箱可扩容行箱男女万向轮银灰色073</div>
+                                <div class="goods-number fr">x1</div>
+                            </div>
+                            <div class="order-person fl">
+                               <div class="order-p-content">
+                                   <div class="p-tit">
+                                       <div class="p-name fl">陈先生</div>
+                                       <span class="iconfont icon-jiantou12 fl"></span>
+                                   </div>
+                                   <div class="p-info">
+                                       <strong>陈先生</strong>
+                                       <p>浙江省杭州市余杭区崇贤镇创新产业园A区302</p>
+                                       <p>153****4867</p>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="order-price fl">
+                                <dl>
+                                    <dt class="d1">商品价格：</dt>
+                                    <dd>￥34393.00</dd>
+                                </dl>
+                                <span>在线支付</span>
+                                <dl>
+                                    <dt class="d2">应付金额：</dt>
+                                    <dd>￥34393.00</dd>
+                                </dl>
+                                <span>在线支付</span>
+                            </div>
+                            <div class="line-item fl">
+                                <ul>
+                                    <li><a href="#">等待付款</a></li>
+                                    <li><a href="#">订单详情</a></li>
+                                    <li class="Packetracer">
+                                        <div class="P-tit">
+                                            <a href="#">快递追踪</a>
+                                            <span class="iconfont icon-jiantou12"></span>
+                                        </div>
+                                        <div class="P-info">
+                                            <div class="P-info-title">
+                                                <p>普通快递</p>
+                                                <div class="waybill-num">单号：<span>147258369000</span></div>
+                                            </div>
+                                            <div class="P-info-text">
+                                                <ul>
+                                                    <li class="P-detail-info">
+                                                        <span>●</span>
+                                                        <span class="P-detail-info-t">您提交了订单，等待系统确认！</span>
+                                                        <div class="date">2018-04-17 11:02:06</div>
+                                                    </li>
+                                                    <li class="P-detail-info">
+                                                        <span>●</span>
+                                                        <span>您提交了订单，等待系统确认！</span>
+                                                        <div class="date">2018-04-17 11:02:06</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order-pay fl">
+                                <ul>
+                                    <li class="pay-time"><a href="#">剩余付款时间</a></li>
+                                    <li class="time"> <span class="iconfont icon-shijian"></span><a href="#">15时46分</a></li>
+                                    <li class="pay"><a href="#">立即付款</a></li>
+                                    <li class="cancel-order"><a href="#">取消订单</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-item-tit">
+                            <div class="order-data fl">2018-04-16 19 : 25 : 06</div>
+                            <div class="order-number fl">订单号：<span class="number">147258369000</span></div>
+                        </div>
+                        <div class="order-item-content">
+                            <div class="order-product fl">
+                                <div class="p-img fl"><a href="#"><img src="../images/pix.png" alt=""></a></div>
+                                <div class="p-name">法国大使（Delsey）商务出行拉杆箱28英寸PC旅行箱可扩容行箱男女万向轮银灰色073</div>
+                                <div class="goods-number fr">x1</div>
+                            </div>
+                            <div class="order-person fl">
+                                <div class="order-p-content">
+                                    <div class="p-tit">
+                                        <div class="p-name fl">陈先生</div>
+                                        <span class="iconfont icon-jiantou12 fl"></span>
+                                    </div>
+                                    <div class="p-info">
+                                        <strong>陈先生</strong>
+                                        <p>浙江省杭州市余杭区崇贤镇创新产业园A区302</p>
+                                        <p>153****4867</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-price fl">
+                                <dl>
+                                    <dt class="d1">商品价格：</dt>
+                                    <dd>￥34393.00</dd>
+                                </dl>
+                                <span>在线支付</span>
+                                <dl>
+                                    <dt class="d2">应付金额：</dt>
+                                    <dd>￥34393.00</dd>
+                                </dl>
+                                <span>在线支付</span>
+                            </div>
+                            <div class="line-item fl">
+                                <ul>
+                                    <li><a href="#">等待付款</a></li>
+                                    <li><a href="#">订单详情</a></li>
+                                    <li class="Packetracer">
+                                        <div class="P-tit">
+                                            <a href="#">快递追踪</a>
+                                            <span class="iconfont icon-jiantou12"></span>
+                                        </div>
+                                        <div class="P-info">
+                                            <div class="P-info-title">
+                                                <p>普通快递</p>
+                                                <div class="waybill-num">单号：<span>147258369000</span></div>
+                                            </div>
+                                            <div class="P-info-text">
+                                                <ul>
+                                                    <li class="P-detail-info">
+                                                            <span>●</span>
+                                                            <span class="P-detail-info-t">您提交了订单，等待系统确认！</span>
+                                                            <div class="date">2018-04-17 11:02:06</div>
+                                                    </li>
+                                                    <li class="P-detail-info">
+                                                        <span>●</span>
+                                                        <span>您提交了订单，等待系统确认！</span>
+                                                        <div class="date">2018-04-17 11:02:06</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order-pay fl">
+                                <ul>
+                                    <li class="pay-time"><a href="#">剩余付款时间</a></li>
+                                    <li class="time"> <span class="iconfont icon-shijian"></span><a href="#">15时46分</a></li>
+                                    <li class="pay"><a href="#">立即付款</a></li>
+                                    <li class="cancel-order"><a href="#">取消订单</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="order-item-content">
+                            <div class="order-product fl">
+                                <div class="p-img fl"><a href="#"><img src="../images/pix.png" alt=""></a>
+                                </div>
+                                <div class="p-name">法国大使（Delsey）商务出行拉杆箱28英寸PC旅行箱可扩容行箱男女万向轮银灰色073</div>
+                                <div class="goods-number fr">x1</div>
+                            </div>
+                            <div class="order-person fl">
+
+                            </div>
+                            <div class="order-price fl">
+
+                            </div>
+                            <div class="line-item fl">
+
+                            </div>
+                            <div class="order-pay fl">
+
+                            </div>
+                        </div>
+                        <div class="order-item-content">
+                            <div class="order-product fl">
+                                <div class="p-img fl"><a href="#"><img src="../images/pix.png" alt=""></a>
+                                </div>
+                                <div class="p-name">法国大使（Delsey）商务出行拉杆箱28英寸PC旅行箱可扩容行箱男女万向轮银灰色073</div>
+                                <div class="goods-number fr">x1</div>
+                            </div>
+                            <div class="order-person fl">
+
+                            </div>
+                            <div class="order-price fl">
+
+                            </div>
+                            <div class="line-item fl">
+
+                            </div>
+                            <div class="order-pay fl">
+
+                            </div>
+                        </div>
+                  
+                    </div>
+                </div>
+            </div>
+            <section class="cancel_bg"></section>
+            <section class="cancelOrder">
+                <span class="closeCancel">X</span>
+                <p>您确定要取消订单嘛？</p>
+                <div class="opBtn">
+                    <a href="javascript:;" class="dialog-sure">确定</a>
+                    <a href="javascript:;" class="dialog-close">关闭</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- 底部 -->
+<footer>
+    <div class="navFooter">
+        <div class="container clearfix">
+            <div class="footer_content">
+                <dl class="navFooter_list fl">
+                    <dt>会员中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">注册登录</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">会员制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">购物流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">积分说明</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>售后服务</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">退换货政策</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">退换货流程</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">发票制度</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">投诉建议</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>商家中心</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">免费入驻</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">后台管理</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">商家协议</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">注意事项</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="navFooter_list fl">
+                    <dt>公司介绍</dt>
+                    <dd>
+                        <ul>
+                            <li>
+                                <a target="_blank" href="">关于我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">联系我们</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">客服电话</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="">公司地址</a>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="special">
+                    <ul class="fl">
+                        <li>
+                            <h3>客服热线：
+                                <img src="../images/common/tel1.png" alt="">
+                            </h3>
+                            <p>4008-816-616</p>
+                        </li>
+                        <li>
+                            <h3>投诉建议：
+                                <img src="../images/common/tel2.png" alt="">
+                            </h3>
+                            <p>0571-86673122</p>
+                        </li>
+                    </ul>
+                    <span class="spacer1"></span>
+                    <dl class="fl">
+                        <dt>
+                            <img src="../images/common/ewm.png">
+                        </dt>
+                        <dd>扫一扫 下载APP</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <ul class="footer_nav">
+                <li>
+                    <a href="../index.html">首页</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="../brand_story.html">品牌故事</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="../talents.html">人才大师</a>
+                </li>
+                <li class="spacer2"></li>
+                <li>
+                    <a href="../offline_activity.html">线下活动</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="navFooterLine">
+        <div class="container">
+            <ul>
+                <li> 版权所有 © 杭州滨雅科技有限公司 未经许可 严禁复制</li>
+                <li> Copyright 2012- 2018. All Rights Reserved.</li>
+                <li>浙ICP备15018765号-2</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+<script type="text/javascript" src="../assets/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./js/order.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../assets/iconfont/iconfont.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?40dc61e58e9c6d01dc54632d17797640";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    $(function(){
+        $(".closeCancel").click(function(){
+            $(".cancel_bg").slideToggle(500);
+            $(".cancelOrder").slideToggle(500)
+        });
+        $(".cancel-order").click(function(){
+            $(".cancel_bg").slideToggle(500);
+            $(".cancelOrder").slideToggle(500)
+        });
+        $(".dialog-close").click(function(){
+            $(".cancel_bg").slideToggle(500);
+            $(".cancelOrder").slideToggle(500)
+        });
+    })
+</script>
+</body>
+</html>

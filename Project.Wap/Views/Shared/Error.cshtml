@@ -1,0 +1,54 @@
+﻿
+@model Project.Wap.Models.ErrorModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Title</title>
+    <link href="/Assets/libs/weui/lib/weui.min.css" rel="stylesheet">
+    <link href="/Assets/libs/weui/css/jquery-weui.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            @switch (Model.Level)
+            {
+                case 1:
+                    <i class="weui-icon-success weui-icon_msg"></i>
+                    break;
+                case 2:
+                    <i class="weui-icon-info weui-icon_msg"></i>
+                    break;
+                case 3:
+                    <i class="weui-icon-warn weui-icon_msg-primary"></i>
+                    break;
+                case 4:
+                    <i class="weui-icon-warn weui-icon_msg"></i>
+                    break;
+                case 5:
+                    <i class="weui-icon-waiting weui-icon_msg"></i>
+                    break;
+                default:
+                    <i class="weui-icon-info weui-icon_msg"></i>
+                    break;
+            }
+        </div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">@Model.Title</h2>
+            <p class="weui-msg__desc">@Html.Raw(Model.Message)</p>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.NextUrl))
+        {
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="@Model.NextUrl" class="weui-btn weui-btn_primary">@Model.ButtonValue</a>
+                </p>
+            </div>
+        }
+    </div>
+</body>
+</html>

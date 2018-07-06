@@ -1,0 +1,171 @@
+﻿//sass相关变量 mixins引入
+@import "helpers/mixins";
+@import "helpers/variable";
+//公用模块引入
+@import "common/reset";
+@import "common/currency";
+@import "common/font";
+@import "common/header";
+@import "common/spaHeader";
+.wishilist-search {
+    margin-top: (26rem / $rem);
+    width: (350rem / $rem);
+    height: (44rem / $rem);
+    background: #EFEFEF;
+    border-radius: (18rem / $rem);
+    line-height: (36rem / $rem);
+    .wishilist-inpt {
+        width: (270rem / $rem);
+        height: (44rem / $rem);
+        border: none;
+        background: 0 0;
+    }
+}
+.wishilist-hd {
+    top: (91rem / $rem);
+    z-index: 4;
+    width: 100%;
+    .wishilist-user {
+        height: (140rem / $rem);
+        background: #fff;
+        padding: (34rem / $rem) (40rem / $rem);
+        .user-head {
+            img {
+                display: block;
+            }
+        }
+        .user-name {
+            line-height: (30rem / $rem);
+            margin-left: (24rem / $rem);
+            .text-1 {
+                width: (300rem / $rem);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                color: #080606;
+                @include fontsize(28px);
+
+            }
+            .text-2 {
+                @include fontsize(24px);
+                color: #7B7A7A;
+            }
+        }
+    }
+    .wishilist-control {
+        height: (80rem / $rem);
+        line-height: (80rem / $rem);
+        padding: 0 (30rem / $rem);
+        .mui-icon-trash {
+            font-size: (28rem / $rem);
+        }
+        .cart-del {
+            @include fontsize(26px);
+        }
+    }
+}
+.wishilist-wrap {
+    top: (320rem / $rem);
+    .wishlist-area {
+        li {
+            height: (240rem / $rem);
+            padding: (30rem / $rem) (30rem / $rem) (30rem / $rem) (24rem / $rem);
+            background: #fff;
+            margin-bottom: (16rem / $rem);
+            .list-checkbox {
+                height: (30rem / $rem);
+                width: (28rem / $rem);
+            }
+            .mui-checkbox.mui-left input[type=checkbox] {
+                left: 0;
+                top: 0;
+                display: none;
+            }
+            .mui-checkbox input[type=checkbox]:before {
+        font-size: (28rem / $rem);
+    }
+            .wishlist-img{
+                img{
+                    width: (180rem / $rem);
+                }
+                .shelves-txt{
+                    width: (100rem / $rem);
+                    height: (100rem / $rem);
+                    line-height: (100rem / $rem);
+                    border-radius: 50%;
+                    background: rgba(0,0,0,.3);
+                    color: #fff;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+            .wishlist-ifm{
+                width: (340rem / $rem);
+                line-height: (30rem / $rem);
+                .text-1{
+                    color: #323333;
+                    @include fontsize(26px);
+                    height: (60rem / $rem);
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    word-break: break-all;
+                }
+                .text-2{
+                    margin-top: (30rem / $rem);
+                    color: #323333;
+                    @include fontsize(28px);
+                    
+                    .num{
+                        @extend .list-price;
+                    }
+                    .yj{
+                        text-decoration: line-through;
+                         @include fontsize(24px);
+                        color: #7B7A7A;
+                    }
+                    .xj{
+                        margin-left: (10rem / $rem);
+                        color: #D0173F;
+                    }
+                }
+                .text-3{
+                     margin-top: (30rem / $rem);
+                    color: #DB7654;
+                     @include fontsize(24px);
+                     .date{
+                         color: #7B7A7A;
+                          @include fontsize(22px);
+                     }
+                }
+                .text-4{
+                     @include fontsize(22px);
+                }
+                .shelves{
+                    color: #7B7A7A;
+                }
+            }
+        }
+
+    }
+}
+.wishlist-no {
+    img{
+        width: (134rem / $rem);
+    }
+    .text-1{
+        color: #7B7A7A;
+        @include fontsize(24px);
+    }
+    .text-2{
+        a{
+             color: #231815; 
+             @include fontsize(26px);
+        }
+    }
+}

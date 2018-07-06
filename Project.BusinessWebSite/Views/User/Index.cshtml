@@ -1,0 +1,152 @@
+﻿@model List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.UserDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+@section HeaderContent
+{
+}
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="javascript:void(0);">用户管理</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active">
+        <div class="widget-body" style="margin-top:10px;">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="form-group col-md-4">
+                        <label class="col-md-4 control-label">用户工号</label>
+                        <div class="col-md-8">
+                            <input class="form-control" name="Number" value="@ViewBag.Number" placeholder="" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="col-md-4 control-label">用户姓名</label>
+                        <div class="col-md-8">
+                            <input class="form-control" name="Name" value="@ViewBag.Name" placeholder="" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="col-md-4 control-label" for="roles">角色</label>
+                        <div class="col-md-8">
+                            <select class="form-control" name="RoleId" id="roles">
+                                <option value="">请选择</option>
+                                @foreach (var role in ViewBag.Roles as List<Syncsoft.StoreSystem.Contracts.DTO.SystemBase.RoleDTO>)
+                                {
+                                    <option value="@role.RoleID" @(ViewBag.RoleId == role.RoleID?"selected":"")>@role.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-group col-md-12">
+                        <label class="col-md-10 control-label"></label>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="submit">
+                                查询
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <hr />
+        <a class="btn btn-success" href="@Url.Action("Add")">新增用户</a>
+        <br /><br />
+        <div name="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="success">
+                        <th width="50">序号</th>
+                        <th width="50">选择</th>
+                        <th>用户工号</th>
+                        <th>用户姓名</th>
+                        <th>角色</th>
+                        <th>查看门店</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int index = 1;}
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>@user.Number</td>
+                            <td>@user.Name</td>
+                            <td>
+                                @user.Roles.Implode(o => o, ",")
+                            </td>
+                            <td>
+                                @if (user.Stores.Count > 0)
+                                {
+                                    @(user.Stores.Count + "家门店")
+                                }
+                                else
+                                {
+                                    <span class="layui-badge">未指定</span>
+                                }
+                            </td>
+                            <td>
+                                @if (user.Status == 1)
+                                {
+                                    <span class="label label-success">启用</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">停用</span>
+                                }
+                            </td>
+                            <td>@user.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Update",new { UserID = user.UserId })">编辑</a>
+                                <a class="btn btn-success btn-sm" href="@Url.Action("Detail",new { UserID = user.UserId })">查看</a>
+                                <a class="btn btn-default btn-sm" for="Switch" word="@user.Name" tag="@user.UserId" href="javascript:void(0);">@(user.Status == 1 ? "禁用" : "启用")</a>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                </tbody>
+            </table>
+            <ul class="pagination">
+                @Html.Raw(ViewBag.Paging)
+            </ul>
+        </div>
+        <!-- end widget content -->
+        <!-- END ROW -->
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $("[for=Switch]").click(function () {
+            var id = $(this).attr("tag");
+            var word = $(this).attr("word");
+            Message.confirm("确定[" + $(this).text() + "]系统用户： " + word + " ？", function () {
+                $.post(
+                    '@Url.Action("_Switch")',
+                    { UserId: id },
+                    function (json) {
+                        if (json.Success) {
+                            window.location.reload();
+                        }
+                        else {
+                            layer.msg(json.Message);
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+}

@@ -1,0 +1,63 @@
+﻿@using Project.Infrastructure.FrameworkCore.Payment.Configs
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    <script src="~/Scripts/Order/Pay.js"></script>
+
+    <script type="text/javascript">
+        var orderNo = "@Model.OrderNo";
+        var totalAmount = "@Model.TotalAmount";
+        var wechatPayCode = "@NetPayConfig.WechatPayCode";
+        var isAutoWechatPay = "@(Model.IsWechatAutoPay ? "1" : "0")";
+        var wxJsApiParam;
+        @if (Model.IsWechat && !string.IsNullOrEmpty(Model.WxJsApiParam))
+        {
+            @Html.Raw("wxJsApiParam = " + Model.WxJsApiParam + ";")
+        }
+    </script>
+</head>
+<body>
+    <div>
+
+        @using (Html.BeginForm("ConfirmPay", "Payment", FormMethod.Post, new { @id = "payconfirm", @name = "payconfirm", target = "_blank" }))
+        {
+        <!--快捷支付-->
+            <input id="OrderNo" name="OrderNo" value="9000420144" style="display: none" />
+
+
+            if (Model.IsWechat)
+            {
+
+                <input name="Paycode" value="@NetPayConfig.WechatJsApiPayCode" type="radio" @Html.Raw(Model.IsWechat ? "checked=\"checked\"" : "") />
+
+            }
+            else
+            {
+                <input name="Paycode" value="@NetPayConfig.AlipayMobileCode" type="radio" @Html.Raw(Model.IsWechat ? "checked=\"checked\"" : "") />
+            }
+
+
+            <input type="button" value="提交" onclick="pro.PayPage.ConfirmPay()" />
+
+            <input type="submit" value="提交submit" />
+        }
+
+
+    </div>
+
+</body>
+
+</html>

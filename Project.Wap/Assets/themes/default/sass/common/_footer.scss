@@ -1,0 +1,55 @@
+.footer {
+    width: 100%;
+    height: (360rem / $rem);
+    background: #000;
+    .ft-share {
+        padding-top: (50rem / $rem);
+        .share-box {
+            width: (376rem / $rem);
+            margin: 0 auto ;
+        }
+        .img {
+            width: (92rem / $rem);
+            height: (92rem / $rem);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: (92rem / $rem);
+            margin-right: (50rem / $rem);
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+        .weixin {
+            background-image: url("../images/weixin.png");
+        }
+        .xinlang {
+            background-image: url("../images/xinlang.png");
+        }
+        .tengxun {
+            background-image: url("../images/tengxun.png");
+        }
+    }
+    .ft-nav {
+        text-align: center;
+        margin-top: (25rem / $rem);
+        a {
+            color: #7B7A7A;
+            @extend .fs-22;
+        }
+        p{
+            &:nth-child(2){
+                margin: (17rem / $rem) 0;
+            }
+             &:last-of-type{
+                 color: #7B7A7A;
+                @extend .fs-22;
+             }
+        }
+        .line {
+            display: inline-block;
+            height: (15rem / $rem);
+            margin: 0 (10rem / $rem);
+            border-left: 1px solid #808181;
+        }
+    }
+}

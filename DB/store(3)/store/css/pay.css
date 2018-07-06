@@ -1,0 +1,353 @@
+.pay-content {
+  /*购物步骤*/
+  /*快捷支付*/
+}
+.pay-content .steps {
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  margin-top: 70px;
+}
+.pay-content .steps ul {
+  margin-left: -20px;
+}
+.pay-content .steps ul li {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  width: 280px;
+  background: #C6C6C6;
+  color: #fff;
+  text-align: center;
+  margin-left: 20px;
+}
+.pay-content .steps ul li.active {
+  background: #df2727;
+}
+.pay-content .steps ul li.active span {
+  position: absolute;
+  bottom: -20px;
+  left: 135px;
+  border: 10px solid #df2727;
+  border-color: #df2727 transparent transparent;
+}
+.pay-content .detail-info {
+  width: 100%;
+}
+.pay-content .detail-info .detail-info-tit {
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+  margin-top: 60px;
+}
+.pay-content .detail-info .detail-info-main {
+  padding: 60px 0 60px 100px;
+}
+.pay-content .detail-info .detail-info-main .detail-info-success {
+  font-size: 14px;
+  color: #666;
+  line-height: 30px;
+}
+.pay-content .detail-info .detail-info-main .detail-info-alert {
+  font-size: 14px;
+  color: #666;
+  line-height: 30px;
+}
+.pay-content .detail-info .detail-info-main .amount-payable {
+  color: #666666;
+  font-size: 14px;
+  line-height: 30px;
+}
+.pay-content .detail-info .detail-info-main .amount-payable .payable-price {
+  color: #e54242;
+  font-size: 16px;
+}
+.pay-content .fast-payment {
+  width: 100%;
+}
+.pay-content .fast-payment .fast-payment-tit {
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+}
+.pay-content .fast-payment .fast-payment-main {
+  padding: 60px 0 40px 70px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank {
+  display: inline-block;
+  margin-left: 30px;
+  color: #666666;
+  font-size: 16px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank input {
+  width: 16px;
+  height: 16px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank .payment-text {
+  display: inline-block;
+  width: 160px;
+  height: 40px;
+  border: solid 1px #c3c3c3;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 10px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank .payment-text .icon-zhifubao {
+  color: #1296bd;
+  margin-right: 20px;
+  font-size: 28px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank .payment-text .icon-weixinzhifu {
+  color: #42b035;
+  margin-right: 20px;
+  font-size: 28px;
+}
+.pay-content .fast-payment .fast-payment-main .payment_bank .payment-text .zhi {
+  vertical-align: top;
+}
+.pay-content .payment {
+  width: 100%;
+  height: auto;
+  padding: 20px 10px 30px;
+  margin-bottom: 40px;
+}
+.pay-content .payment .bankCard-tit {
+  color: #333333;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 2px solid #dddddd;
+}
+.pay-content .payment .bankCard {
+  padding: 60px 110px 40px 70px;
+}
+.pay-content .payment .bankCard .cards {
+  cursor: pointer;
+}
+.pay-content .payment .bankCard .cards .card {
+  width: 100% ;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px 0 20px;
+  position: relative;
+  margin-top: 20px;
+  cursor: pointer;
+  border: solid 2px #f2f2f2;
+  box-sizing: border-box;
+}
+.pay-content .payment .bankCard .cards .card label {
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.pay-content .payment .bankCard .cards .card label .card-tit {
+  float: left;
+  margin-top: 10px;
+  display: inline-block;
+  margin-left: 37px;
+}
+.pay-content .payment .bankCard .cards .card label .card-name {
+  color: #333333;
+  font-size: 16px;
+  margin-left: 20px;
+}
+.pay-content .payment .bankCard .cards .card label .card-num {
+  font-size: 14px;
+  color: #666;
+  margin-left: 90px;
+}
+.pay-content .payment .bankCard .cards .card label .card-type {
+  font-size: 14px;
+  color: #333;
+  margin-left: 30px;
+}
+.pay-content .payment .bankCard .cards .card label .recommend {
+  margin-left: 20px;
+  color: #eb963b;
+  font-size: 14px;
+}
+.pay-content .payment .bankCard .cards .card label .payment-money {
+  color: #333333;
+  font-size: 14px;
+}
+.pay-content .payment .bankCard .cards .card label .payment-money .payable-price {
+  color: #e54242;
+  font-size: 18px;
+}
+.pay-content .payment .bankCard .cards .card input {
+  position: absolute ;
+  top: 17px;
+  left: 27px;
+}
+.pay-content .payment .bankCard .cards .card.active {
+  border: solid 2px #ff0000;
+}
+.pay-content .payment .bankCard .addCard {
+  width: 100px;
+  height: 30px;
+  border: dashed 1px #dddddd;
+  line-height: 30px;
+  text-align: center;
+  color: #999999;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.pay-content .payment .bankCard .addCard .newCard {
+  margin-left: 5px;
+}
+.pay-content .payment .bankCard .payNow {
+  border-top: solid 2px #eeeeee;
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-left: 12px;
+}
+.pay-content .payment .bankCard .payNow .pay-f {
+  width: 50%;
+}
+.pay-content .payment .bankCard .payNow .pay-f .f-tit {
+  color: #999999;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.pay-content .payment .bankCard .payNow .pay-f .forget-pwd {
+  color: #45a9e3;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.pay-content .payment .bankCard .payNow .pay-f .btn-smt {
+  width: 160px;
+  height: 36px;
+  background-color: #eb5353;
+  border-radius: 6px;
+  line-height: 36px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 36px;
+  cursor: pointer;
+}
+/*密码框*/
+.alieditContainer {
+  position: relative;
+}
+.sixDigitPassword {
+  position: absolute;
+  left: -122px;
+  top: 0;
+  width: 1000px;
+  height: 26px;
+  color: #fff;
+  font-size: 12px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-user-select: initial;
+  z-index: 999;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.sixDigitPassword-box {
+  box-sizing: content-box;
+  cursor: text;
+  background: #fff;
+  outline: none;
+  position: relative;
+  padding: 8px 0;
+  height: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  border-radius: 6px;
+}
+.sixDigitPassword-box i {
+  float: left;
+  display: block;
+  padding: 4px 0;
+  height: 7px;
+  border-left: 1px solid #cccccc;
+}
+.sixDigitPassword-box .active {
+  background: url('../images/password-blink.gif') no-repeat center center;
+}
+.sixDigitPassword-box b {
+  display: block;
+  margin: 0 auto;
+  width: 7px;
+  height: 7px;
+  overflow: hidden;
+  visibility: hidden;
+  background: url('../images/passeord-dot.png') no-repeat;
+}
+.sixDigitPassword-box span {
+  position: absolute;
+  display: block;
+  left: 0px;
+  top: 0px;
+  height: 30px;
+  border: 1px solid rgba(82, 168, 236, 0.8);
+  border: 1px solid #00ffff\9;
+  border-radius: 2px;
+  visibility: hidden;
+  -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.ui-securitycore .ui-form-item .ui-form-explain {
+  margin-top: 8px;
+}
+.i-block {
+  display: inline-block;
+}
+.six-password {
+  position: relative;
+  height: 33px;
+  width: 182px;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+/*支付成功页面*/
+.pay-success {
+  width: 100%;
+  background-color: #fcf8db;
+  margin-top: 80px;
+  margin-bottom: 360px;
+  padding: 54px 0 35px 0;
+  text-align: center;
+}
+.pay-success .success-info {
+  color: #333333;
+  font-size: 14px;
+  margin-left: 368px;
+}
+.pay-success .success-info .success-info-tit {
+  font-size: 16px;
+  text-align: left;
+  color: #333333;
+}
+.pay-success .success-info .success-info-tit .icon-chenggong1 {
+  font-size: 28px;
+  color: #42b035;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+.pay-success .success-info .success-info-num {
+  color: #333333;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 50px;
+  text-align: left;
+}
+.pay-success .success-info .success-info-num span {
+  line-height: 22px;
+}
+.pay-success .success-info .success-info-user {
+  color: #333333;
+  font-size: 14px;
+  margin-left: 50px;
+  margin-top: 17px;
+  text-align: left;
+}
+.pay-success .success-info .success-info-user a {
+  color: #e54242;
+}

@@ -1,0 +1,18 @@
+﻿span.error
+{
+    color: Red;
+    padding-left: 20px;
+}
+input.error
+{
+border:1px solid #a32b3f !important;
+color:#a32b3f !important;
+    /*background-color: #FACD9C;*/
+}
+select.error
+{
+    border:1px solid #a32b3f!important;
+    color:#a32b3f !important;
+    /*border: dashed 1px red;*/
+    /*background-color: #FACD9C;*/
+}

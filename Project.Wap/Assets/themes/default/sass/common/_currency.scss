@@ -1,0 +1,89 @@
+﻿.fl{float: left;}
+.fr{float: right;}
+.vm{vertical-align: middle;}
+.dis-ib{display: inline-block;}
+.fs-22{@include fontsize(22px);}
+.pos-a{position: absolute;}
+.pos-r{position: relative;}
+.hide{display: none;}
+.mt20{margin-top: (20rem / $rem);}
+.mt40{margin-top: (40rem / $rem);}
+.mt58{margin-top: (58rem / $rem);}
+.mt90{margin-top: (90rem / $rem);}
+.mt120{margin-top: (120rem / $rem);}
+.mt140{margin-top: (140rem / $rem);}
+.mt190{margin-top: (190rem / $rem);}
+.mb20{margin-bottom: (20rem / $rem);}
+.mb16{margin-bottom: (16rem / $rem);}
+.mb40{margin-bottom: (40rem / $rem);}
+.mb50{margin-bottom: (50rem / $rem);}
+.ml10{margin-left: (10rem / $rem);}
+.ml20{margin-left: (20rem / $rem);}
+.ml30{margin-left: (30rem / $rem);}
+.ml40{margin-left: (40rem / $rem);}
+.ml50{margin-left: (50rem / $rem);}
+.ml65{margin-left: (65rem / $rem);}
+.ml170{margin-left: (170rem / $rem);}
+.mr65{margin-right: (65rem / $rem);}
+.mr30{margin-right: (30rem / $rem);}
+.pb30{padding-bottom: (30rem / $rem);}
+.txta-r{text-align: right;}
+.txta-l{text-align: left;}
+.txta-c{text-align: center;}
+.cur-p{cursor: pointer;}
+.Popup_err{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    top: 0;
+    z-index: 10;
+    .err_box{
+        width: (470rem / $rem);
+        height: (200rem / $rem);
+        background: #fff;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        .err_text{
+            background: #fff;
+            padding: (40rem / $rem);
+            line-height: (30rem / $rem);
+            min-height: (120rem / $rem);
+            text-align: center;
+            color: #555556;
+            @include fontsize(24px);
+        }
+        .err_btn{
+            background: #D3AA55;
+            height: (80rem / $rem);
+            line-height: (80rem / $rem);
+            color: #fff;
+            @include fontsize(26px);
+            text-align: center;
+            border: 1px solid #D1D1D1;
+        }
+    }
+    .err_title{
+        font-weight: bold;
+        @include fontsize(28px);
+        color: #000;
+        text-align: center;
+            height: (80rem / $rem);
+    line-height: (80rem / $rem);
+    border-bottom: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    }
+}
+.Popup_err2{
+    .err_btn{
+        width: 50%;
+    }
+        .err_btn.err_btn2{
+        background: #fff;
+        color: #D3AA55;
+    }
+    
+}

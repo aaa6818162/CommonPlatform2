@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E04420A1-B017-498B-8A49-10DD5AA573A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Application.Service</RootNamespace>
+    <AssemblyName>Project.Application.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountManager\AccountServiceImpl.cs" />
+    <Compile Include="BootstrapperApplicationService.cs" />
+    <Compile Include="Common\ProcessRequest.cs" />
+    <Compile Include="Common\ProcessResult.cs" />
+    <Compile Include="Common\RequestBase.cs" />
+    <Compile Include="ContentManager\ContentServiceImpl.cs" />
+    <Compile Include="IServiceImpl.cs" />
+    <Compile Include="OrderManager\Help\OrderServiceImplHelp.cs" />
+    <Compile Include="OrderManager\OrderServiceImpl.cs" />
+    <Compile Include="OrderManager\Request\AddOrderRequest.cs" />
+    <Compile Include="OrderManager\Request\ConfirmOrderPayRequest.cs" />
+    <Compile Include="OrderManager\Request\CountYfAndPromotionRequest.cs" />
+    <Compile Include="OrderManager\Request\GetYfRequest.cs" />
+    <Compile Include="OrderManager\Request\GetPromtionInfoRequest.cs" />
+    <Compile Include="OrderManager\Request\SearchOrderListRequest.cs" />
+    <Compile Include="OrderManager\Response\CountYfAndPromotionResponse.cs" />
+    <Compile Include="OrderManager\Response\SearchOrderListResponse.cs" />
+    <Compile Include="OrderManager\Validate\OrderServiceImplValidate.cs" />
+    <Compile Include="ProductManager\ProductServiceImpl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalePromotionManager\SalePromotionServiceImpl.cs" />
+    <Compile Include="SelfDefineAttribute.cs" />
+    <Compile Include="SystemSetManager\SystemSetServiceImpl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AccountManager\Request\" />
+    <Folder Include="AccountManager\Response\" />
+    <Folder Include="CacheService\" />
+    <Folder Include="ContentManager\Request\" />
+    <Folder Include="ContentManager\Response\" />
+    <Folder Include="ProductManager\Request\" />
+    <Folder Include="ProductManager\Response\" />
+    <Folder Include="SalePromotionManager\Request\" />
+    <Folder Include="SalePromotionManager\Response\" />
+    <Folder Include="SystemSetManager\Request\" />
+    <Folder Include="SystemSetManager\Response\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Config\Project.Config.csproj">
+      <Project>{7e5cd828-d4ff-445e-9f1d-068102151681}</Project>
+      <Name>Project.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Infrastructure.FrameworkCore\Project.Infrastructure.FrameworkCore.csproj">
+      <Project>{1c2392ad-a0f8-4378-9c54-3dcd1fb5d1db}</Project>
+      <Name>Project.Infrastructure.FrameworkCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{3d26782a-3308-430b-b58f-5f8aba1a50b3}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository\Project.Repository.csproj">
+      <Project>{ab16ea24-3296-4dac-a2d8-203158eeab6f}</Project>
+      <Name>Project.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Service\Project.Service.csproj">
+      <Project>{cc818705-0142-46d9-a858-1575069c0abe}</Project>
+      <Name>Project.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

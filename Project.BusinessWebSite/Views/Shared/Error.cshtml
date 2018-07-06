@@ -1,0 +1,23 @@
+﻿@model Syncsoft.StoreSystem.Contracts.DTO.ErrorDTO
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="container-fluid">
+    <div class="alert alert-danger alert-block">
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        <h4 class="alert-heading">@Model.Title</h4>
+        @Model.Message
+        <p class="text-align-left">
+            <br>
+            @if (!string.IsNullOrEmpty(Model.NextUrl))
+            {
+                <a href="@Model.NextUrl" class="btn btn-default"><strong>返 回</strong></a>
+            }
+            else
+            {
+                <a href="javascript:history.back(-1)" class="btn btn-default"><strong>返 回</strong></a>
+            }
+        </p>
+    </div>
+</div>

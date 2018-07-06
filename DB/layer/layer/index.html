@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <style>
+    button{
+        border:1px solid red;
+    }
+/*     button {
+  border: 0px;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+} */
+   /*      #login-box {
+         width: 350px;
+         height: auto;
+         position: relative;
+       }
+       #login-box .item {
+         border: 1px solid #bdbdbd;
+         height: 40px;
+         width: 300px;
+         margin: 30px auto 0;
+       }
+       #login-box .item .icon {
+         width: 40px;
+         height: 40px;
+         line-height: 40px;
+         text-align: center;
+         border-right: 1px solid #bdbdbd;
+         font-size: 16px;
+         display: inline-block;
+         color: #c3c3c3;
+         background-color: #eee;
+         box-sizing:border-box;
+         float: left;
+       }
+       #login-box .item .itxt {
+         line-height: 40px;
+         height: 40px;
+         border: 0;
+         width: 260px;
+         overflow: hidden;
+         font-size: 14px;
+         display: inline-block;
+         box-sizing:border-box;
+         float: left;
+         padding-left: 10px;
+       }
+       #login-box .forget-pw {
+         font-size: 14px;
+         color: #666666;
+         margin-right: 20px;
+         overflow: hidden;
+         margin-top: 24px;
+         float: right;
+       }
+       #login-box .login-btn {
+         width: 300px;
+         height: 36px;
+         background-color: #e04444;
+         margin: 60px auto 8px;
+         line-height: 36px;
+         text-align: center;
+         cursor: pointer;
+       }
+       #login-box .login-btn .btn-entry {
+         width: 100%;
+         height: 100%;
+         font-size: 22px;
+         color: #ffffff;
+       }
+       #login-box .warn {
+         width: 300px;
+         height: 30px;
+         background-color: #ffe9e9;
+         border: solid 1px #ff8989;
+         line-height: 30px;
+         text-align: center;
+         margin: 8px auto 0;
+         color: #e04444;
+         font-size: 14px;
+         padding-left: 13px;
+         box-sizing:border-box;
+       }
+       #login-box .regist-link {
+         width: 300px;
+         height: 40px;
+         line-height: 40px;
+         font-size: 16px;
+         border-top: solid 1px #eeeeee;
+         margin: 10px auto 0;
+         box-sizing:border-box;
+   
+       }
+        #login-box .regist-link span {
+         color: #e04444;
+         float: right;
+       }
+       #login-box .regist-link a {
+         color: #e04444;
+         float: right;
+         margin-left: 10px;
+       } */
+    </style>
+    <script>
+    $(function() {
+        /**
+         * layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）。
+         * 若你采用layer.open({type: 1})方式调用，则type为必填项（信息框除外）
+         */
+
+        $("#a1").click(function() {
+            //                alert('绑定上事件了');
+            layer.msg("layer引入进来1111111111111111了", { time: 1000 });
+            //                layer.confirm("这里是提示的内容", function () {
+            //                    alert("点击确定进入的事件");
+            //                }, function () {
+            //                    alert("点击取消后进入的时间");
+            //                });
+            //                alert("layer是异步的执行，不等你点确认或者取消，这里都会执行到，所以后面要执行的代码都要放到layer里面的回调函数中");
+        });
+        $("#a2").click(function() {
+            layer.open({
+                type: 0,
+                title: ['自定义标题', 'font-size:18px;'],
+                content: '提示的内容',
+                time:1000
+            });
+
+        });
+
+        // 样式不会搞
+        $("#a3").click(function() {
+            layer.open({
+                skin: 'demo-class',
+                content: 'haha'
+            })
+        });
+
+        // 图标
+        $("#a4").click(function() {
+            //                layer.alert('酷毙了', {icon: 1});
+            layer.msg('酷毙了', { icon: 1 });
+            //                layer.alert('不开心', {icon: 5});
+            layer.msg('不开心', { icon: 5, time: 3000 });
+
+        });
+        // 按钮1
+        $("#btn1").click(function() {
+            layer.confirm('这是第一个按钮', function() {
+
+                console.log('确认后回调');
+            }, function() {
+                console.log('取消后回调');
+            });
+        });
+        // 按钮2
+        $("#btn2").click(function() {
+            layer.confirm('纳尼？', {
+                btn: ['按钮一', '按钮二', '按钮三', '按钮四'] //可以无限个按钮
+                    ,
+                btn4: function(index, layero) {
+                    //按钮【按钮三】的回调
+                    console.log('按钮三的回调');
+                },
+                btn3: function() {
+                    console.log('按钮三的回调');
+                },
+                btn2: function() {
+                    console.log('按钮二的回调');
+                },
+                btn1: function() {
+                    console.log('按钮一的回调');
+                }
+            });
+        });
+        // 按钮3
+        $("#btn3").click(function() {
+            layer.open({
+                content: 'test',
+                btn: ['按钮一', '按钮二', '按钮三'],
+                yes: function(index, layero) {
+                    //按钮【按钮一】的回调
+                    console.log('按钮【按钮一】的回调');
+                    console.log(index);
+                    console.log(layero);
+                    //                        layer.close(index);
+                },
+                btn2: function(index, layero) {
+                    //按钮【按钮二】的回调
+                    console.log('按钮【按钮二】的回调');
+                },
+                btn3: function(index, layero) {
+                    //按钮【按钮三】的回调
+                    console.log('按钮【按钮三】的回调');
+                },
+                cancel: function() {
+                    //右上角关闭回调
+                    console.log('右上角关闭回调');
+                }
+            });
+        });
+
+        // layer.alert 普通信息框
+        $("#alert1").click(function() {
+            layer.alert('简单的提示');
+        });
+        $("#alert2").click(function() {
+            layer.alert('加一个表情', { icon: 1 });
+        });
+        $("#alert3").click(function() {
+            layer.alert('有回调了 控制台有输出', { icon: 1 }, function(index) {
+                window.console.log('alert的回调函数');
+                layer.close(index); // 关闭提示框
+            });
+        });
+         $("#alert4").click(function() {
+            layer.alert('简单的提示');
+        });
+
+          $("#alert5").click(function() {
+            layer.open({
+                    type:1,
+                    title: ['密码登录', 'font-size:16px;color: #3c3c3c;font-weight: 700;'],
+                    area:['350px','400px'],
+                    content:' <div id="login-box">\n' +
+                    '        <form>\n' +
+                    '            <div class="item item-fore1">\n' +
+                    '                <span class="iconfont icon-yonghuming icon fl"></span>\n' +
+                    '                <input  type="text" class="itxt fl"  placeholder="邮箱/用户名/已验证手机" />\n' +
+                    '            </div>\n' +
+                    '            <div class="item item-fore2">\n' +
+                    '                <span class="iconfont icon-mima icon fl"></span>\n' +
+                    '                <input type="password"  class="itxt fl" placeholder="密码" />\n' +
+                    '            </div>\n' +
+                    '            <div class="forget-pw fr">\n' +
+                    '                <a href="#">忘记密码</a>\n' +
+                    '            </div>\n' +
+                    '            <div class="login-btn">\n' +
+                    '                <button class="btn-entry">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>\n' +
+                    '            </div>\n' +
+                    '            <div class="warn">\n' +
+                    '                <span class="iconfont icon-jinzhi fl"></span>\n' +
+                    '                <span class="warn-info">提示：用户名或密码错误！</span>\n' +
+                    '            </div>\n' +
+                    '            <div class="regist-link fr clearfix ">\n' +
+                    '                    <a href="../register/registerName.html">立即注册</a>\n' +
+                    '                    <span class="iconfont icon-jiantouarrow594"></span>\n' +
+                    '\n' +
+                    '                </div>\n' +
+                    '        </form>\n' +
+                    '    </div>'
+            });
+        });
+
+        // layer.confirm 询问框
+        $("#confirm1").click(function() {
+            layer.confirm('确认控制台输出', function(index) {
+                //do something
+                console.log('确认的回调');
+                layer.close(index);
+            });
+        });
+        $("#confirm2").click(function() {
+            layer.confirm('确认控制台输出', { icon: 3 }, function(index) {
+                //do something
+                console.log('确认的回调');
+                layer.close(index);
+            });
+        });
+        $("#confirm3").click(function() {
+            layer.confirm('确认控制台输出', { icon: 3, title: '提示：' }, function(index) {
+                //do something
+                console.log('确认的回调');
+                layer.close(index);
+            });
+        });
+          $("#confirm4").click(function() {
+            layer.confirm('您确定要取消订单嘛？',{icon: 3,title :'提示信息'} ,function(index) {
+                //do something
+                console.log('确认的回调');
+                layer.close(index);
+            });
+        });
+
+        // layer.msg
+        $("#msg1").click(function() {
+            layer.msg('弱弱的提示');
+        });
+        $("#msg2").click(function() {
+            layer.msg("有表情的提示", { icon: 6 });
+        });
+        $("#msg3").click(function() {
+            layer.msg("提示会显示3秒", { icon: 6, time: 2000 });
+        });
+        $("#msg4").click(function() {
+            layer.msg("提示结束后 执行方法 控制台", { icon: 6, time: 2000 }, function() {
+                console.log("提示结束，我就执行");
+            });
+        });
+
+        // layer.load
+        $("#load1").click(function() {
+            var index = layer.load();
+            //                layer.close(index);
+        });
+        $("#load2").click(function() {
+            var index = layer.load(1);
+            //                layer.close(index);
+        });
+        $("#load3").click(function() {
+            console.log("最长等待3秒");
+            var index = layer.load(2, { time: 3000 });
+            //                layer.close(index);
+        });
+        $("#load4").click(function() {
+            console.log("控制关闭");
+            var index = layer.load();
+            layer.close(index);
+        });
+
+        // tips 提示的位置比msg更精准
+        $("#tips1").click(function() {
+            layer.tips('只想精准的提示', this,{tips:[2,"#fe9900"]}); // "tips4"
+        });
+        $("#tips2").click(function() {
+            layer.tips('只想精准的提示', "#tips3",{tips:[2,"#55b554"]}); //可以提示到别人头上去
+        });
+        $("#tips3").click(function() {
+            layer.tips('在上面', "#msg4", {
+                tips: 3 // 提示出现的位置   1 2 3 4 上 右 下 左   当下面没有位置时显示在上面
+            });
+        });
+
+
+
+    });
+    </script>
+</head>
+
+<body>
+    <a id="a1" href="javascript:;">引入layer</a>
+    <br/>
+    <a id="a2" href="javascript:;">层1</a>
+    <br/>
+    <a id="a3" href="javascript:;">样式</a>
+    <br/>
+    <a id="a4" href="javascript:;">图标</a>
+    <br/>
+    <a id="btn1" href="javascript:;">按钮1</a><a id="btn2" href="javascript:;">按钮2</a><a id="btn3" href="javascript:;">按钮3</a>
+    <br/>
+    <h5>layer.alert 普通信息框</h5>
+    <button id="alert1">按钮一</button>
+    <button id="alert2">按钮二</button>
+    <button id="alert3">按钮三</button>
+    <button id="alert4">按钮四</button>
+     <button id="alert5">按钮五</button>
+    <h5>layer.confirm 询问框</h5>
+    <button id="confirm1">按钮一</button>
+    <button id="confirm2">按钮二</button>
+    <button id="confirm3">按钮三</button>
+    <button id="confirm4">按钮四</button>
+    <h5>layer.msg(content, options, end) - 提示框</h5>
+    <button id="msg1">按钮一</button>
+    <button id="msg2">按钮二</button>
+    <button id="msg3">按钮三</button>
+    <button id="msg4">按钮四</button>
+    <h5>layer.load(icon, options) - 加载层</h5>
+    <button id="load1">按钮一</button>
+    <button id="load2">按钮二</button>
+    <button id="load3">按钮三</button>
+    <button id="load4">按钮四</button>
+    <h5>layer.tips(content, follow, options) - tips层</h5>
+    <button id="tips1">按钮一</button>
+    <button id="tips2">按钮二</button>
+    <button id="tips3">按钮三</button>
+
+
+     
+</body>
+
+</html>

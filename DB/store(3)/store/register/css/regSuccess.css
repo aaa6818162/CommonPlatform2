@@ -1,0 +1,69 @@
+.register-tit {
+  height: 46px;
+  border-bottom: 2px solid #e6e6e6;
+  position: relative;
+  margin-top: 60px;
+}
+.register-tit ul {
+  width: 540px;
+  margin: 0 auto;
+}
+.register-tit ul li {
+  width: 180px;
+  display: inline;
+  float: left;
+  height: 46px;
+  line-height: 46px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #999;
+  text-align: center;
+}
+.register-tit ul li i {
+  display: inline-block;
+  zoom: 1;
+  margin-right: 5px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  font-style: normal;
+  line-height: 28px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFF;
+  background-color: #999;
+}
+.register-tit ul li i.active {
+  background-color: #e04444;
+}
+.register-tit ul li.active {
+  color: #3e3e3e;
+  border-bottom: 2px solid #ff4700;
+}
+.regSuccess-content {
+  width: 100%;
+}
+.regSuccess-content .success-info {
+  text-align: center;
+  margin-top: 130px;
+}
+.regSuccess-content .success-info .info-tit {
+  color: #333333;
+  font-size: 18px;
+}
+.regSuccess-content .success-info .info-tit .icon-chenggong1 {
+  font-size: 28px;
+  vertical-align: middle;
+  color: #9cee55;
+}
+.regSuccess-content .success-info .info-u {
+  color: #666666;
+  font-size: 16px;
+  margin-top: 40px;
+  margin-bottom: 550px;
+}
+.regSuccess-content .success-info .info-u .u-name {
+  color: #333;
+  font-size: 16px;
+}
