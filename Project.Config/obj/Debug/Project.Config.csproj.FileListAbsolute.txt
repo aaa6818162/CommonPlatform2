@@ -1,0 +1,5 @@
+G:\云端备份\我设计的框架\CommonPlatform\Project.Config\bin\Debug\Project.Config.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Config\bin\Debug\Project.Config.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.Config\obj\Debug\Project.Config.csprojResolveAssemblyReference.cache
+G:\云端备份\我设计的框架\CommonPlatform\Project.Config\obj\Debug\Project.Config.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Config\obj\Debug\Project.Config.pdb

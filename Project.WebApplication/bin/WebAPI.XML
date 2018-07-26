@@ -1,0 +1,929 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Project.WebApplication</name>
+    </assembly>
+    <members>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPayNoSend(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPayNoSendConfirm(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPrdAfterSend(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPrdAfterSendAudit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPrdSend(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPrdSendConfirm(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPayAfterSend(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.GetList">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.Send(Project.Infrastructure.FrameworkCore.WebMvc.Models.AjaxRequest{Project.Model.OrderManager.OrderMainEntity,System.Int32})">
+            <summary>
+            发货
+            </summary>
+            <param name="postData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPayNoSend(Project.Infrastructure.FrameworkCore.WebMvc.Models.AjaxRequest{Project.Model.OrderManager.OrderMainEntity,System.Int32})">
+            <summary>
+            未发货退货申请
+            </summary>
+            <param name="postData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPrdSendConfirm(Project.Infrastructure.FrameworkCore.WebMvc.Models.AjaxRequest{Project.Model.OrderManager.OrderMainEntity,System.Int32})">
+            <summary>
+            商品确认收货
+            </summary>
+            <param name="postData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.OrderManager.Controllers.OrderMainController.ReturnPayAfterSend(Project.Infrastructure.FrameworkCore.WebMvc.Models.AjaxRequest{Project.Model.OrderManager.OrderMainEntity,System.Int32})">
+            <summary>
+            退款
+            </summary>
+            <param name="postData"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecVm.SpecId">
+             <summary>
+            规格编号
+             </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecVm.SpecName">
+            <summary>
+            规格名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecVm.SpecType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecVm.SpecValueList">
+            <summary>
+            规格值
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.SpecValueId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.SpecId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.SpecValueName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.Sort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.ImageUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.IsCheck">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.SpecValueVm.OtherSpecValueName">
+            <summary>
+            别名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Areas.ProductManager.Models.AttributeValueVm.IsCheck">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ProductManager.Controllers.ExtAttributeController.GetAttributeValueList">
+            <summary>
+            扩展属性值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ProductManager.Controllers.ProductController.InPortData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Areas.ProductManager.Controllers.SystemCategoryController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Project.WebApplication.Areas.SalePromotionManager.Controllers.RuleController.RuleRaUpload(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="FileUrl"></param>
+            <param name="FileName"></param>
+            <param name="Title"></param>
+            <param name="RuleType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.SystemSetManager.Controllers.AreaController.GetList_Combobox_Province">
+            <summary>
+            省
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.SystemSetManager.Controllers.AreaController.GetList_Combobox_City">
+            <summary>
+            市
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.SystemSetManager.Controllers.AreaController.GetList_Combobox_Area">
+            <summary>
+            区
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ReportManager.Controllers.HrReportController.EmployeeRSReport">
+            <summary>
+            人数统计情况报表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ReportManager.Controllers.HrReportController.EmployeeZHReport(System.String)">
+            <summary>
+            综合报表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ReportManager.Controllers.HrReportController.EmployeeDYReport">
+            <summary>
+            党员统计报表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Project.WebApplication.Areas.ReportManager.Controllers.HrReportController.EmployeeXLReport">
+            <summary>
+            学历统计报表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.BaseController.LoginUserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            在调用操作方法前调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>
+            在调用操作方法后调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnAuthentication(System.Web.Mvc.Filters.AuthenticationContext)">
+            <summary>
+            在进行授权时调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnAuthenticationChallenge(System.Web.Mvc.Filters.AuthenticationChallengeContext)">
+            <summary>
+            在进行授权质询时调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            在进行授权时调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnResultExecuted(System.Web.Mvc.ResultExecutedContext)">
+            <summary>
+            在执行由操作方法返回的操作结果后调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作结果的信息。</param>
+        </member>
+        <member name="M:Project.WebApplication.Controllers.BaseController.OnResultExecuting(System.Web.Mvc.ResultExecutingContext)">
+            <summary>
+            在执行由操作方法返回的操作结果前调用。
+            </summary>
+            <param name="filterContext">有关当前请求和操作结果的信息。</param>
+        </member>
+        <member name="T:Project.WebApplication.Controllers.ProductController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.JGDM">
+            <summary>
+            机构代码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.JGBM">
+            <summary>
+            医疗机构编码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.JGMC">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.KSMC">
+            <summary>
+            科室名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.KSDM">
+            <summary>
+            科室代码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.KSFJBM">
+            <summary>
+            科室父级编码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Controllers.DepatmentTemp.TYPE">
+            <summary>
+             机构/科室状态代码
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.ErrorInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.ErrorInfo.Code">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.ErrorInfo.Message">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.ErrorInfo.Details">
+            <summary>
+            Error Details
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ChangePasswordRequest.UserCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.GetProblemListRequest2">
+            <summary>
+            问题状态 1.部门待处理 2河长待处理 3完结 4重新申请作废 5回退部门待处理 
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.Command">
+            <summary>
+            dbcs  督办抄送
+            dbfinish 督办完结 
+            zfcs 转发抄送
+            mark 带标识的问题
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.Title">
+            <summary>
+            问题标题
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.UserCode">
+            <summary>
+            登录人编号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.UserName">
+            <summary>
+            河长姓名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.RiverRank">
+            <summary>
+            河道级别
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.StartDateTime">
+            <summary>
+            问题开始时间
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.EndDateTime">
+            <summary>
+            问题结束时间
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.Des">
+            <summary>
+            问题描述
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.skipResults">
+            <summary>
+            分页开始记录位置
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest2.maxResults">
+            <summary>
+            分页结束记录位置
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetDbHistoryListRequest.RiverProblemApplyId">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetAddressListRequest.Mobile">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetAddressListRequest.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetAddressListRequest.DepartmentName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetAddressListRequest.RiverName">
+            <summary>
+            河道名称
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.GetProblemListRequest">
+            <summary>
+            问题状态 1.部门待处理 2河长待处理 3完结 4重新申请作废 5回退部门待处理 
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.Title">
+            <summary>
+            问题标题
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.UserCode">
+            <summary>
+            登录人编号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.IsDeal">
+            <summary>
+            是否处理 0代表全部 1代表未处理 2代表已处理
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.IsExposure">
+            <summary>
+            是否曝光
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.UserName">
+            <summary>
+            河长姓名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.ApplyManName">
+            <summary>
+            上报人
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.RiverRank">
+            <summary>
+            河道级别
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.StartDateTime">
+            <summary>
+            问题开始时间
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.EndDateTime">
+            <summary>
+            问题结束时间
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.Des">
+            <summary>
+            问题描述
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.skipResults">
+            <summary>
+            分页开始记录位置
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetProblemListRequest.maxResults">
+            <summary>
+            分页结束记录位置
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.RiverName">
+            <summary>
+            河道名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.DepartmentName">
+            <summary>
+            归属部门
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.RiverRank">
+            <summary>
+            河道等级
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.RiverStart">
+            <summary>
+            河道起点
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.RiverEnd">
+            <summary>
+            河道终点
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.RiverCrossArea">
+            <summary>
+            流经乡（镇）
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.UserName">
+            <summary>
+            河长姓名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetRiverListRequest.UserCode">
+            <summary>
+            河长手机
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetUserInfoListRequest.DepartmentCode">
+            <summary>
+            河道所属部门
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.GetUserInfoListRequest.UserType">
+            <summary>
+            1 转发角色
+            2 督办角色
+            3 转发+督办
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.LoginRequest.UserCode">
+            <summary>
+            用户编码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.LoginRequest.UserPassword">
+            <summary>
+            用户密码 md5
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemMarkRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemMarkRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemDbHtRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbHtRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemDbWjRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbWjRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemHtRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemHtRequest.UserCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemHtRequest.UserName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemHtRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemHtRequest.Remark">
+            <summary>
+            备注信息
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemBgRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemBgRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemBgRequest.IsExposure">
+            <summary>
+            是否曝光
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemBgRequest.ExposureLever">
+            <summary>
+            曝光等级
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemReportRequest.ProblemType">
+            <summary>
+            问题类型 1日常巡河 2问题上报 3群众举报
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemReportRequest.PicUrl1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemReportRequest.lngNTU">
+            <summary>
+            精度
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemReportRequest.latNTU">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemDbRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.UserCode">
+            <summary>
+            督办人编码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.UserName">
+            <summary>
+            督办人名称
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.DbCsUserCode">
+            <summary>
+            督办抄送人
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.DbUserCode">
+            <summary>
+            督办人
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemDbRequest.Remark">
+            <summary>
+            备注信息
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemWjRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemWjRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemWjRequest.Remark">
+            <summary>
+            备注信息
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemWjRequest.FinishPicUrl">
+            <summary>
+            完结图片地址
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemPsRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemPsRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemPsRequest.Remark">
+            <summary>
+            备注信息
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.Request.ProblemZfRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemZfRequest.RiverProblemApplyId">
+            <summary>
+            问题申请单号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemZfRequest.Remark">
+            <summary>
+            转发备注信息
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemZfRequest.ToUserCode">
+            <summary>
+            转发人
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.ProblemZfRequest.ZfCsUserCode">
+            <summary>
+            转发抄送人
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.TagMessageStateRequest.Kind">
+            <summary>
+            1 代表公告的 已读记录  2代表曝光的已读记录
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.TagMessageStateRequest.UserCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.TagMessageStateRequest.UserName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.TagMessageStateRequest.MessageId">
+            <summary>
+            公告id  或者问题id
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.SignRequest.UserCode">
+            <summary>
+            用户编码
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.SignRequest.lngNTU">
+            <summary>
+            精度lngNTU
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.SignRequest.latNTU">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.SignRequest.Remark">
+            <summary>
+            巡河描述
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Request.SignRequest.EffectArea">
+            <summary>
+            新增字段有效范围
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.GetRiverAttachListResponse.RiverId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.GetRiverAttachListResponse.RiverName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.GetRiverAttachListResponse.RecordTime">
+            <summary>
+            记录月份
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.GetRiverAttachListResponse.WaterQualityRank">
+            <summary>
+            水质类别
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.GetRiverAttachListResponse.WaterQualityChange">
+            <summary>
+            2代表下降
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.UserName">
+            <summary>
+            描述:用户名
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Email">
+            <summary>
+            描述:电子邮件
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Mobile">
+            <summary>
+            描述:手机号
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Duty">
+             <summary>
+            职务
+             </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Lever">
+            <summary>
+            等级 市级 镇级 区级
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Departments">
+            <summary>
+            用户所在部门
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.Response.UserInfoResponse.Role">
+            <summary>
+            角色 1代表管理员 2代表部门角色 3代表河长角色  4代表村管理员1007  5局办单位1008
+            </summary>
+        </member>
+        <member name="T:Project.WebApplication.Models.WebAPIResponse`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="P:Project.WebApplication.Models.WebAPIResponse`1.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.WebAPIResponse`1.Result">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:Project.WebApplication.Models.WebAPIResponse`1.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Project.WebApplication.Models.WebAPIResponse`1.#ctor(`0)">
+            <summary>
+            成功
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:Project.WebApplication.Models.WebAPIResponse`1.#ctor(Project.WebApplication.Models.ErrorInfo)">
+            <summary>
+            失败
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:Config">
+            <summary>
+            Config 的摘要说明
+            </summary>
+        </member>
+        <member name="T:Uploader">
+            <summary>
+            UEditor编辑器通用上传类
+            </summary>
+        </member>
+        <member name="M:Uploader.upFile(System.Web.HttpContext,System.String,System.String[],System.Int32)">
+             上传文件的主处理方法
+             @param HttpContext
+             @param string
+             @param  string[]
+            @param int
+             @return Hashtable
+        </member>
+        <member name="M:Uploader.upScrawl(System.Web.HttpContext,System.String,System.String,System.String)">
+             * 上传涂鸦的主处理方法
+              * @param HttpContext
+              * @param string
+              * @param  string[]
+              *@param string
+              * @return Hashtable
+        </member>
+        <member name="M:Uploader.getOtherInfo(System.Web.HttpContext,System.String)">
+            获取文件信息
+            @param context
+            @param string
+            @return string
+        </member>
+        <member name="M:Uploader.getUploadInfo">
+            获取上传信息
+            @return Hashtable
+        </member>
+        <member name="M:Uploader.reName">
+            重命名文件
+            @return string
+        </member>
+        <member name="M:Uploader.checkType(System.String[])">
+            文件类型检测
+            @return bool
+        </member>
+        <member name="M:Uploader.checkSize(System.Int32)">
+            文件大小检测
+            @param int
+            @return bool
+        </member>
+        <member name="M:Uploader.getFileExt">
+            获取文件扩展名
+            @return string
+        </member>
+        <member name="M:Uploader.createFolder">
+            按照日期自动创建存储文件夹
+        </member>
+        <member name="M:Uploader.deleteFolder(System.String)">
+            删除存储文件夹
+            @param string
+        </member>
+    </members>
+</doc>
