@@ -4,6 +4,60 @@
         <name>Project.OpenApi</name>
     </assembly>
     <members>
+        <member name="P:Project.OpenApi.Controllers.A.AX">
+            <summary>
+            dddddddddddd
+            </summary>
+        </member>
+        <member name="T:Project.OpenApi.Controllers.AccountController">
+            <summary>
+            https://blog.csdn.net/smartsmile2012/article/details/52936011
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.Login2(System.String,System.String)">
+            <summary>  
+            用户登录授权  
+            </summary>  
+            <param name="username">用户名</param>  
+            <param name="password">密码</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.Login(System.String,System.String)">
+            <summary>  
+            用户登录授权  
+            </summary>  
+            <param name="username">用户名</param>  
+            <param name="password">密码</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.LoginOut(System.Int32)">
+            <summary>  
+            用户退出登录，清空Token  
+            </summary>  
+            <param name="userId">用户ID</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.ValidateToken(System.String)">
+            <summary>  
+            查询Token是否有效  
+            </summary>  
+            <param name="token">token</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.GetAmount(System.Int32)">
+            <summary>  
+            获取用户账户余额  
+            </summary>  
+            <param name="userId">用户ID</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.ValidateTicket(System.String)">
+            <summary>  
+            验证票据是否有效  
+            </summary>  
+            <param name="encryptToken">token</param>  
+            <returns></returns>  
+        </member>
         <member name="T:Project.OpenApi.Controllers.CallingController">
             <summary>
             统一一格中心访问

@@ -7,14 +7,12 @@ namespace Project.Application.Service.Common
     /// 基础服务输出标准结果
     /// </summary>
     [Serializable]
-    [DataContract]
-    public class ProcessResult : MarshalByRefObject
+    public class ProcessResult 
     {
         private bool issuccess = true;
         /// <summary>
         /// 是否成功
         /// </summary>
-        [DataMember]
         public bool IsSuccess
         {
             get { return issuccess; }
@@ -24,19 +22,16 @@ namespace Project.Application.Service.Common
         /// <summary>
         /// 结果代码
         /// </summary>
-        [DataMember]
         public int Code { get; set; }
 
         /// <summary>
         /// 错误信息，或者成功信息
         /// </summary>
-        [DataMember]
         public string Message { get; set; }
 
         /// <summary>
         /// 成功可能时返回的数据
         /// </summary>
-        [DataMember]
         public dynamic Result { get; set; }
 
         public ProcessResult()

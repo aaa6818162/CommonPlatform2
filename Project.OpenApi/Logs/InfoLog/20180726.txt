@@ -1,0 +1,2 @@
+2018-07-26 14:22:59,744 [7] INFO  InfoLogger [(null)] - {"Module":"Calling","Service":"string","Method":"string","Dto":"string","RunTime":0.0,"Ip":"::1"}
+2018-07-26 14:39:20,121 [8] INFO  InfoLogger [(null)] - {"Module":"Calling","Service":"string","Method":"string","Dto":"string","RunTime":0.0,"Ip":"::1"}
