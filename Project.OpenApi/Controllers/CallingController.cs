@@ -154,7 +154,7 @@ namespace Project.OpenApi.Controllers
                     }
 
                     var obj = m.Invoke(callingServices, args);
-                    GC.Collect();
+                    //GC.Collect();
 
                     if (obj is ProcessResult)
                     {
@@ -189,15 +189,15 @@ namespace Project.OpenApi.Controllers
         }
         #endregion
 
-        /// <summary>
-        /// 回收所有资源
-        /// </summary>
-        protected void Clear()
-        {
-            //SessionFactoryManager.ClearSessionAndStorage();
-            GC.Collect();
-            GC.SuppressFinalize(true);
-        }
+        ///// <summary>
+        ///// 回收所有资源
+        ///// </summary>
+        //protected void Clear()
+        //{
+        //    //SessionFactoryManager.ClearSessionAndStorage();
+        //    GC.Collect();
+        //    GC.SuppressFinalize(true);
+        //}
 
 
 
