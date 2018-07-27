@@ -25,7 +25,7 @@
 				border-top: 1px solid #bfbfbf;
 				border-radius: 3px 3px 0 0;
 				&.tabs-selected{
-					border-top: 2px solid #1da02b;
+					border-top: 2px solid #214e75;
 					a{
 						&.tabs-inner{
 							color: #000;
@@ -54,7 +54,7 @@
 					position: relative;
 					top: 0px;
 					display: inline-block;
-					color: #1da02b;
+					color: #214e75;
 					font-size: 12px;
 					font-weight: bold;
 					height: 22px;
@@ -83,7 +83,7 @@
 						height: 26px;
 						font-size: 12px;
 						a{
-							color: #1da02b;
+							color: #214e75;
 							text-decoration: none;
 							&:hover{
 								text-decoration:underline;

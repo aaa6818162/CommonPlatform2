@@ -11,14 +11,14 @@ html{
 	height: 70px;
 	position: relative;
 	z-index: 2;
-	background-color: #1da02b;
+	background-color: #214e75;
 	background: image-url('main/xg_left.png') left center no-repeat, image-url('main/xg_right.png') right center no-repeat,image-url('main/top_bottombg.png') left bottom repeat-x;
 	.pf-logo{
 		float: left;
 		padding: 0 15px;
 		height: 100%;
 		width: 230px;
-		border-right: 1px solid #198b25;
+		border-right: 1px solid #f1f1f1;
 		line-height: 70px;
 		
 		img{
@@ -44,7 +44,7 @@ html{
 			height: 70px;
 			color: #fff;
 			padding: 0 15px;
-			border-right: 1px solid #198b25;
+			border-right: 1px solid #f1f1f1;
 			
 
 			a{
@@ -117,7 +117,7 @@ html{
 
 		&:hover{
 			background:#fff;
-			color: #1da02b;
+			color: #214e75;
 		}
 
 		&.disabled{
@@ -196,7 +196,7 @@ html{
 				&:hover{
 					background: #f1f1f1;
 					.iconfont{
-						color: #1da02b;
+						color: #214e75;
 					}
 				}
 			}
@@ -326,7 +326,7 @@ html{
 					border-bottom:none; 
 					/*height: 39px;*/
 
-					background: #1da02b;
+					background: #214e75;
 					&>a{
 						border-left: 3px solid #ffa405;
 						padding-left:12px; 
@@ -355,7 +355,7 @@ html{
 							background: #fff;
 							
 							a{
-								color: #1da02b;
+								color: #214e75;
 								font-weight: bold;
 							}
 						}
@@ -413,7 +413,7 @@ html{
 				padding-left: 24px !important;
 
 				li.tabs-selected{
-					border-top: 3px solid #1da02b;
+					border-top: 3px solid #214e75;
 				}
 			}
 
@@ -468,7 +468,7 @@ html{
 			color: #8b8b8b;
 
 			.iconfont{
-				color: #1da02b;
+				color: #214e75;
 				margin-right: 8px;
 			}
 		}
@@ -483,6 +483,6 @@ html{
 
 
 .menu .menu-active{
-	background: #1da02b;
+	background: #214e75;
 	color: #fff;
 }

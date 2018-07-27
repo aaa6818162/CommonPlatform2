@@ -18,7 +18,7 @@ body{
 				font-size: 60px;
 				left: -2px;
 				top: 22px;
-				color: #1da02b;
+				color: #214e75;
 			}
 			span.num{
 				position: absolute;
@@ -54,7 +54,7 @@ body{
 					&>span{
 						position: relative;
 						display: inline-block;
-						background-color: #1da02b;
+						background-color: #214e75;
 						width: 3px;
 						height: 3px;
 						top: -14px;
@@ -118,7 +118,7 @@ body{
 			}
 			.attached-tab{
 				height: 31px;
-				border-top:2px solid #1da02b;
+				border-top:2px solid #214e75;
 				margin-bottom: 5px;
 				 a{
 				 	display: inline-block;
@@ -177,7 +177,7 @@ body{
 					text-decoration:underline;
 				};
 				span{
-					color: #1da02b;
+					color: #214e75;
 				}
 			}
 		}
@@ -193,7 +193,7 @@ body{
 				span{
 					position: relative;
 					display: inline-block;
-					background-color: #1da02b;
+					background-color: #214e75;
 					width: 3px;
 					height: 3px;
 					top: -14px;
@@ -287,7 +287,7 @@ body{
 									left: 80px;
 								}
 								&.green{
-									background-color: #1da02b;
+									background-color: #214e75;
 									margin-bottom: 11px;
 								}
 								&.red{

@@ -9,7 +9,7 @@ html {
     height: 70px;
     position: relative;
     z-index: 2;
-    background-color: #1da02b;
+    background-color: #214e75;
     background: url('../images/main/xg_left.png?1464005190') left center no-repeat,url('../images/main/xg_right.png?1464005212') right center no-repeat,url('../images/main/top_bottombg.png?1464006836') left bottom repeat-x;
 }
 
@@ -98,7 +98,7 @@ html {
 
         #pf-hd .pf-nav-prev:hover, #pf-hd .pf-nav-next:hover {
             background: #fff;
-            color: #1da02b;
+            color: #214e75;
         }
 
         #pf-hd .pf-nav-prev.disabled, #pf-hd .pf-nav-next.disabled {
@@ -181,7 +181,7 @@ html {
                 }
 
                     #pf-hd .pf-user .pf-user-panel li:hover .iconfont {
-                        color: #1da02b;
+                        color: #214e75;
                     }
 
         #pf-hd .pf-user:hover {
@@ -305,7 +305,7 @@ html {
 
             #pf-bd #pf-sider .sider-nav > li.current {
                 border-bottom: none;
-                background: #1da02b;
+                background: #214e75;
             }
 
                 #pf-bd #pf-sider .sider-nav > li.current > a {
@@ -336,7 +336,7 @@ html {
                 }
 
                     #pf-bd #pf-sider .sider-nav > li .sider-nav-s li.active a {
-                        color: #1da02b;
+                        color: #214e75;
                         font-weight: bold;
                     }
 
@@ -390,7 +390,7 @@ html {
             }
 
                 #pf-bd #pf-page .easyui-tabs1 .tabs li.tabs-selected {
-                    border-top: 3px solid #1da02b;
+                    border-top: 3px solid #214e75;
                 }
 
             #pf-bd #pf-page .easyui-tabs1 .tabs-panels {
@@ -431,7 +431,7 @@ html {
     }
 
         #pf-ft .system-name .iconfont, #pf-ft .copyright-name .iconfont {
-            color: #1da02b;
+            color: #214e75;
             margin-right: 3px;
         }
 
@@ -444,6 +444,6 @@ html {
         }
 
 .menu .menu-active {
-    background: #1da02b;
+    background: #214e75;
     color: #fff;
 }
