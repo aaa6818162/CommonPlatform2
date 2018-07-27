@@ -961,6 +961,7 @@
     <Content Include="Scripts\linq\Samples.js" />
     <Content Include="Scripts\maps.js" />
     <Content Include="Scripts\pro\combinationCount.js" />
+    <Content Include="Scripts\pro\ajaxKit.js" />
     <Content Include="Scripts\pro\listKit.js" />
     <Content Include="Scripts\pro\kindeditor\kindeditor.js" />
     <Content Include="Scripts\pro\kindeditor\lang\ar.js" />

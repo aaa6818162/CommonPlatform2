@@ -1,7 +1,0 @@
-﻿(function ($) {
-
-    $.fn.ajax = function() {
-        
-
-    };
-})
