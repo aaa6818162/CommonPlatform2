@@ -77,11 +77,6 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:Project.OpenApi.Controllers.CallingController.Clear">
-            <summary>
-            回收所有资源
-            </summary>
-        </member>
         <member name="T:Project.OpenApi.Models.ErrorInfo">
             <summary>
             
