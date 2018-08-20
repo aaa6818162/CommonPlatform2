@@ -189,16 +189,16 @@
 
         </div>
     </div>
-    <div data-options="region:'west',split:true,title:'导航菜单',icon:'icon-redo'" style="width: 200px;">
+    <div data-options="region:'west',split:true,title:'导航菜单',iconCls:'fa fa-bank'" style="width: 200px;">
         <div id="menu" class="easyui-accordion" data-options="border:false,fit:true">
 
             @foreach (MenuDTO p in ViewBag.ModuleList)
             {
-                <div title="@p.Name"   >
+                <div title="@p.Name"  data-options="iconCls:'fa fa-list'" >
                     <ul class='menulist'>
                         @foreach (var child in p.MenuDTOList)
                         {
-                            <li style="height:31px "><a target='mainFrame' href='javascript:void(0)' lang='@child.Url'>@child.Name</a></li>
+                            <li style="height:31px "><a target='mainFrame' href='javascript:void(0)' lang='@child.Url' ><span style="font-size: 10px" class="fa fa-newspaper-o"></span>@child.Name</a></li>
                         }
                     </ul>
                 </div>
