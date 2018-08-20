@@ -159,7 +159,7 @@ html {
             box-shadow: 1px 1px 2px #ddd;
         }
 
-            #pf-hd .pf-user .pf-user-panel li {
+            /*#pf-hd .pf-user .pf-user-panel li {
                 height: 30px;
                 line-height: 30px;
                 font-size: 13px;
@@ -190,7 +190,7 @@ html {
 
             #pf-hd .pf-user:hover .pf-user-panel {
                 display: block;
-            }
+            }*/
 
 #pf-bd {
     position: absolute;

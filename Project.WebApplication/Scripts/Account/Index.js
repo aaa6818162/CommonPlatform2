@@ -61,6 +61,7 @@ var pro = pro || {};
             if (!$('#tabsDefault').tabs('exists', subtitle)) {
                 $('#tabsDefault').tabs('add', {
                     title: subtitle,
+                    iconCls: 'fa  fa-file-text-o',
                     content: '<iframe scrolling="no" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>',
                     closable: true,
                     bodyCls: "tabOverflow"

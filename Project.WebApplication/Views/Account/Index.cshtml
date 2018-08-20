@@ -18,177 +18,94 @@
 
 </head>
 <body class="easyui-layout" >
-    <div data-options="region:'north',split:true" style="overflow: hidden; height: 70px; background-color: #214e75 ">
-        @*<div style="background: #E0ECFF; height: 100%;">
-            <div style="float: left; width: 40%;">
-                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-man',plain:true" style="float: left;"></a>
-                <div class="datagrid-btn-separator" style="height: 15px; margin: 7px 2px 0;"></div>
-                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-user',plain:true" style="float: left;">@ViewBag.User.UserName </a>
-            </div>
-            <div style="float: right; width: 58%; padding-right:5px;">
-                <div class="datagrid-btn-separator" style="height: 15px; margin: 7px 2px 0; float: right;"></div>
-                <a href="javascript:void(0)" id="btnLogoff" class="easyui-linkbutton" data-options="iconCls:'icon-lock_go',plain:true" style="float: right;">注销</a>
+<div data-options="region:'north',split:true" style="overflow: hidden; height: 70px; background-color: #214e75">
+    
+ 
 
-                <div class="datagrid-btn-separator" style="height: 15px; margin: 7px 2px 0; float: right;"></div>
-                <a href="javascript:void(0)" id="btnChangePassword" class="easyui-linkbutton" data-options="iconCls:'icon-lock_go',plain:true" style="float: right;">修改密码</a>
-            </div>
-            <div style="clear: both;">
-            </div>
+        @*<div style="width: 300px;float: left">
+            <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
         </div>*@
+    <table style="float:left;border-spacing:0px;">
+        <tbody>
+            <tr>
+                <td class="webname">
+                    <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
+                </td>
+              
+                <td>
+                    <table id="topmenucontent" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td>
+                                &nbsp; &nbsp; &nbsp; &nbsp;
+                            </td>
+                            <td id="1169" data-title="协同办公" data-url="" class="topmenu systemName">
+                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
+                                    <p>
+                                        <lable class="fa fa-book" style="color: white"></lable>
+                                    </p>
+                                    <p><span style="white-space: nowrap;color: white">协同办公</span></p>
+                                </a>
+                            </td>
 
-        <div id="pf-hd">
-            <div class="pf-logo">
-                <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
-            </div>
+                            <td id="1203" data-title="经营管理" data-url="" class="topmenu systemName">
+                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
+                                    <p>
+                                        <lable class="fa fa-dashboard" style="color: white"></lable>
+                                    </p>
+                                    <p><span style="white-space: nowrap;color: white">经营管理</span></p>
+                                </a>
+                            </td>
 
-            <div class="pf-nav-wrap">
-                <div class="pf-nav-ww">
-                    <ul class="pf-nav">
-                        <li class="pf-nav-item home current" data-menu="sys-manage">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe63f;</span>
-                                <span class="pf-nav-title">系统管理</span>
-                            </a>
-                        </li>
-                        <li class="pf-nav-item project" data-menu="org-manage">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe60d;</span>
-                                <span class="pf-nav-title">组织管理</span>
-                            </a>
-                        </li>
-                        <li class="pf-nav-item static" data-menu="main-data">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe61e;</span>
-                                <span class="pf-nav-title">主数据</span>
-                            </a>
-                        </li>
-                        <li class="pf-nav-item manger" data-menu="supplier-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe620;</span>
-                                <span class="pf-nav-title">供应商管理</span>
-                            </a>
-                        </li>
+                            <td id="1156" data-title="业务报表" data-url="" class="topmenu systemName">
+                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
+                                    <p>
+                                        <lable class="fa fa-user" style="color: white"></lable>
+                                    </p>
+                                    <p><span style="white-space: nowrap;color: white">业务报表</span></p>
+                                </a>
+                            </td>
 
-                        <li class="pf-nav-item manger" data-menu="supplier-dev">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe625;</span>
-                                <span class="pf-nav-title">供应商开发</span>
-                            </a>
-                        </li>
+                            <td id="213" data-title="门户网站" data-url="" class="topmenu systemName">
+                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
+                                    <p>
+                                        <lable class="fa fa-edge" style="color: white"></lable>
+                                    </p>
+                                    <p><span style="white-space: nowrap;color: white">门户网站</span></p>
+                                </a>
+                            </td>
 
-                        <li class="pf-nav-item manger" data-menu="pur-source">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe64b;</span>
-                                <span class="pf-nav-title">采购寻源</span>
-                            </a>
-                        </li>
+                            <td id="60" data-title="平台管理" data-url="" class="topmenu systemName">
+                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
+                                    <p>
+                                        <lable class="fa fa-cog" style="color: white"></lable>
+                                    </p>
+                                    <p><span style="white-space: nowrap;color: white">平台管理</span></p>
+                                </a>
+                            </td>
 
-                        <li class="pf-nav-item manger" data-menu="contract-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe64c;</span>
-                                <span class="pf-nav-title">合同管理</span>
-                            </a>
-                        </li>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
+    <span style="float: right; padding-right: 10px; height: 50px; line-height: 50px;">
+        <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-user',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">lww</span><span class="l-btn-icon fa fa-user">&nbsp;</span></span></a>
+        
+        
+        <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa fa-cog',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">修改密码</span><span class="l-btn-icon fa  fa-cog">&nbsp;</span></span></a>
+      
 
-                        <li class="pf-nav-item manger" data-menu="pur-source">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe623;</span>
-                                <span class="pf-nav-title">示例示例</span>
-                            </a>
-                        </li>
+        <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-sign-out',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">注销</span><span class="l-btn-icon fa fa-sign-out">&nbsp;</span></span></a>
+    </span>
 
-                        <li class="pf-nav-item manger" data-menu="contract-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe646;</span>
-                                <span class="pf-nav-title">示例示例示例示例示例</span>
-                            </a>
-                        </li>
-                        <li class="pf-nav-item manger" data-menu="pur-source">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe623;</span>
-                                <span class="pf-nav-title">采购寻源</span>
-                            </a>
-                        </li>
+       
 
-                        <li class="pf-nav-item manger" data-menu="contract-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe646;</span>
-                                <span class="pf-nav-title">合同管理</span>
-                            </a>
-                        </li>
-
-
-                        <li class="pf-nav-item manger" data-menu="pur-source">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe623;</span>
-                                <span class="pf-nav-title">示例示例</span>
-                            </a>
-                        </li>
-
-                        <li class="pf-nav-item manger" data-menu="contract-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe646;</span>
-                                <span class="pf-nav-title">示例示例示例示例示例示例</span>
-                            </a>
-                        </li>
-
-                        <li class="pf-nav-item manger" data-menu="pur-source">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe623;</span>
-                                <span class="pf-nav-title">采购寻源</span>
-                            </a>
-                        </li>
-
-                        <li class="pf-nav-item manger" data-menu="contract-mange">
-                            <a href="javascript:;">
-                                <span class="iconfont">&#xe646;</span>
-                                <span class="pf-nav-title">合同管理</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <a href="javascript:;" class="pf-nav-prev disabled iconfont">&#xe606;</a>
-                <a href="javascript:;" class="pf-nav-next iconfont">&#xe607;</a>
-            </div>
-
-
-
-            <div class="pf-user">
-                <div class="pf-user-photo">
-                    <img src="images/main/user.png" alt="">
-                </div>
-                <h4 class="pf-user-name ellipsis">uimaker</h4>
-                <i class="iconfont xiala">&#xe607;</i>
-
-                <div class="pf-user-panel">
-                    <ul class="pf-user-opt">
-                        <li>
-                            <a href="javascript:;">
-                                <i class="iconfont">&#xe60d;</i>
-                                <span class="pf-opt-name">用户信息</span>
-                            </a>
-                        </li>
-                        <li class="pf-modify-pwd">
-                            <a href="http://www.uimaker.com">
-                                <i class="iconfont">&#xe634;</i>
-                                <span class="pf-opt-name">修改密码</span>
-                            </a>
-                        </li>
-                        <li class="pf-logout">
-                            <a href="login.html">
-                                <i class="iconfont">&#xe60e;</i>
-                                <span class="pf-opt-name">退出</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+   
+</div>
     <div data-options="region:'west',split:true,title:'导航菜单',iconCls:'fa fa-bank'" style="width: 200px;">
         <div id="menu" class="easyui-accordion" data-options="border:false,fit:true">
 
@@ -198,7 +115,7 @@
                     <ul class='menulist'>
                         @foreach (var child in p.MenuDTOList)
                         {
-                            <li style="height:31px "><a target='mainFrame' href='javascript:void(0)' lang='@child.Url' ><span style="font-size: 10px" class="fa fa-newspaper-o"></span>@child.Name</a></li>
+                            <li style="height:31px "><a target='mainFrame' href='javascript:void(0)' lang='@child.Url' ><span style="font-size: 10px" class="fa fa-file-text-o"></span>@child.Name</a></li>
                         }
                     </ul>
                 </div>
@@ -265,6 +182,8 @@
     <div data-options="region:'south',border:false" style="height: 20px;">
         <div style="text-align: center; font-weight: bold">
             @*海盐县人力资源管理系统【V1.2】 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;建设单位：海盐县卫生和计划生育局 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 技术支持：嘉兴康思网络科技有限公司*@
+
+            版权所有 © 2014-2117 ******信息技术有限公司 粤ICP备16028103号-1 版本：v2.2.8
         </div>
     </div>
     <div data-options="region:'center'" style="background: #eee; overflow: hidden;">
