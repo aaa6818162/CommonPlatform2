@@ -8,6 +8,7 @@ using System.Web.Security;
 using System.Xml.Linq;
 using Aspose.Cells;
 using Newtonsoft.Json;
+using Project.Infrastructure.FrameworkCore.DataNhibernate;
 using Project.Infrastructure.FrameworkCore.Logging;
 using Project.Infrastructure.FrameworkCore.ToolKit;
 using Project.Infrastructure.FrameworkCore.ToolKit.Extensions;
@@ -15,7 +16,9 @@ using Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results;
 using Project.Infrastructure.FrameworkCore.WebMvc.Models;
 using Project.Model.Other;
 using Project.Model.PermissionManager;
+using Project.Model.SalePromotionManager;
 using Project.Service.PermissionManager;
+using Project.Service.SalePromotionManager;
 
 namespace Project.WebApplication.Controllers
 {
@@ -74,89 +77,31 @@ namespace Project.WebApplication.Controllers
 
         public ActionResult Index2()
         {
+            using (var tx = NhTransactionHelper.BeginTransaction())
+            {
+                try
+                {
+                    for (int i = 0; i < 1000; i++)
+                    {
+                   //var t=     TicketService.GetInstance().GetModelByPk(i + 1);
+                   //     t.UseFor = "1";
+                   //     TicketService.GetInstance().Update(t);
+                    }
 
-            ////    dd++;
-            ////    ViewBag.dd = dd;
-            //var Third_DepartmentWebServiceUrl =
-            //    System.Configuration.ConfigurationManager.AppSettings["Third_DepartmentWebServiceUrl"];
-            //if (Third_DepartmentWebServiceUrl != "" && DateTime.Now.Subtract(UpdateTime).Days >= 1)
-            //{
-            //    UpdateTime = DateTime.Now;
-
-            //    string result = HttpHelper.Helper.GetResponseString(System.Configuration.ConfigurationManager.AppSettings["Third_DepartmentWebServiceUrl"], "Get", new Dictionary<string, string> { }, Encoding.Default, Encoding.UTF8, 10000);
-
-            //    var htmlstr = HttpUtility.HtmlDecode(result);
-            //    var start = htmlstr.IndexOf("?xml") - 1;
-            //    var end = htmlstr.LastIndexOf("/Response") + 11;
-            //    XDocument doc = XDocument.Parse(htmlstr.Substring(start, end - start));
-
-            //    //var path = Server.MapPath("/Config/XMLFile1.xml");
-
-            //    //XDocument doc = XDocument.Load(path);
-            //    var text = from t in doc.Descendants("dept")                    //定位到节点 
-            //               select new DepatmentTemp()
-            //               {
-            //                   JGDM = t.Element("jgdm").Value,
-            //                   JGBM = t.Element("jgbm").Value,
-            //                   JGMC = t.Element("jgmc").Value,
-            //                   KSMC = t.Element("ksmc").Value,
-            //                   KSDM = t.Element("ksdm").Value,
-            //                   KSFJBM = t.Element("ksfjbm").Value,
-            //                   TYPE = t.Element("type").Value,
-            //               };
-            //    var allList = text.ToList();
-
-            //    var departmentSecondList = new List<DepartmentEntity>();
-
-            //    var departmentThirdList = new List<DepartmentEntity>();
-
-            //    var secondlist1 = allList.Where(p => p.JGBM == "330110");
-
-            //    foreach (var a in secondlist1)
-            //    {
-            //        departmentSecondList.Add(new DepartmentEntity()
-            //        {
-            //            DepartmentCode = a.KSDM,
-            //            DepartmentName = a.KSMC,
-            //            ParentDepartmentCode = "330110"
-            //        });
-            //    }
-
-            //    var secondlist2 = allList.Where(p => p.JGBM != "330110");
-            //    foreach (var a in secondlist2)
-            //    {
-            //        departmentSecondList.Add(new DepartmentEntity()
-            //        {
-            //            DepartmentCode = a.JGDM,
-            //            DepartmentName = a.JGMC,
-            //            ParentDepartmentCode = a.JGDM == "330110" ? "0" : "330110"
-            //        });
-
-            //        departmentThirdList.Add(new DepartmentEntity()
-            //        {
-            //            DepartmentCode = a.KSDM,
-            //            DepartmentName = a.KSMC,
-            //            ParentDepartmentCode = a.JGDM
-            //        });
-            //    }
-
-            //    departmentSecondList.ForEach(p =>
-            //    {
-            //        DepartmentService.GetInstance().Add(p);
-            //    });
-
-            //    departmentThirdList.ForEach(p =>
-            //    {
-            //        DepartmentService.GetInstance().Add(p);
-            //    });
-
-
-
-            //}
-
-
-
-
+                    //for (int i = 0; i < 1000; i++)
+                    //{
+                    //    TicketService.GetInstance().Add(new TicketEntity()
+                    //    {
+                    //        TicketCode = i.ToString()
+                    //    });
+                    //}
+                    tx.Commit();
+                }
+                catch (Exception e)
+                {
+                    tx.Rollback();
+                }
+            }
 
             return View();
         }
