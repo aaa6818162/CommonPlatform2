@@ -10,7 +10,6 @@ namespace Project.Infrastructure.FrameworkCore.DataNhibernate
     /// </summary>
     public class NhTransactionHelper : IDisposable
     {
-        private readonly ISessionFactory m_sessionFactory = SessionFactoryManager.SessionFactory;
         private ISession m_Session;
         private ITransaction m_Transaction;
         private bool IsInActiveTransaction { get; set; }
