@@ -250,7 +250,7 @@ namespace Project.Service.PermissionManager
             //        });
             //    }
             //}
-            SessionFactoryManager.Clear();
+            //SessionFactoryManager.Clear();
 
 
             //using (var tx = NhTransactionHelper.BeginTransaction())

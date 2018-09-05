@@ -138,10 +138,6 @@
     <Compile Include="DataNhibernate\Helpers\NHibernateContractResolver.cs" />
     <Compile Include="DataNhibernate\Helpers\PredicateBuilder.cs" />
     <Compile Include="DataNhibernate\SessionFactoryManager.cs" />
-    <Compile Include="DataNhibernate\SessionStorage\HttpSessionContainer.cs" />
-    <Compile Include="DataNhibernate\SessionStorage\ISessionStorageContainer.cs" />
-    <Compile Include="DataNhibernate\SessionStorage\SessionStorageFactory.cs" />
-    <Compile Include="DataNhibernate\SessionStorage\ThreadSessionStorageContainer.cs" />
     <Compile Include="DataNhibernate\TransactionHelper.cs" />
     <Compile Include="Domain\Entities\Auditing\Abstract\AuditedEntity.cs">
       <SubType>Code</SubType>
