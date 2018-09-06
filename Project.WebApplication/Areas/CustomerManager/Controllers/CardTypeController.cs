@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -51,25 +51,25 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<CardTypeEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<CardTypeEntity> postData)
         {
             var addResult = CardTypeService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<CardTypeEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<CardTypeEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<CardTypeEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = CardTypeService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -78,25 +78,25 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
 
             var result = new AjaxResponse<CardTypeEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = CardTypeService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<CardTypeEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
-        public AbpJsonResult GetList_Combobox()
+        public MvcJsonResult GetList_Combobox()
         {
             var where = new CardTypeEntity();
             //where.PkId = RequestHelper.GetFormString("PkId");
@@ -109,7 +109,7 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             //{
             //    searchList.Insert(0, new DictionaryEntity() { KeyName = "全部", KeyValue = "" });
             //}
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
     }

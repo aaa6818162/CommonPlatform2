@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -53,10 +53,10 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetListAll()
+        public MvcJsonResult GetListAll()
         {
             var searchList = SpecService.GetInstance().GetList(new SpecEntity());
             var dataGridEntity = new DataGridResponse()
@@ -64,11 +64,11 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetSpecValueList()
+        public MvcJsonResult GetSpecValueList()
         {
             var where = new SpecValueEntity();
             where.SpecId= RequestHelper.GetInt("SpecId");
@@ -78,45 +78,45 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<SpecEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<SpecEntity> postData)
         {
             var addResult = SpecService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<SpecEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<SpecEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<SpecEntity> postData)
         {
             var updateResult = SpecService.GetInstance().Update(postData.RequestEntity);
             
             var result = new AjaxResponse<SpecEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = SpecService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<SpecEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

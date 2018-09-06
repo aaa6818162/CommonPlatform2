@@ -43,9 +43,9 @@ namespace Project.WebApplication.Controllers
             //t.Data = new { success = true, Message = "成功！", unAuthorizedRequest = false, targetUrl="http://www.baidu.com" };
             //return t;
 
-            return new AbpJsonResult
+            return new MvcJsonResult
             {
-                Data = new AjaxResponse<object>() { success = true, result = "{'name':'1111'}", }
+                Data = new AjaxResponse<object>() { Success = true, Result = "{'name':'1111'}", }
             };
         }
 

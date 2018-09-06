@@ -109,7 +109,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
         }
 
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -132,7 +132,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
@@ -162,7 +162,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<UserInfoEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<UserInfoEntity> postData)
         {
             postData.RequestEntity.UserDepartmentList.ForEach(p => p.UserCode = postData.RequestEntity.UserCode);
             postData.RequestEntity.UserRoleList.ForEach(p => p.UserCode = postData.RequestEntity.UserCode);
@@ -180,16 +180,16 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var addResult = UserInfoService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<UserInfoEntity>()
             {
-                success = addResult.Item1,
-                result = postData.RequestEntity,
-                error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
+                Success = addResult.Item1,
+                Result = postData.RequestEntity,
+                Error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<UserInfoEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<UserInfoEntity> postData)
         {
            
 
@@ -206,27 +206,27 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var updateResult = UserInfoService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<UserInfoEntity>()
             {
-                success = updateResult.Item1,
-                result = postData.RequestEntity,
-                error = updateResult.Item1 ? null : new ErrorInfo(updateResult.Item2)
+                Success = updateResult.Item1,
+                Result = postData.RequestEntity,
+                Error = updateResult.Item1 ? null : new ErrorInfo(updateResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = UserInfoService.GetInstance().Delete(pkid);
             var result = new AjaxResponse<UserInfoEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult ChangeSort(int pkid, int sort)
+        public MvcJsonResult ChangeSort(int pkid, int sort)
         {
             var deleteResult = UserInfoService.GetInstance().GetModel(pkid);
             deleteResult.Sort = sort;
@@ -234,13 +234,13 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
 
             var result = new AjaxResponse<UserInfoEntity>()
             {
-                success = updateResult.Item1,
+                Success = updateResult.Item1,
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult SetRowFunction()
+        public MvcJsonResult SetRowFunction()
         {
             var userCode = RequestHelper.GetString("UserCode");
             var functionPkId = RequestHelper.GetInt("FunctionPkId");
@@ -249,15 +249,15 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var addResult = UserInfoService.GetInstance().SetRowFunction(userCode, functionPkId, functionDetailPkId, isCheck);
             var result = new AjaxResponse<UserInfoEntity>()
             {
-                success = addResult,
-                result = null
+                Success = addResult,
+                Result = null
             };
-            return new AbpJsonResult(result, null);
+            return new MvcJsonResult(result, null);
         }
 
 
 
-        public AbpJsonResult GetListNoPage()
+        public MvcJsonResult GetListNoPage()
         {
 
             var where = new UserInfoEntity();
@@ -265,7 +265,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var searchList = UserInfoService.GetInstance().GetList(where);
 
 
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 

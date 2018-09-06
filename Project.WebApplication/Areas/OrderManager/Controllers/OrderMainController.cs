@@ -222,7 +222,7 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -243,11 +243,11 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetOrderMainDetailList()
+        public MvcJsonResult GetOrderMainDetailList()
         {
             var orderMain = OrderMainService.GetInstance().GetModelByPk(RequestHelper.GetInt("PkId"));
 
@@ -256,7 +256,7 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
                 total = orderMain.OrderMainDetailEntityList.Count,
                 rows = orderMain.OrderMainDetailEntityList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
@@ -291,17 +291,17 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         //}
 
         [HttpPost]
-        public AbpJsonResult Pay(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult Pay(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().Pay(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult
+                Success = updateResult
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         /// <summary>
@@ -310,43 +310,43 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult Send(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult Send(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().Send(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult Cancel(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult Cancel(AjaxRequest<OrderMainEntity, int> postData)
         {
             var updateResult = OrderMainService.GetInstance().Cancel(postData.RequestEntity);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult Confirm(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult Confirm(AjaxRequest<OrderMainEntity, int> postData)
         {
             var updateResult = OrderMainService.GetInstance().Confirm(postData.RequestEntity);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion
@@ -358,75 +358,75 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult ReturnPayNoSend(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPayNoSend(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPayNoSend(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult ReturnPayNoSendConfirm(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPayNoSendConfirm(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPayNoSendConfirm(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
         #endregion
 
         #region 已发货退单相关操作
  [HttpPost]
-        public AbpJsonResult ReturnPrdAfterSend(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPrdAfterSend(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPrdAfterSend(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 [HttpPost]
-        public AbpJsonResult ReturnPrdAfterSendAudit(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPrdAfterSendAudit(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPrdAfterSendAudit(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult ReturnPrdSend(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPrdSend(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPrdSend(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         /// <summary>
@@ -435,17 +435,17 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult ReturnPrdSendConfirm(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPrdSendConfirm(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPrdSendConfirm(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -455,17 +455,17 @@ namespace Project.WebApplication.Areas.OrderManager.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult ReturnPayAfterSend(AjaxRequest<OrderMainEntity, int> postData)
+        public MvcJsonResult ReturnPayAfterSend(AjaxRequest<OrderMainEntity, int> postData)
         {
 
             var updateResult = OrderMainService.GetInstance().ReturnPayAfterSend(postData.RequestEntity);
 
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = updateResult,
+                Success = updateResult,
                 //result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
         #endregion
 

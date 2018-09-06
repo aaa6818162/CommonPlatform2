@@ -48,12 +48,12 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Error = new ErrorInfo(registResult.Item2)
             };
 
 
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
         /// <summary>
@@ -68,11 +68,11 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Error = new ErrorInfo(registResult.Item2)
             };
 
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
         /// <summary>
@@ -88,11 +88,11 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Error = new ErrorInfo(registResult.Item2)
             };
 
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
 
@@ -113,10 +113,10 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<ShopCartOutPut>()
             {
-                success = registResult.Item1,
+                Success = registResult.Item1,
                 //result = outPut
             };
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
 
@@ -132,11 +132,11 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Error = new ErrorInfo(registResult.Item2)
             };
 
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
 

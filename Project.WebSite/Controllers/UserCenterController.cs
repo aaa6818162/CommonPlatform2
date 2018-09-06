@@ -99,17 +99,17 @@ namespace Project.WebSite.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult AddAddress(AjaxRequest<CustomerAddressEntity> postData)
+        public MvcJsonResult AddAddress(AjaxRequest<CustomerAddressEntity> postData)
         {
             postData.RequestEntity.CustomerId = CustomerDto.CustomerId;
             var addResult = new AccountServiceImpl().AddAddress(postData.RequestEntity);
            
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = addResult.Item1,
-                result = postData.RequestEntity
+                Success = addResult.Item1,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
         /// <summary>
@@ -118,16 +118,16 @@ namespace Project.WebSite.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult UpdateAddress(AjaxRequest<CustomerAddressEntity> postData)
+        public MvcJsonResult UpdateAddress(AjaxRequest<CustomerAddressEntity> postData)
         {
             postData.RequestEntity.CustomerId = CustomerDto.CustomerId;
             var updateResult = new AccountServiceImpl().UpdateAddress(postData.RequestEntity);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = updateResult.Item1,
-                result = postData.RequestEntity
+                Success = updateResult.Item1,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         /// <summary>
@@ -136,14 +136,14 @@ namespace Project.WebSite.Controllers
         /// <param name="pkid"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult DelAddress(int pkid)
+        public MvcJsonResult DelAddress(int pkid)
         {
             var deleteResult = new AccountServiceImpl().DelAddress(pkid, CustomerDto.CustomerId);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = deleteResult.Item1
+                Success = deleteResult.Item1
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -153,14 +153,14 @@ namespace Project.WebSite.Controllers
         /// <param name="pkid"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult SetDefaultAddress(int pkid)
+        public MvcJsonResult SetDefaultAddress(int pkid)
         {
             var deleteResult = new AccountServiceImpl().SetDefaultAddress(pkid, CustomerDto.CustomerId);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = deleteResult.Item1
+                Success = deleteResult.Item1
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
         #endregion
 
@@ -172,15 +172,15 @@ namespace Project.WebSite.Controllers
         /// <param name="postData"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult SaveUserInfoDetail(AjaxRequest<CustomerEntity> postData)
+        public MvcJsonResult SaveUserInfoDetail(AjaxRequest<CustomerEntity> postData)
         {
            
             var deleteResult = new AccountServiceImpl().SaveCustomerInfo(postData.RequestEntity, CustomerDto.CustomerId);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion
@@ -192,14 +192,14 @@ namespace Project.WebSite.Controllers
        /// <param name="productId"></param>
        /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult AddCollection(int productId)
+        public MvcJsonResult AddCollection(int productId)
         {
             var opResult = new AccountServiceImpl().AddCollection(productId, CustomerDto.CustomerId);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = opResult.Item1
+                Success = opResult.Item1
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -209,21 +209,21 @@ namespace Project.WebSite.Controllers
         /// <param name="pkId"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult CancelCollection(int pkId)
+        public MvcJsonResult CancelCollection(int pkId)
         {
             var opResult = new AccountServiceImpl().CancelCollection(pkId, CustomerDto.CustomerId);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = opResult.Item1
+                Success = opResult.Item1
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion
 
         #region
         [HttpPost]
-        public AbpJsonResult ChangePassword(string oldPassword, string newPassword)
+        public MvcJsonResult ChangePassword(string oldPassword, string newPassword)
         {
 
             oldPassword= Encrypt.MD5Encrypt(oldPassword);
@@ -232,11 +232,11 @@ namespace Project.WebSite.Controllers
             var opResult = new AccountServiceImpl().ChangePassword( CustomerDto.CustomerId, oldPassword,  newPassword);
             var result = new AjaxResponse<CustomerAddressEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo() { message = opResult.Item2 }
+                Success = opResult.Item1,
+                Error = new ErrorInfo() { Message = opResult.Item2 }
 
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion

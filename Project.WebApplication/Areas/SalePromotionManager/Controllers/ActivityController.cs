@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -54,26 +54,26 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ActivityEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ActivityEntity> postData)
         {
             postData.RequestEntity.BriefDescription = Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
             var addResult = ActivityService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<ActivityEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<ActivityEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<ActivityEntity> postData)
         {
             postData.RequestEntity.BriefDescription = Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
             var newInfo = postData.RequestEntity;
@@ -83,21 +83,21 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
             
             var result = new AjaxResponse<ActivityEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ActivityService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ActivityEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

@@ -44,9 +44,9 @@ namespace Project.WebSite.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                filterContext.Result = new AbpJsonResult
+                filterContext.Result = new MvcJsonResult
                 {
-                    Data = new AjaxResponse<object>() { success = false, error = new ErrorInfo(exception.ToString()) }
+                    Data = new AjaxResponse<object>() { Success = false, Error = new ErrorInfo(exception.ToString()) }
                 };
             }
             else

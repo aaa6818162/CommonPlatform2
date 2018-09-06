@@ -8,7 +8,7 @@ using Project.Infrastructure.FrameworkCore.WebMvc.Models;
 
 namespace Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results
 {
-    public class AbpJsonResult : JsonResult
+    public class MvcJsonResult : JsonResult
     {
 
         private IContractResolver ContractResolver { get;set;}
@@ -16,7 +16,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results
         /// <summary>
         /// Constructor.
         /// </summary>
-        public AbpJsonResult()
+        public MvcJsonResult()
         {
             JsonRequestBehavior = JsonRequestBehavior.DenyGet;
         }
@@ -25,13 +25,13 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results
         /// Constructor with JSON data.
         /// </summary>
         /// <param name="data">JSON data</param>
-        public AbpJsonResult(object data)
+        public MvcJsonResult(object data)
             : this()
         {
             Data = data;
         }
 
-        public AbpJsonResult(object data, IContractResolver contractResolver)
+        public MvcJsonResult(object data, IContractResolver contractResolver)
             : this()
         {
             ContractResolver = contractResolver;
@@ -115,16 +115,16 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results
             {
                  result = new AjaxResponse<T>()
                 {
-                    success =true,
-                    result = data.Item2
+                    Success =true,
+                    Result = data.Item2
                 };
             }
             else
             {
                 result = new AjaxResponse<T>()
                 {
-                    success = false,
-                    error = new ErrorInfo() {message = data.Item2.ToString()}
+                    Success = false,
+                    Error = new ErrorInfo() {Message = data.Item2.ToString()}
                 };
             }
             ContractResolver = new NHibernateContractResolver(new string[] { "result", "error" });

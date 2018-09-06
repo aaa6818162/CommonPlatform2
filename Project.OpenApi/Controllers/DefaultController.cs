@@ -6,9 +6,14 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 
+using Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results;
+using Project.Infrastructure.FrameworkCore.WebMvc.Models;
+
 
 namespace Project.OpenApi.Controllers
 {
+    
+
     public class DefaultController : ApiController
     {
 
@@ -19,30 +24,28 @@ namespace Project.OpenApi.Controllers
             return value;
         }
 
-        [System.Web.Http.HttpPost]
+        [Route("customers/2/orders")]
         public JsonResult<GetResponse> Get2(string Value1, string Value2)
         {
-            return Json( new GetResponse()
-            {
-                Value1 = Value1,
-                Value2 = Value2
-            });
+            return Json(new GetResponse() {Value1 = Value1});
         }
 
-        ///// <summary>
-        ///// 有问题不支持
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //[HttpGet]
-        //public GetResponse Get(GetRequest request)
-        //{
-        //    return new GetResponse()
-        //    {
-        //        Value1 = request.Value1,
-        //        Value2 = request.Value2
-        //    };
-        //}
+
+
+        [Route("customers/1/orders")]
+        public GetResponse Get2(GetRequest request )
+        {
+            return new GetResponse() { Value1 = request.Value1 };
+        }
+
+
+
+        [Route("customers/post/orders")]
+        public GetResponse Post(GetRequest request)
+        {
+            return new GetResponse() { Value1 = request.Value1 };
+        }
+
 
 
         ////[HttpPost]

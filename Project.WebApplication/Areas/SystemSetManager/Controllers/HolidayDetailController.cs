@@ -34,7 +34,7 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -57,23 +57,23 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<HolidayDetailEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<HolidayDetailEntity> postData)
         {
             var result = new AjaxResponse<HolidayDetailEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
             if (postData.RequestEntity.HolidayDate > postData.RequestEntity.HolidayDateEnd)
             {
-                result.success = false;
-                result.error = new ErrorInfo() { message = "开始时间要小于结束时间" };
-                return new AbpJsonResult(result, new NHibernateContractResolver());
+                result.Success = false;
+                result.Error = new ErrorInfo() { Message = "开始时间要小于结束时间" };
+                return new MvcJsonResult(result, new NHibernateContractResolver());
             }
             ///是否查询一次本次设置日期已经存在日期
             var where = new HolidayDetailEntity();
@@ -82,9 +82,9 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             var exitList = HolidayDetailService.GetInstance().GetList(where);
             if (exitList.Count > 0)
             {
-                result.success = false;
-                result.error = new ErrorInfo() { message = "时间段内已经有节假日" };
-                return new AbpJsonResult(result, new NHibernateContractResolver());
+                result.Success = false;
+                result.Error = new ErrorInfo() { Message = "时间段内已经有节假日" };
+                return new MvcJsonResult(result, new NHibernateContractResolver());
             }
             postData.RequestEntity.CreateTime = DateTime.Now;
             postData.RequestEntity.CreatorUserCode = LoginUserInfo.UserCode;
@@ -92,32 +92,32 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             // postData.RequestEntity.Remark = Base64Helper.DecodeBase64(postData.RequestEntity.Remark);
             var addResult = HolidayDetailService.GetInstance().Add(postData.RequestEntity);
 
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<HolidayDetailEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<HolidayDetailEntity> postData)
         {
             postData.RequestEntity.LastModificationTime = DateTime.Now;
             var updateResult = HolidayDetailService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<HolidayDetailEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = HolidayDetailService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<HolidayDetailEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

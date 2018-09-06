@@ -41,7 +41,7 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -71,41 +71,41 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
             }
             
             var dataGridEntity = new DataGridTreeResponse<PageContentCategoryEntity>(searchList.Count, searchList);
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver(new string[] { "children" }));
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver(new string[] { "children" }));
         }
 
-        public AbpJsonResult GetList_Combotree()
+        public MvcJsonResult GetList_Combotree()
         {
             var where = new PageContentCategoryEntity();
             //  where.PageContentCategoryName = RequestHelper.GetString("PageContentCategoryName");
             var list = PageContentCategoryService.GetInstance().GetTopPageContentCategoryList();
 
-            return new AbpJsonResult(list, new NHibernateContractResolver(new string[] { "children" }));
+            return new MvcJsonResult(list, new NHibernateContractResolver(new string[] { "children" }));
         }
 
 
-        public AbpJsonResult GetPageContentCategoryEntity()
+        public MvcJsonResult GetPageContentCategoryEntity()
         {
             var pageContentCategoryEntity = PageContentCategoryService.GetInstance().GetModelByPk(RequestHelper.GetInt("PkId"));
-            return new AbpJsonResult(pageContentCategoryEntity,new NullToEmptyStringResolver());
+            return new MvcJsonResult(pageContentCategoryEntity,new NullToEmptyStringResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<PageContentCategoryEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<PageContentCategoryEntity> postData)
         {
             var addResult = PageContentCategoryService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<PageContentCategoryEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<PageContentCategoryEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<PageContentCategoryEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = PageContentCategoryService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -114,21 +114,21 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
 
             var result = new AjaxResponse<PageContentCategoryEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = PageContentCategoryService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<PageContentCategoryEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

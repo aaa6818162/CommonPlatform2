@@ -61,11 +61,11 @@ namespace Project.Wap.Controllers
 
                     if (filterContext.HttpContext.Request.IsAjaxRequest())
                     {
-                        filterContext.Result = new AbpJsonResult(new AjaxResponse<object>()
+                        filterContext.Result = new MvcJsonResult(new AjaxResponse<object>()
                         {
-                            success = false,
-                            result = loginUrl,
-                            error = new ErrorInfo("没有权限")
+                            Success = false,
+                            Result = loginUrl,
+                            Error = new ErrorInfo("没有权限")
                         });
                     }
                     else
@@ -81,11 +81,11 @@ namespace Project.Wap.Controllers
                 //CookieHelper.Del("SSS");
                 if (filterContext.HttpContext.Request.IsAjaxRequest())
                 {
-                    filterContext.Result = new AbpJsonResult(new AjaxResponse<object>()
+                    filterContext.Result = new MvcJsonResult(new AjaxResponse<object>()
                     {
-                        success = false,
-                        result = loginUrl,
-                        error = new ErrorInfo("没有权限")
+                        Success = false,
+                        Result = loginUrl,
+                        Error = new ErrorInfo("没有权限")
                     });
                 }
                 else

@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -71,12 +71,12 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<OfflineActivityEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<OfflineActivityEntity> postData)
         {
             postData.RequestEntity.BriefDescription= Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
 
@@ -85,15 +85,15 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
             var addResult = OfflineActivityService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<OfflineActivityEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<OfflineActivityEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<OfflineActivityEntity> postData)
         {
             postData.RequestEntity.BriefDescription = Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
             postData.RequestEntity.Description = Base64Helper.DecodeBase64(postData.RequestEntity.Description);
@@ -104,21 +104,21 @@ namespace Project.WebApplication.Areas.ContentManager.Controllers
             
             var result = new AjaxResponse<OfflineActivityEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = OfflineActivityService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<OfflineActivityEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

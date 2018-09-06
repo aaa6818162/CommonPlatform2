@@ -37,7 +37,7 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
 
             var pIndex = this.Request["page"].ConvertTo<int>();
@@ -56,7 +56,7 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
@@ -64,53 +64,53 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
         /// 省
         /// </summary>
         /// <returns></returns>
-        public AbpJsonResult GetList_Combobox_Province()
+        public MvcJsonResult GetList_Combobox_Province()
         {
             var where = new ProvinceEntity();
             var searchList = ProvinceService.GetInstance().GetList(where);
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
         /// <summary>
         /// 市
         /// </summary>
         /// <returns></returns>
-        public AbpJsonResult GetList_Combobox_City()
+        public MvcJsonResult GetList_Combobox_City()
         {
             var where = new CityEntity();
             where.ProvinceId = RequestHelper.GetString("ProvinceId");
             var searchList = CityService.GetInstance().GetList(where);
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
         /// <summary>
         /// 区
         /// </summary>
         /// <returns></returns>
-        public AbpJsonResult GetList_Combobox_Area()
+        public MvcJsonResult GetList_Combobox_Area()
         {
             var where = new AreaEntity();
             where.CityId = RequestHelper.GetString("CityId");
             var searchList = AreaService.GetInstance().GetList(where);
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<AreaEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<AreaEntity> postData)
         {
             var addResult = AreaService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<AreaEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<AreaEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<AreaEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = AreaService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -119,21 +119,21 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
 
             var result = new AjaxResponse<AreaEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = AreaService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<AreaEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

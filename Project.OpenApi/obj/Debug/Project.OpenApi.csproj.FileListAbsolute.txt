@@ -21,7 +21,6 @@ G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Microsoft.
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Newtonsoft.Json.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Application.Service.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Infrastructure.FrameworkCore.dll
-G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Swagger.Net.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\System.Net.Http.Formatting.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\System.Web.Helpers.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\System.Web.Http.dll
@@ -80,3 +79,5 @@ G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\zh-Hans\Sy
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.csprojResolveAssemblyReference.cache
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Swashbuckle.Core.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\WebActivatorEx.dll

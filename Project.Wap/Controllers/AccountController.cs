@@ -104,9 +104,9 @@ namespace Project.Wap.Controllers
             var userInfo = new AccountServiceImpl().Login(accountName, password);
             if (!userInfo.Item1)
             {
-                return new AbpJsonResult
+                return new MvcJsonResult
                 {
-                    Data = new AjaxResponse<object>() { success = false, error = new ErrorInfo("用户名或密码错误") }
+                    Data = new AjaxResponse<object>() { Success = false, Error = new ErrorInfo("用户名或密码错误") }
                 };
             }
 
@@ -127,9 +127,9 @@ namespace Project.Wap.Controllers
 
             LoggerHelper.Info("用户登录：" + accountName + " 时间：" + DateTime.Now);
 
-            return new AbpJsonResult
+            return new MvcJsonResult
             {
-                Data = new AjaxResponse<object>() { success = true }
+                Data = new AjaxResponse<object>() { Success = true }
             };
         }
 
@@ -149,12 +149,12 @@ namespace Project.Wap.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Error = new ErrorInfo(registResult.Item2)
             };
 
             LoggerHelper.Info("用户注册：" + accountName + " 时间：" + DateTime.Now);
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
         /// <summary>
@@ -169,9 +169,9 @@ namespace Project.Wap.Controllers
 
             LoggerHelper.Info("用户注销：" + accountName + " 时间：" + DateTime.Now);
 
-            return new AbpJsonResult
+            return new MvcJsonResult
             {
-                Data = new AjaxResponse<object>() { success = true }
+                Data = new AjaxResponse<object>() { Success = true }
             };
         }
         #endregion
@@ -191,12 +191,12 @@ namespace Project.Wap.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = stepResult.Item1,
-                result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
-                error = new ErrorInfo(stepResult.Item2)
+                Success = stepResult.Item1,
+                Result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
+                Error = new ErrorInfo(stepResult.Item2)
             };
 
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
 
         }
 
@@ -214,11 +214,11 @@ namespace Project.Wap.Controllers
             var stepResult = new AccountServiceImpl().ForgetPasswordStep2(key, authCode);
             var result = new AjaxResponse<object>()
             {
-                success = stepResult.Item1,
-                result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
-                error = new ErrorInfo(stepResult.Item2)
+                Success = stepResult.Item1,
+                Result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
+                Error = new ErrorInfo(stepResult.Item2)
             };
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
 
         }
 
@@ -235,11 +235,11 @@ namespace Project.Wap.Controllers
             var stepResult = new AccountServiceImpl().ForgetPasswordStep3(key, newPassword);
             var result = new AjaxResponse<object>()
             {
-                success = stepResult.Item1,
-                result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
-                error = new ErrorInfo(stepResult.Item2)
+                Success = stepResult.Item1,
+                Result = stepResult.Item1 ? Server.UrlEncode(Encrypt.AESEncrypt(stepResult.Item2, Encrypt.GetKeyAES16())) : "",
+                Error = new ErrorInfo(stepResult.Item2)
             };
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
 
         }
 

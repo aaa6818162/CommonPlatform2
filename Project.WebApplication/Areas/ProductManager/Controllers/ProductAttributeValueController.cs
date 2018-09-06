@@ -35,7 +35,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -53,25 +53,25 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ProductAttributeValueEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ProductAttributeValueEntity> postData)
         {
             var addResult = ProductAttributeValueService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<ProductAttributeValueEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<ProductAttributeValueEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<ProductAttributeValueEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = ProductAttributeValueService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -80,21 +80,21 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             
             var result = new AjaxResponse<ProductAttributeValueEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ProductAttributeValueService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ProductAttributeValueEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

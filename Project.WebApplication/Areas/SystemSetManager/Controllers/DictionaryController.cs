@@ -30,7 +30,7 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -50,20 +50,20 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             //return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
             var searchList = DictionaryService.GetInstance().GetList(where);
             var dataGridEntity = new DataGridTreeResponse<DictionaryEntity>(searchList.Count, searchList);
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetList_Combotree()
+        public MvcJsonResult GetList_Combotree()
         {
             var where = new DictionaryEntity();
             where.KeyCode = RequestHelper.GetFormString("KeyCode");
             where.KeyName = RequestHelper.GetFormString("KeyName");
             var searchList = DictionaryService.GetInstance().GetTreeList(where, true);
 
-            return new AbpJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
+            return new MvcJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
         }
 
-        public AbpJsonResult GetList_Combobox()
+        public MvcJsonResult GetList_Combobox()
         {
             var where = new DictionaryEntity();
             //where.PkId = RequestHelper.GetFormString("PkId");
@@ -76,45 +76,45 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             //{
             //    searchList.Insert(0, new DictionaryEntity() { KeyName = "全部", KeyValue = "" });
             //}
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<DictionaryEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<DictionaryEntity> postData)
         {
             var addResult = DictionaryService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<DictionaryEntity>()
             {
-                success = addResult.Item1,
-                result = postData.RequestEntity,
-                error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
+                Success = addResult.Item1,
+                Result = postData.RequestEntity,
+                Error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<DictionaryEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<DictionaryEntity> postData)
         {
             var updateResult = DictionaryService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<DictionaryEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = DictionaryService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<DictionaryEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

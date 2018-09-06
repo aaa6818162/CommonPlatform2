@@ -38,7 +38,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetAttendanceReport1()
+        public MvcJsonResult GetAttendanceReport1()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -50,7 +50,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
         public void ExportReport1()
@@ -120,7 +120,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
         }
 
 
-        public AbpJsonResult GetAttendanceReport2()
+        public MvcJsonResult GetAttendanceReport2()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -152,7 +152,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
         public ActionResult EmployeeInOutReport()
@@ -216,7 +216,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
         {
             return View();
         }
-        public AbpJsonResult GetEmployeeInOutReport()
+        public MvcJsonResult GetEmployeeInOutReport()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -253,10 +253,10 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetEmployeeRsReport()
+        public MvcJsonResult GetEmployeeRsReport()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -293,10 +293,10 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetEmployeeZHReport()
+        public MvcJsonResult GetEmployeeZHReport()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -349,10 +349,10 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetEmployeeDYReport()
+        public MvcJsonResult GetEmployeeDYReport()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -390,11 +390,11 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetEmployeXLReport()
+        public MvcJsonResult GetEmployeXLReport()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -432,7 +432,7 @@ namespace Project.WebApplication.Areas.ReportManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
     }
 }

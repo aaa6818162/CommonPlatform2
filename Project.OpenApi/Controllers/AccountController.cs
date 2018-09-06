@@ -28,6 +28,15 @@ namespace Project.OpenApi.Controllers
     /// </summary>
     public class AccountController : ApiController
     {
+        [Route("api/account/login2xxxx")]
+        [HttpPost]
+        public JsonResult<WebAPIResponse<A>> Postttttttttttt(A a)
+        {
+
+
+            //定义  
+            return Json(new WebAPIResponse<A>(new A() { AX = "xxxxxx" }));
+        }
 
 
         /// <summary>  

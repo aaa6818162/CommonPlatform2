@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             //int.Parse("ssss");
             var where = new DepartmentEntity();
@@ -65,69 +65,69 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
 
 
             var dataGridEntity = new DataGridTreeResponse<DepartmentEntity>(searchList.Count, searchList);
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetList_Combotree()
+        public MvcJsonResult GetList_Combotree()
         {
             var where = new DepartmentEntity();
             where.DepartmentCode = RequestHelper.GetFormString("DepartmentCode");
             where.DepartmentName = RequestHelper.GetFormString("DepartmentName");
             var searchList = DepartmentService.GetInstance().GetTreeList(where, LoginUserInfo.UserDepartmentList.ToList(), LoginUserInfo.UserCode.ToUpper() == "ADMIN", true);
 
-            return new AbpJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
+            return new MvcJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
         }
-        public AbpJsonResult GetAllist_Combotree()
+        public MvcJsonResult GetAllist_Combotree()
         {
             var where = new DepartmentEntity();
             where.DepartmentCode = RequestHelper.GetFormString("DepartmentCode");
             where.DepartmentName = RequestHelper.GetFormString("DepartmentName");
             var searchList = DepartmentService.GetInstance().GetTreeList(where, LoginUserInfo.UserDepartmentList.ToList(), true, true);
 
-            return new AbpJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
+            return new MvcJsonResult(searchList, new NHibernateContractResolver(new[] { "children" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<DepartmentEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<DepartmentEntity> postData)
         {
             var addResult = DepartmentService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<DepartmentEntity>()
             {
-                success = addResult.Item1,
-                result = postData.RequestEntity,
-                error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
+                Success = addResult.Item1,
+                Result = postData.RequestEntity,
+                Error = addResult.Item1 ? null : new ErrorInfo(addResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<DepartmentEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<DepartmentEntity> postData)
         {
             var updateResult = DepartmentService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<DepartmentEntity>()
             {
-                success = updateResult.Item1,
-                result = postData.RequestEntity,
-                error = updateResult.Item1 ? null : new ErrorInfo(updateResult.Item2)
+                Success = updateResult.Item1,
+                Result = postData.RequestEntity,
+                Error = updateResult.Item1 ? null : new ErrorInfo(updateResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = DepartmentService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<DepartmentEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult SetRowDepart()
+        public MvcJsonResult SetRowDepart()
         {
             var t = this.Request["RolePkId"];
             var rolePkId = RequestHelper.GetInt("RolePkId");
@@ -137,10 +137,10 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var addResult = RoleService.GetInstance().SetRowFunction(rolePkId, functionPkId, functionDetailPkId, isCheck);
             var result = new AjaxResponse<RoleEntity>()
             {
-                success = addResult,
-                result = null
+                Success = addResult,
+                Result = null
             };
-            return new AbpJsonResult(result, null);
+            return new MvcJsonResult(result, null);
         }
 
     }

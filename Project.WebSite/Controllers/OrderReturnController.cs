@@ -61,15 +61,15 @@ namespace Project.WebSite.Controllers
         /// <param name="returnPayNoSendRemark"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult ApplyReturnMoney(string orderNo, string returnPayNoSendReason, string returnPayNoSendRemark)
+        public MvcJsonResult ApplyReturnMoney(string orderNo, string returnPayNoSendReason, string returnPayNoSendRemark)
         {
             var opResult = new OrderServiceImpl().ApplyReturnMoney(orderNo, returnPayNoSendReason, returnPayNoSendRemark,CustomerDto.CustomerId);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo(opResult.Item2)
+                Success = opResult.Item1,
+                Error = new ErrorInfo(opResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -81,16 +81,16 @@ namespace Project.WebSite.Controllers
         /// <param name="returnPrdAfterSendRemark"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult ApplyReturnProduct(string orderNo, string returnPrdAfterSendReason, string returnPrdAfterSendRemark)
+        public MvcJsonResult ApplyReturnProduct(string orderNo, string returnPrdAfterSendReason, string returnPrdAfterSendRemark)
         {
 
             var opResult = new OrderServiceImpl().ApplyReturnProduct(orderNo, returnPrdAfterSendReason, returnPrdAfterSendRemark, CustomerDto.CustomerId);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo(opResult.Item2)
+                Success = opResult.Item1,
+                Error = new ErrorInfo(opResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -102,16 +102,16 @@ namespace Project.WebSite.Controllers
         /// <param name="returnPrdSendRemak"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult OrderReturnInfoWrite(string orderNo, string returnPrdSendNo, string returnPrdSendRemak)
+        public MvcJsonResult OrderReturnInfoWrite(string orderNo, string returnPrdSendNo, string returnPrdSendRemak)
         {
 
             var opResult = new OrderServiceImpl().OrderReturnInfoWrite(orderNo, returnPrdSendNo, returnPrdSendRemak, CustomerDto.CustomerId);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo(opResult.Item2)
+                Success = opResult.Item1,
+                Error = new ErrorInfo(opResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion

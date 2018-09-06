@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -53,7 +53,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
@@ -61,7 +61,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
         /// 扩展属性值
         /// </summary>
         /// <returns></returns>
-        public AbpJsonResult GetAttributeValueList()
+        public MvcJsonResult GetAttributeValueList()
         {
             var where = new AttributeValueEntity();
             where.AttributeId = RequestHelper.GetInt("AttributeId");
@@ -71,46 +71,46 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ExtAttributeEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ExtAttributeEntity> postData)
         {
             var addResult = ExtAttributeService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<ExtAttributeEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<ExtAttributeEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<ExtAttributeEntity> postData)
         {
 
             var updateResult = ExtAttributeService.GetInstance().Update(postData.RequestEntity);
             
             var result = new AjaxResponse<ExtAttributeEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ExtAttributeService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ExtAttributeEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -60,10 +60,10 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver(new[] { "ModuleEntity" }));
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver(new[] { "ModuleEntity" }));
         }
 
-        public AbpJsonResult GetListAll()
+        public MvcJsonResult GetListAll()
         {
             var checkList = new List<int>();
             var userCode = RequestHelper.GetString("UserCode");
@@ -91,7 +91,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver(new[] { "FunctionDetailList" }));
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver(new[] { "FunctionDetailList" }));
         }
 
 
@@ -144,7 +144,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
         //}
 
 
-        public AbpJsonResult GetFunctionDetailList()
+        public MvcJsonResult GetFunctionDetailList()
         {
 
             var where = new FunctionDetailEntity();
@@ -157,7 +157,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
         //public AbpJsonResult GetRoleFunctionDetailList()
@@ -189,7 +189,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<FunctionEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<FunctionEntity> postData)
         {
             var url = postData.RequestEntity.FunctionUrl;
             var urlRoute = url.Split('/');
@@ -212,34 +212,34 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
 
             var result = new AjaxResponse<FunctionEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<FunctionEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<FunctionEntity> postData)
         {
             var updateResult = FunctionService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<FunctionEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = FunctionService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<FunctionEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

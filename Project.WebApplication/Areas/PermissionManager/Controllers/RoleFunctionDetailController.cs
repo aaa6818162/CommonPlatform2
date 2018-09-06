@@ -34,7 +34,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -50,44 +50,44 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<RoleFunctionDetailEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<RoleFunctionDetailEntity> postData)
         {
             var addResult = RoleFunctionDetailService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<RoleFunctionDetailEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<RoleFunctionDetailEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<RoleFunctionDetailEntity> postData)
         {
             var updateResult = RoleFunctionDetailService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<RoleFunctionDetailEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = RoleFunctionDetailService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<RoleFunctionDetailEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

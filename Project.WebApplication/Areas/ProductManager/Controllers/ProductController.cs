@@ -92,7 +92,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -113,12 +113,12 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ProductEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ProductEntity> postData)
         {
             postData.RequestEntity.BriefDescription = Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
             postData.RequestEntity.Description = Base64Helper.DecodeBase64(postData.RequestEntity.Description);
@@ -128,16 +128,16 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = addResult.Item1,
+                Success = addResult.Item1,
                 // result = postData.RequestEntity,
-                error = new ErrorInfo() { message = addResult.Item2 }
+                Error = new ErrorInfo() { Message = addResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<ProductEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<ProductEntity> postData)
         {
             postData.RequestEntity.BriefDescription = Base64Helper.DecodeBase64(postData.RequestEntity.BriefDescription);
             postData.RequestEntity.Description = Base64Helper.DecodeBase64(postData.RequestEntity.Description);
@@ -147,80 +147,80 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = updateResult.Item1,
-                result = postData.RequestEntity,
-                error = new ErrorInfo() { message = updateResult.Item2 }
+                Success = updateResult.Item1,
+                Result = postData.RequestEntity,
+                Error = new ErrorInfo() { Message = updateResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ProductService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult DownPrd(int PkId)
+        public MvcJsonResult DownPrd(int PkId)
         {
             var addResult = ProductService.GetInstance().UpdateIsShow(PkId, 2);
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = addResult,
+                Success = addResult,
                 // result = postData.RequestEntity,
                 //error = new ErrorInfo() { message = addResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
         [HttpPost]
-        public AbpJsonResult UpPrd(int PkId)
+        public MvcJsonResult UpPrd(int PkId)
         {
             var addResult = ProductService.GetInstance().UpdateIsShow(PkId, 1);
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = addResult,
+                Success = addResult,
                 // result = postData.RequestEntity,
                 //error = new ErrorInfo() { message = addResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult CommandPrd(int PkId)
+        public MvcJsonResult CommandPrd(int PkId)
         {
             var addResult = ProductService.GetInstance().UpdateIsCommand(PkId, 1);
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = addResult,
+                Success = addResult,
                 // result = postData.RequestEntity,
                 //error = new ErrorInfo() { message = addResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
         [HttpPost]
-        public AbpJsonResult CancelCommandPrd(int PkId)
+        public MvcJsonResult CancelCommandPrd(int PkId)
         {
             var addResult = ProductService.GetInstance().UpdateIsCommand(PkId, 2);
 
             var result = new AjaxResponse<ProductEntity>()
             {
-                success = addResult,
+                Success = addResult,
                 // result = postData.RequestEntity,
                 //error = new ErrorInfo() { message = addResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 

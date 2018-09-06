@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -74,12 +74,12 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<CustomerEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<CustomerEntity> postData)
         {
             postData.RequestEntity.Password = Encrypt.MD5Encrypt(postData.RequestEntity.Password);
             postData.RequestEntity.CardTypeId = 1;
@@ -87,16 +87,16 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
            var addResult = CustomerService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<CustomerEntity>()
                {
-                   success = addResult.Item1,
+                   Success = addResult.Item1,
                  
-                   error = new ErrorInfo() { message = addResult.Item2 }
+                   Error = new ErrorInfo() { Message = addResult.Item2 }
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<CustomerEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<CustomerEntity> postData)
         {
            
 
@@ -107,10 +107,10 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             
             var result = new AjaxResponse<CustomerEntity>()
             {
-                success = updateResult.Item1,
-                error = new ErrorInfo() { message = updateResult.Item2 }
+                Success = updateResult.Item1,
+                Error = new ErrorInfo() { Message = updateResult.Item2 }
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         //[HttpPost]

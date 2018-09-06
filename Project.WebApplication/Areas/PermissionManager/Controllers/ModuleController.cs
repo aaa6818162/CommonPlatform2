@@ -35,7 +35,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -53,10 +53,10 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetListAll()
+        public MvcJsonResult GetListAll()
         {
             var where = new ModuleEntity();
             //where.PkId = RequestHelper.GetFormString("PkId");
@@ -77,10 +77,10 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Count(),
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetListAll_ForCombobox()
+        public MvcJsonResult GetListAll_ForCombobox()
         {
             var where = new ModuleEntity();
             //where.PkId = RequestHelper.GetFormString("PkId");
@@ -90,44 +90,44 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             //where.RankId = RequestHelper.GetFormString("RankId");
             //where.Remark = RequestHelper.GetFormString("Remark");
             var searchList = ModuleService.GetInstance().GetList(where);
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ModuleEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ModuleEntity> postData)
         {
             var addResult = ModuleService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<ModuleEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<ModuleEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<ModuleEntity> postData)
         {
             var updateResult = ModuleService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<ModuleEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ModuleService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ModuleEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -62,25 +62,25 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<CustomerCollectionEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<CustomerCollectionEntity> postData)
         {
             var addResult = CustomerCollectionService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<CustomerCollectionEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<CustomerCollectionEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<CustomerCollectionEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = CustomerCollectionService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -89,21 +89,21 @@ namespace Project.WebApplication.Areas.CustomerManager.Controllers
             
             var result = new AjaxResponse<CustomerCollectionEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = CustomerCollectionService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<CustomerCollectionEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -63,20 +63,20 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetGoodsInfo()
+        public MvcJsonResult GetGoodsInfo()
         {
             var entity = GoodsService.GetInstance().GetModelByGoodsCode(RequestHelper.GetString("GoodsCode"));
 
             var result = new AjaxResponse<GoodsEntity>()
             {
-                success = entity!=null,
-                result = entity
+                Success = entity!=null,
+                Result = entity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" ,"ProductInfo"}));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" ,"ProductInfo"}));
         }
 
     }

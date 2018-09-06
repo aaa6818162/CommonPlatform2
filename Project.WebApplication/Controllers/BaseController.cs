@@ -89,10 +89,10 @@ namespace Project.WebApplication.Controllers
                 {
                     if (filterContext.HttpContext.Request.IsAjaxRequest())
                     {
-                        filterContext.Result = new AbpJsonResult(new AjaxResponse<object>()
+                        filterContext.Result = new MvcJsonResult(new AjaxResponse<object>()
                         {
-                            success = false,
-                            error = new ErrorInfo("没有权限")
+                            Success = false,
+                            Error = new ErrorInfo("没有权限")
                         });
                     }
                     else
@@ -220,9 +220,9 @@ namespace Project.WebApplication.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                filterContext.Result = new AbpJsonResult
+                filterContext.Result = new MvcJsonResult
                 {
-                    Data = new AjaxResponse<object>() { success = false, error = new ErrorInfo(exception.ToString()) }
+                    Data = new AjaxResponse<object>() { Success = false, Error = new ErrorInfo(exception.ToString()) }
                 };
             }
             else

@@ -8,17 +8,17 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         /// <summary>
         /// Error code.
         /// </summary>
-        public int code { get; set; }
+        public int Code { get; set; }
 
         /// <summary>
         /// Error message.
         /// </summary>
-        public string message { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Error details.
         /// </summary>
-        public string details { get; set; }
+        public string Details { get; set; }
 
         /// <summary>
         /// Validation errors if exists.
@@ -39,7 +39,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         /// <param name="message">Error message</param>
         public ErrorInfo(string message)
         {
-           this.message = message;
+           this.Message = message;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         /// <param name="code">Error code</param>
         public ErrorInfo(int code)
         {
-            this.code = code;
+            this.Code = code;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         public ErrorInfo(int code, string message)
             : this(message)
         {
-            this.code = code;
+            this.Code = code;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         public ErrorInfo(string message, string details)
             : this(message)
         {
-            this.details = details;
+            this.Details = details;
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Models
         public ErrorInfo(int code, string message, string details)
             : this(message, details)
         {
-            this.code = code;
+            this.Code = code;
         }
     }
 }

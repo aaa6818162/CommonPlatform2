@@ -36,17 +36,17 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var where = new ProductCategoryEntity();
             where.ProductCategoryName = RequestHelper.GetString("ProductCategoryName");
             var searchList = ProductCategoryService.GetInstance().GetList(where);
             var dataGridEntity = new DataGridTreeResponse<ProductCategoryEntity>(searchList.Count, searchList);
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver(null, new string[] { "children" }));
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver(null, new string[] { "children" }));
         }
 
 
-        public AbpJsonResult GetList_Combotree()
+        public MvcJsonResult GetList_Combotree()
         {
             var where = new ProductCategoryEntity();
 
@@ -60,23 +60,23 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 list = ProductCategoryService.GetInstance().GetTopProductCategoryList().ToList();
             }
 
-            return new AbpJsonResult(list, new NHibernateContractResolver(new string[] { "children" }));
+            return new MvcJsonResult(list, new NHibernateContractResolver(new string[] { "children" }));
         }
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<ProductCategoryEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<ProductCategoryEntity> postData)
         {
             var addResult = ProductCategoryService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<ProductCategoryEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<ProductCategoryEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<ProductCategoryEntity> postData)
         {
             var newInfo = postData.RequestEntity;
             var orgInfo = ProductCategoryService.GetInstance().GetModelByPk(postData.RequestEntity.PkId);
@@ -85,21 +85,21 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
 
             var result = new AjaxResponse<ProductCategoryEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = ProductCategoryService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<ProductCategoryEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

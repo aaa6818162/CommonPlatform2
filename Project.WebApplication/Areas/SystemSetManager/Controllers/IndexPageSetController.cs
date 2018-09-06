@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -50,26 +50,26 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<IndexPageSetEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<IndexPageSetEntity> postData)
         {
             postData.RequestEntity.Des = Base64Helper.DecodeBase64(postData.RequestEntity.Des);
             var addResult = IndexPageSetService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<IndexPageSetEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<IndexPageSetEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<IndexPageSetEntity> postData)
         {
             postData.RequestEntity.Des = Base64Helper.DecodeBase64(postData.RequestEntity.Des);
             var newInfo = postData.RequestEntity;
@@ -79,21 +79,21 @@ namespace Project.WebApplication.Areas.SystemSetManager.Controllers
             
             var result = new AjaxResponse<IndexPageSetEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = IndexPageSetService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<IndexPageSetEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

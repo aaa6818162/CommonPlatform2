@@ -13,7 +13,7 @@
         userOptions = userOptions || {};
 
         var options = $.extend({}, abp.ajax.defaultOpts, userOptions);
-        options.success = undefined;
+        options.Success = undefined;
         options.error = undefined;
 
         return $.Deferred(function ($dfd) {
@@ -43,11 +43,11 @@
         },
 
         showError: function (error) {
-            if (error.details) {
-                return $.alertExtend.error(error.details + error.message);
+            if (error.Details) {
+                return $.alertExtend.error(error.Details + error.Message);
                 // abp.message.error(error.details, error.message);
             } else {
-                return $.alertExtend.error("操作失败！" + error.message);
+                return $.alertExtend.error("操作失败！" + error.Message);
                // return abp.message.error(error.message);
             }
         },
@@ -73,36 +73,36 @@
         handleResponse: function (data, userOptions, $dfd) {
 
             if (data) {
-                if (data.success === true) {
-                    $dfd && $dfd.resolve(data.result, data);
-                    userOptions.success && userOptions.success(data.result, data);
-                    if (data.targetUrl) {
-                        abp.ajax.handleTargetUrl(data.targetUrl);
+                if (data.Success === true) {
+                    $dfd && $dfd.resolve(data.Result, data);
+                    userOptions.Success && userOptions.success(data.Result, data);
+                    if (data.TargetUrl) {
+                        abp.ajax.handleTargetUrl(data.TargetUrl);
                     }
-                } else if (data.success === false) {
+                } else if (data.Success === false) {
                     var messagePromise = null;
 
-                    if (data.error) {
-                        messagePromise = abp.ajax.showError(data.error);
+                    if (data.Error) {
+                        messagePromise = abp.ajax.showError(data.Error);
                     } else {
-                        data.error = abp.ajax.defaultError;
+                        data.Error = abp.ajax.defaultError;
                     }
 
-                    abp.ajax.logError(data.error);
+                    abp.ajax.logError(data.Error);
 
-                    $dfd && $dfd.reject(data.error);
-                    userOptions.error && userOptions.error(data.error);
+                    $dfd && $dfd.reject(data.Error);
+                    userOptions.error && userOptions.error(data.Error);
 
                     if (data.unAuthorizedRequest) {
-                        abp.ajax.handleUnAuthorizedRequest(messagePromise, data.targetUrl);
+                        abp.ajax.handleUnAuthorizedRequest(messagePromise, data.TargetUrl);
                     }
                 } else { //not abp-related data!
                     $dfd && $dfd.resolve(data);
-                    userOptions.success && userOptions.success(data);
+                    userOptions.Success && userOptions.success(data);
                 }
             } else { //no data sent to back
                 $dfd && $dfd.resolve();
-                userOptions.success && userOptions.success();
+                userOptions.Success && userOptions.success();
             }
         },
 

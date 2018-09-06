@@ -36,7 +36,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -55,11 +55,11 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetList_Combobox()
+        public MvcJsonResult GetList_Combobox()
         {
             var where = new BrandEntity();
             //where.PkId = RequestHelper.GetFormString("PkId");
@@ -73,27 +73,27 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             //{
             //    searchList.Insert(0, new DictionaryEntity() { KeyName = "全部", KeyValue = "" });
             //}
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<BrandEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<BrandEntity> postData)
         {
             postData.RequestEntity.Description = Base64Helper.DecodeBase64(postData.RequestEntity.Description);
             var addResult = BrandService.GetInstance().Add(postData.RequestEntity);
 
             var result = new AjaxResponse<BrandEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<BrandEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<BrandEntity> postData)
         {
             postData.RequestEntity.Description = Base64Helper.DecodeBase64(postData.RequestEntity.Description);
             var newInfo = postData.RequestEntity;
@@ -103,21 +103,21 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             
             var result = new AjaxResponse<BrandEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = BrandService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<BrandEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

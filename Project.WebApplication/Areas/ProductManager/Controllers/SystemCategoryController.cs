@@ -72,7 +72,7 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -94,10 +94,10 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
-        public AbpJsonResult GetList_Combobox()
+        public MvcJsonResult GetList_Combobox()
         {
             //var pIndex = this.Request["page"].ConvertTo<int>();
             //var pSize = this.Request["rows"].ConvertTo<int>();
@@ -115,18 +115,18 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
             var searchList = SystemCategoryService.GetInstance().GetList(new SystemCategoryEntity());
 
             
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetListALL()
+        public MvcJsonResult GetListALL()
         {
             var searchList = SystemCategoryService.GetInstance().GetList(new SystemCategoryEntity());
-            return new AbpJsonResult(searchList, new NHibernateContractResolver());
+            return new MvcJsonResult(searchList, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetSystemCategoryAttributeList()
+        public MvcJsonResult GetSystemCategoryAttributeList()
         {
             var where = new SystemCategoryAttributeEntity();
             where.SystemCategoryId= RequestHelper.GetInt("SystemCategoryId");
@@ -138,11 +138,11 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = list.Count(),
                 rows = list
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetSystemCategorySpecList()
+        public MvcJsonResult GetSystemCategorySpecList()
         {
             var where = new SystemCategorySpecEntity();
             where.SystemCategoryId= RequestHelper.GetInt("SystemCategoryId");
@@ -154,45 +154,45 @@ namespace Project.WebApplication.Areas.ProductManager.Controllers
                 total = list.Count(),
                 rows = list
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<SystemCategoryEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<SystemCategoryEntity> postData)
         {
             var addResult = SystemCategoryService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<SystemCategoryEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit(AjaxRequest<SystemCategoryEntity> postData)
+        public MvcJsonResult Edit(AjaxRequest<SystemCategoryEntity> postData)
         {
             var updateResult = SystemCategoryService.GetInstance().Update(postData.RequestEntity);
 
             var result = new AjaxResponse<SystemCategoryEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = SystemCategoryService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<SystemCategoryEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
     }
 }

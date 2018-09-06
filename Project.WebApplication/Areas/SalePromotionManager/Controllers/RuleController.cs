@@ -78,7 +78,7 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             //var pIndex = this.Request["page"].ConvertTo<int>();
             //var pSize = this.Request["rows"].ConvertTo<int>();
@@ -94,11 +94,11 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
                 total = searchList.Count(),
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
-        public AbpJsonResult GetPromotionGoodsList()
+        public MvcJsonResult GetPromotionGoodsList()
         {
             //var pIndex = this.Request["page"].ConvertTo<int>();
             //var pSize = this.Request["rows"].ConvertTo<int>();
@@ -119,7 +119,7 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
                 total = searchList.Count(),
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
         #endregion
@@ -134,7 +134,7 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
        /// <param name="RuleType"></param>
        /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult RuleRaUpload(string FileUrl,string FileName,string Title,string RuleType)
+        public MvcJsonResult RuleRaUpload(string FileUrl,string FileName,string Title,string RuleType)
         {
             var ruleEntity=new RuleEntity();
             ruleEntity.RuleType = RuleType;
@@ -157,101 +157,101 @@ namespace Project.WebApplication.Areas.SalePromotionManager.Controllers
             var addResult = RuleService.GetInstance().RuleRaAdd(ruleEntity);
             var result = new AjaxResponse<object>()
             {
-                success = addResult>0,
-                result = addResult
+                Success = addResult>0,
+                Result = addResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
         [HttpPost]
-        public AbpJsonResult RuleRaAdd(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRaAdd(AjaxRequest<RuleEntity> postData)
         {
             var addResult = RuleService.GetInstance().RuleRaAdd(postData.RequestEntity);
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = addResult>0
+                Success = addResult>0
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult RuleRaEdit(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRaEdit(AjaxRequest<RuleEntity> postData)
         {
 
             var updateResult = RuleService.GetInstance().RuleRaEdit(postData.RequestEntity);
 
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = updateResult
+                Success = updateResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult RuleRbAdd(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRbAdd(AjaxRequest<RuleEntity> postData)
         {
             var addResult = RuleService.GetInstance().RuleRbAdd(postData.RequestEntity);
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult RuleRbEdit(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRbEdit(AjaxRequest<RuleEntity> postData)
         {
             var updateResult = RuleService.GetInstance().RuleRbEdit(postData.RequestEntity);
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
 
         [HttpPost]
-        public AbpJsonResult RuleRcAdd(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRcAdd(AjaxRequest<RuleEntity> postData)
         {
             var addResult = RuleService.GetInstance().RuleRcAdd(postData.RequestEntity);
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = true,
-                result = postData.RequestEntity
+                Success = true,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult RuleRcEdit(AjaxRequest<RuleEntity> postData)
+        public MvcJsonResult RuleRcEdit(AjaxRequest<RuleEntity> postData)
         {
             var updateResult = RuleService.GetInstance().RuleRcEdit(postData.RequestEntity);
 
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = RuleService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<RuleEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         #endregion

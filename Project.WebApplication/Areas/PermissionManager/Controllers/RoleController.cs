@@ -35,7 +35,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetList()
+        public MvcJsonResult GetList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -50,7 +50,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Item2,
                 rows = searchList.Item1
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
         public ActionResult RoleFunctionDetailList()
@@ -58,7 +58,7 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             return View();
         }
 
-        public AbpJsonResult GetRoleFunctionDetailList()
+        public MvcJsonResult GetRoleFunctionDetailList()
         {
             var pIndex = this.Request["page"].ConvertTo<int>();
             var pSize = this.Request["rows"].ConvertTo<int>();
@@ -73,50 +73,50 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
                 total = searchList.Count,
                 rows = searchList
             };
-            return new AbpJsonResult(dataGridEntity, new NHibernateContractResolver());
+            return new MvcJsonResult(dataGridEntity, new NHibernateContractResolver());
         }
 
 
 
         [HttpPost]
-        public AbpJsonResult Add(AjaxRequest<RoleEntity> postData)
+        public MvcJsonResult Add(AjaxRequest<RoleEntity> postData)
         {
             var addResult = RoleService.GetInstance().Add(postData.RequestEntity);
             var result = new AjaxResponse<RoleEntity>()
                {
-                   success = true,
-                   result = postData.RequestEntity
+                   Success = true,
+                   Result = postData.RequestEntity
                };
-            return new AbpJsonResult(result, new NHibernateContractResolver());
+            return new MvcJsonResult(result, new NHibernateContractResolver());
         }
 
 
         [HttpPost]
-        public AbpJsonResult Edit( AjaxRequest<RoleEntity> postData)
+        public MvcJsonResult Edit( AjaxRequest<RoleEntity> postData)
         {
             var updateResult = RoleService.GetInstance().Update(postData.RequestEntity);
             var result = new AjaxResponse<RoleEntity>()
             {
-                success = updateResult,
-                result = postData.RequestEntity
+                Success = updateResult,
+                Result = postData.RequestEntity
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
         [HttpPost]
-        public AbpJsonResult Delete(int pkid)
+        public MvcJsonResult Delete(int pkid)
         {
             var deleteResult = RoleService.GetInstance().DeleteByPkId(pkid);
             var result = new AjaxResponse<RoleEntity>()
             {
-                success = deleteResult
+                Success = deleteResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
         [HttpPost]
-        public AbpJsonResult SetRowFunction()
+        public MvcJsonResult SetRowFunction()
         {
             var t = this.Request["RolePkId"];
             var rolePkId = RequestHelper.GetInt("RolePkId");
@@ -126,10 +126,10 @@ namespace Project.WebApplication.Areas.PermissionManager.Controllers
             var addResult = RoleService.GetInstance().SetRowFunction(rolePkId, functionPkId, functionDetailPkId,isCheck);
             var result = new AjaxResponse<RoleEntity>()
             {
-                success = addResult,
-                result = null
+                Success = addResult,
+                Result = null
             };
-            return new AbpJsonResult(result, null);
+            return new MvcJsonResult(result, null);
         }
     }
 }

@@ -202,10 +202,10 @@ namespace Project.WebSite.Controllers
 
             if (!request.RequestEntity.ShopCartEntityList.Any())
             {
-                return new AbpJsonResult(new AjaxResponse<object>()
+                return new MvcJsonResult(new AjaxResponse<object>()
                 {
-                    success = false,
-                    error = new ErrorInfo("商品信息有误")
+                    Success = false,
+                    Error = new ErrorInfo("商品信息有误")
                 });
             }
 
@@ -213,11 +213,11 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                result = registResult.Item2,
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Result = registResult.Item2,
+                Error = new ErrorInfo(registResult.Item2)
             };
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
 
@@ -227,15 +227,15 @@ namespace Project.WebSite.Controllers
         /// <param name="orderNo"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult Cancel(string orderNo)
+        public MvcJsonResult Cancel(string orderNo)
         {
             var opResult = new OrderServiceImpl().Cancel(orderNo, CustomerDto.CustomerId);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo(opResult.Item2)
+                Success = opResult.Item1,
+                Error = new ErrorInfo(opResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -245,15 +245,15 @@ namespace Project.WebSite.Controllers
         /// <param name="orderNo"></param>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult Confirm(string orderNo)
+        public MvcJsonResult Confirm(string orderNo)
         {
             var opResult = new OrderServiceImpl().OrderFinsh(orderNo, CustomerDto.CustomerId);
             var result = new AjaxResponse<OrderMainEntity>()
             {
-                success = opResult.Item1,
-                error = new ErrorInfo(opResult.Item2)
+                Success = opResult.Item1,
+                Error = new ErrorInfo(opResult.Item2)
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
 
 
@@ -268,11 +268,11 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<object>()
             {
-                success = registResult.Item1,
-                result = registResult.Item1 ? registResult.Item2 : "",
-                error = new ErrorInfo(registResult.Item2)
+                Success = registResult.Item1,
+                Result = registResult.Item1 ? registResult.Item2 : "",
+                Error = new ErrorInfo(registResult.Item2)
             };
-            return new AbpJsonResult(result);
+            return new MvcJsonResult(result);
         }
 
 
@@ -399,7 +399,7 @@ namespace Project.WebSite.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public AbpJsonResult CountYfAndPromotion(int linkmanAreaId, int goodsId = 0, string goodsCode = "", int num = 1,string ticketCodes="")
+        public MvcJsonResult CountYfAndPromotion(int linkmanAreaId, int goodsId = 0, string goodsCode = "", int num = 1,string ticketCodes="")
         {
 
             var ShopCartEntityList = new List<ShopCartEntity>();
@@ -427,10 +427,10 @@ namespace Project.WebSite.Controllers
 
             var result = new AjaxResponse<CountYfAndPromotionResponse>()
             {
-                success = returnResult!=null,
-                result = returnResult
+                Success = returnResult!=null,
+                Result = returnResult
             };
-            return new AbpJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
+            return new MvcJsonResult(result, new NHibernateContractResolver(new string[] { "result" }));
         }
         #endregion
 

@@ -129,9 +129,9 @@ namespace Project.WebApplication.Controllers
             var userInfo = UserInfoService.GetInstance().Login(userCode, password);
             if (!userInfo.Item1)
             {
-                return new AbpJsonResult
+                return new MvcJsonResult
                 {
-                    Data = new AjaxResponse<object>() { success = false, error = new ErrorInfo(userInfo.Item2) }
+                    Data = new AjaxResponse<object>() { Success = false, Error = new ErrorInfo(userInfo.Item2) }
                 };
             }
 
@@ -152,9 +152,9 @@ namespace Project.WebApplication.Controllers
           //  FormsAuthentication.SetAuthCookie(FormsAuthentication.FormsCookieName,false);
 
             LoggerHelper.Info("登陆结束：");
-            return new AbpJsonResult
+            return new MvcJsonResult
             {
-                Data = new AjaxResponse<object>() { success = true }
+                Data = new AjaxResponse<object>() { Success = true }
             };
         }
 
@@ -164,9 +164,9 @@ namespace Project.WebApplication.Controllers
         {
             FormsAuthentication.SignOut();
             CookieHelper.Del(FormsAuthentication.FormsCookieName); ;
-            return new AbpJsonResult
+            return new MvcJsonResult
             {
-                Data = new AjaxResponse<object>() { success = true }
+                Data = new AjaxResponse<object>() { Success = true }
             };
         }
 
