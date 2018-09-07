@@ -11,10 +11,21 @@ namespace Project.Application.OpenApiService.AccountManager.Request
     /// </summary>
     public class LoginResponse
     {
+
+        public string Message { get; set; }
+
+        public bool IsLoginSuccess { get; set; }
+
+
         /// <summary>
-        /// 登录名
+        /// 昵称
         /// </summary>
-        public string LoginName { get; set; }
+        public string NickName { get; set; }
+
+        /// <summary>
+        /// 手机号
+        /// </summary>
+        public string MobilePhone { get; set; }
 
         /// <summary>
         /// 授权之后产生的token

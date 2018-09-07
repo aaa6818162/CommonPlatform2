@@ -83,3 +83,6 @@ G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\WebActivat
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Swashbuckle.Core.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Application.OpenApiService.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Application.OpenApiService.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Config\hibernate.cfg.xml
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Map.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Map.pdb

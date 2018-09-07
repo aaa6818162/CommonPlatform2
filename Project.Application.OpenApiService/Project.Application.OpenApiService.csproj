@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager\AccountServiceImpl.cs" />
+    <Compile Include="AccountManager\Request\ValidateTokenResponse.cs" />
+    <Compile Include="AccountManager\Request\ValidateTokenRequest.cs" />
     <Compile Include="AccountManager\Request\LoginRequest.cs" />
     <Compile Include="AccountManager\Request\LoginResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +54,14 @@
     <ProjectReference Include="..\Project.Infrastructure.FrameworkCore\Project.Infrastructure.FrameworkCore.csproj">
       <Project>{1c2392ad-a0f8-4378-9c54-3dcd1fb5d1db}</Project>
       <Name>Project.Infrastructure.FrameworkCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{3d26782a-3308-430b-b58f-5f8aba1a50b3}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository\Project.Repository.csproj">
+      <Project>{ab16ea24-3296-4dac-a2d8-203158eeab6f}</Project>
+      <Name>Project.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

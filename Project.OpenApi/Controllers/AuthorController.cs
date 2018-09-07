@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using Project.Application.OpenApiService.AccountManager.Request;
 using Project.OpenApi.App_Start;
+using Project.OpenApi.Models;
 
 namespace Project.OpenApi.Controllers
 {
@@ -16,14 +17,31 @@ namespace Project.OpenApi.Controllers
     public class AuthorController : ApiController
     {
 
-       /// <summary>
-       /// 登录后返回token
-       /// </summary>
-       /// <param name="request"></param>
-       /// <returns></returns>
-        public JsonResult<LoginResponse> Login(LoginRequest request)
+        private readonly AccountServiceImpl _accountServiceImpl;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public AuthorController()
         {
-            return Json(new LoginResponse() { });
+            _accountServiceImpl=new AccountServiceImpl();
+        }
+
+        /// <summary>
+        /// 登录后返回token
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
+        {
+            var result= _accountServiceImpl.Login(request);
+
+                return Json(new WebAPIResponse<LoginResponse>()
+                {
+                    Success = result.IsLoginSuccess,
+                    Result = result,
+                    Error = new ErrorInfo() { Message = result.Message}
+                });
         }
 
 

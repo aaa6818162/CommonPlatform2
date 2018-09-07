@@ -69,6 +69,11 @@
             授权登录控制器
             </summary>
         </member>
+        <member name="M:Project.OpenApi.Controllers.AuthorController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Project.OpenApi.Controllers.AuthorController.Login(Project.Application.OpenApiService.AccountManager.Request.LoginRequest)">
             <summary>
             登录后返回token

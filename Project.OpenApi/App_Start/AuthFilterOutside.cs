@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using Newtonsoft.Json;
+using Project.Application.OpenApiService.AccountManager.Request;
 using Project.Infrastructure.FrameworkCore.ApplicationService;
 using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler;
 using Project.OpenApi.Controllers;
@@ -18,7 +19,7 @@ namespace Project.OpenApi.App_Start
     /// </summary>
     public class AuthFilterOutside : AuthorizeAttribute
     {
- 
+
         /// <summary>
         /// 自定义token认证
         /// </summary>
@@ -27,18 +28,18 @@ namespace Project.OpenApi.App_Start
         {
             var token = string.Empty;
             // var request= actionContext.Request.Content.ReadAsAsync<AuthRequest>(); 这种方式会导致后续action请求不到相关数据
-            var request =new AuthRequest();
+            var request = new AuthRequest();
             try
             {
-                request= JsonConvert.DeserializeObject<AuthRequest>(actionContext.Request.Content.ReadAsStringAsync().Result);
+                request = JsonConvert.DeserializeObject<AuthRequest>(actionContext.Request.Content.ReadAsStringAsync().Result);
             }
             catch
             {
                 request = null;
             }
-               
 
-            if (request!=null&&!string.IsNullOrEmpty(request.Token))
+
+            if (request != null && !string.IsNullOrEmpty(request.Token))
             {
                 token = request.Token;
             }
@@ -84,20 +85,7 @@ namespace Project.OpenApi.App_Start
         /// <returns></returns>
         private bool ValidateTicket(string encryptToken)
         {
-            bool flag = false;
-            try
-            {
-                //获取数据库Token  
-                //Dec.Models.TicketAuth model = Dec.BLL.TicketAuth.GetTicketAuthByToken(encryptToken);
-                //if (model.Token == encryptToken) //存在  
-                //{
-                //    //未超时  
-                //    flag = (DateTime.Now <= model.ExpireDate) ? true : false;
-                //}
-                return true;
-            }
-            catch (Exception ex) { }
-            return flag;
+            return new AccountServiceImpl().ValidateToken(new ValidateTokenRequest() { Token = encryptToken }).IsPassValidate;
         }
     }
 }

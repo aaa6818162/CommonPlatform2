@@ -40,3 +40,9 @@ G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiSer
 G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Model.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Repository.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Config.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Model.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Repository.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.Application.OpenApiService\bin\Debug\Project.Config.pdb
