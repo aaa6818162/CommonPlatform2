@@ -71,6 +71,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PermissionManager\UserRoleModel.cs" />
+    <Compile Include="PermissionManager\UserSessionEntity.cs" />
     <Compile Include="ProductManager\AttributeValueEntity.cs" />
     <Compile Include="ProductManager\BrandEntity.cs" />
     <Compile Include="ProductManager\ExtAttributeEntity.cs" />

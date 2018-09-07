@@ -15,46 +15,16 @@ using Project.OpenApi.Models;
 namespace Project.OpenApi.Controllers
 {
 
-    public class A
-    {
-        /// <summary>
-        /// dddddddddddd
-        /// </summary>
-        public string AX { get; set; }
-    }
 
     /// <summary>
+    /// 用户授权接口
     /// https://blog.csdn.net/smartsmile2012/article/details/52936011
     /// </summary>
     public class AccountController : ApiController
     {
-        [Route("api/account/login2xxxx")]
-        [HttpPost]
-        public JsonResult<WebAPIResponse<A>> Postttttttttttt(A a)
-        {
+       
 
-
-            //定义  
-            return Json(new WebAPIResponse<A>(new A() { AX = "xxxxxx" }));
-        }
-
-
-        /// <summary>  
-        /// 用户登录授权  
-        /// </summary>  
-        /// <param name="username">用户名</param>  
-        /// <param name="password">密码</param>  
-        /// <returns></returns>  
-        [Route("api/account/login2")]
-        [HttpGet]
-        public JsonResult<WebAPIResponse<A>> Login2(string username, string password)
-        {
-
-        
-            //定义  
-            return Json(new WebAPIResponse<A>(new A() {AX = "xxxxxx"}));
-        }
-
+       
 
 
         #region 用户登录授权  
@@ -114,7 +84,6 @@ namespace Project.OpenApi.Controllers
         /// <returns></returns>  
         [Route("api/account/amount")]
         [HttpGet]
-        [AuthFilterOutside] //添加验证  
         public JsonResult<WebAPIResponse<string>> GetAmount(int userId)
         {
             return Json(new WebAPIResponse<string>(""));

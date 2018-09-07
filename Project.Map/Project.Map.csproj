@@ -74,6 +74,7 @@
     <Compile Include="PermissionManager\UserFunctionDetailMap.cs" />
     <Compile Include="PermissionManager\UserInfoMap.cs" />
     <Compile Include="PermissionManager\UserRoleMap.cs" />
+    <Compile Include="PermissionManager\UserSessionMap.cs" />
     <Compile Include="ProductManager\AttributeValueMap.cs" />
     <Compile Include="ProductManager\BrandMap.cs" />
     <Compile Include="ProductManager\ExtAttributeMap.cs" />

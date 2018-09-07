@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Application.Service
+namespace Project.Infrastructure.FrameworkCore.ApplicationService
 {
-    public interface IServiceImpl
+    public interface IRequest
     {
     }
 }

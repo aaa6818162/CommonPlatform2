@@ -120,6 +120,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationService\AuthRequest..cs" />
+    <Compile Include="ApplicationService\IAuthRequest.cs" />
+    <Compile Include="ApplicationService\IRequest.cs" />
+    <Compile Include="ApplicationService\IResponse.cs" />
+    <Compile Include="ApplicationService\IServiceImpl.cs" />
     <Compile Include="AutoMapper\AutoMapperExtend.cs" />
     <Compile Include="CacheProvider\CacheProvider.cs" />
     <Compile Include="CacheProvider\CacheServiceSetting.cs" />

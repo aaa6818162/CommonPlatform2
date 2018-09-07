@@ -52,7 +52,6 @@
     <Compile Include="Common\ProcessResult.cs" />
     <Compile Include="Common\RequestBase.cs" />
     <Compile Include="ContentManager\ContentServiceImpl.cs" />
-    <Compile Include="IServiceImpl.cs" />
     <Compile Include="OrderManager\Help\OrderServiceImplHelp.cs" />
     <Compile Include="OrderManager\OrderServiceImpl.cs" />
     <Compile Include="OrderManager\Request\AddOrderRequest.cs" />

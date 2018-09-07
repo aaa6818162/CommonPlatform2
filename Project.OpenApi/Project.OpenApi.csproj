@@ -127,6 +127,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\CallingController.cs" />
     <Compile Include="Controllers\CallingTestController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -150,9 +151,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Common\" />
+    <Folder Include="Controllers\Ec\" />
+    <Folder Include="Controllers\Pad\" />
     <Folder Include="Views\CallingTest\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Project.Application.OpenApiService\Project.Application.OpenApiService.csproj">
+      <Project>{753B7AB0-95CF-4297-9111-2CFAAC61C3F9}</Project>
+      <Name>Project.Application.OpenApiService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Application.Service\Project.Application.Service.csproj">
       <Project>{e04420a1-b017-498b-8a49-10dd5aa573a4}</Project>
       <Name>Project.Application.Service</Name>

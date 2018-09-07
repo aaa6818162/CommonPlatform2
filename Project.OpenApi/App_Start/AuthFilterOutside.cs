@@ -1,42 +1,87 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Controllers;
+using Newtonsoft.Json;
+using Project.Infrastructure.FrameworkCore.ApplicationService;
+using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler;
+using Project.OpenApi.Controllers;
+using Project.OpenApi.Models;
 
 namespace Project.OpenApi.App_Start
 {
+    /// <summary>
+    /// 登录授权
+    /// </summary>
     public class AuthFilterOutside : AuthorizeAttribute
     {
-        //重写基类的验证方式，加入我们自定义的Ticket验证  
+ 
+        /// <summary>
+        /// 自定义token认证
+        /// </summary>
+        /// <param name="actionContext"></param> 
         public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
-            //url获取token  
-            var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
-            var token = content.Request.Headers["Token"];
+            var token = string.Empty;
+            // var request= actionContext.Request.Content.ReadAsAsync<AuthRequest>(); 这种方式会导致后续action请求不到相关数据
+            var request =new AuthRequest();
+            try
+            {
+                request= JsonConvert.DeserializeObject<AuthRequest>(actionContext.Request.Content.ReadAsStringAsync().Result);
+            }
+            catch
+            {
+                request = null;
+            }
+               
+
+            if (request!=null&&!string.IsNullOrEmpty(request.Token))
+            {
+                token = request.Token;
+            }
+            else
+            {
+                var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
+                if (content != null)
+                {
+                    token = content.Request.Headers["Token"];
+                }
+            }
             if (!string.IsNullOrEmpty(token))
             {
                 //解密用户ticket,并校验用户名密码是否匹配  
                 if (ValidateTicket(token))
                 {
-                    base.IsAuthorized(actionContext);
-                }
-                else
-                {
-                    HandleUnauthorizedRequest(actionContext);
+                    return;
                 }
             }
-            //如果取不到身份验证信息，并且不允许匿名访问，则返回未验证401  
-            else
+
+
+            var result = new WebAPIResponse<string>("");
+            result.Success = false;
+            result.Error = new ErrorInfo()
             {
-                var attributes = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().OfType<AllowAnonymousAttribute>();
-                bool isAnonymous = attributes.Any(a => a is AllowAnonymousAttribute);
-                if (isAnonymous) base.OnAuthorization(actionContext);
-                else HandleUnauthorizedRequest(actionContext);
-            }
+                Code = 401,
+                Message = "Token未通过验证"
+            };
+
+            var resultJson = JsonHelper.JsonSerializer(result);
+
+            actionContext.Response = new HttpResponseMessage
+            {
+                Content = new StringContent(resultJson, System.Text.Encoding.UTF8, "application/json")
+            };
+
         }
 
-        //校验票据（数据库数据匹配）  
+        /// <summary>
+        /// 校验票据（数据库数据匹配）  
+        /// </summary>
+        /// <param name="encryptToken"></param>
+        /// <returns></returns>
         private bool ValidateTicket(string encryptToken)
         {
             bool flag = false;
@@ -55,4 +100,4 @@ namespace Project.OpenApi.App_Start
             return flag;
         }
     }
-}  
+}

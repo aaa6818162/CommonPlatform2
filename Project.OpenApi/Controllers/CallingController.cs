@@ -12,6 +12,7 @@ using Project.Application.Service;
 using Project.Application.Service.AccountManager;
 using Project.Application.Service.Common;
 using Project.Application.Service.OrderManager;
+using Project.Infrastructure.FrameworkCore.ApplicationService;
 using Project.Infrastructure.FrameworkCore.DataNhibernate;
 using Project.Infrastructure.FrameworkCore.Logging;
 using Project.Infrastructure.FrameworkCore.ToolKit;

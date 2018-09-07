@@ -70,6 +70,7 @@
     <Compile Include="PermissionManager\UserFunctionDetailRepository.cs" />
     <Compile Include="PermissionManager\UserInfoRepository.cs" />
     <Compile Include="PermissionManager\UserRoleRepository.cs" />
+    <Compile Include="PermissionManager\UserSessionRepository.cs" />
     <Compile Include="ProductManager\AttributeValueRepository.cs" />
     <Compile Include="ProductManager\BrandRepository.cs" />
     <Compile Include="ProductManager\ExtAttributeRepository.cs" />

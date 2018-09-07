@@ -79,5 +79,7 @@ G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\zh-Hans\Sy
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.csprojResolveAssemblyReference.cache
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\obj\Debug\Project.OpenApi.pdb
-G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Swashbuckle.Core.dll
 G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\WebActivatorEx.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Swashbuckle.Core.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Application.OpenApiService.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi\bin\Project.Application.OpenApiService.pdb
