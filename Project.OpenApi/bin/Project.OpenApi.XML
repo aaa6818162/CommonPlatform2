@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Project.OpenApi</name>
+    </assembly>
+    <members>
+        <member name="T:Project.OpenApi.App_Start.AuthFilterOutside">
+            <summary>
+            登录授权
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.App_Start.AuthFilterOutside.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            自定义token认证
+            </summary>
+            <param name="actionContext"></param> 
+        </member>
+        <member name="M:Project.OpenApi.App_Start.AuthFilterOutside.ValidateTicket(System.String)">
+            <summary>
+            校验票据（数据库数据匹配）  
+            </summary>
+            <param name="encryptToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Project.OpenApi.Controllers.AccountController">
+            <summary>
+            用户授权接口
+            https://blog.csdn.net/smartsmile2012/article/details/52936011
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.Login(System.String,System.String)">
+            <summary>  
+            用户登录授权  
+            </summary>  
+            <param name="username">用户名</param>  
+            <param name="password">密码</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.LoginOut(System.Int32)">
+            <summary>  
+            用户退出登录，清空Token  
+            </summary>  
+            <param name="userId">用户ID</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.ValidateToken(System.String)">
+            <summary>  
+            查询Token是否有效  
+            </summary>  
+            <param name="token">token</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.GetAmount(System.Int32)">
+            <summary>  
+            获取用户账户余额  
+            </summary>  
+            <param name="userId">用户ID</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AccountController.ValidateTicket(System.String)">
+            <summary>  
+            验证票据是否有效  
+            </summary>  
+            <param name="encryptToken">token</param>  
+            <returns></returns>  
+        </member>
+        <member name="T:Project.OpenApi.Controllers.AuthorController">
+            <summary>
+            授权登录控制器
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AuthorController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Controllers.AuthorController.Login(Project.Application.OpenApiService.AccountManager.Request.LoginRequest)">
+            <summary>
+            登录后返回token
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Project.OpenApi.Controllers.CallingController">
+            <summary>
+            统一一格中心访问
+            </summary>
+        </member>
+        <member name="F:Project.OpenApi.Controllers.CallingController._serviceses">
+            <summary>
+            基础服务
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Controllers.CallingController.ServicesProcess(Project.Infrastructure.FrameworkCore.ApplicationService.IServiceImpl,System.String,System.String,Project.Application.Service.Common.ProcessRequest)">
+            <summary>
+            调用服务模块
+            </summary>
+            <param name="callingServices"></param>
+            <param name="method"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Project.OpenApi.Models.ErrorInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Project.OpenApi.Models.ErrorInfo.Code">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Project.OpenApi.Models.ErrorInfo.Message">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="P:Project.OpenApi.Models.ErrorInfo.Details">
+            <summary>
+            Error Details
+            </summary>
+        </member>
+        <member name="T:Project.OpenApi.Models.WebAPIResponse`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="P:Project.OpenApi.Models.WebAPIResponse`1.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Project.OpenApi.Models.WebAPIResponse`1.Result">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:Project.OpenApi.Models.WebAPIResponse`1.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Project.OpenApi.Models.WebAPIResponse`1.#ctor(`0)">
+            <summary>
+            成功
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:Project.OpenApi.Models.WebAPIResponse`1.#ctor(Project.OpenApi.Models.ErrorInfo)">
+            <summary>
+            失败
+            </summary>
+            <param name="error"></param>
+        </member>
+    </members>
+</doc>
