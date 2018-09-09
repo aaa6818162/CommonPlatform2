@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Project.Application.OpenApiService.AccountManager.Request;
@@ -16,7 +17,7 @@ namespace Project.OpenApi.Controllers
     /// </summary>
     public class AuthorController : ApiController
     {
-
+ 
         private readonly AccountServiceImpl _accountServiceImpl;
 
         /// <summary>
@@ -32,11 +33,14 @@ namespace Project.OpenApi.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
+        [HttpPost]
         public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
         {
             var result= _accountServiceImpl.Login(request);
 
-                return Json(new WebAPIResponse<LoginResponse>()
+          //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
+
+            return Json(new WebAPIResponse<LoginResponse>()
                 {
                     Success = result.IsLoginSuccess,
                     Result = result,

@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body>
+    <div>
+        <input id="btn_Login" name="" type="button" value="登录"/>
+
+        <input id="btn_Login2" name="" type="button" value="权限请求" />
+    </div>
+    <script type="text/javascript">
+
+        $("#btn_Login").click(
+               function () {
+
+                   var postData = { LoginName: "admin", Password: "123456" };
+
+                   $.ajax({
+                       dataType: 'json',
+                       type: 'POST',
+                       contentType: 'application/json',
+                       url: "http://localhost:8133/api/Author/Login",
+                       data: JSON.stringify(postData),
+                       cache: false,
+                       async: false,
+                       success: function (data) {
+
+                           alert(JSON.stringify(data));
+
+                           Cookies.set('mytoken', data.Result.Token, { expires: 7 });
+                         
+                         
+
+                       }
+                   });
+
+                   return;
+               }
+           );
+
+        $("#btn_Login2").click(
+             function () {
+
+                 var postData = { Value1: "111", Value2: "222", Token: Cookies.get('mytoken') };
+
+                 $.ajax({
+                     dataType: 'json',
+                     type: 'POST',
+                     contentType: 'application/json',
+                     url: "http://localhost:8133/api/Default/PostWithToken",
+                     data: JSON.stringify(postData),
+                     cache: false,
+                     async: false,
+                     success: function (data) {
+                         alert(JSON.stringify(data));
+
+                     }
+                 });
+
+                 return;
+             }
+         );
+
+    </script>
+</body>
+
+</html>

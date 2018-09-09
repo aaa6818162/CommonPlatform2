@@ -10,24 +10,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-
+    
 </head>
 <body>
-    <div>
-        <input id="btn_Login" name="" type="button"  value="xxxxxxxxxxxx"/>
-    </div>
+<div>
+    <input id="btn_Login" name="xxxxxxxxxxxx" type="button"/>
+</div>
     <script type="text/javascript">
 
         $("#btn_Login").click(
                function () {
 
-                   var postData = { LoginName: "111", Password: "222" };
+                   var postData = { LoginName: "", Password: "" };
 
                    $.ajax({
                        dataType: 'json',
                        type: 'POST',
                        contentType: 'application/json',
-                       url: "http://localhost:8133/api/Author/Login",
+                       url: "/api/Author/Login",
                        data: JSON.stringify(postData),
                        cache: false,
                        async: false,

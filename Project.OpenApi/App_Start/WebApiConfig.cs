@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Newtonsoft.Json.Serialization;
 
 namespace Project.OpenApi
@@ -23,6 +24,10 @@ namespace Project.OpenApi
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
  new DefaultContractResolver { IgnoreSerializableAttribute = true };
+
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
         }
     }
 }

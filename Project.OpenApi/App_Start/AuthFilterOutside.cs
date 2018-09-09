@@ -45,11 +45,29 @@ namespace Project.OpenApi.App_Start
             }
             else
             {
+               
+
+
                 var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
                 if (content != null)
                 {
                     token = content.Request.Headers["Token"];
                 }
+
+
+                var cookie = actionContext.Request.Headers.GetCookies();
+                if (cookie!=null)
+                {
+                    foreach (var perCookie in cookie[0].Cookies)
+                    {
+                        if (perCookie.Name == "")
+                        {
+
+                        }
+                    }
+                }
+                
+
             }
             if (!string.IsNullOrEmpty(token))
             {

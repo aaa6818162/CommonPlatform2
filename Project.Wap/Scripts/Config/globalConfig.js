@@ -7,7 +7,7 @@
           "UpdateSuccess": "操作成功！",
           "DeleteSuccess": "操作成功！"
       },
-      apiUrl: "http://localhost:8133/"
+      apiUrl: "http://localhost:8133"
 
     };
 })();
