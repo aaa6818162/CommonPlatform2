@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPISwaggerJWT</name>
+    </assembly>
+    <members>
+        <member name="T:WebAPISwaggerJWT.WebApiConfig">
+            <summary>
+            WebApi配置
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            注册
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Areas.Auth.Controllers.TokenController">
+            <summary>
+            票据
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Areas.Auth.Controllers.TokenController.Apply(System.String,System.String)">
+            <summary>
+            申请票据
+            </summary>
+            <param name="account"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Areas.Auth.Helpers.AuthHelper">
+            <summary>
+            授权帮助类
+            </summary>
+        </member>
+        <member name="F:WebAPISwaggerJWT.Areas.Auth.Helpers.AuthHelper._secret">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="F:WebAPISwaggerJWT.Areas.Auth.Helpers.AuthHelper._expire">
+            <summary>
+            有效期(秒)
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Areas.Auth.Helpers.AuthHelper.EncodeToken(System.String,System.String,System.Int32)">
+            <summary>
+            生成票据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Areas.Auth.Helpers.AuthHelper.DecodeToken(System.String)">
+            <summary>
+            解析票据
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Areas.Auth.Helpers.DecodeTokenResult">
+            <summary>
+            解析票据的结果
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.DecodeTokenResult.OK">
+            <summary>
+            是否OK
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.DecodeTokenResult.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload">
+            <summary>
+            票据负载
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload.Account">
+            <summary>
+            Account
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload.Expired">
+            <summary>
+            到期时间(秒)
+            </summary>        
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload.Algorithm">
+            <summary>
+            加密算法(默认HS256)
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload.Type">
+            <summary>
+            票据类型(默认JWT)
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Areas.Auth.Helpers.TokenPayload.Role">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Areas.Cloud.Controllers.ProductController">
+            <summary>
+            产品控制器
+            </summary> 
+        </member>
+        <member name="M:WebAPISwaggerJWT.Areas.Cloud.Controllers.ProductController.GetName(System.String)">
+            <summary>
+            获取名字
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPISwaggerJWT.AuthRequireAttribute">
+            <summary>
+            授权请求过滤器
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.AuthRequireAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            执行用户行为
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Exceptions.UnauthorizedException">
+            <summary>
+            未授权异常
+            </summary>
+        </member>
+        <member name="T:WebAPISwaggerJWT.GlobalExceptionAttribute">
+            <summary>
+            全局异常
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.GlobalExceptionAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            异常时触发
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Filters.LoggingFilterAttribute">
+            <summary>
+            过滤日志
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Filters.LoggingFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            执行方法时触发
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Filters.SwaggerAuthFilter">
+            <summary>
+            Swagger授权过滤器
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Filters.SwaggerAuthFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            自动添加Token字段到Header
+            </summary>
+            <param name="operation"></param>
+            <param name="schemaRegistry"></param>
+            <param name="apiDescription"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.AuthRequireController">
+            <summary>
+            授权请求控制器
+            </summary>
+        </member>
+        <member name="T:WebAPISwaggerJWT.BaseResponsePackage`1">
+            <summary>
+            基础响应包
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+        </member>
+        <member name="P:WebAPISwaggerJWT.BaseResponsePackage`1.StatusCode">
+            <summary>
+            0正常.
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.BaseResponsePackage`1.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.BaseResponsePackage`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.BaseResponsePackage`1.IsOK">
+            <summary>
+            是否OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Helpers.NLogger">
+            <summary>
+            访问日志文件
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Helpers.NLogger.Logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Helpers.NLogger.Trace(System.Net.Http.HttpRequestMessage,System.String,System.Web.Http.Tracing.TraceLevel,System.Action{System.Web.Http.Tracing.TraceRecord})">
+            <summary>
+            实现TraceWriter的追踪并加到日志中
+            </summary>
+            <param name="request"></param>
+            <param name="category"></param>
+            <param name="level"></param>
+            <param name="traceAction"></param>
+        </member>
+        <member name="M:WebAPISwaggerJWT.Helpers.NLogger.Log(System.Web.Http.Tracing.TraceRecord)">
+            <summary>
+            将日志的info/Error输出到日志文件
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="T:WebAPISwaggerJWT.Helpers.ServiceStatus">
+            <summary>
+            输入状态
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Helpers.ServiceStatus.Status">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Helpers.ServiceStatus.Message">
+             <summary>
+            状态信息
+             </summary>
+        </member>
+        <member name="P:WebAPISwaggerJWT.Helpers.ServiceStatus.ReasonPhrase">
+            <summary>
+            原因
+            </summary>
+        </member>
+        <member name="T:System.Web.Http.Description.ApiDescriptionExtension">
+            <summary>
+            API描述器扩展
+            </summary>
+        </member>
+        <member name="M:System.Web.Http.Description.ApiDescriptionExtension.GetAreaName(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            获取区域名称
+            </summary>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.JSONExtension">
+            <summary>
+            JSON扩展
+            </summary>
+        </member>
+        <member name="M:System.JSONExtension.ToJson(System.Object)">
+            <summary>
+            转换为JSON
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.JSONExtension.ToObj``1(System.String)">
+            <summary>
+            转换成对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

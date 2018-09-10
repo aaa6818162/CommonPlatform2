@@ -1,0 +1,36 @@
+﻿using Swashbuckle.Swagger;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using System.Web.Http.Description;
+using System.Web.Http.Filters;
+
+namespace WebAPISwaggerJWT.Filters
+{
+    /// <summary>
+    /// Swagger授权过滤器
+    /// </summary>
+    public class SwaggerAuthFilter : IOperationFilter
+    {
+        /// <summary>
+        /// 自动添加Token字段到Header
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="schemaRegistry"></param>
+        /// <param name="apiDescription"></param>
+        public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
+        {
+            if (operation.parameters == null)
+            {
+                operation.parameters = new List<Parameter>();
+            }
+            var authRequireAttribute = apiDescription.ActionDescriptor.ControllerDescriptor.GetCustomAttributes<AuthRequireAttribute>();
+            if (authRequireAttribute != null && authRequireAttribute.Count > 0)
+            {
+                operation.parameters.Add(new Parameter { name = AuthRequireAttribute.Token, @in = "header", description = "票据", required = true, type = "string" });
+            }
+        }
+    }
+}

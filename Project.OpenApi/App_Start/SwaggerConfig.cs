@@ -2,6 +2,8 @@ using System;
 using System.Web.Http;
 using WebActivatorEx;
 using Project.OpenApi;
+using Project.OpenApi.Extensions;
+using Project.OpenApi.Filters;
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
@@ -34,6 +36,10 @@ namespace Project.OpenApi
                         // additional fields by chaining methods off SingleApiVersion.
                         //
                         c.SingleApiVersion("v1", "Project.OpenApi");
+
+
+
+                       
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
@@ -103,7 +109,7 @@ namespace Project.OpenApi
                         // more Xml comment files.
                         //
                         c.IncludeXmlComments(GetXmlCommentsPath());
-
+                        // c.GroupActionsBy(apiDesc => apiDesc.GetAreaName());
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
                         // This is supported through the "MapType" and "SchemaFilter" options:
@@ -177,6 +183,9 @@ namespace Project.OpenApi
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
                         //
                         //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+
+
+                       // c.OperationFilter<SwaggerAuthFilter>();
                     })
                 .EnableSwaggerUi(c =>
                     {

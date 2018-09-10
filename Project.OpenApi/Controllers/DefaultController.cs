@@ -20,14 +20,14 @@ namespace Project.OpenApi.Controllers
     {
 
 
-        [AuthFilterOutside]
+        [SelfAuthorAttribute]
         public JsonResult<GetResponse> PostWithOutToken(GetRequest request)
         {
             return Json(new GetResponse() { Value1 = request.Value1 });
         }
 
 
-        [AuthFilterOutside]
+        [SelfAuthorAttribute]
         public JsonResult<WebAPIResponse<GetResponse>> PostWithToken(GetRequest request)
         {
             return Json(new WebAPIResponse<GetResponse>(new GetResponse() { Value1 = request.Value1 }));

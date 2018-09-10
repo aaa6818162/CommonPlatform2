@@ -36,6 +36,7 @@ namespace Project.OpenApi.Controllers
         [HttpPost]
         public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
         {
+
             var result= _accountServiceImpl.Login(request);
 
           //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
@@ -49,6 +50,12 @@ namespace Project.OpenApi.Controllers
         }
 
 
+
+
+        //public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
+        //{
+
+        //}
 
 
 

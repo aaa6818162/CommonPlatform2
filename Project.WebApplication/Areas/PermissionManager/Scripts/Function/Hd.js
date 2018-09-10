@@ -179,7 +179,7 @@
                         PkId: { required: true },
                         FunctionnName: { required: true },
                         ModuleId: { required: true },
-                        FunctionUrl: { required: true },
+                        //FunctionUrl: { required: true },
                         //Area: { required: true },
                         //Controller: { required: true },
                         //Action: { required: true },
@@ -206,8 +206,8 @@
                 $("input[name=PkId]").each(function () {
                     var i = $(this).val();
                     $("input[name=FunctionDetailName_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
-                    $("input[name=FunctionDetailCode_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
-                    $("input[name=Area_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
+                   // $("input[name=FunctionDetailCode_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
+                    //$("input[name=Area_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
                     $("input[name=Controller_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
                     $("input[name=Action_" + i + "]").rules("add", { required: true, messages: { required: "必填!" } });
                 }

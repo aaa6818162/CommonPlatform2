@@ -134,17 +134,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthFilterOutside.cs" />
+    <Compile Include="App_Start\PermissionAttribute.cs" />
+    <Compile Include="App_Start\SelfAuthorAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApiViewPageTestController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CallingController.cs" />
     <Compile Include="Controllers\CallingTestController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\Pad\PadOrderController.cs" />
+    <Compile Include="Controllers\Platform\PlatformOrderController.cs" />
     <Compile Include="Controllers\WebApiTestController.cs" />
+    <Compile Include="Extensions\ApiDescriptionExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,7 +175,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Common\" />
     <Folder Include="Controllers\Ec\" />
-    <Folder Include="Controllers\Pad\" />
+    <Folder Include="Filters\" />
     <Folder Include="Views\CallingTest\" />
   </ItemGroup>
   <ItemGroup>

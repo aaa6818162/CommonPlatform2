@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Wap", "Project.Wap\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Application.OpenApiService", "Project.Application.OpenApiService\Project.Application.OpenApiService.csproj", "{753B7AB0-95CF-4297-9111-2CFAAC61C3F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.OpenApiSDK", "Project.OpenApiSDK\Project.OpenApiSDK.csproj", "{12EE7738-CCEF-4E7B-9432-9711CBDB848A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 		{753B7AB0-95CF-4297-9111-2CFAAC61C3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{753B7AB0-95CF-4297-9111-2CFAAC61C3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{753B7AB0-95CF-4297-9111-2CFAAC61C3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12EE7738-CCEF-4E7B-9432-9711CBDB848A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12EE7738-CCEF-4E7B-9432-9711CBDB848A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12EE7738-CCEF-4E7B-9432-9711CBDB848A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12EE7738-CCEF-4E7B-9432-9711CBDB848A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,5 +148,6 @@ Global
 		{D51BF7D8-3327-4DB0-901C-41691581BAAB} = {372DEDB0-1C5C-4358-94B0-8096D9F442E3}
 		{29848A0C-62F4-45D9-9EE2-C060AB85B503} = {372DEDB0-1C5C-4358-94B0-8096D9F442E3}
 		{753B7AB0-95CF-4297-9111-2CFAAC61C3F9} = {8C0AE435-E1E3-4335-B565-2FFA42A5E709}
+		{12EE7738-CCEF-4E7B-9432-9711CBDB848A} = {D51BF7D8-3327-4DB0-901C-41691581BAAB}
 	EndGlobalSection
 EndGlobal
