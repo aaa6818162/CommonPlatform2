@@ -39,7 +39,7 @@ namespace Project.OpenApiSDK
     
         /// <returns>OK</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<JsonResultOfWebAPIResponseOfLoginResponse> LoginAsync(LoginRequest request)
+        public System.Threading.Tasks.Task<WebAPIResponseOfLoginResponse> LoginAsync(LoginRequest request)
         {
             return LoginAsync(request, System.Threading.CancellationToken.None);
         }
@@ -47,7 +47,7 @@ namespace Project.OpenApiSDK
         /// <returns>OK</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<JsonResultOfWebAPIResponseOfLoginResponse> LoginAsync(LoginRequest request, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<WebAPIResponseOfLoginResponse> LoginAsync(LoginRequest request, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Author/Login");
@@ -84,10 +84,10 @@ namespace Project.OpenApiSDK
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(JsonResultOfWebAPIResponseOfLoginResponse); 
+                            var result_ = default(WebAPIResponseOfLoginResponse); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfWebAPIResponseOfLoginResponse>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<WebAPIResponseOfLoginResponse>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -102,7 +102,7 @@ namespace Project.OpenApiSDK
                             throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JsonResultOfWebAPIResponseOfLoginResponse);
+                        return default(WebAPIResponseOfLoginResponse);
                     }
                     finally
                     {
@@ -325,7 +325,7 @@ namespace Project.OpenApiSDK
     
         /// <returns>OK</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<JsonResultOfGetResponse> PostWithOutTokenAsync(GetRequest request)
+        public System.Threading.Tasks.Task<GetResponse> PostWithOutTokenAsync(GetRequest request)
         {
             return PostWithOutTokenAsync(request, System.Threading.CancellationToken.None);
         }
@@ -333,7 +333,7 @@ namespace Project.OpenApiSDK
         /// <returns>OK</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<JsonResultOfGetResponse> PostWithOutTokenAsync(GetRequest request, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<GetResponse> PostWithOutTokenAsync(GetRequest request, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Default/PostWithOutToken");
@@ -370,10 +370,10 @@ namespace Project.OpenApiSDK
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(JsonResultOfGetResponse); 
+                            var result_ = default(GetResponse); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfGetResponse>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<GetResponse>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -388,7 +388,88 @@ namespace Project.OpenApiSDK
                             throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(JsonResultOfGetResponse);
+                        return default(GetResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<WebAPIResponseOfGetResponse> PostWithTokenAsync(GetRequest request)
+        {
+            return PostWithTokenAsync(request, System.Threading.CancellationToken.None);
+        }
+    
+        /// <returns>OK</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<WebAPIResponseOfGetResponse> PostWithTokenAsync(GetRequest request, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Default/PostWithToken");
+    
+            var client_ = new System.Net.Http.HttpClient();
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(WebAPIResponseOfGetResponse); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<WebAPIResponseOfGetResponse>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(WebAPIResponseOfGetResponse);
                     }
                     finally
                     {
@@ -657,15 +738,390 @@ namespace Project.OpenApiSDK
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JsonResultOfWebAPIResponseOfLoginResponse : System.ComponentModel.INotifyPropertyChanged
+    public partial class WebAPIResponseOfLoginResponse : System.ComponentModel.INotifyPropertyChanged
     {
-        private WebAPIResponseOfLoginResponse _content;
+        private bool? _success;
+        private LoginResponse _result;
+        private ErrorInfo _error;
+    
+        /// <summary>是否成功</summary>
+        [Newtonsoft.Json.JsonProperty("Success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Success
+        {
+            get { return _success; }
+            set 
+            {
+                if (_success != value)
+                {
+                    _success = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        /// <summary>返回结果</summary>
+        [Newtonsoft.Json.JsonProperty("Result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public LoginResponse Result
+        {
+            get { return _result; }
+            set 
+            {
+                if (_result != value)
+                {
+                    _result = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorInfo Error
+        {
+            get { return _error; }
+            set 
+            {
+                if (_error != value)
+                {
+                    _error = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static WebAPIResponseOfLoginResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WebAPIResponseOfLoginResponse>(data);
+        }
+    
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) 
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class LoginResponse : System.ComponentModel.INotifyPropertyChanged
+    {
+        private string _message;
+        private bool? _isLoginSuccess;
+        private string _nickName;
+        private string _mobilePhone;
+        private string _token;
+    
+        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Message
+        {
+            get { return _message; }
+            set 
+            {
+                if (_message != value)
+                {
+                    _message = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("IsLoginSuccess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsLoginSuccess
+        {
+            get { return _isLoginSuccess; }
+            set 
+            {
+                if (_isLoginSuccess != value)
+                {
+                    _isLoginSuccess = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("NickName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NickName
+        {
+            get { return _nickName; }
+            set 
+            {
+                if (_nickName != value)
+                {
+                    _nickName = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("MobilePhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MobilePhone
+        {
+            get { return _mobilePhone; }
+            set 
+            {
+                if (_mobilePhone != value)
+                {
+                    _mobilePhone = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token
+        {
+            get { return _token; }
+            set 
+            {
+                if (_token != value)
+                {
+                    _token = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LoginResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LoginResponse>(data);
+        }
+    
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) 
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ErrorInfo : System.ComponentModel.INotifyPropertyChanged
+    {
+        private int? _code;
+        private string _message;
+        private string _details;
+    
+        /// <summary>错误代码</summary>
+        [Newtonsoft.Json.JsonProperty("Code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Code
+        {
+            get { return _code; }
+            set 
+            {
+                if (_code != value)
+                {
+                    _code = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        /// <summary>Error message</summary>
+        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Message
+        {
+            get { return _message; }
+            set 
+            {
+                if (_message != value)
+                {
+                    _message = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        /// <summary>Error Details</summary>
+        [Newtonsoft.Json.JsonProperty("Details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Details
+        {
+            get { return _details; }
+            set 
+            {
+                if (_details != value)
+                {
+                    _details = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ErrorInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorInfo>(data);
+        }
+    
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) 
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ProcessRequest : System.ComponentModel.INotifyPropertyChanged
+    {
+        private string _service;
+        private string _method;
+        private string _paramter1;
+        private string _paramter2;
+        private string _paramter3;
+        private string _paramter4;
+        private string _paramter5;
+    
+        [Newtonsoft.Json.JsonProperty("Service", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Service
+        {
+            get { return _service; }
+            set 
+            {
+                if (_service != value)
+                {
+                    _service = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Method
+        {
+            get { return _method; }
+            set 
+            {
+                if (_method != value)
+                {
+                    _method = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Paramter1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Paramter1
+        {
+            get { return _paramter1; }
+            set 
+            {
+                if (_paramter1 != value)
+                {
+                    _paramter1 = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Paramter2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Paramter2
+        {
+            get { return _paramter2; }
+            set 
+            {
+                if (_paramter2 != value)
+                {
+                    _paramter2 = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Paramter3", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Paramter3
+        {
+            get { return _paramter3; }
+            set 
+            {
+                if (_paramter3 != value)
+                {
+                    _paramter3 = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Paramter4", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Paramter4
+        {
+            get { return _paramter4; }
+            set 
+            {
+                if (_paramter4 != value)
+                {
+                    _paramter4 = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Paramter5", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Paramter5
+        {
+            get { return _paramter5; }
+            set 
+            {
+                if (_paramter5 != value)
+                {
+                    _paramter5 = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ProcessRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProcessRequest>(data);
+        }
+    
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) 
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class JsonResultOfProcessResult : System.ComponentModel.INotifyPropertyChanged
+    {
+        private ProcessResult _content;
         private JsonSerializerSettings _serializerSettings;
         private Encoding _encoding;
         private object _request;
     
         [Newtonsoft.Json.JsonProperty("Content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public WebAPIResponseOfLoginResponse Content
+        public ProcessResult Content
         {
             get { return _content; }
             set 
@@ -725,9 +1181,9 @@ namespace Project.OpenApiSDK
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static JsonResultOfWebAPIResponseOfLoginResponse FromJson(string data)
+        public static JsonResultOfProcessResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfWebAPIResponseOfLoginResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfProcessResult>(data);
         }
     
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -742,30 +1198,57 @@ namespace Project.OpenApiSDK
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class WebAPIResponseOfLoginResponse : System.ComponentModel.INotifyPropertyChanged
+    public partial class ProcessResult : System.ComponentModel.INotifyPropertyChanged
     {
-        private bool? _success;
-        private LoginResponse _result;
-        private ErrorInfo _error;
+        private bool? _isSuccess;
+        private int? _code;
+        private string _message;
+        private object _result;
     
-        /// <summary>是否成功</summary>
-        [Newtonsoft.Json.JsonProperty("Success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Success
+        [Newtonsoft.Json.JsonProperty("IsSuccess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsSuccess
         {
-            get { return _success; }
+            get { return _isSuccess; }
             set 
             {
-                if (_success != value)
+                if (_isSuccess != value)
                 {
-                    _success = value; 
+                    _isSuccess = value; 
                     RaisePropertyChanged();
                 }
             }
         }
     
-        /// <summary>返回结果</summary>
+        [Newtonsoft.Json.JsonProperty("Code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Code
+        {
+            get { return _code; }
+            set 
+            {
+                if (_code != value)
+                {
+                    _code = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Message
+        {
+            get { return _message; }
+            set 
+            {
+                if (_message != value)
+                {
+                    _message = value; 
+                    RaisePropertyChanged();
+                }
+            }
+        }
+    
         [Newtonsoft.Json.JsonProperty("Result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LoginResponse Result
+        public object Result
         {
             get { return _result; }
             set 
@@ -778,28 +1261,14 @@ namespace Project.OpenApiSDK
             }
         }
     
-        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ErrorInfo Error
-        {
-            get { return _error; }
-            set 
-            {
-                if (_error != value)
-                {
-                    _error = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static WebAPIResponseOfLoginResponse FromJson(string data)
+        public static ProcessResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<WebAPIResponseOfLoginResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProcessResult>(data);
         }
     
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -1558,179 +2027,6 @@ namespace Project.OpenApiSDK
         public static Encoding FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Encoding>(data);
-        }
-    
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LoginResponse : System.ComponentModel.INotifyPropertyChanged
-    {
-        private string _message;
-        private bool? _isLoginSuccess;
-        private string _nickName;
-        private string _mobilePhone;
-        private string _token;
-    
-        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message
-        {
-            get { return _message; }
-            set 
-            {
-                if (_message != value)
-                {
-                    _message = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("IsLoginSuccess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsLoginSuccess
-        {
-            get { return _isLoginSuccess; }
-            set 
-            {
-                if (_isLoginSuccess != value)
-                {
-                    _isLoginSuccess = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("NickName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NickName
-        {
-            get { return _nickName; }
-            set 
-            {
-                if (_nickName != value)
-                {
-                    _nickName = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("MobilePhone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MobilePhone
-        {
-            get { return _mobilePhone; }
-            set 
-            {
-                if (_mobilePhone != value)
-                {
-                    _mobilePhone = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token
-        {
-            get { return _token; }
-            set 
-            {
-                if (_token != value)
-                {
-                    _token = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LoginResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LoginResponse>(data);
-        }
-    
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ErrorInfo : System.ComponentModel.INotifyPropertyChanged
-    {
-        private int? _code;
-        private string _message;
-        private string _details;
-    
-        /// <summary>错误代码</summary>
-        [Newtonsoft.Json.JsonProperty("Code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Code
-        {
-            get { return _code; }
-            set 
-            {
-                if (_code != value)
-                {
-                    _code = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        /// <summary>Error message</summary>
-        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message
-        {
-            get { return _message; }
-            set 
-            {
-                if (_message != value)
-                {
-                    _message = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        /// <summary>Error Details</summary>
-        [Newtonsoft.Json.JsonProperty("Details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Details
-        {
-            get { return _details; }
-            set 
-            {
-                if (_details != value)
-                {
-                    _details = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ErrorInfo FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorInfo>(data);
         }
     
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -3642,306 +3938,6 @@ namespace Project.OpenApiSDK
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ProcessRequest : System.ComponentModel.INotifyPropertyChanged
-    {
-        private string _service;
-        private string _method;
-        private string _paramter1;
-        private string _paramter2;
-        private string _paramter3;
-        private string _paramter4;
-        private string _paramter5;
-    
-        [Newtonsoft.Json.JsonProperty("Service", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Service
-        {
-            get { return _service; }
-            set 
-            {
-                if (_service != value)
-                {
-                    _service = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Method
-        {
-            get { return _method; }
-            set 
-            {
-                if (_method != value)
-                {
-                    _method = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Paramter1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Paramter1
-        {
-            get { return _paramter1; }
-            set 
-            {
-                if (_paramter1 != value)
-                {
-                    _paramter1 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Paramter2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Paramter2
-        {
-            get { return _paramter2; }
-            set 
-            {
-                if (_paramter2 != value)
-                {
-                    _paramter2 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Paramter3", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Paramter3
-        {
-            get { return _paramter3; }
-            set 
-            {
-                if (_paramter3 != value)
-                {
-                    _paramter3 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Paramter4", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Paramter4
-        {
-            get { return _paramter4; }
-            set 
-            {
-                if (_paramter4 != value)
-                {
-                    _paramter4 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Paramter5", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Paramter5
-        {
-            get { return _paramter5; }
-            set 
-            {
-                if (_paramter5 != value)
-                {
-                    _paramter5 = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ProcessRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProcessRequest>(data);
-        }
-    
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JsonResultOfProcessResult : System.ComponentModel.INotifyPropertyChanged
-    {
-        private ProcessResult _content;
-        private JsonSerializerSettings _serializerSettings;
-        private Encoding _encoding;
-        private object _request;
-    
-        [Newtonsoft.Json.JsonProperty("Content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProcessResult Content
-        {
-            get { return _content; }
-            set 
-            {
-                if (_content != value)
-                {
-                    _content = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("SerializerSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public JsonSerializerSettings SerializerSettings
-        {
-            get { return _serializerSettings; }
-            set 
-            {
-                if (_serializerSettings != value)
-                {
-                    _serializerSettings = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Encoding", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Encoding Encoding
-        {
-            get { return _encoding; }
-            set 
-            {
-                if (_encoding != value)
-                {
-                    _encoding = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Request
-        {
-            get { return _request; }
-            set 
-            {
-                if (_request != value)
-                {
-                    _request = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static JsonResultOfProcessResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfProcessResult>(data);
-        }
-    
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ProcessResult : System.ComponentModel.INotifyPropertyChanged
-    {
-        private bool? _isSuccess;
-        private int? _code;
-        private string _message;
-        private object _result;
-    
-        [Newtonsoft.Json.JsonProperty("IsSuccess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IsSuccess
-        {
-            get { return _isSuccess; }
-            set 
-            {
-                if (_isSuccess != value)
-                {
-                    _isSuccess = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Code
-        {
-            get { return _code; }
-            set 
-            {
-                if (_code != value)
-                {
-                    _code = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message
-        {
-            get { return _message; }
-            set 
-            {
-                if (_message != value)
-                {
-                    _message = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Result
-        {
-            get { return _result; }
-            set 
-            {
-                if (_result != value)
-                {
-                    _result = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ProcessResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProcessResult>(data);
-        }
-    
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) 
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GetRequest : System.ComponentModel.INotifyPropertyChanged
     {
         private string _value1;
@@ -4012,64 +4008,49 @@ namespace Project.OpenApiSDK
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class JsonResultOfGetResponse : System.ComponentModel.INotifyPropertyChanged
+    public partial class GetResponse : System.ComponentModel.INotifyPropertyChanged
     {
-        private GetResponse _content;
-        private JsonSerializerSettings _serializerSettings;
-        private Encoding _encoding;
-        private object _request;
+        private string _value1;
+        private string _value2;
+        private System.Collections.ObjectModel.ObservableCollection<PostRequest> _list;
     
-        [Newtonsoft.Json.JsonProperty("Content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GetResponse Content
+        [Newtonsoft.Json.JsonProperty("Value1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Value1
         {
-            get { return _content; }
+            get { return _value1; }
             set 
             {
-                if (_content != value)
+                if (_value1 != value)
                 {
-                    _content = value; 
+                    _value1 = value; 
                     RaisePropertyChanged();
                 }
             }
         }
     
-        [Newtonsoft.Json.JsonProperty("SerializerSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public JsonSerializerSettings SerializerSettings
+        [Newtonsoft.Json.JsonProperty("Value2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Value2
         {
-            get { return _serializerSettings; }
+            get { return _value2; }
             set 
             {
-                if (_serializerSettings != value)
+                if (_value2 != value)
                 {
-                    _serializerSettings = value; 
+                    _value2 = value; 
                     RaisePropertyChanged();
                 }
             }
         }
     
-        [Newtonsoft.Json.JsonProperty("Encoding", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Encoding Encoding
+        [Newtonsoft.Json.JsonProperty("List", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.ObjectModel.ObservableCollection<PostRequest> List
         {
-            get { return _encoding; }
+            get { return _list; }
             set 
             {
-                if (_encoding != value)
+                if (_list != value)
                 {
-                    _encoding = value; 
-                    RaisePropertyChanged();
-                }
-            }
-        }
-    
-        [Newtonsoft.Json.JsonProperty("Request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Request
-        {
-            get { return _request; }
-            set 
-            {
-                if (_request != value)
-                {
-                    _request = value; 
+                    _list = value; 
                     RaisePropertyChanged();
                 }
             }
@@ -4080,9 +4061,9 @@ namespace Project.OpenApiSDK
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static JsonResultOfGetResponse FromJson(string data)
+        public static GetResponse FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<JsonResultOfGetResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetResponse>(data);
         }
     
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -4097,7 +4078,7 @@ namespace Project.OpenApiSDK
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GetResponse : System.ComponentModel.INotifyPropertyChanged
+    public partial class PostRequest : System.ComponentModel.INotifyPropertyChanged
     {
         private string _value1;
         private string _value2;
@@ -4135,9 +4116,9 @@ namespace Project.OpenApiSDK
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static GetResponse FromJson(string data)
+        public static PostRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PostRequest>(data);
         }
     
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

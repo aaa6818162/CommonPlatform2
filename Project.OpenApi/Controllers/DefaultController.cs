@@ -21,17 +21,17 @@ namespace Project.OpenApi.Controllers
 
 
         [SelfAuthorAttribute]
-        public JsonResult<GetResponse> PostWithOutToken(GetRequest request)
+        public GetResponse PostWithOutToken(GetRequest request)
         {
-            return Json(new GetResponse() { Value1 = request.Value1 });
+            return new GetResponse() { Value1 = request.Value1 };
         }
 
 
-        //[SelfAuthorAttribute]
-        //public JsonResult<WebAPIResponse<GetResponse>> PostWithToken(GetRequest request)
-        //{
-        //    return Json(new WebAPIResponse<GetResponse>(new GetResponse() { Value1 = request.Value1 }));
-        //}
+        [SelfAuthorAttribute]
+        public WebAPIResponse<GetResponse> PostWithToken(GetRequest request)
+        {
+            return new WebAPIResponse<GetResponse>(new GetResponse() { Value1 = "成功顶顶顶顶顶顶顶顶顶顶大" });
+        }
 
 
         public GetResponse tttttt1(GetRequest request)
@@ -48,7 +48,18 @@ namespace Project.OpenApi.Controllers
         {
             return new WebAPIResponse<GetResponse>()
             {
-                Success = true
+                Success = true,
+                Result = new GetResponse()
+                {
+                    Value1 = "11111111",
+                    Value2 = "22222222222",
+                    List = new List<PostRequest>() { new PostRequest()
+                    {
+                        Value1 = "xxxxxx1111",
+                        Value2 = "xxxxxxxx2222222"
+                    } }
+                }
+
             };
         }
 
@@ -75,6 +86,9 @@ namespace Project.OpenApi.Controllers
         public string Value1 { get; set; }
 
         public string Value2 { get; set; }
+
+
+        public List<PostRequest> List{ get; set; }
     }
 
 

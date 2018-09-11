@@ -30,19 +30,17 @@ namespace Project.OpenApi.Controllers
 
 
         [HttpPost]
-        public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
+        public WebAPIResponse<LoginResponse> Login(LoginRequest request)
         {
-
             var result = _accountServiceImpl.Login(request);
 
             //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
-
-            return Json(new WebAPIResponse<LoginResponse>()
+            return new WebAPIResponse<LoginResponse>()
             {
                 Success = result.IsLoginSuccess,
                 Result = result,
                 Error = new ErrorInfo() { Message = result.Message }
-            });
+            };
         }
 
         /// <summary>
