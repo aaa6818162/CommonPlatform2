@@ -1,0 +1,6 @@
+/ar/node_modules
+/node_modules
+/playground/ar/node_modules
+/src/.vs/Picturepark.SDK.Java/v15
+/src/AutoRestTransformer/bin/Debug/netcoreapp2.0
+/src/AutoRestTransformer/obj

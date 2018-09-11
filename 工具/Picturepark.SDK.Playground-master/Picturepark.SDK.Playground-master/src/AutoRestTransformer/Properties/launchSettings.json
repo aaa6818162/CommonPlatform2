@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AutoRestTransformer": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Data\\Projects\\Picturepark.SDK.DotNet\\swagger\\PictureparkSwagger.json\" \"C:\\Data\\Projects\\Picturepark.SDK.Playground\\swagger\\PictureparkSwaggerAutoRest.json\""
+    }
+  }
+}

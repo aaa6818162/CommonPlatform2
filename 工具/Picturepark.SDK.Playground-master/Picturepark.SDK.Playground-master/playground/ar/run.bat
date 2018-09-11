@@ -1,0 +1,1 @@
+"node_modules/.bin/autorest" --input-file=PictureparkSwaggerAutoRest.json --java --output-folder=test --namespace=Picturepark

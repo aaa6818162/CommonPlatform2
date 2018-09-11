@@ -1,0 +1,50 @@
+
+# Crs
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**autoBrightness** | **Boolean** |  |  [optional]
+**autoContrast** | **Boolean** |  |  [optional]
+**autoExposure** | **Boolean** |  |  [optional]
+**autoShadows** | **Boolean** |  |  [optional]
+**blueHue** | **Integer** |  |  [optional]
+**blueSaturation** | **Integer** |  |  [optional]
+**brightness** | **Integer** |  |  [optional]
+**cameraProfile** | **String** |  |  [optional]
+**chromaticAberrationB** | **Integer** |  |  [optional]
+**chromaticAberrationR** | **Integer** |  |  [optional]
+**colorNoiseReduction** | **Integer** |  |  [optional]
+**contrast** | **Integer** |  |  [optional]
+**cropTop** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropLeft** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropBottom** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropRight** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropAngle** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropWidth** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropHeight** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**cropUnits** | [**CropUnit**](CropUnit.md) |  |  [optional]
+**exposure** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**greenHue** | **Integer** |  |  [optional]
+**greenSaturation** | **Integer** |  |  [optional]
+**hasCrop** | **Boolean** |  |  [optional]
+**hasSettings** | **Boolean** |  |  [optional]
+**luminanceSmoothing** | **Integer** |  |  [optional]
+**rawFileName** | **String** |  |  [optional]
+**redHue** | **Integer** |  |  [optional]
+**redSaturation** | **Integer** |  |  [optional]
+**saturation** | **Integer** |  |  [optional]
+**shadows** | **Integer** |  |  [optional]
+**shadowTint** | **Integer** |  |  [optional]
+**sharpness** | **Integer** |  |  [optional]
+**temperature** | **Integer** |  |  [optional]
+**tint** | **Integer** |  |  [optional]
+**toneCurve** | **List&lt;String&gt;** |  |  [optional]
+**toneCurveName** | [**ToneCurve**](ToneCurve.md) |  |  [optional]
+**version** | **String** |  |  [optional]
+**vignetteAmount** | **Integer** |  |  [optional]
+**vignetteMidpoint** | **Integer** |  |  [optional]
+**whiteBalance** | [**WhiteBalance**](WhiteBalance.md) |  |  [optional]
+
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "picturepark.sdk.java",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "autorest": "cmd /c call \"node_modules/.bin/autorest\" --input-file=swagger/PictureparkSwaggerAutoRest.json --java --output-folder=\"src/Picturepark.SDK.Java/src/main/java/picturepark\" --namespace=Picturepark",
+    "autorestphp": "cmd /c call \"node_modules/.bin/autorest\" --input-file=swagger/PictureparkSwaggerAutoRest.json --php --output-folder=\"src/Picturepark.SDK.Php/\" --namespace=Picturepark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://rsuter.visualstudio.com/DefaultCollection/_git/Picturepark.SDK.Java"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autorest": "^2.0.4166"
+  }
+}

@@ -28,26 +28,43 @@ namespace Project.OpenApi.Controllers
             _accountServiceImpl=new AccountServiceImpl();
         }
 
+
+        [HttpPost]
+        public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
+        {
+
+            var result = _accountServiceImpl.Login(request);
+
+            //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
+
+            return Json(new WebAPIResponse<LoginResponse>()
+            {
+                Success = result.IsLoginSuccess,
+                Result = result,
+                Error = new ErrorInfo() { Message = result.Message }
+            });
+        }
+
         /// <summary>
         /// 登录后返回token
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost]
-        public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
-        {
+        //[HttpPost]
+        //public JsonResult<WebAPIResponse<LoginResponse>> Login(LoginRequest request)
+        //{
 
-            var result= _accountServiceImpl.Login(request);
+        //    var result= _accountServiceImpl.Login(request);
 
-          //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
+        //  //  HttpContext.Current.Response.Cookies.Add(new HttpCookie("my_token", result.Token));
 
-            return Json(new WebAPIResponse<LoginResponse>()
-                {
-                    Success = result.IsLoginSuccess,
-                    Result = result,
-                    Error = new ErrorInfo() { Message = result.Message}
-                });
-        }
+        //    return Json(new WebAPIResponse<LoginResponse>()
+        //        {
+        //            Success = result.IsLoginSuccess,
+        //            Result = result,
+        //            Error = new ErrorInfo() { Message = result.Message}
+        //        });
+        //}
 
 
 

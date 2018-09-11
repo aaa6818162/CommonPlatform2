@@ -27,14 +27,30 @@ namespace Project.OpenApi.Controllers
         }
 
 
-        [SelfAuthorAttribute]
-        public JsonResult<WebAPIResponse<GetResponse>> PostWithToken(GetRequest request)
+        //[SelfAuthorAttribute]
+        //public JsonResult<WebAPIResponse<GetResponse>> PostWithToken(GetRequest request)
+        //{
+        //    return Json(new WebAPIResponse<GetResponse>(new GetResponse() { Value1 = request.Value1 }));
+        //}
+
+
+        public GetResponse tttttt1(GetRequest request)
         {
-            return Json(new WebAPIResponse<GetResponse>(new GetResponse() { Value1 = request.Value1 }));
+            return new GetResponse()
+            {
+                Value1 = "22",
+                Value2 = "333'"
+            };
         }
 
 
-
+        public WebAPIResponse<GetResponse> tttttt2(GetRequest request)
+        {
+            return new WebAPIResponse<GetResponse>()
+            {
+                Success = true
+            };
+        }
 
 
     }

@@ -1,0 +1,10 @@
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Project.OpenApi.Test.exe.config
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Project.OpenApi.Test.exe
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Project.OpenApi.Test.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Project.OpenApiSDK.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Newtonsoft.Json.dll
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Project.OpenApiSDK.pdb
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\bin\Debug\Newtonsoft.Json.xml
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\obj\Debug\Project.OpenApi.Test.csprojResolveAssemblyReference.cache
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\obj\Debug\Project.OpenApi.Test.exe
+G:\云端备份\我设计的框架\CommonPlatform\Project.OpenApi.Test\obj\Debug\Project.OpenApi.Test.pdb

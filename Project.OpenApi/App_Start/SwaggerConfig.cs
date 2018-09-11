@@ -3,7 +3,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using Project.OpenApi;
 using Project.OpenApi.Extensions;
-using Project.OpenApi.Filters;
+
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
@@ -183,9 +183,11 @@ namespace Project.OpenApi
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
                         //
                         //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+                        c.DescribeAllEnumsAsStrings();
 
+                     
 
-                       // c.OperationFilter<SwaggerAuthFilter>();
+                        // c.OperationFilter<SwaggerAuthFilter>();
                     })
                 .EnableSwaggerUi(c =>
                     {
