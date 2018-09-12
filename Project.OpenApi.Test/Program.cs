@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.OpenApiSDK;
+using Project.OpenApiSDK.Tool;
 
 namespace Project.OpenApi.Test
 {
@@ -11,6 +12,9 @@ namespace Project.OpenApi.Test
     {
         static void Main(string[] args)
         {
+
+          var t=  SignHelper.GetPublicKeyAndPrivateKey();
+
             var tokenGet =
                 new AuthorClient().LoginAsync(new LoginRequest() {LoginName = "admin", Password = "123456"}).Result;
 

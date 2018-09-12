@@ -12,6 +12,17 @@ namespace Project.Infrastructure.FrameworkCore.ApplicationService
 
        public string Token { get; set; }
 
+
+        /// <summary>
+        /// 签名时间戳
+        /// </summary>
+       public int SignTimespan {
+           get { return DateTime.Now.Millisecond; }
+       }
+
+
+
+
        #endregion
     }
 }

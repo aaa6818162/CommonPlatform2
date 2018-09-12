@@ -235,6 +235,7 @@
     <Compile Include="ToolKit\PointHelper.cs" />
     <Compile Include="ToolKit\RequestHelper.cs" />
     <Compile Include="ToolKit\SendMail.cs" />
+    <Compile Include="ToolKit\SignHelper.cs" />
     <Compile Include="ToolKit\StringHandler\HtmlHelper.cs" />
     <Compile Include="ToolKit\StringHandler\SqlStrHelper.cs" />
     <Compile Include="ToolKit\StringHandler\StringArrayHelper.cs" />
