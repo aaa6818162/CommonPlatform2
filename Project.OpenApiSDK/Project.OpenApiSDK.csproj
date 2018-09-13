@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultClient.cs" />
     <Compile Include="AuthorClient.cs" />
     <Compile Include="MyClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tool\BigInteger.cs" />
+    <Compile Include="Tool\PayCenterRSA.cs" />
     <Compile Include="Tool\SignHelper.cs" />
   </ItemGroup>
   <ItemGroup>

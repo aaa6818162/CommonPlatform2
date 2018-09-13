@@ -43,7 +43,7 @@ namespace Project.OpenApi.Controllers
             };
         }
 
-
+        [SelfAuthorAttribute]
         public WebAPIResponse<GetResponse> tttttt2(GetRequest request)
         {
             return new WebAPIResponse<GetResponse>()

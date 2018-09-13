@@ -7,7 +7,7 @@ using Project.OpenApiSDK.Tool;
 
 namespace Project.OpenApiSDK
 {
-    public partial class AuthorClient
+    public partial class DefaultClient
     {
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder)
         {
@@ -18,7 +18,7 @@ namespace Project.OpenApiSDK
 
             request.Headers.Add("timestamp", timestamp); //发起请求时的时间戳（单位：毫秒）
             request.Headers.Add("nonce", nonce); //nonce（随机数)
-            request.Headers.Add("signature", SignHelper.Sign(data,"")  ); //当前请求内容的数字签名
+            request.Headers.Add("signature", SignHelper.Sign(data, "")); //当前请求内容的数字签名
         }
 
 
