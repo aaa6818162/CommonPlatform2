@@ -34,3 +34,7 @@
 /Project.Infrastructure.FrameworkCore.Payment/obj
 /Project.Infrastructure.FrameworkCore/obj
 /Project.Map/obj
+/.vs/CommonFramework/v15/Server/sqlite3/storage.ide-wal
+/.vs/CommonFramework/v15/Server/sqlite3/storage.ide-shm
+/.vs/CommonFramework/v15/Server/sqlite3/storage.ide
+/.vs/CommonFramework/v15/Server/sqlite3/db.lock
