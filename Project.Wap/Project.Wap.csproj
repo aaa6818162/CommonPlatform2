@@ -608,6 +608,7 @@
     <Content Include="Scripts\Config\globalConfig.js" />
     <Content Include="Scripts\Control\AreaControl.js" />
     <Content Include="Scripts\Control\ImageUploadDefaultControl.js" />
+    <None Include="Scripts\easyuicontrolvuetest.vue" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jqueryPlugins\jquery_json\Json.js" />
     <Content Include="Scripts\jqueryPlugins\jquery_tip\jquery.poshytip.js" />
@@ -672,6 +673,7 @@
     <Content Include="Scripts\linq\JSLINQextend.js" />
     <Content Include="Scripts\linq\Samples.js" />
     <Content Include="Scripts\Login\Login.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\OrderReturn\ReturnPay.js" />
     <Content Include="Scripts\Order\Confirm.js" />
     <Content Include="Scripts\Order\List.js" />
@@ -948,6 +950,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\APITest\Test.cshtml" />
+    <Content Include="Views\APITest\VueTest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

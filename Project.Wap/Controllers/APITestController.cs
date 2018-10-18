@@ -20,13 +20,16 @@ namespace Project.Wap.Controllers
             return View();
         }
 
-     
+        public ActionResult VueTest()
+        {
+            return View();
+        }
 
-       
+
         #endregion
 
 
-    
+
 
 
 
