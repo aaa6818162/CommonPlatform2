@@ -90,6 +90,11 @@ namespace Project.Infrastructure.FrameworkCore.DataNhibernate
             return currentSession;
         }
 
+        public static void Clear()
+        {
+            CallContext.FreeNamedDataSlot("Nh_Session");
+        }
+
         //public static void Clear()
         //{
         //    ISessionStorageContainer _sessionStorageContainer = SessionStorageFactory.GetStorageContainer();
