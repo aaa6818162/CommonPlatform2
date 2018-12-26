@@ -13,7 +13,7 @@
 
 .box_block{display:inline-block;}
 ul.sub li a{position: relative;}
-span.badge,span.badge2{display: inline-block; min-width: 10px; padding: 3px 5px; font-size: 12px; font-weight: 700;line-height: 1; color: #fff;text-align: center;white-space: nowrap;vertical-align: middle;background-color: #777;border-radius: 10px; position: absolute; top:50%;  right:3px;margin: -9px 0 0;}
+span.badge,span.badge2{display: inline-block; min-width: 10px; padding: 3px 5px; font-size: 14px; font-weight: 700;line-height: 1; color: #fff;text-align: center;white-space: nowrap;vertical-align: middle;background-color: #777;border-radius: 10px; position: absolute; top:50%;  right:3px;margin: -9px 0 0;}
 ul.sub li a:hover span.badge{ color: #fff;background-color: #337ab7;}
 span.badge-tip{width:6px; height:6px;border-radius:100%;position: absolute; top:50%;  right:6px;margin: -4px 0 0;}
 .bg-red{ background:red;}
@@ -105,7 +105,7 @@ a.viewBtn:hover{border:1px solid #ddd;background:#3c8dbc; color:#fff;border-radi
 .window-body .popBtn,.myinfo .popBtn {width:100%; background:#f9f9f9; height:30px; line-height:30px; text-align:center; border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:5px 0 8px;overflow:hidden; position:absolute;left:0; bottom:0!important;}
 .window-body .popBtn ul,.myinfo .popBtn ul{display:inline-block; float:right;}
 .window-body .popBtn li,.myinfo .popBtn li{display:inline-block; float:left;}
-.window-body .popBtn li a,.myinfo .popBtn li a{font-size: 12px;width:60px; line-height:32px; margin:0 2px;padding:0 7px; display:inline-block; border-radius:2px; text-align:center;}
+.window-body .popBtn li a,.myinfo .popBtn li a{font-size: 14px;width:60px; line-height:32px; margin:0 2px;padding:0 7px; display:inline-block; border-radius:2px; text-align:center;}
 .window-body .popBtn li a span,.myinfo .popBtn li a span{font-size:16px;margin-right:2px;}
 .window-body .popBtn li a:hover,.myinfo .popBtn li a:hover{text-decoration:none;}
 /*下拉多选框*/

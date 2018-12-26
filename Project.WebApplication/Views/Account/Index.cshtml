@@ -1,326 +1,251 @@
-﻿@using System.Web.UI.WebControls
-@using Project.Model.PermissionManager
-@using Project.Service.PermissionManager.DTO
-@using Project.Model.HRManager;
-@using Project.Service.HRManager;
-@{
-    Layout = null;
-}
-
+﻿@using Project.Service.PermissionManager.DTO
 <!DOCTYPE html>
+<html lang="en">
+<head id="Head1">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<html>
-<head>
-    @Html.Partial("_Head")
-    <script src="~/Scripts/Account/Index.js"></script>
-    <script src="~/Scripts/jqueryPlugins/jquery-easyui/jquery-browser.js"></script>
-    <script src="~/Scripts/jqueryPlugins/jquery-easyui/jquery.messager.js"></script>
+    <title>VIEW_UI_EASYUI</title>
+    <meta name="KEYWords" contect="VIEWUI,VIEW_UI_EASYUI,EasyUI,后台管理系统,酷设网">
+    <meta name="description" contect="viewUI基于EasyUI定制的主题皮肤">
+    <meta name="author" contect="djcbpl@163.com">
+    <meta property="og:title" content="EasyUI">
+    <meta property="og:description" content="HTML, CSS, JS">
+
+    <!-- Meta -->
+
+    <link rel="Bookmark" href="/Resources/assets/default/images/logoIco.ico" />
+    <link rel="Shortcut Icon" href="/Resources/assets/default/images/logoIco.ico" />
+    <link href="/Resources/assets/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/Resources/assets/js/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="/Resources/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Resources/assets/css/layout.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .tabs-selected {
+            border-top: 1px solid #1da02b !important;
+        }
+    </style>
 
 </head>
-<body class="easyui-layout" >
-<div data-options="region:'north',split:true" style="overflow: hidden; height: 70px; background-color: #214e75">
-    
- 
-
-        @*<div style="width: 300px;float: left">
-            <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
-        </div>*@
-    <table style="float:left;border-spacing:0px;">
-        <tbody>
-            <tr>
-                <td class="webname">
-                    <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
-                </td>
-              
-                <td>
-                    <table id="topmenucontent" cellpadding="0" cellspacing="0">
-                        <tbody>
-                        <tr>
-                            <td>
-                                &nbsp; &nbsp; &nbsp; &nbsp;
-                            </td>
-                            <td >
-                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
-                                    <p>
-                                        <lable class="fa fa-book" style="color: white"></lable>
-                                    </p>
-                                    <p><span style="white-space: nowrap;color: white">协同办公</span></p>
-                                </a>
-                            </td>
-
-                            <td >
-                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
-                                    <p>
-                                        <lable class="fa fa-dashboard" style="color: white"></lable>
-                                    </p>
-                                    <p><span style="white-space: nowrap;color: white">经营管理</span></p>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
-                                    <p>
-                                        <lable class="fa fa-user" style="color: white"></lable>
-                                    </p>
-                                    <p><span style="white-space: nowrap;color: white">业务报表</span></p>
-                                </a>
-                            </td>
-
-                            <td >
-                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
-                                    <p>
-                                        <lable class="fa fa-edge" style="color: white"></lable>
-                                    </p>
-                                    <p><span style="white-space: nowrap;color: white">门户网站</span></p>
-                                </a>
-                            </td>
-
-                            <td >
-                                <a class="l-btn-text bannerMenu" href="javascript:void(0)">
-                                    <p>
-                                        <lable class="fa fa-cog" style="color: white"></lable>
-                                    </p>
-                                    <p><span style="white-space: nowrap;color: white">平台管理</span></p>
-                                </a>
-                            </td>
-
-                        </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <span style="float: right; padding-right: 10px; height: 50px; line-height: 50px;">
-        <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-user',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">lww</span><span class="l-btn-icon fa fa-user">&nbsp;</span></span></a>
-        
-        
-        <a id="btnChangePassword" href="javascript:void(0)"  data-toggle="topjui-menubutton" data-options="iconCls:'fa fa fa-cog',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">修改密码</span><span class="l-btn-icon fa  fa-cog">&nbsp;</span></span></a>
-      
-
-        <a id="btnLogoff" href="javascript:void(0)"  data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-sign-out',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;"  class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">注销</span><span class="l-btn-icon fa fa-sign-out">&nbsp;</span></span></a>
-    </span>
-
-       
-
-   
-</div>
-    <div data-options="region:'west',split:true,title:'导航菜单',iconCls:'fa fa-bank'" style="width: 200px;">
-        <div id="menu" class="easyui-accordion" data-options="border:false,fit:true">
-
-            @foreach (MenuDTO p in ViewBag.ModuleList)
-            {
-                <div title="@p.Name"  data-options="iconCls:'fa fa-list'" >
-                    <ul class='menulist'>
-                        @foreach (var child in p.MenuDTOList)
-                        {
-                            <li style="height:31px "><a target='mainFrame' href='javascript:void(0)' lang='@child.Url' ><span style="font-size: 10px" class="fa fa-file-text-o"></span>@child.Name</a></li>
-                        }
-                    </ul>
-                </div>
-            }
-
-
-
-
-            @* <div title="Test2" data-options="iconCls:'icon-workflow'">
-                <ul class='menulist'>
-                    <li><a target='mainFrame' href='javascript:void(0)' lang='/Home/WorkflowMenu'>流程发起</a></li>
-                </ul>
-            </div>
-            <div title="个人事务" data-options="iconCls:'icon-imailManage'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang='/Permission/UserList'>用户列表</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang='/Photography/Index'>摄影棚拍照</a></li>
-                    </ul>
-                </div>
-                <div title="综合行政" data-options="iconCls:'icon-document'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>
-                <div title="信息管理" data-options="iconCls:'icon-task'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>
-                <div title="知识管理" data-options="iconCls:'icon-docMag'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>
-                <div title="固定资产管理" data-options="iconCls:'icon-imailManage'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>
-                <div title="财务管理" data-options="iconCls:'icon-cultureView'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>
-                <div title="其它系统" data-options="iconCls:'icon-cultureView'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>论坛</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>HH—OMS系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>HH—EC系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>HH—官网系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>TAO—OMS系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>TAO—EC系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>TAO—官网系统</a></li>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>人事系统</a></li>
-                    </ul>
-                </div>
-                <div title="常用工具" data-options="iconCls:'icon-cultureView'">
-                    <ul class='menulist'>
-                        <li><a target='mainFrame' href='javascript:void(0)' lang=''>流程发起</a></li>
-                    </ul>
-                </div>*@
-            </div>
-    </div>
-    <div data-options="region:'south',border:false" style="height: 20px;">
-        <div style="text-align: center; font-weight: bold">
-            @*海盐县人力资源管理系统【V1.2】 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;建设单位：海盐县卫生和计划生育局 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 技术支持：嘉兴康思网络科技有限公司*@
-
-            版权所有 © 2014-2117 ******信息技术有限公司 粤ICP备16028103号-1 版本：v2.2.8
+<body class="easyui-layout vui-easyui" scroll="no">
+    <noscript>
+        <div class="bowerPrompt" class="bowerPrompt">
+            <img src="assets/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
         </div>
-    </div>
+    </noscript>
+
     <div data-options="region:'center'" style="background: #eee; overflow: hidden;">
         <div id="tabsDefault" class="easyui-tabs" data-options="fit:true,border:false,iconCls:'fa fa-home'" style="overflow:hidden;">
-            <div title="主页" style="padding: 0px; font-size: large;overflow:hidden;"  data-options="fit:true,border:false,iconCls:'fa fa-home'" >
+            <div title="主页" style="padding: 0px; font-size: large;overflow:hidden;" data-options="fit:true,border:false,iconCls:'fa fa-home'">
                 <iframe name="mainFrame" scrolling="no" frameborder="0" src="" style="width:100%;height:100%;"></iframe>
             </div>
         </div>
     </div>
-    <div style="display: none;">
-        <div id="divChangePassword" iconcls="icon-user_edit" style="padding: 10px;">
-            <table>
-                <tr>
-                    <td>新密码：</td>
-                    <td><input id="newPwd"  type="password" name="newPwd" style="width:150px;" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center">
-                        <input type="button" value="保存" id="btn_Save"/>
-
-                    </td>
-                </tr>
-            </table>
+    <!-- 头部 -->
+    <div data-options="region:'north',split:false,border:false,border:false" class="viewui-navheader">
+        <!-- header start -->
+        <div class="sys-logo">
+            <a href="javascript:;" class="logoicon">logo图标</a>
+            <a href="javascript:;" class="logo_title">logo名称</a>
+            <a class="line"></a>
+            <a href="javascript:;" class="e">logo副标题</a>
         </div>
+        <!-- 菜单横栏 -->
+        <ul class="viewui-navmenu"></ul>
+        <div class="viewui-user">
+            <div class="user-photo">
+                <i class="fa fa-user-circle-o"></i>
+            </div>
+            <h4 class="user-name ellipsis">Admin</h4>
+            <i class="fa fa-angle-down xiala"></i>
+
+            <div class="viewui-userdrop-down">
+                <ul class="user-opt">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-user"></i>
+                            <span class="opt-name">用户信息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://shop155629335.taobao.com/?spm=a230r.7195193.1997079397.2.diL9ud" target="_blank">
+                            <i class="fa fa-cart-plus"></i>
+                            <span class="opt-name">商城购买</span>
+                        </a>
+                    </li>
+                    <li class="modify-pwd">
+                        <a href="javascript:;" id="editpass">
+                            <i class="fa fa-edit"></i>
+                            <span class="opt-name">修改密码</span>
+                        </a>
+                    </li>
+                    <li class="logout">
+                        <a href="javascript:;" id="loginOut">
+                            <i class="fa fa-power-off"></i>
+                            <span class="opt-name">退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="viewui-notice">
+            <i class="fa fa-volume-up"></i>
+            <div class="notice-box ellipsis" onmouseout="marqueeInterval[0]=setInterval('startMarquee()',marqueeDelay)" onmouseover="clearInterval(marqueeInterval[0])">
+            </div>
+            <div class="notice-opt">
+                <a href="javascript:;" class="fa fa-caret-up"></a>
+                <a href="javascript:;" class="fa fa-caret-down"></a>
+            </div>
+        </div>
+    </div>
+    <!-- // 头部 -->
+    <!-- 版权 -->
+    <div data-options="region:'south',split:false,border:false" class="copyright">
+        <div class="footer">
+            <span class="pull-left"> 微信平台：SoSoIT，交流Q群：149663025，客服邮箱：<a href="mailto:djcbpl@163.com?subject=咨询：body=源地址：">djcbpl@163.com</a>  &copy; Copyright ©2016 ~ <font id="timeYear">2019</font>. View UI. All Rights Reserved.</span>
+            <span class="pull-right">
+                <a href="javascript:;"><i class="fa fa-download"></i> 下载管理</a>
+                <a href="javascript:;"><i class="fa fa-volume-up"></i> 消息</a>
+            </span>
+        </div>
+    </div>
+    <!-- // 版权 -->
+    <!-- 左侧菜单 -->
+    <div data-options="region:'west',hide:true,split:false,border:false" title="导航菜单" class="LeftMenu" id="west">
       
-    </div>
-    @*<div id="updatePwdWin" class="easyui-dialog" title="修改密码" style="width:300px;height:200px; padding:10px 10px; background-color:#fff;"
-             data-options="iconCls:'icon-save',modal:true,closed:true,buttons:[{
-                    text:'确认修改',iconCls:'icon-ok',handler: $.Index.updatePwdHandler
-                },{
-                    text:'关闭',iconCls:'icon-cancel',handler: $.Index.closeUpdatePwdWin
-                }]">
-            <form id="upPwdForm" method="post">
-                <table>
-                    <tr>
-                        <td>新密码：</td>
-                        <td><input id="pw1" type="password" name="newPwd" style="width:150px;" /></td>
-                    </tr>
-                    <tr>
-                        <td>确认新密码：</td>
-                        <td><input id="pw2" type="password" name="newPwdConfirm" style="width:150px;" /></td>
-                    </tr>
-                </table>
-            </form>
-        </div>*@
-    <div id="tabs_menu" class="easyui-menu" style="width: 150px;">
-        <div id="mm-tabclose" name="1" data-options="iconCls:'icon-cancel'">关闭</div>
-        <div id="mm-tabcloseall" name="2">全部关闭</div>
-        <div id="mm-tabcloseother" name="3">除此之外全部关闭</div>
-        <div class="menu-sep"></div>
-        <div id="mm-tabcloseright" name="4">当前页右侧全部关闭</div>
-        <div id="mm-tabcloseleft" name="5">当前页左侧全部关闭</div>
-    </div>
-    <script type="text/javascript">
-        $('#tabsDefault').tabs({
-            onContextMenu: function (e, title, index) {
-                e.preventDefault();
-                if (index > 0) {
-                    $('#tabs_menu').menu('show', {
-                        left: e.pageX,
-                        top: e.pageY
-                    }).data("tabTitle", title);
-                }
-            }
-        });
-        //右键菜单click
-        $("#tabs_menu").menu({
-            onClick: function (item) {
-                closeTab(this, item.name);
-            }
-        });
 
-
-        //删除Tabs
-        function closeTab(menu, type) {
-            var allTabs = $("#tabsDefault").tabs('tabs');
-            var allTabtitle = [];
-            $.each(allTabs, function (i, n) {
-                var opt = $(n).panel('options');
-                if (opt.closable)
-                    allTabtitle.push(opt.title);
-            });
-            var curTabTitle = $(menu).data("tabTitle");
-            var curTabIndex = $("#tabsDefault").tabs("getTabIndex", $("#tabsDefault").tabs("getTab", curTabTitle));
-            var i;
-            switch (type) {
-                case "1": //关闭当前
-                    $("#tabsDefault").tabs("close", curTabTitle);
-                    return false;
-                    break;
-                case "2": //全部关闭
-                    for (i = 0; i < allTabtitle.length; i++) {
-                        $('#tabsDefault').tabs('close', allTabtitle[i]);
-                    }
-                    break;
-                case "3": //除此之外全部关闭
-                    for (i = 0; i < allTabtitle.length; i++) {
-                        if (curTabTitle !== allTabtitle[i])
-                            $('#tabsDefault').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabsDefault').tabs('select', curTabTitle);
-                    break;
-                case "4": //当前侧面右边
-                    for (i = curTabIndex; i < allTabtitle.length; i++) {
-                        $('#tabsDefault').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabsDefault').tabs('select', curTabTitle);
-                    break;
-                case "5": //当前侧面左边
-                    for (i = 0; i < curTabIndex - 1; i++) {
-                        $('#tabsDefault').tabs('close', allTabtitle[i]);
-                    }
-                    $('#tabsDefault').tabs('select', curTabTitle);
-                    break;
-
-            }
-        }
-
-        @*$(function () {
-            @{
-                var isshow = false;
-                var str = "<div title='' data-options=\"iconCls:'icon-asterisk_yellow'\"><ul class='menulist'>";
-                foreach (MessageInfoEntity p in ViewBag.MessagList)
+            <div id="nav" class="easyui-accordion accordion accordion-noborder easyui-fluid" data-options="fit:true,border:false" style="width: 204px; height: 301px;">
+                
+                
+            @foreach (MenuDTO p in ViewBag.ModuleList)
             {
-                isshow = true;
-                str += "<li><a target='mainFrame' href='javascript:void(0)' lang='/HRManager/MessageInfo/Hd?PkId="+@p.PkId+ "&View=true&Close=true'>" + @p.MesTitle + "</a></li>";
+                <div class="panel panel-htop" style="width: 204px;">
+                    <div class="panel-header accordion-header accordion-header-border accordion-header-selected leftMenuTitle" style="width: 204px; height: 45px;">
+                        <div class="panel-title panel-with-icon">@p.Name</div>
+                        <div class="panel-icon fa fa-trophy"></div>
+                        <div class="panel-tool"><a href="javascript:;" class="panel-tool-collapse" style="display: none;"></a></div>
+                    </div>
+                    <div title="" class="panel-body accordion-body" style="display: block; width: 204px; height: 211px;">
+                        <ul>
+                        @foreach (var child in p.MenuDTOList)
+                        {
+                            <li class=""><a  href="javascript:;" lang="@child.Url"><i class="fa fa-dashboard"></i><span class="nav">@child.Name</span></a></li>
+                        }
+                        </ul>
+                    </div>
+                </div>
             }
-            str += "</ul></div>";
-        }
-            if ('@isshow' == "True") {
-                //$.cusmessager.lays(300, 200);
-                $.cusmessager.show(0, $('<div/>').html('@str').text(), 5000);
-            }
-        });*@
 
+
+                <div class="panel panel-htop panel-last" style="width: 204px;">
+                    <div class="panel-header accordion-header leftMenuTitle" style="height: 45px; width: 204px;">
+                        <div class="panel-title panel-with-icon">表单成功案例</div>
+                        <div class="panel-icon fa fa-television"></div>
+                        <div class="panel-tool">
+                            <a href="javascript:;" class="panel-tool-collapse panel-tool-expand" style="display: none;"></a>
+                            <a href="javascript:;" class="accordion-collapse accordion-expand"></a>
+                        </div>
+                    </div>
+                    <div title="" class="panel-body accordion-body" style="display: none; width: 204px; height: 211px;">
+                        <ul>
+                            <li>
+                                <a ref="010" href="javascript:;" lang="https://item.taobao.com/item.htm?id=545823027227"><i class="fa fa-tty"></i><span class="nav">代办事项</span></a>
+                            </li>
+                            <li><a ref="011" href="javascript:;" lang=""><i class="fa fa-volume-up"></i><span class="nav">公告通知</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+       
+    </div>
+    <!-- // 左侧菜单 -->
+    <!-- home -->
+    <div data-options="region:'center'" id="mainPanle" class="home-panel">
+        <div id="layout_center_plan" class="easyui-panel" data-options="fit:true,style:'{overflow:hidden}',closed:false,closable:true,
+	tools:[{
+				iconCls:'refresh-panel fa fa-refresh ',
+				handler:function(){firstrefresh()}
+			}]"
+             style="overflow:hidden">
+        </div>
+
+    </div>
+    <!-- // home -->
+    <!--修改密码窗口-->
+    <div data-options="collapsible:false,minimizable:false,maximizable:false" id="updatePwd" class="easyui-window updatePwd" title="修改密码">
+        <div class="row">
+            <label for="txtNewPass">新密码：</label>
+            <input class="easyui-validatebox txt01" id="txtNewPass" type="Password" name="name" />
+        </div>
+        <div class="row">
+            <label for="txtRePass">确认密码:</label>
+            <input class="easyui-validatebox txt01" id="txtRePass" type="Password" name="Password" />
+        </div>
+        <div data-options="region:'south',border:false" class="pwdbtn">
+            <a id="btnEp" class="easyui-linkbutton " href="javascript:;">确定</a>
+            <a id="btnCancel" class="easyui-linkbutton btnDefault" href="javascript:;">取消</a>
+        </div>
+    </div>
+
+
+    <script src="/Resources/assets/js/jquery2.1.1.js" type="text/javascript"></script>
+    <script src="/Resources/assets/js/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src='/Resources/assets/js/index2.js' type="text/javascript"></script>
+    <script src='/Resources/assets/js/system.menu2.js' type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        //绑定 div 的鼠标事件
+        $('.navmenu-item a').click(function () {
+            $('.navmenu-item a').removeClass("active");//清空已经选择的元素
+            $(this).addClass("active");
+        });
+        var marqueeContent = [];   //滚动主题
+
+        marqueeContent[0] = '<a href="javascript:;" class="notice-item ellipsis" target="_blank">新版系统界面正式上线</a>';
+        marqueeContent[1] = '<a href="javascript:;" class="notice-item ellipsis" target="_blank">欢迎访问淘宝商城酷设设计</a>';
+        marqueeContent[2] = '<a href="javascript:;" class="notice-item ellipsis" target="_blank">新版上线优惠多多</a>';
+        marqueeContent[3] = '<a href="javascript:;" class="notice-item ellipsis" target="_blank">主题定制开发咨询</a>';
+        marqueeContent[4] = '<a href="javascript:;" class="notice-item ellipsis" target="_blank">商城购买该主题呢!</a>';
+
+        var marqueeInterval = [];  //定义一些常用而且要经常用到的变量
+        var marqueeId = 0;
+        var marqueeDelay = 4000;
+        var marqueeHeight = 20;
+        function initMarquee() {
+            var str = marqueeContent[0];
+            $('.notice-box').html('<div>' + str + '</div>');
+            marqueeBox = $('.notice-box')[0];
+            marqueeId++;
+            marqueeInterval[0] = setInterval(startMarquee, marqueeDelay);
+        }
+        function startMarquee() {
+            var str = marqueeContent[marqueeId];
+            marqueeId++;
+            if (marqueeId >= marqueeContent.length) marqueeId = 0;
+            if (marqueeBox.childNodes.length == 1) {
+                var nextLine = document.createElement('DIV');
+                nextLine.innerHTML = str;
+                marqueeBox.appendChild(nextLine);
+            }
+            else {
+                marqueeBox.childNodes[0].innerHTML = str;
+                marqueeBox.appendChild(marqueeBox.childNodes[0]);
+                marqueeBox.scrollTop = 0;
+            }
+            clearInterval(marqueeInterval[1]);
+            marqueeInterval[1] = setInterval(scrollMarquee, 10);
+        }
+        function scrollMarquee() {
+            marqueeBox.scrollTop++;
+            if (marqueeBox.scrollTop % marqueeHeight == marqueeHeight) {
+                clearInterval(marqueeInterval[1]);
+            }
+        }
+        initMarquee();
 
     </script>
-
 </body>
 </html>

@@ -1,0 +1,2 @@
+2018-12-19 15:49:33,541 [6] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.DataNhibernate.SessionFactoryManager”的类型初始值设定项引发异常。
+2018-12-19 15:49:33,567 [5] ERROR ErrorLogger [(null)] - “Project.Infrastructure.FrameworkCore.DataNhibernate.SessionFactoryManager”的类型初始值设定项引发异常。

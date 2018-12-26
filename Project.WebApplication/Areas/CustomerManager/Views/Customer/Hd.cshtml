@@ -12,6 +12,8 @@
     <script src="/Areas/CustomerManager/Scripts/Customer/Hd.js?JsParamter=@SiteConfig.GetConfig().JsParamter"></script>
     <script src="/Scripts/Control/AreaSelectControl.js"></script>
 }
+    <link href="~/Resources/layui/layui.css" rel="stylesheet" />
+
 <div style="display: none">
     <input id="BindEntity" type="text" value="@ViewBag.BindEntity" />
     <input id="Command" type="hidden" />
@@ -23,6 +25,9 @@
         <table class="mtable">
             <tr>
                 <td>
+                    
+                  
+
                     注册手机号<span style="color: Red">*</span>:
                 </td>
                 <td>
@@ -49,7 +54,8 @@
                     会员卡类型<span style="color: Red">*</span>:
                 </td>
                 <td>
-                    <input id="CardTypeId" name="CardTypeId" type="text" />
+                 
+                    <select id="CardTypeId" name="CardTypeId" ></select>
                 </td>
                 <td>
                     会员卡状态：
