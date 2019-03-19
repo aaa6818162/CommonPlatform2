@@ -74,9 +74,9 @@
                         NeedTotalAmount: "所需消费金额必填",
                         NeedTotalAmountEnd: "所需消费金额必填"
                     },
-                    errorPlacement: function (error, element) {
-                        pro.commonKit.errorPlacementHd(error, element);
-                    },
+                    //errorPlacement: function (error, element) {
+                    //    pro.commonKit.errorPlacementHd(error, element);
+                    //},
                     debug: false
                 });
             },
