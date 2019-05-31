@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Project.Infrastructure.FrameworkCore.DataNhibernate.Helpers;
 using Project.Infrastructure.FrameworkCore.ToolKit.JsonHandler;
@@ -63,10 +64,10 @@ namespace Project.Infrastructure.FrameworkCore.WebMvc.Controllers.Results
 
             if (Data != null)
             {
-   
+
                 //var jsonSerializerSettings = new JsonSerializerSettings
                 //{
-                //    ContractResolver =ContractResolver?? new CamelCasePropertyNamesContractResolver()
+                //    ContractResolver = ContractResolver ?? new CamelCasePropertyNamesContractResolver()
                 //};
 
                 //response.Write(JsonConvert.SerializeObject(Data, Formatting.Indented, jsonSerializerSettings));

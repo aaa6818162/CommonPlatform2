@@ -1,154 +1,31 @@
-﻿@using Project.Service.PermissionManager.DTO
+﻿@using System.Web.UI.WebControls
+@using Project.Model.PermissionManager
+@using Project.Service.PermissionManager.DTO
+@using Project.Model.HRManager;
+@using Project.Service.HRManager;
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
-<html lang="en">
-<head id="Head1">
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>VIEW_UI_EASYUI</title>
-    <meta name="KEYWords" contect="VIEWUI,VIEW_UI_EASYUI,EasyUI,后台管理系统,酷设网">
-    <meta name="description" contect="viewUI基于EasyUI定制的主题皮肤">
-    <meta name="author" contect="djcbpl@163.com">
-    <meta property="og:title" content="EasyUI">
-    <meta property="og:description" content="HTML, CSS, JS">
-
-    <!-- Meta -->
-    @*<link rel="Bookmark" href="/Resources/assets/default/images/logoIco.ico" />
-        <link rel="Shortcut Icon" href="/Resources/assets/default/images/logoIco.ico" />
-        <link href="/Resources/assets/css/reset.css" rel="stylesheet" type="text/css" />
-        <link href="/Resources/assets/js/themes/default/easyui.css" rel="stylesheet" type="text/css" />
-        <link href="/Resources/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="/Resources/assets/css/layout.css" rel="stylesheet" type="text/css" />
-        <style type="text/css">
-            .tabs-selected {
-                border-top: 1px solid #1da02b !important;
-            }
-        </style>*@
-
-    <link href="/Resources/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="/Resources/insdep/insdep.easyui.min.css?v=1552630666" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/icon.css?v=1552630666" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/insdep.config.min.css?v=1552630666" rel="stylesheet" type="text/css">
-    <!-- 插件样式-->
-    <link href="/Resources/insdep/iconfont/iconfont.css" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/plus/timeline/style.css" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/plus/chat/style.css" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/plus/panel/user_info_standard_panel/style.css" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/plus/panel/message_standard_panel/style.css" rel="stylesheet" type="text/css">
-    <link href="/Resources/insdep/plus/panel/statistic_standard_panel/style.css" rel="stylesheet" type="text/css">
-
-
-
-    <script type="text/javascript" src="/Resources/insdep/jquery.min.js?v=1552630666"></script>
-
-    <script type="text/javascript" src="/Resources/insdep/jquery.easyui.min.js?v=1552630666"></script>
-    <script type="text/javascript" src="/Resources/insdep/insdep.config.min.js?v=1552630666"></script>
-    <script type="text/javascript" src="/Resources/insdep/insdep.easyui.min.js?v=1552630666"></script>
-    <style type="text/css">
-        .menulist {
-            display: block;
-            margin: 0;
-            padding: 0;
-            border: none;
-            overflow: hidden;
-        }
-
-        .menulist li {
-            display: block;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            line-height: 18px;
-            padding: 4px 0;
-            background-color: #fff;
-            border-bottom: 1px dotted #CCCCCC;
-            padding:10px 0px 0px 30px;
-             
-        }
-
-        .menulist li:hover{
-            background-color: #4aa2fc;
-                 
-            cursor: pointer;
-        }
-
-        .menulist li:hover a{
-          
-            color: white;
-        
-        }
-
-
-
-
-
-    </style>
-    
-    <style type="text/css">
-    /*.tabOverflow {
-        overflow: hidden;
-    }
-
-
-
-    .accordion .accordion-header-selected {
-        background-color: #214e75;
-    }
-
-        .accordion .accordion-header-selected .panel-title {
-            color: white;
-            font-size: 14px;
-        }
-
-        .accordion .accordion-header-selected .panel-icon {
-            color: white;
-            font-size: 14px;
-        }
-
-    .datagrid-row-selected {
-        background-color: #cdd6dd;
-    }*/
-
-
-        .tabs li.tabs-selected a.tabs-inner{
-            background: #0c80d7;
-            border-color: #0c80d7;
-
-            /*background: #4aa2fc;
-        border-color: #4aa2fc;*/
-
-            color: white;
-            border-top: none !important;
-        }
-
-        .tabs li.tabs-selected a.tabs-close {
-            background: url(/Resources/insdep/images/tabs_icons_white.png) no-repeat -34px;
-            /*background: #4aa2fc;
-        border-color: #4aa2fc;*/
-            /*border-top: none !important;*/
-        }
-
-        /*防止出现双滚动条*/
-        .tabOverflow {
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
-
-    </style>
-    
-
+<html>
+<head>
+    @Html.Partial("_Head")
     <script src="~/Scripts/Account/Index.js"></script>
+    <script src="~/Scripts/jqueryPlugins/jquery-easyui/jquery-browser.js"></script>
+    <script src="~/Scripts/jqueryPlugins/jquery-easyui/jquery.messager.js"></script>
+    <style type="text/css">
+    </style>
 </head>
-<body class="easyui-layout">
-    <div data-options="region:'north',split:true" style="overflow: hidden; height: 70px; background-color: #0c80d7">
+<body class="easyui-layout vui-easyui">
+    <div data-options="region:'north',split:true" style="overflow: hidden; height: 70px; background-color: #214e75">
 
 
 
         @*<div style="width: 300px;float: left">
-            <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
-        </div>*@
+                <img src="/Resources/pages/images/main/main_logo.png" alt="logo">
+            </div>*@
         <table style="float:left;border-spacing:0px;">
             <tbody>
                 <tr>
@@ -216,16 +93,15 @@
             </tbody>
         </table>
 
-
-            <span style="float: right; padding-right: 10px; height: 50px; line-height: 50px;">
-                <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-user',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">lww</span><span class="l-btn-icon fa fa-user">&nbsp;</span></span></a>
-
-
-                <a id="btnChangePassword" href="javascript:void(0)" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa fa-cog',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">修改密码</span><span class="l-btn-icon fa  fa-cog">&nbsp;</span></span></a>
+        <span style="float: right; padding-right: 10px; height: 50px; line-height: 50px;">
+            <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-user',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">lww</span><span class="l-btn-icon fa fa-user">&nbsp;</span></span></a>
 
 
-                <a id="btnLogoff" href="javascript:void(0)" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-sign-out',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">注销</span><span class="l-btn-icon fa fa-sign-out">&nbsp;</span></span></a>
-            </span>
+            <a id="btnChangePassword" href="javascript:void(0)" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa fa-cog',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">修改密码</span><span class="l-btn-icon fa  fa-cog">&nbsp;</span></span></a>
+
+
+            <a id="btnLogoff" href="javascript:void(0)" data-toggle="topjui-menubutton" data-options="iconCls:'fa fa-sign-out',hasDownArrow:false" style="color: rgb(255, 255, 255); height: 28px;" class="l-btn l-btn-small l-btn-plain" group=""><span class="l-btn-left l-btn-icon-left" style="margin-top: 2px;"><span class="l-btn-text">注销</span><span class="l-btn-icon fa fa-sign-out">&nbsp;</span></span></a>
+        </span>
 
 
 
